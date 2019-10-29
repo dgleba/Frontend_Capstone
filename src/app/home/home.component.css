@@ -1,0 +1,14 @@
+.maindiv{
+    margin: 20px;
+    padding-right: 40px;
+}
+
+.btn_div{
+    height: 50px;
+    background-color:blue;
+    text-align: center;
+    margin : 30px;
+    color:white;
+    vertical-align: middle;
+    line-height: 50px;
+}

@@ -1,0 +1,163 @@
+<div class="container">
+  <div class="card card_css">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-sm-3 left_pannel">
+          <h4>Internal</h4>
+          <hr>
+          <p>Part Number</p>
+          <div class="dropdown">
+            <button class="btn btn-outline-primary dropdown-toggle" type="button" id="dropdownMenuButton"
+              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Part Number
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="#">Part Number 1</a>
+              <a class="dropdown-item" href="#">Part Number 2</a>
+              <a class="dropdown-item" href="#">Part Number 3</a>
+            </div>
+          </div>
+          <hr>
+          <p>Reason</p>
+          <div class="dropdown">
+            <button class="btn btn-outline-primary dropdown-toggle" type="button" id="dropdownMenuButton"
+              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Reason
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="#">Reason 1</a>
+              <a class="dropdown-item" href="#">Reason 2</a>
+              <a class="dropdown-item" href="#">Reason 3</a>
+            </div>
+          </div>
+          <hr>
+          <input type="text" class="form-control" placeholder="Issued By" aria-label="Issued By"
+            aria-describedby="basic-addon2">
+          <hr>
+          <p>Tag Summary</p>
+         
+              <div class="checkbox" *ngFor ="let tag_summary of tag_summary_option">
+                  <label><input type="checkbox" value=""> {{tag_summary}} </label>
+                </div>
+              
+        </div>
+        <div class="col-sm-9">
+            <nav class="navbar navbar-light bg-light">
+                <form class="form-inline ">
+                  <button class="btn btn-outline-info header_css " type="button"> Quality Alert - In </button>
+                  <button class="btn btn-outline-info header_css" type="button"> Hold Tag </button>
+                  <button class="btn btn-outline-info header_css" type="button"> TPC Tag </button>
+                  <button class="btn btn-outline-info header_css" type="button"> Special Instruction </button>
+                  <button class="btn btn-outline-info header_css" type="button"> Picture </button>
+                </form>
+             </nav>
+             <hr>
+            <div class="row">
+             <div class="col checkbox">
+                <label><input type="checkbox" value=""> Quality Alert - In </label>
+              </div>
+              <div class="col checkbox">
+                  <label><input type="checkbox" value=""> Supplier Issue </label>
+                </div>
+            </div>
+<br>
+            <div class="row">
+              <div class="col">
+                <p>Process Step</p>
+                <div class="dropdown">
+                  <button class="btn btn-outline-primary dropdown-toggle" type="button" id="dropdownMenuButton"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Process Step
+                  </button>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="#">Process Step 1</a>
+                    <a class="dropdown-item" href="#">Process Step 2</a>
+                    <a class="dropdown-item" href="#">Process Step 3</a>
+                  </div>
+                </div>
+              </div>
+               
+              <div class="col">
+                    <p>Machine Number</p>
+                    <div class="dropdown">
+                      <button class="btn btn-outline-primary dropdown-toggle" type="button" id="dropdownMenuButton"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Machine Number
+                      </button>
+                      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="#"> Machine Number 1</a>
+                        <a class="dropdown-item" href="#"> Machine Number 2</a>
+                        <a class="dropdown-item" href="#"> Machine Number 3</a>
+                      </div>
+                    </div>
+                
+
+            </div>
+
+            <div class="col">
+              <label>OK'd by :</label>
+                <input type="text" class="form-control" aria-label="OK'd By"
+                aria-describedby="basic-addon2">
+            </div>
+            </div>
+<br>
+<br>
+            <div class="row">
+                <div class="col">
+                    <p>Additional Information</p>
+                    <textarea id="story" name="story"rows="4" cols="33">
+                    Enter...
+                    </textarea>
+                </div>
+                <div class="col">
+                    <p>Length of Change</p>
+                    <input type="text" class="form-control"  aria-label="Length of change" aria-describedby="basic-addon2">
+                <div class="input-group-append">
+                <span class="input-group-text" id="basic-addon2">Days</span>
+                </div>
+                </div>
+
+              </div>
+<hr>
+<div class="row">
+    <div class="col">
+        <p>Quality Alert Internal</p>
+        <textarea id="story" name="story"rows="4" cols="100">Enter Quality Alert Internal Details...
+        </textarea>
+    </div>
+        </div>
+    <br>
+
+<div class="row">
+  <div class="col">
+        <p>Comment</p>
+        <textarea id="story" name="story"rows="4" cols="100"> Enter Comment ...
+        </textarea>
+    </div>
+  </div>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--
+</div>
+
+      <form>
+         <div>
+          <input type="checkbox" [(ngModel)]="vcheckQualityAlertIn" [ngModelOptions]="{standalone: true}" /> Quality Alert Internal
+        </div>
+        <div>
+          {{ vcheckQualityAlertIn }}
+        </div>
+
+        <div>
+            <input type="checkbox" [(ngModel)]="vcheckSupplierIssue" [ngModelOptions]="{standalone: true}" /> Supplier Issue
+          </div>
+          <div>
+            {{ vcheckSupplierIssue }}
+          </div>
+
+      </form>
+-->

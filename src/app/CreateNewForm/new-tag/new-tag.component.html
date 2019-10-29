@@ -45,9 +45,9 @@
             <nav class="navbar navbar-light bg-light">
                 <form class="form-inline ">
                   <button class="btn btn-outline-info header_css " type="button"> Quality Alert - In </button>
-                  <button class="btn btn-outline-info header_css" type="button"> Hold Tag </button>
-                  <button class="btn btn-outline-info header_css" type="button"> TPC Tag </button>
-                  <button class="btn btn-outline-info header_css" type="button"> Special Instruction </button>
+                  <button class="btn btn-outline-info header_css" type="button" [routerLink]="'/newForm/holdTag'"> Hold Tag </button>
+                  <button class="btn btn-outline-info header_css" type="button" [routerLink]="'/newForm/tpcTag'"> TPC Tag </button>
+                  <button class="btn btn-outline-info header_css" type="button" [routerLink]="'/newForm/specialInstruction'"> Special Instruction </button>
                   <button class="btn btn-outline-info header_css" type="button"> Picture </button>
                 </form>
              </nav>
@@ -140,24 +140,3 @@
     </div>
   </div>
 </div>
-
-<!--
-</div>
-
-      <form>
-         <div>
-          <input type="checkbox" [(ngModel)]="vcheckQualityAlertIn" [ngModelOptions]="{standalone: true}" /> Quality Alert Internal
-        </div>
-        <div>
-          {{ vcheckQualityAlertIn }}
-        </div>
-
-        <div>
-            <input type="checkbox" [(ngModel)]="vcheckSupplierIssue" [ngModelOptions]="{standalone: true}" /> Supplier Issue
-          </div>
-          <div>
-            {{ vcheckSupplierIssue }}
-          </div>
-
-      </form>
--->

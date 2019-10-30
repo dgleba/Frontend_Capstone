@@ -1,0 +1,35 @@
+<h4>Internal</h4>
+<hr>
+<p>Part Number</p>
+<div class="dropdown">
+    <button class="btn btn-outline-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+        aria-haspopup="true" aria-expanded="false">
+        Part Number
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item" href="#">Part Number 1</a>
+        <a class="dropdown-item" href="#">Part Number 2</a>
+        <a class="dropdown-item" href="#">Part Number 3</a>
+    </div>
+</div>
+<hr>
+<p>Reason</p>
+<div class="dropdown">
+    <button class="btn btn-outline-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+        aria-haspopup="true" aria-expanded="false">
+        Reason
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item" href="#">Reason 1</a>
+        <a class="dropdown-item" href="#">Reason 2</a>
+        <a class="dropdown-item" href="#">Reason 3</a>
+    </div>
+</div>
+<hr>
+<input type="text" class="form-control" placeholder="Issued By" aria-label="Issued By" aria-describedby="basic-addon2">
+<hr>
+<p>Tag Summary</p>
+
+<div class="checkbox" *ngFor="let tag_summary of tag_summary_option">
+    <label><input type="checkbox" value=""> {{tag_summary}} </label>
+</div>

@@ -3,18 +3,22 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import {Routes, RouterModule} from '@angular/router';
-import { NewTagComponent } from './CreateNewForm/new-tag/new-tag.component'
+import { CommonTagView } from './CreateNewForm/commonTagView/commonTagView.component'
 import { HomeComponent } from './home/home.component';
 import { HoldtagComponent } from './CreateNewForm/holdtag/holdtag.component';
 import { TpctagComponent } from './CreateNewForm/tpctag/tpctag.component';
 import { SpecialInstructionComponent } from './CreateNewForm/special-instruction/special-instruction.component';
+import { SidemenuComponent } from './CreateNewForm/sidemenu/sidemenu.component';
+import { QualityalertinComponent } from './CreateNewForm/qualityalertin/qualityalertin.component';
 
 const appRoutes : Routes = [
  {path: '', component:HomeComponent},
- {path: 'newForm',component : NewTagComponent},
- {path: 'newForm/holdTag',component : HoldtagComponent},
- {path: 'newForm/tpcTag',component : TpctagComponent},
- {path: 'newForm/specialInstruction',component : SpecialInstructionComponent}
+ {path: 'newForm',component : CommonTagView , 
+  children:[{path:'',outlet:'sidemenu',component:SidemenuComponent},
+  {path:'', component : QualityalertinComponent},
+  {path: 'holdTag',component : HoldtagComponent},
+  {path: 'tpcTag',component : TpctagComponent},
+  {path: 'specialInstruction',component : SpecialInstructionComponent}]}
 ];
 
 
@@ -22,10 +26,12 @@ const appRoutes : Routes = [
   declarations: [
     AppComponent,
     HomeComponent,
-    NewTagComponent,
+    CommonTagView,
     HoldtagComponent,
     TpctagComponent,
-    SpecialInstructionComponent
+    SpecialInstructionComponent,
+    SidemenuComponent,
+    QualityalertinComponent
   ],
   imports: [
     BrowserModule,

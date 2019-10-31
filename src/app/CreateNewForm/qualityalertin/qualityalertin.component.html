@@ -54,9 +54,10 @@
     </div>
     <div class="col">
         <p>Length of Change</p>
-        <input type="text" class="form-control" aria-label="Length of change" aria-describedby="basic-addon2">
+        <input type="text" [(ngModel)] ="qualityAlertInDays" (change)="addDays(qualityAlertInDays)" class="form-control" aria-label="Length of change" aria-describedby="basic-addon2">
         <div class="input-group-append">
             <span class="input-group-text" id="basic-addon2">Days</span>
+            <p>{{expiredOn}}</p>
         </div>
     </div>
 </div>

@@ -31,6 +31,5 @@
 <p>Tag Summary</p>
 
 <div class="checkbox" *ngFor="let tagSummary of tagSummaryList ; let i = index">
-    <label><input type="checkbox" [(ngModel)]="tagSummary.isChecked"> {{tagSummary.tagName}} </label>
-    <p>{{tagSummary.isChecked}}</p>
+    <label><input type="checkbox"> {{tagSummary.tagName}} </label>
 </div>

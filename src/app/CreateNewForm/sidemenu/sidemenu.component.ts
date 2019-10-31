@@ -11,9 +11,7 @@ export class SidemenuComponent implements OnInit {
   
 constructor(private utilityService : UtilityServiceService ) {
  }
-
-
- tagSummaryList = this.utilityService.getTagsummaryList();
+tagSummaryList = this.utilityService.getTagsummaryList();
 
 ngOnInit() {
 

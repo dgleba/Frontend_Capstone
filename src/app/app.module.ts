@@ -10,9 +10,11 @@ import { TpctagComponent } from './CreateNewForm/tpctag/tpctag.component';
 import { SpecialInstructionComponent } from './CreateNewForm/special-instruction/special-instruction.component';
 import { SidemenuComponent } from './CreateNewForm/sidemenu/sidemenu.component';
 import { QualityalertinComponent } from './CreateNewForm/qualityalertin/qualityalertin.component';
+import {LoginComponent} from './login/login.component';
 
 const appRoutes : Routes = [
- {path: '', component:HomeComponent},
+  {path:'', component:LoginComponent},
+ {path: 'home', component:HomeComponent},
  {path: 'newForm',component : CommonTagView , 
   children:[
   {path:'',outlet:'sidemenu',component:SidemenuComponent},
@@ -33,7 +35,8 @@ const appRoutes : Routes = [
     TpctagComponent,
     SpecialInstructionComponent,
     SidemenuComponent,
-    QualityalertinComponent
+    QualityalertinComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UtilityServiceService } from 'src/app/Service/utility-service.service';
 
 @Component({
   selector: 'app-sidemenu',
@@ -7,10 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidemenuComponent implements OnInit {
 
-  tag_summary_option : string[] = ["Quality Alert","Hold Tag","TPC Tag","Special Instruction","Mod Written","Quality Alert - IN"];
-  constructor() { }
+  
+constructor(private utilityService : UtilityServiceService ) {
+ }
 
-  ngOnInit() {
+
+ tagSummaryList = this.utilityService.getTagsummaryList();
+
+ngOnInit() {
+
+  console.log(this.tagSummaryList)
+
   }
+
 
 }

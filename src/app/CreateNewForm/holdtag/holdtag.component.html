@@ -1,16 +1,10 @@
-<div class="container">
-        <div class="card card_css">
-          <div class="card-body">
-            <div class="row">
-              <div class="col-sm-3 left_pannel"> 
-                 
-              </div>
-              <div class="col-sm-9">
-                 
-                   <hr>
+
                   <div class="row">
                    <div class="col checkbox">
-                      <label><input type="checkbox" value=""> Hold Tag </label>
+                      <label>
+                        <input type="checkbox" 
+                        value="" (change)="checkValue(isChecked?'true':'false')" 
+                        [(ngModel)]="isChecked"> Hold Tag </label>
                     </div>
                     <div class="col checkbox">
                         <label><input type="checkbox" value=""> Supplier Issue </label>
@@ -75,8 +69,4 @@
               </textarea>
           </div>
         </div>
-            </div>
-            </div>
-          </div>
-        </div>
-      </div>
+           

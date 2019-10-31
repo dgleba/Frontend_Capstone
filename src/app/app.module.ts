@@ -14,8 +14,10 @@ import { QualityalertinComponent } from './CreateNewForm/qualityalertin/qualitya
 const appRoutes : Routes = [
  {path: '', component:HomeComponent},
  {path: 'newForm',component : CommonTagView , 
-  children:[{path:'',outlet:'sidemenu',component:SidemenuComponent},
+  children:[
+  {path:'',outlet:'sidemenu',component:SidemenuComponent},
   {path:'', component : QualityalertinComponent},
+  {path:'qualityTag', component : QualityalertinComponent},
   {path: 'holdTag',component : HoldtagComponent},
   {path: 'tpcTag',component : TpctagComponent},
   {path: 'specialInstruction',component : SpecialInstructionComponent}]}

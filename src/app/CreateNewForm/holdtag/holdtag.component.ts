@@ -11,5 +11,8 @@ export class HoldtagComponent implements OnInit {
 
   ngOnInit() {
   }
+  checkValue(event: any){
+    console.log(event);
+ }
 
 }

@@ -11,6 +11,7 @@ import { SpecialInstructionComponent } from './CreateNewForm/special-instruction
 import { SidemenuComponent } from './CreateNewForm/sidemenu/sidemenu.component';
 import { QualityalertinComponent } from './CreateNewForm/qualityalertin/qualityalertin.component';
 import {LoginComponent} from './login/login.component';
+import { HttpClientModule } from '@angular/common/http';
 
 const appRoutes : Routes = [
   {path:'', component:LoginComponent},
@@ -41,7 +42,8 @@ const appRoutes : Routes = [
   imports: [
     BrowserModule,
     FormsModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,7 +1,6 @@
-﻿import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { first } from 'rxjs/operators';
+﻿import { Component, OnInit,Input } from '@angular/core';
+import { Router} from '@angular/router';
+import { RestAPIService } from "../Service/restAPIService/rest-apiservice.service";
 
 @Component({
     templateUrl: 'login.component.html',
@@ -9,26 +8,25 @@ import { first } from 'rxjs/operators';
 })
 
 export class LoginComponent implements OnInit {
-   
+    @Input() userDetails = {email: '', password:''}
     constructor(
-       
-        private route: ActivatedRoute,
-        private router: Router
+        public restApi: RestAPIService, 
+       private router: Router
     ) {
         // redirect to home if already logged in
-       
     }
 
     ngOnInit() {
-        
-
-        
-       
     }
 
+    loginUser() {
+        this.restApi.doLogin(this.userDetails).subscribe((data: {
+        }) => {
+            console.log(data);
+            this.router.navigate(['/home'])
+        })
+      }
 
 
-    onSubmit() {  
-        this.router.navigate(['/home']  ,{ relativeTo: this.route });
-    }
+   
 }

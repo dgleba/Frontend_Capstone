@@ -1,10 +1,13 @@
 <hr>
 <div class="row">
     <div class="col checkbox">
-        <label><input type="checkbox" value=""> Quality Alert - In </label>
-    </div>
-    <div class="col checkbox">
-        <label><input type="checkbox" value=""> Supplier Issue </label>
+        <label>
+            <input
+                type="checkbox"
+                value
+            >
+            Supplier Issue
+        </label>
     </div>
 </div>
 <br>
@@ -12,14 +15,38 @@
     <div class="col">
         <p>Process Step</p>
         <div class="dropdown">
-            <button class="btn btn-outline-primary dropdown-toggle" type="button" id="dropdownMenuButton"
-                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <button
+                class="btn btn-outline-primary dropdown-toggle"
+                type="button"
+                id="dropdownMenuButton"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+            >
                 Process Step
             </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="#">Process Step 1</a>
-                <a class="dropdown-item" href="#">Process Step 2</a>
-                <a class="dropdown-item" href="#">Process Step 3</a>
+            <div
+                class="dropdown-menu"
+                aria-labelledby="dropdownMenuButton"
+            >
+                <a
+                    class="dropdown-item"
+                    href="#"
+                >
+                    Process Step 1
+                </a>
+                <a
+                    class="dropdown-item"
+                    href="#"
+                >
+                    Process Step 2
+                </a>
+                <a
+                    class="dropdown-item"
+                    href="#"
+                >
+                    Process Step 3
+                </a>
             </div>
         </div>
     </div>
@@ -27,53 +54,83 @@
     <div class="col">
         <p>Machine Number</p>
         <div class="dropdown">
-            <button class="btn btn-outline-primary dropdown-toggle" type="button" id="dropdownMenuButton"
-                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <button
+                class="btn btn-outline-primary dropdown-toggle"
+                type="button"
+                id="dropdownMenuButton"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+            >
                 Machine Number
             </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="#"> Machine Number 1</a>
-                <a class="dropdown-item" href="#"> Machine Number 2</a>
-                <a class="dropdown-item" href="#"> Machine Number 3</a>
+            <div
+                class="dropdown-menu"
+                aria-labelledby="dropdownMenuButton"
+            >
+                <a
+                    class="dropdown-item"
+                    href="#"
+                >
+                    Machine Number 1
+                </a>
+                <a
+                    class="dropdown-item"
+                    href="#"
+                >
+                    Machine Number 2
+                </a>
+                <a
+                    class="dropdown-item"
+                    href="#"
+                >
+                    Machine Number 3
+                </a>
             </div>
         </div>
     </div>
     <div class="col">
         <label>OK'd by :</label>
-        <input type="text" class="form-control" aria-label="OK'd By" aria-describedby="basic-addon2">
+        <input
+            type="text"
+            class="form-control"
+            aria-label="OK'd By"
+            aria-describedby="basic-addon2"
+        >
     </div>
 </div>
 <br>
 <br>
 <div class="row">
-    <div class="col">
-        <p>Additional Information</p>
-        <textarea id="story" name="story" rows="4" cols="33">
-        Enter...
-        </textarea>
+    <div class="col-6">
+        <p>Body</p>
+        <textarea
+            id="story"
+            placeholder="Enter..."
+            name="story"
+            rows="4"
+            cols="50"
+        ></textarea>
     </div>
-    <div class="col">
+    <div class="col-6">
         <p>Length of Change</p>
-        <input type="text" [(ngModel)] ="qualityAlertInDays" (change)="addDays(qualityAlertInDays)" class="form-control" aria-label="Length of change" aria-describedby="basic-addon2">
+        <input
+            type="text"
+            [(ngModel)]="qualityAlertInDays"
+            (change)="addDays(qualityAlertInDays)"
+            class="form-control"
+            aria-label="Length of change"
+            aria-describedby="basic-addon2"
+        >
         <div class="input-group-append">
-            <span class="input-group-text" id="basic-addon2">Days</span>
-            <p>{{expiredOn}}</p>
+            <span
+                class="input-group-text"
+                id="basic-addon2"
+            >
+                Days
+            </span>
+            <p>{{ expiredOn }}</p>
         </div>
     </div>
 </div>
-<hr>
-<div class="row">
-    <div class="col">
-        <p>Quality Alert Internal</p>
-        <textarea id="story" name="story" rows="4" cols="100">Enter Quality Alert Internal Details...
-</textarea>
-    </div>
-</div>
-<br>
-<div class="row">
-    <div class="col">
-        <p>Comment</p>
-        <textarea id="story" name="story" rows="4" cols="100"> Enter Comment ...
-</textarea>
-    </div>
-</div>
+

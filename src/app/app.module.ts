@@ -12,6 +12,7 @@ import { SidemenuComponent } from './CreateNewForm/sidemenu/sidemenu.component';
 import { QualityalertinComponent } from './CreateNewForm/qualityalertin/qualityalertin.component';
 import {LoginComponent} from './login/login.component';
 import { HttpClientModule } from '@angular/common/http';
+import { AddPictureComponent } from './CreateNewForm/add-picture/add-picture.component';
 
 const appRoutes : Routes = [
   {path:'', component:LoginComponent},
@@ -23,7 +24,8 @@ const appRoutes : Routes = [
   {path:'qualityTag', component : QualityalertinComponent},
   {path: 'holdTag',component : HoldtagComponent},
   {path: 'tpcTag',component : TpctagComponent},
-  {path: 'specialInstruction',component : SpecialInstructionComponent}]}
+  {path: 'specialInstruction',component : SpecialInstructionComponent},
+  {path: 'picture',component : AddPictureComponent}]}
 ];
 
 
@@ -37,7 +39,8 @@ const appRoutes : Routes = [
     SpecialInstructionComponent,
     SidemenuComponent,
     QualityalertinComponent,
-    LoginComponent
+    LoginComponent,
+    AddPictureComponent
   ],
   imports: [
     BrowserModule,

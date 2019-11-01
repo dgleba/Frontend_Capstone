@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { UtilityServiceService } from 'src/app/Service/utility-service.service';
+
 
 @Component({
   selector: 'app-holdtag',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HoldtagComponent implements OnInit {
 
-  constructor() { }
+  constructor(private utilityService : UtilityServiceService) { }
 
   ngOnInit() {
   }
-
+  checkValue(event: any){
+    console.log(event);  
+      this.utilityService.tagSummaryOption[1].isChecked = event;
+    }
+ 
 }

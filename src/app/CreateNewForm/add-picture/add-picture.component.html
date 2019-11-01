@@ -10,7 +10,7 @@
     <div class="col">
 
         <span style="color:red;" *ngIf="message">{{message}}</span>
-        <input #file type="file" accept='image/*' (change)="preview(file.files)" />
+        <input #file type="file" accept='image/*' (change)="preview(file.files,1)" />
         <img [src]="imgURL" height="200" *ngIf="imgURL">
     </div>
 </div>
@@ -18,8 +18,8 @@
     <div class="col">
 
         <span style="color:red;" *ngIf="message">{{message}}</span>
-        <input #file1 type="file" accept='image/*' (change)="preview(file.files)" />
-        <img [src]="imgURL" height="200" *ngIf="imgURL">
+        <input #file1 type="file" accept='image/*' (change)="preview(file1.files,2)" />
+        <img [src]="imgURL1" height="200" *ngIf="imgURL1">
     </div>
 </div>
 <br>

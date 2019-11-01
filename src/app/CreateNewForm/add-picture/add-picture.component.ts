@@ -8,13 +8,14 @@ import { Component, OnInit } from '@angular/core';
 export class AddPictureComponent implements OnInit {
   public imagePath;
   imgURL: any;
+  imgURL1: any;
   public message: string;
  
   constructor() { }
   ngOnInit() {
   }
   
-  preview(files) {
+  preview(files,imageNo:number) {
     if (files.length === 0)
       return;
  
@@ -28,7 +29,13 @@ export class AddPictureComponent implements OnInit {
     this.imagePath = files;
     reader.readAsDataURL(files[0]); 
     reader.onload = (_event) => { 
-      this.imgURL = reader.result; 
+      if(imageNo==1){       
+        this.imgURL = reader.result;
+      }else{       
+        this.imgURL1 = reader.result;
+      }
+     
     }
   }
+
 }

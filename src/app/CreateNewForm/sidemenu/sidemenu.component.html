@@ -1,12 +1,10 @@
 <h4>Internal</h4>
 <hr>
 <p>Part Number</p>
-<div class="dropdown">
-    <button class="btn btn-outline-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-        aria-haspopup="true" aria-expanded="false">
-        Part Number
-    </button>
+<div >
+    
     <select aria-labelledby="dropdownMenuButton">
+            <option [ngValue]="null" disabled>Part Number</option>
         <option *ngFor="let partNum of partNumberList; let i = index" [ngValue]="partNum">
             {{partNum.id}}
         </option>

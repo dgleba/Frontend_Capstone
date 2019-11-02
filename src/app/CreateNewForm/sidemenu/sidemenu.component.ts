@@ -21,6 +21,7 @@ export class SidemenuComponent implements OnInit {
     this.restAPIService.getPartList().subscribe(
       (data: any) => {
         this.partNumberList = data;
+      
         console.log("in side menu",this.partNumberList);
         console.log("for 1",this.partNumberList[0]);
        }

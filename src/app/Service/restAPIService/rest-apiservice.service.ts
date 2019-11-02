@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { User } from '../../Model/user'
 import { Observable, throwError } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
 
@@ -23,12 +22,10 @@ export class RestAPIService {
   }  
 
   // HttpClient API Post() method => Fetch User list
-  doLogin(user): Observable<User> {
-    console.log("in service",user);
-   
-    return this.http.post<User>(this.apiURL + '/users/sign_in.json', JSON.stringify(user), this.httpOptions)
+  doLogin(user){
+    console.log("in service",user);   
+    return this.http.post(this.apiURL + '/users/sign_in.json',user)
     .pipe(
-      retry(1),
       catchError(this.handleError)
     )
   }  

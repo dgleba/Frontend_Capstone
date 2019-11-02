@@ -15,5 +15,6 @@ tagSummaryOption : any = [
   getTagsummaryList() {
     return this.tagSummaryOption;
   }
+
   
 }

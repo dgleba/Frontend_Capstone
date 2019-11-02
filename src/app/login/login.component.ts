@@ -8,25 +8,18 @@ import { RestAPIService } from "../Service/restAPIService/rest-apiservice.servic
 })
 
 export class LoginComponent implements OnInit {
-    @Input() userDetails = {email: '', password:''}
-    constructor(
-        public restApi: RestAPIService, 
-       private router: Router
-    ) {
-        // redirect to home if already logged in
-    }
-
+    @Input() userDetails = {user:{email: '', password:''}}
+    constructor(public restApi: RestAPIService, private router: Router) {}
     ngOnInit() {
     }
-
     loginUser() {
-        this.restApi.doLogin(this.userDetails).subscribe((data: {
-        }) => {
+        console.log(this.userDetails);
+        this.restApi.doLogin(this.userDetails).subscribe((data:any 
+        ) => {
             console.log(data);
+            localStorage.setItem('token',data.token)
             this.router.navigate(['/home'])
         })
       }
-
-
    
 }

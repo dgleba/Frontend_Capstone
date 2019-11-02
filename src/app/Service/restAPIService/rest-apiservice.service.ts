@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
+import { UtilityServiceService } from '../utility-service.service';
 
 
 @Injectable({
@@ -13,12 +14,13 @@ export class RestAPIService {
   apiURL = 'http://192.168.0.32:6036';
 
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,private utilityService: UtilityServiceService) { }
 
   // Http Options
   httpOptions = {
     headers: new HttpHeaders({
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer' +" "+  this.utilityService.getToken()
     })
   }  
 
@@ -33,8 +35,7 @@ export class RestAPIService {
 
   // API to fetch Part Numer
   getPartList(){
-    console.log("in service");   
-    return this.http.get(this.apiURL + '/parts.json')
+    return this.http.get(this.apiURL + '/parts.json',this.httpOptions)
     .pipe(
       catchError(this.handleError)
     )

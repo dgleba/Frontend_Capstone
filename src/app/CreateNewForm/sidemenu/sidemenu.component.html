@@ -6,12 +6,15 @@
         aria-haspopup="true" aria-expanded="false">
         Part Number
     </button>
-    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <a class="dropdown-item" href="#">Part Number 1</a>
-        <a class="dropdown-item" href="#">Part Number 2</a>
-        <a class="dropdown-item" href="#">Part Number 3</a>
-    </div>
+    <select aria-labelledby="dropdownMenuButton">
+        <option *ngFor="let partNum of partNumberList; let i = index" [ngValue]="partNum">
+            {{partNum.id}}
+        </option>
+    </select>
+
 </div>
+
+
 <hr>
 <p>Reason</p>
 <div class="dropdown">

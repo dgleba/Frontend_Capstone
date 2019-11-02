@@ -10,11 +10,23 @@ tagSummaryOption : any = [
   {id: '3', tagName: 'TPC Tag', isChecked: false},
   {id: '4', tagName: 'Special Instruction', isChecked: false},
   {id: '5', tagName: 'Quality Alert - IN', isChecked: false}];
+  token : string;
+
   constructor() { }
  
-  getTagsummaryList() {
+  getTagsummaryList()
+  {
     return this.tagSummaryOption;
   }
 
+  setToken(token:string)
+  {
+    localStorage.setItem('token',token);
+  }
+
+  getToken()
+  {
+    return this.token = localStorage.getItem('token');
+  }
   
 }

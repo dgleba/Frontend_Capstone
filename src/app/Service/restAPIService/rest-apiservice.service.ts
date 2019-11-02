@@ -12,6 +12,7 @@ export class RestAPIService {
   // Define API
   apiURL = 'http://192.168.0.32:6036';
 
+
   constructor(private http: HttpClient) { }
 
   // Http Options
@@ -30,6 +31,15 @@ export class RestAPIService {
     )
   }  
 
+  // API to fetch Part Numer
+  getPartList(){
+    console.log("in service");   
+    return this.http.get(this.apiURL + '/parts.json')
+    .pipe(
+      catchError(this.handleError)
+    )
+  }  
+
   handleError(error) {
     let errorMessage = '';
     if(error.error instanceof ErrorEvent) {
@@ -42,5 +52,10 @@ export class RestAPIService {
     window.alert(errorMessage);
     return throwError(errorMessage);
  }
+
+
+
+
+
 
 }

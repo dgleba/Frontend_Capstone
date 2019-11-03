@@ -22,11 +22,18 @@ export class SidemenuComponent implements OnInit {
   }  
 
   //event handler to get the selected value of part num
-  selectChangeHandler (event: any) {
+  getSelectedPartNumber (event: any) {
     
     this.selectedPartNum = event.target.value;
     this.utilityService.setSelectedPartNum(this.selectedPartNum);
-    console.log("changed value",this.selectedPartNum);
+    
+  }
+  getSelectedTag (id:number) {
+    var updatedObjectArray=this.utilityService.getTagsummaryList();
+    var updatedObj=updatedObjectArray[id];
+    updatedObj.isChecked=!updatedObj.isChecked;
+   this.utilityService.setUpdatedTagSummaryObject(updatedObj,id);
+  
   }
   getPartList() {    
     this.restAPIService.getPartList().subscribe(

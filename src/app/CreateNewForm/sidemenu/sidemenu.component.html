@@ -29,5 +29,5 @@
 <p>Tag Summary</p>
 
 <div class="checkbox" *ngFor="let tagSummary of tagSummaryList ; let i = index">
-    <label><input type="checkbox"> {{tagSummary.tagName}} </label>
+    <label><input type="checkbox"  (change)="getSelectedTag(i)"> {{tagSummary.tagName}} </label>
 </div>

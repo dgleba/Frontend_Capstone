@@ -21,6 +21,9 @@ tagSummaryOption : any = [
   {
     return this.tagSummaryOption;
   }
+  setUpdatedTagSummaryObject(tagSummaryObj:any,id:number){
+    this.tagSummaryOption[id]=tagSummaryObj;
+   }
 
   setToken(token:string)
   {
@@ -33,14 +36,10 @@ tagSummaryOption : any = [
   }
 
   setSelectedPartNum(partNum:string){
-    this.partNum=partNum;
-    console.log("in utilit to set the part num",this.partNum);
-
+    this.partNum=partNum;   
   }
-  getSelectedPartNum(){
-    console.log("in utilit to get the part num",this.partNum);
+  getSelectedPartNum(){    
     return this.partNum;
-
   }
   
 }

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {RestAPIService} from '../../Service/restAPIService/rest-apiservice.service'
 import {ProcessStep} from '../../Model/processStep';
 import {MachineStep} from '../../Model/machine';
-import { from } from 'rxjs';
+
 
 
 @Component({

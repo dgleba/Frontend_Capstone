@@ -19,7 +19,7 @@ const appRoutes : Routes = [
   {path:'', component:LoginComponent},
   {path:'login', component:LoginComponent},
  {path: 'home', component:HomeComponent,  canActivate: [AuthGuardService],},
- {path: 'newForm',component : CommonTagView , 
+ {path: 'newForm',component : CommonTagView , canActivate: [AuthGuardService],
   children:[
   {path:'',outlet:'sidemenu',component:SidemenuComponent},
   {path:'', component : QualityalertinComponent},

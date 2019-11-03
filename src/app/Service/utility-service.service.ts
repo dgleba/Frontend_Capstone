@@ -11,6 +11,9 @@ tagSummaryOption : any = [
   {id: '4', tagName: 'Special Instruction', isChecked: false},
   {id: '5', tagName: 'Quality Alert - IN', isChecked: false}];
   token : string;
+  partNum:string;
+  processNum:string;
+  machineNum:string;
 
   constructor() { }
  
@@ -27,6 +30,17 @@ tagSummaryOption : any = [
   getToken()
   {
     return this.token = localStorage.getItem('token');
+  }
+
+  setSelectedPartNum(partNum:string){
+    this.partNum=partNum;
+    console.log("in utilit to set the part num",this.partNum);
+
+  }
+  getSelectedPartNum(){
+    console.log("in utilit to get the part num",this.partNum);
+    return this.partNum;
+
   }
   
 }

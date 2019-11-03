@@ -15,9 +15,18 @@ export class SidemenuComponent implements OnInit {
   tagSummaryList = this.utilityService.getTagsummaryList();
   public partNumberList: Partnumber[];
   public reasonList : Reason[];
+  public selectedPartNum: string = '';
   ngOnInit() {
     this.getPartList();
     this.getReasonList();
+  }  
+
+  //event handler to get the selected value of part num
+  selectChangeHandler (event: any) {
+    
+    this.selectedPartNum = event.target.value;
+    this.utilityService.setSelectedPartNum(this.selectedPartNum);
+    console.log("changed value",this.selectedPartNum);
   }
   getPartList() {    
     this.restAPIService.getPartList().subscribe(

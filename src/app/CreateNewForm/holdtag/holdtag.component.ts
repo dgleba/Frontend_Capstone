@@ -10,7 +10,7 @@ import {MachineStep} from '../../Model/machine';
   styleUrls: ['./holdtag.component.css']
 })
 export class HoldtagComponent implements OnInit {
-  expiredOn : Date ;
+  
   public processStep:ProcessStep[];
   public machineStep:MachineStep[];
   constructor(public restAPIService: RestAPIService) { }

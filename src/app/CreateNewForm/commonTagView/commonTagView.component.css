@@ -7,3 +7,9 @@
     margin:5px;
     padding: 10px;
 }
+ 
+#my_centered_buttons {
+     display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}

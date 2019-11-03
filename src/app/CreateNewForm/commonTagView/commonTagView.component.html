@@ -1,22 +1,23 @@
 <div class="container">
 
-      <div class="row">
-        
-          <div class="col-sm-3">
-        <router-outlet name="sidemenu"></router-outlet>
-      </div>
-        <div class="col-sm-9">
-            <nav class="navbar navbar-light bg-light">
-                <form class="form-inline ">
-                  <button class="btn btn-outline-info header_css " type="button" routerLink="qualityTag"> Quality Alert - In </button>
-                  <button class="btn btn-outline-info header_css" type="button" routerLink="holdTag"> Hold Tag </button>
-                  <button class="btn btn-outline-info header_css" type="button" routerLink="tpcTag"> TPC Tag </button>
-                  <button class="btn btn-outline-info header_css" type="button" routerLink="specialInstruction"> Special Instruction </button>
-                  <button class="btn btn-outline-info header_css" type="button" routerLink="picture"> Picture </button>
-                </form>
-             </nav>
-            <router-outlet></router-outlet>
-      </div>
-      </div>
+  <div class="row">
+
+    <div class="col-sm-3">
+      <router-outlet name="sidemenu"></router-outlet>
     </div>
- 
+    <div class="col-sm-9">
+      <nav class="navbar navbar-light bg-light">
+        <form class="form-inline ">
+          <button class="btn btn-outline-info header_css " type="button" routerLink="qualityTag"> Quality Alert - In
+          </button>
+          <button class="btn btn-outline-info header_css" type="button" routerLink="holdTag"> Hold Tag </button>
+          <button class="btn btn-outline-info header_css" type="button" routerLink="tpcTag"> TPC Tag </button>
+          <button class="btn btn-outline-info header_css" type="button" routerLink="specialInstruction"> Special
+            Instruction </button>
+          <button class="btn btn-outline-info header_css" type="button" routerLink="picture"> Picture </button>
+        </form>
+      </nav>
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

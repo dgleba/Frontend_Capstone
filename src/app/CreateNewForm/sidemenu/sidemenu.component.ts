@@ -16,7 +16,6 @@ export class SidemenuComponent implements OnInit {
   public partNumberList: Partnumber[];
   public reasonList : Reason[];
   ngOnInit() {
-    console.log("calling getPafrtList")
     this.getPartList();
     this.getReasonList();
   }
@@ -24,8 +23,7 @@ export class SidemenuComponent implements OnInit {
     this.restAPIService.getPartList().subscribe(
       (data: any) => {
         this.partNumberList = data;    
-        console.log("in side menu",this.partNumberList);
-        console.log("for 1",this.partNumberList[0]);
+       
        }
     )
   }
@@ -34,8 +32,6 @@ export class SidemenuComponent implements OnInit {
     this.restAPIService.getReasonList().subscribe(
       (data: any) => {
         this.reasonList = data;    
-        console.log("in side menu reason list",this.reasonList);
-        console.log("for 2",this.reasonList[0]);
        }
     )
   }

@@ -48,6 +48,20 @@ getReasonList(){
     catchError(this.handleError)
   )
 }
+// API to fetch processStep
+getProcessList(){
+  return this.http.get(this.apiURL + '/depts.json',this.httpOptions)
+  .pipe(
+    catchError(this.handleError)
+  )
+}
+// API to fetch machineList
+getMachineList(){
+  return this.http.get(this.apiURL + '/machines.json',this.httpOptions)
+  .pipe(
+    catchError(this.handleError)
+  )
+}
 
 
   handleError(error) {

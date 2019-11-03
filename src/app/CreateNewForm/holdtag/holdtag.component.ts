@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { UtilityServiceService } from 'src/app/Service/utility-service.service';
+import {RestAPIService} from '../../Service/restAPIService/rest-apiservice.service'
+import {ProcessStep} from '../../Model/processStep';
+import {MachineStep} from '../../Model/machine';
 
 
 @Component({
@@ -8,14 +10,34 @@ import { UtilityServiceService } from 'src/app/Service/utility-service.service';
   styleUrls: ['./holdtag.component.css']
 })
 export class HoldtagComponent implements OnInit {
+  expiredOn : Date ;
+  public processStep:ProcessStep[];
+  public machineStep:MachineStep[];
+  constructor(public restAPIService: RestAPIService) { }
 
-  constructor(private utilityService : UtilityServiceService) { }
-
-  ngOnInit() {
+   ngOnInit() { 
+     //call processList  
+    this.getProcessList();
+     //call machineList  
+     this.getMachineList();
+    
+  } 
+  
+  // get processList
+  getProcessList() {    
+    this.restAPIService.getProcessList().subscribe(
+      (data: any) => {
+        this.processStep = data;    
+       }
+    )
   }
-  checkValue(event: any){
-    console.log(event);  
-      this.utilityService.tagSummaryOption[1].isChecked = event;
-    }
+   // get machineList
+   getMachineList() {    
+    this.restAPIService.getMachineList().subscribe(
+      (data: any) => {
+        this.machineStep = data;    
+       }
+    )
+  }
  
 }

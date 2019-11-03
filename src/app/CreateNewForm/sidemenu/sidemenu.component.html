@@ -15,17 +15,14 @@
 
 <hr>
 <p>Reason</p>
-<div class="dropdown">
-    <button class="btn btn-outline-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-        aria-haspopup="true" aria-expanded="false">
-        Reason
-    </button>
-    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <a class="dropdown-item" href="#">Reason 1</a>
-        <a class="dropdown-item" href="#">Reason 2</a>
-        <a class="dropdown-item" href="#">Reason 3</a>
-    </div>
-</div>
+<select aria-labelledby="dropdownMenuButton">
+    <option [ngValue]="null" disabled>Reason</option>
+<option *ngFor="let reason of reasonList; let i = index" [ngValue]="reason">
+    {{reason.Reason}}
+</option>
+</select>
+
+
 <hr>
 <input type="text" class="form-control" placeholder="Issued By" aria-label="Issued By" aria-describedby="basic-addon2">
 <hr>

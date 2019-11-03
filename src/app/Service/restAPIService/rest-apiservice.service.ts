@@ -41,6 +41,15 @@ export class RestAPIService {
     )
   }  
 
+// API to fetch Reason
+getReasonList(){
+  return this.http.get(this.apiURL + '/tbl_htpc_reasons.json',this.httpOptions)
+  .pipe(
+    catchError(this.handleError)
+  )
+}
+
+
   handleError(error) {
     let errorMessage = '';
     if(error.error instanceof ErrorEvent) {

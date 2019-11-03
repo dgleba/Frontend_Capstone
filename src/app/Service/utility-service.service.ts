@@ -41,5 +41,17 @@ tagSummaryOption : any = [
   getSelectedPartNum(){    
     return this.partNum;
   }
+  setSelectedMachineStep(machineNum:string){
+    this.machineNum=machineNum;   
+  }
+  getSelectedMachineStep(){    
+    return this.machineNum;
+  }
+  setSelectedProcessStep(processStep:string){
+    this.processNum=processStep;   
+  }
+  getSelectedProcessStep(){    
+    return this.processNum;
+  }
   
 }

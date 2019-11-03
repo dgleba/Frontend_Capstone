@@ -16,16 +16,21 @@ export class SidemenuComponent implements OnInit {
   public partNumberList: Partnumber[];
   public reasonList : Reason[];
   public selectedPartNum: string = '';
+  public selectedReason: string = '';
   ngOnInit() {
     this.getPartList();
     this.getReasonList();
   }  
 
   //event handler to get the selected value of part num
-  getSelectedPartNumber (event: any) {
-    
+  getSelectedPartNumber (event: any) {    
     this.selectedPartNum = event.target.value;
     this.utilityService.setSelectedPartNum(this.selectedPartNum);
+    
+  }
+  getSelectedReason (event: any) {    
+    this.selectedReason = event.target.value;
+    this.utilityService.setSelectedReason(this.selectedReason);
     
   }
   getSelectedTag (id:number) {
@@ -35,6 +40,8 @@ export class SidemenuComponent implements OnInit {
    this.utilityService.setUpdatedTagSummaryObject(updatedObj,id);
   
   }
+
+  // api calls start
   getPartList() {    
     this.restAPIService.getPartList().subscribe(
       (data: any) => {
@@ -51,6 +58,7 @@ export class SidemenuComponent implements OnInit {
        }
     )
   }
+  //api calls end
 
 
 

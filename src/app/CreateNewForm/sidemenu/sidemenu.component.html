@@ -15,7 +15,7 @@
 
 <hr>
 <p>Reason</p>
-<select aria-labelledby="dropdownMenuButton">
+<select aria-labelledby="dropdownMenuButton" (change)="getSelectedReason($event)">
     <option [ngValue]="null" disabled>Reason</option>
 <option *ngFor="let reason of reasonList; let i = index" [ngValue]="reason">
     {{reason.Reason}}

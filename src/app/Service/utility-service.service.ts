@@ -12,6 +12,7 @@ tagSummaryOption : any = [
   {id: '5', tagName: 'Quality Alert - IN', isChecked: false}];
   token : string;
   partNum:string;
+  reason:string;
   processNum:string;
   machineNum:string;
 
@@ -52,6 +53,12 @@ tagSummaryOption : any = [
   }
   getSelectedProcessStep(){    
     return this.processNum;
+  }
+  setSelectedReason(reason:string){
+    this.reason=reason;   
+  }
+  getSelectedReason(){    
+    return this.reason;  
   }
   
 }

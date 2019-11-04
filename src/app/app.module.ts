@@ -27,7 +27,8 @@ const appRoutes : Routes = [
   {path: 'holdTag',component : HoldtagComponent},
   {path: 'tpcTag',component : TpctagComponent},
   {path: 'specialInstruction',component : SpecialInstructionComponent},
-  {path: 'picture',component : AddPictureComponent}]}
+  {path: 'picture',component : AddPictureComponent}]},
+  { path: '**', redirectTo: '' }
 ];
 
 

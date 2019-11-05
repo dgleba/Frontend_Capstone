@@ -33,6 +33,7 @@ const appRoutes : Routes = [
   {path: 'specialInstruction',component : SpecialInstructionComponent},
   {path: 'picture',component : AddPictureComponent}]},
   {path: 'getTag',component : GetTagDataComponent , canActivate: [AuthGuardService]},
+  {path: 'updateTag/:id',component : UpdateTagDataComponent , canActivate: [AuthGuardService]},
   { path: '**', component: PageNotFoundComponent },
  
 ];

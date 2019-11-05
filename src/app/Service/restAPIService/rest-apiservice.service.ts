@@ -42,6 +42,24 @@ export class RestAPIService {
       )
 
   }
+
+  //API to updateTag
+  updateTag(tagData,id){
+    console.log("in service update Tag", tagData);
+    return this.http.put(this.apiURL + '/tbl_quality_issues/'+id+'.json', tagData,this.httpOptions)
+      .pipe(
+        catchError(this.handleError)
+      )
+  }
+
+ // API to fetch qualityTag Data by Id
+ getQualityTagDataById(id:number) {
+  return this.http.get(this.apiURL + '/tbl_quality_issues/'+id+'.json', this.httpOptions)
+    .pipe(
+      catchError(this.handleError)
+    )
+}
+
   // API to fetch Part Numer
   getPartList() {
     return this.http.get(this.apiURL + '/parts.json', this.httpOptions)

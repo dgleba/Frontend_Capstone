@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RestAPIService } from 'src/app/Service/restAPIService/rest-apiservice.service';
 import {QualityTagData} from 'src/app/Model/qualtiyTagData';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-get-tag-data',
@@ -9,7 +10,7 @@ import {QualityTagData} from 'src/app/Model/qualtiyTagData';
 })
 export class GetTagDataComponent implements OnInit {
 
-  constructor( private restAPIService: RestAPIService) { }
+  constructor( private restAPIService: RestAPIService , private router : Router) { }
   qualityTagDataList:QualityTagData[];
   ngOnInit() {
     
@@ -25,5 +26,9 @@ export class GetTagDataComponent implements OnInit {
        
        }
     )
+  }
+  updatetag(id:number){
+    console.log("its here");
+    this.router.navigate(['/updateTag',id]);
   }
 }

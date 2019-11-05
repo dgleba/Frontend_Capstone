@@ -15,6 +15,12 @@ tagSummaryOption : any = [
   reason:string;
   processNum:string;
   machineNum:string;
+  lengthOfChange:string;
+  quatity:number;
+  body:string;
+  okdBy:string;
+
+
 
   constructor() { }
  
@@ -59,6 +65,34 @@ tagSummaryOption : any = [
   }
   getSelectedReason(){    
     return this.reason;  
+  }
+
+  setLengthOfChange(length:string){
+    this.lengthOfChange=length;   
+  }
+  getLengthOfChange(){    
+    return this.lengthOfChange;  
+  }
+  setBody(body:string){
+    this.body=body;   
+  }
+  getBody(){    
+    return this.body;  
+  }
+
+  setOkdBy(okdBy:string){
+    this.okdBy=okdBy;   
+  }
+  getOkdBy(){    
+    return this.okdBy;  
+  }
+
+
+  setQuantity(qt:number){
+    this.quatity=qt;   
+  }
+  getsetQuantity(){    
+    return this.quatity;  
   }
   
 }

@@ -10,16 +10,18 @@ import { TpctagComponent } from './CreateNewForm/tpctag/tpctag.component';
 import { SpecialInstructionComponent } from './CreateNewForm/special-instruction/special-instruction.component';
 import { SidemenuComponent } from './CreateNewForm/sidemenu/sidemenu.component';
 import { QualityalertinComponent } from './CreateNewForm/qualityalertin/qualityalertin.component';
+import {PageNotFoundComponent}from './page-not-found/page-not-found.component';
 import {LoginComponent} from './login/login.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AddPictureComponent } from './CreateNewForm/add-picture/add-picture.component';
 import {AuthGuardService} from './Service/auth-guard.service'
 
+
 const appRoutes : Routes = [
   {path:'', component:LoginComponent},
   {path:'login', component:LoginComponent},
- {path: 'home', component:HomeComponent,  canActivate: [AuthGuardService],},
- {path: 'newForm',component : CommonTagView , canActivate: [AuthGuardService],
+  {path: 'home', component:HomeComponent,  canActivate: [AuthGuardService],},
+  {path: 'newForm',component : CommonTagView , canActivate: [AuthGuardService],
   children:[
   {path:'',outlet:'sidemenu',component:SidemenuComponent},
   {path:'', component : QualityalertinComponent},
@@ -28,7 +30,7 @@ const appRoutes : Routes = [
   {path: 'tpcTag',component : TpctagComponent},
   {path: 'specialInstruction',component : SpecialInstructionComponent},
   {path: 'picture',component : AddPictureComponent}]},
-  { path: '**', redirectTo: '' }
+  { path: '**', component: PageNotFoundComponent }
 ];
 
 
@@ -43,7 +45,8 @@ const appRoutes : Routes = [
     SidemenuComponent,
     QualityalertinComponent,
     LoginComponent,
-    AddPictureComponent
+    AddPictureComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,

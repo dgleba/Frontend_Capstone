@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UtilityServiceService } from '../../Service/utility-service.service';
-import { stringify } from '@angular/compiler/src/util';
+
 
 
 @Component({
@@ -28,8 +28,8 @@ export class CommonTagView implements OnInit {
   //submitForm
   submitForm(){ 
     if(this.utilityService.getSelectedPartNum()!=undefined){
-      if(this.utilityService.getSelectedReason()!=undefined){
-     
+      if(this.utilityService.getSelectedReason()!=undefined){ 
+            
       } else{
         alert("Select Reason");
       }

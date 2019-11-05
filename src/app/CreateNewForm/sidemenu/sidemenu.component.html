@@ -3,7 +3,7 @@
 <p>Part Number</p>
 <div >
     
-    <select aria-labelledby="dropdownMenuButton" ng-model="mySelect" (change)="getSelectedPartNumber($event)">
+    <select class="form-control" (change)="getSelectedPartNumber($event)">
             <option [ngValue]="null" disabled>Part Number</option>
         <option *ngFor="let partNum of partNumberList; let i = index" [ngValue]="partNum">
             {{partNum.id}}
@@ -15,7 +15,7 @@
 
 <hr>
 <p>Reason</p>
-<select aria-labelledby="dropdownMenuButton" (change)="getSelectedReason($event)">
+<select class="form-control" (change)="getSelectedReason($event)">
     <option [ngValue]="null" disabled>Reason</option>
 <option *ngFor="let reason of reasonList; let i = index" [ngValue]="reason">
     {{reason.Reason}}

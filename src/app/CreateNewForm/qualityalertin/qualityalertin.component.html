@@ -8,11 +8,12 @@
     </div>
 </div>
 <br>
-<div class="row">
+<form>
+<div class="row ">
     <div class="col">
         <p>Process Step</p>
-        <select aria-labelledby="dropdownMenuButton">
-            <option [ngValue]="null" disabled>Process Step</option>
+        <select class="form-control"   (change)="getSelectedProcessStep($event)">
+            <option disabled>Process Step</option>
             <option *ngFor="let processStep of processStep; let i = index" [ngValue]="processStep">
                 {{processStep.Department}}
             </option>
@@ -20,29 +21,29 @@
     </div>
     <div class="col">
         <p>Machine Step</p>
-        <select aria-labelledby="dropdownMenuButton">
-            <option [ngValue]="null" disabled>Machine Step</option>
-            <option *ngFor="let machineStep of machineStep; let i = index" [ngValue]="machineStep">
+        <select class="form-control"  (change)="getSelectedMachine($event)">
+            <option disabled>Machine Step</option>
+            <option *ngFor="let machineStep of machineStep; let i = index" [ngValue]="machineId">
                 {{machineStep.MachineDesc}}
             </option>
         </select>
     </div>
-    <div class="col">
+    <div class="col form-group">
         <label>OK'd by :</label>
-        <input type="text" class="form-control" aria-label="OK'd By" aria-describedby="basic-addon2">
+        <input type="text" name="okdBy" class="form-control" [(ngModel)]="tagDetails.okdBy" [ngModelOptions]="{standalone: true}">
     </div>
 </div>
 <br>
 <br>
 <div class="row">
-    <div class="col-6">
+    <div class="col-6 form-group">
         <p>Body</p>
-        <textarea id="story" placeholder="Enter..." name="story" rows="4" cols="50"></textarea>
+        <textarea name="body" class="form-control" [(ngModel)]="tagDetails.body" [ngModelOptions]="{standalone: true}" placeholder="Enter..." name="story" rows="4" cols="50"></textarea>
     </div>
-    <div class="col-6">
+    <div class="col-6 form-group">
         <p>Length of Change</p>
-        <input type="text" [(ngModel)]="qualityAlertInDays" (change)="addDays(qualityAlertInDays)" class="form-control"
-            aria-label="Length of change" aria-describedby="basic-addon2">
+        <input type="text" class="form-control" [(ngModel)]="tagDetails.lengthOfChange"  [ngModelOptions]="{standalone: true}" (change)="addDays(qualityAlertInDays)" class="form-control"
+            aria-label="Length of change">
         <div class="input-group-append">
             <span class="input-group-text" id="basic-addon2">
                 Days
@@ -51,3 +52,10 @@
         </div>
     </div>
 </div>
+<div class="row">
+    <div class="col" id="my_centered_buttons">
+        <button type="button" class="btn btn-primary btn-lg" (click)="submitForm()">Submit</button>
+    </div>
+</div>
+
+</form>

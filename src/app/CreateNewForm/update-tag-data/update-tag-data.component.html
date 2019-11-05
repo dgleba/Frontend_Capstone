@@ -1,10 +1,11 @@
 <div class="container">
-    <h4>Update Tag</h4>
+        <div class="row">
     <form>
         <div class="row">
-
+                <h4>Update Tag</h4>
+        </div>
+        <div class="row">
             <p>Part Number</p>
-            <div>
                 <select class="form-control" (change)="getSelectedPartNumber($event)">
                     <option [ngValue]="null" disabled>
                         Part Number
@@ -15,7 +16,10 @@
                     </option>
                 </select>
             </div>
-            <hr>
+            
+            <br>
+            <div class="row">
+            
             <p>Reason</p>
             <select class="form-control" (change)="getSelectedReason($event)">
                 <option [ngValue]="null" disabled>
@@ -26,27 +30,43 @@
                     {{reason.Reason}}
                 </option>
             </select>
-            <hr>
+            </div>
+            <br>
+        
+            <div class="row">
+            <p>Issued By</p>
             <input type="text" class="form-control" placeholder="Issued By" aria-label="Issued By" 
             (focusout)="focusOutFunction(e)"  [(ngModel)]='qualityTagData.Issuedby' [ngModelOptions]="{standalone: true}">
-            <hr>
-            <label>OK'd by :</label>
+            </div>
+            <br>
+            
+            <div class="row">
+            <p>OK'd by :</p>
             <input type="text" name="okdBy" class="form-control" [(ngModel)]='qualityTagData.Okdby'
                 [ngModelOptions]="{standalone: true}">
-            <hr>
+            </div>
+            <br>
+            
+            <div class="row">
             <p>Body</p>
             <textarea name="body" class="form-control" placeholder="Enter..." name="story" rows="4" cols="50"
                 [(ngModel)]='qualityTagData.body' [ngModelOptions]="{standalone: true}"></textarea>
-            <hr>
+            </div>
+            <br>
+            
+            <div class="row">
             <p>Length of Change</p>
             <input type="text" class="form-control" aria-label="Length of change"
                 [(ngModel)]='qualityTagData.Lengthofchange' [ngModelOptions]="{standalone: true}">
 
         </div>
+        <br>
+        
         <div class="row">
             <div class="col" id="my_centered_buttons">
                 <button type="button" class="btn btn-primary btn-lg" (click)="updateTag()">Submit</button>
             </div>
         </div>
     </form>
+</div>
 </div>

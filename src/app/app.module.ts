@@ -14,7 +14,8 @@ import {PageNotFoundComponent}from './page-not-found/page-not-found.component';
 import {LoginComponent} from './login/login.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AddPictureComponent } from './CreateNewForm/add-picture/add-picture.component';
-import {AuthGuardService} from './Service/auth-guard.service'
+import {AuthGuardService} from './Service/auth-guard.service';
+import { GetTagDataComponent } from './CreateNewForm/get-tag-data/get-tag-data.component'
 
 
 const appRoutes : Routes = [
@@ -46,7 +47,8 @@ const appRoutes : Routes = [
     QualityalertinComponent,
     LoginComponent,
     AddPictureComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    GetTagDataComponent
   ],
   imports: [
     BrowserModule,

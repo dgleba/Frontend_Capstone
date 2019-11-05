@@ -21,6 +21,11 @@ export class SidemenuComponent implements OnInit {
     this.getPartList();
     this.getReasonList();
   }  
+  focusOutFunction ($event) {
+    var val = (<HTMLInputElement>document.getElementById("issuedByValue")).value;
+    this.utilityService.setIssuedBy(val);
+   
+ }
 
   //event handler to get the selected value of part num
   getSelectedPartNumber (event: any) {    

@@ -83,7 +83,7 @@ export class RestAPIService {
       // Get server-side error
       errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
     }
-    window.alert(errorMessage);
+    console.log("error",errorMessage);  
     return throwError(errorMessage);
   }
 

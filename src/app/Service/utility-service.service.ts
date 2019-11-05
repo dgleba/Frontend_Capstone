@@ -9,7 +9,8 @@ tagSummaryOption : any = [
   {id: '2', tagName: 'Hold Tag', isChecked: false},
   {id: '3', tagName: 'TPC Tag', isChecked: false},
   {id: '4', tagName: 'Special Instruction', isChecked: false},
-  {id: '5', tagName: 'Quality Alert - IN', isChecked: false}];
+  {id: '5', tagName: 'Quality Alert - IN', isChecked: false},
+  {id: '6', tagName: 'Supplier Issue', isChecked: false}];
   token : string;
   partNum:string;
   reason:string;
@@ -100,6 +101,16 @@ tagSummaryOption : any = [
   }
   getIssuedBy(){    
     return this.issuedBy;  
+  }
+
+  clearData(){
+    this.issuedBy='';
+    this.partNum='';
+    this.reason='';
+    this.okdBy='';
+    this.quatity=0;
+    this.body='';
+
   }
   
 }

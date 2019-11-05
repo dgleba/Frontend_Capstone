@@ -1,13 +1,4 @@
 <hr>
-<div class="row">
-    <div class="col checkbox">
-        <label>
-            <input type="checkbox" value>
-            Supplier Issue
-        </label>
-    </div>
-</div>
-<br>
 <form>
 <div class="row ">
     <div class="col">
@@ -42,7 +33,7 @@
     </div>
     <div class="col-6 form-group">
         <p>Length of Change</p>
-        <input type="text" class="form-control" [(ngModel)]="qualityAlertInDays"  [ngModelOptions]="{standalone: true}" (change)="addDays(qualityAlertInDays)" class="form-control"
+        <input type="text" class="form-control" [(ngModel)]="tagDetails.Lengthofchange"  [ngModelOptions]="{standalone: true}" (change)="addDays()" class="form-control"
             aria-label="Length of change">
         <div class="input-group-append">
             <span class="input-group-text" id="basic-addon2">

@@ -6,13 +6,13 @@
     <div class="col-sm-9">
       <nav class="navbar navbar-light bg-light">
         <form class="form-inline ">
-          <button class="btn btn-outline-info header_css active " type="button" routerLink="qualityTag" (click)="clickedLink($event)"> Quality Alert - In
+          <button class="btn btn-outline-info header_css " type="button" [routerLinkActive]="['active']" routerLink="qualityTag"> Quality Alert - In
           </button>
-          <button class="btn btn-outline-info header_css" type="button" routerLink="holdTag" (click)="clickedLink($event)"> Hold Tag </button>
-          <button class="btn btn-outline-info header_css" type="button" routerLink="tpcTag" (click)="clickedLink($event)"> TPC Tag </button>
-          <button class="btn btn-outline-info header_css" type="button" routerLink="specialInstruction" (click)="clickedLink($event)"> Special
+          <button class="btn btn-outline-info header_css" type="button" [routerLinkActive]="['active']" routerLink="holdTag"> Hold Tag </button>
+          <button class="btn btn-outline-info header_css" type="button" [routerLinkActive]="['active']" routerLink="tpcTag"> TPC Tag </button>
+          <button class="btn btn-outline-info header_css" type="button" [routerLinkActive]="['active']" routerLink="specialInstruction"> Special
             Instruction </button>
-          <button class="btn btn-outline-info header_css" type="button" routerLink="picture" (click)="clickedLink($event)"> Picture </button>
+          <button class="btn btn-outline-info header_css" type="button" [routerLinkActive]="['active']" routerLink="picture"> Picture </button>
         </form>
       </nav>
       <router-outlet></router-outlet>

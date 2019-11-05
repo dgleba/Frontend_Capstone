@@ -17,6 +17,7 @@ import { AddPictureComponent } from './CreateNewForm/add-picture/add-picture.com
 import {AuthGuardService} from './Service/auth-guard.service';
 import { GetTagDataComponent } from './CreateNewForm/get-tag-data/get-tag-data.component'
 import { DatePipe } from '@angular/common';
+import { UpdateTagDataComponent } from './CreateNewForm/update-tag-data/update-tag-data.component';
 
 const appRoutes : Routes = [
   {path:'', component:LoginComponent},
@@ -50,7 +51,8 @@ const appRoutes : Routes = [
     LoginComponent,
     AddPictureComponent,
     PageNotFoundComponent,
-    GetTagDataComponent
+    GetTagDataComponent,
+    UpdateTagDataComponent
   ],
   imports: [
     BrowserModule,

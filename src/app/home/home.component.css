@@ -1,15 +1,17 @@
 .maindiv{
-    margin: 20px;
+    margin: 100px;
     padding-right: 40px;
 }
 
 .btn_div{
     height: 50px;
-    background-color:blue;
+    background-color:#2288DD;
     text-align: center;
     margin : 30px;
     color:white;
+    font-size: 18px;
     vertical-align: middle;
     line-height: 50px;
     cursor:pointer;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }

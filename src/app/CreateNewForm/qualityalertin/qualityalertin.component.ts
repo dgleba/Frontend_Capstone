@@ -3,7 +3,7 @@ import {RestAPIService} from '../../Service/restAPIService/rest-apiservice.servi
 import {UtilityServiceService} from '../../Service/utility-service.service'
 import {ProcessStep} from '../../Model/processStep';
 import {MachineStep} from '../../Model/machine';
-
+import { Router} from '@angular/router';
 
 
 
@@ -13,14 +13,16 @@ import {MachineStep} from '../../Model/machine';
   styleUrls: ['./qualityalertin.component.css']
 })
 export class QualityalertinComponent implements OnInit {
-  @Input() tagDetails = {
-  okdBy:'',body:'',lengthOfChange:''}
+  @Input() tagDetails = {Date:'2019-11-06 22:55:59',PartID:'',
+  okdBy:'',body:'',Issuedby:'TB'}
   expiredOn : Date ;
   public processStep:ProcessStep[];
   public machineStep:MachineStep[];
   public processStepId:string;
   public machineStepId:string;
-  constructor(public restAPIService: RestAPIService,public utilityService:UtilityServiceService) {}
+  public qualityAlertInDays:number;
+  constructor(public restAPIService: RestAPIService,
+    public utilityService:UtilityServiceService,private router: Router) {}
 
    ngOnInit() {     
      //call processList  
@@ -61,11 +63,18 @@ export class QualityalertinComponent implements OnInit {
     this.utilityService.setSelectedMachineStep(this.machineStepId);    
   }
   //testing
-  loginUser() {
+  submitForm() {
+    console.log(this.tagDetails);
+    this.tagDetails.PartID=this.utilityService.getSelectedPartNum();
+    console.log(this.utilityService.getSelectedPartNum());
     console.log(this.tagDetails);
     this.utilityService.setOkdBy(this.tagDetails.okdBy);
     this.utilityService.setBody(this.tagDetails.body);
     this.utilityService.setLengthOfChange(this.tagDetails.lengthOfChange);
+    this.restAPIService.createTag(this.tagDetails).subscribe((data:any) => {
+        console.log(data);       
+        this.router.navigate(['/home'])
+    })
 
     
   }

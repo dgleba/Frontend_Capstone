@@ -19,6 +19,7 @@ tagSummaryOption : any = [
   quatity:number;
   body:string;
   okdBy:string;
+  issuedBy:string;
 
 
 
@@ -87,12 +88,18 @@ tagSummaryOption : any = [
     return this.okdBy;  
   }
 
-
   setQuantity(qt:number){
     this.quatity=qt;   
   }
-  getsetQuantity(){    
+  getSetQuantity(){    
     return this.quatity;  
+  }
+
+  setIssuedBy(issuedBy:string){
+    this.issuedBy=issuedBy;   
+  }
+  getIssuedBy(){    
+    return this.issuedBy;  
   }
   
 }

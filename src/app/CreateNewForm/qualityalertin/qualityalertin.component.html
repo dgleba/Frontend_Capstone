@@ -42,7 +42,7 @@
     </div>
     <div class="col-6 form-group">
         <p>Length of Change</p>
-        <input type="text" class="form-control" [(ngModel)]="tagDetails.lengthOfChange"  [ngModelOptions]="{standalone: true}" (change)="addDays(qualityAlertInDays)" class="form-control"
+        <input type="text" class="form-control" [(ngModel)]="qualityAlertInDays"  [ngModelOptions]="{standalone: true}" (change)="addDays(qualityAlertInDays)" class="form-control"
             aria-label="Length of change">
         <div class="input-group-append">
             <span class="input-group-text" id="basic-addon2">

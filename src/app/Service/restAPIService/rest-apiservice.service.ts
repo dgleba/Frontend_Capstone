@@ -71,6 +71,13 @@ export class RestAPIService {
         catchError(this.handleError)
       )
   }
+  //getAllQualtityTag
+  getAllQualtityTag(){   
+    return this.http.get(this.apiURL + '/tbl_quality_issues.json', this.httpOptions)
+      .pipe(
+        catchError(this.handleError)
+      )
+  }
 
 
 

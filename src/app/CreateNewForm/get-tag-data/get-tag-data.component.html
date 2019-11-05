@@ -9,34 +9,26 @@
                      <table class="table">
                         <thead>
                            <tr>
-                             
-                             <th>Part Number</th>
+                              <th>ID</th>
+                              <th>Date</th>
+                              <th>Part Number</th>
                               <th>Reason</th>
                               <th>Issued By</th>
-                              <th>Tag Summary</th>
-                              <th>Process Step</th>
-                              <th>Machine Number</th>
                               <th>Ok'd By</th>
                               <th>Length Of Change</th>
-                              <th>Body</th>
-                              <th>Supplier Issue</th>
-                              <th>Quantity</th>
-                              
+                              <th>Edit</th>                         
                            </tr>
                         </thead>
                         <tbody>
-                           <tr>
-                                <td>Part Number</td>
-                                <td>Reason</td>
-                                <td>Issued By</td>
-                                <td>Tag Summary</td>
-                                <td>Process Step</td>
-                                <td>Machine Number</td>
-                                <td>Ok'd By</td>
-                                <td>Length Of Change</td>
-                                <td>Body</td>
-                                <td>Supplier Issue</td>
-                                <td>Quantity</td>
+                           <tr  *ngFor="let qualityTagData of qualityTagDataList; let i = index">
+                                <td>{{qualityTagData.id}}</td>
+                                <td>{{qualityTagData.Date}}</td>
+                                <td>{{qualityTagData.PartID}}</td>
+                                <td>{{qualityTagData.Reason}}</td>
+                                <td>{{qualityTagData.Issuedby}}</td>
+                                <td>{{qualityTagData.Okdby}}</td>
+                                <td>{{qualityTagData.Lengthofchange}}</td>
+                                <td><button type="button" class="btn btn-secondary">Edit</button></td>                         
                            </tr>
                         </tbody>
                      </table>

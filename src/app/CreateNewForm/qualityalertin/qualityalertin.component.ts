@@ -92,7 +92,7 @@ export class QualityalertinComponent implements OnInit {
     this.restAPIService.createTag(this.tagDetails).subscribe((data: any) => {
       console.log(data);
       this.utilityService.clearData();
-      this.router.navigate(['/home'])
+      this.router.navigate(['/getTag'])
     })
 
   }

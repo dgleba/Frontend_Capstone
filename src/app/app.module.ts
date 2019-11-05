@@ -21,7 +21,7 @@ import { DatePipe } from '@angular/common';
 const appRoutes : Routes = [
   {path:'', component:LoginComponent},
   {path:'login', component:LoginComponent},
-  {path: 'home', component:HomeComponent,  canActivate: [AuthGuardService],},
+  {path: 'home', component:HomeComponent,  canActivate: [AuthGuardService]},
   {path: 'newForm',component : CommonTagView , canActivate: [AuthGuardService],
   children:[
   {path:'',outlet:'sidemenu',component:SidemenuComponent},
@@ -31,7 +31,9 @@ const appRoutes : Routes = [
   {path: 'tpcTag',component : TpctagComponent},
   {path: 'specialInstruction',component : SpecialInstructionComponent},
   {path: 'picture',component : AddPictureComponent}]},
-  { path: '**', component: PageNotFoundComponent }
+  {path: 'getTag',component : GetTagDataComponent , canActivate: [AuthGuardService]},
+  { path: '**', component: PageNotFoundComponent },
+ 
 ];
 
 

@@ -16,7 +16,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AddPictureComponent } from './CreateNewForm/add-picture/add-picture.component';
 import {AuthGuardService} from './Service/auth-guard.service';
 import { GetTagDataComponent } from './CreateNewForm/get-tag-data/get-tag-data.component'
-
+import { DatePipe } from '@angular/common';
 
 const appRoutes : Routes = [
   {path:'', component:LoginComponent},
@@ -56,7 +56,7 @@ const appRoutes : Routes = [
     RouterModule.forRoot(appRoutes),
     HttpClientModule
   ],
-  providers: [AuthGuardService],
+  providers: [AuthGuardService,DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

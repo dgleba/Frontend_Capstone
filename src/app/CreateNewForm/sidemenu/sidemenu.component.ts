@@ -42,6 +42,7 @@ export class SidemenuComponent implements OnInit {
     var updatedObjectArray=this.utilityService.getTagsummaryList();
     var updatedObj=updatedObjectArray[id];
     updatedObj.isChecked=!updatedObj.isChecked;
+    updatedObjectArray.tagVlue=1;
    this.utilityService.setUpdatedTagSummaryObject(updatedObj,id);
   
   }

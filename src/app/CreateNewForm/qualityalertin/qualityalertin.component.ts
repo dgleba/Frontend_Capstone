@@ -14,7 +14,7 @@ import { Router } from '@angular/router';
 })
 export class QualityalertinComponent implements OnInit {
   @Input() tagDetails = {
-    Date: '2019-11-06 22:55:59', PartID: '',
+    Date: '', PartID: '',
     okdBy: '', body: '', Issuedby: '', Lengthofchange:''
   }
   expiredOn: Date;
@@ -31,7 +31,7 @@ export class QualityalertinComponent implements OnInit {
     //call machineList  
     this.getMachineList();
   }
-  addDays(qualityAlertInDays) {
+  addDays() {
     this.expiredOn = new Date();
     this.expiredOn.setDate(this.expiredOn.getDate() + parseInt(this.tagDetails.Lengthofchange));
     console.log(this.expiredOn);
@@ -82,6 +82,7 @@ export class QualityalertinComponent implements OnInit {
   }
 
   createTagApiCall() {
+    this.tagDetails.Date=this.utilityService.getTodaysDate().toDateString();
     this.tagDetails.Issuedby = this.utilityService.getIssuedBy();
     this.tagDetails.PartID = this.utilityService.getSelectedPartNum();
     console.log(this.tagDetails);

@@ -1,16 +1,17 @@
 import { Injectable } from '@angular/core';
+import { DatePipe } from '@angular/common';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UtilityServiceService {
 tagSummaryOption : any = [
-  {id: '1', tagName: 'Quality Alert', isChecked: false},
-  {id: '2', tagName: 'Hold Tag', isChecked: false},
-  {id: '3', tagName: 'TPC Tag', isChecked: false},
-  {id: '4', tagName: 'Special Instruction', isChecked: false},
-  {id: '5', tagName: 'Quality Alert - IN', isChecked: false},
-  {id: '6', tagName: 'Supplier Issue', isChecked: false}];
+  {id: '1', tagName: 'Quality Alert', isChecked: false,tagVlue:0},
+  {id: '2', tagName: 'Hold Tag', isChecked: false,tagVlue:0},
+  {id: '3', tagName: 'TPC Tag', isChecked: false,tagVlue:0},
+  {id: '4', tagName: 'Special Instruction', isChecked: false,tagVlue:0},
+  {id: '5', tagName: 'Quality Alert - IN', isChecked: false,tagVlue:0},
+  {id: '6', tagName: 'Supplier Issue', isChecked: false,tagVlue:0}];
   token : string;
   partNum:string;
   reason:string;
@@ -21,11 +22,15 @@ tagSummaryOption : any = [
   body:string;
   okdBy:string;
   issuedBy:string;
+  todaysDate:Date;
+  constructor(private datePipe: DatePipe) { 
+  this.todaysDate = new Date();
+   console.log(this.datePipe.transform(this.todaysDate,"yyyy-MM-dd HH:mm:ss"));
+  } 
 
-
-
-  constructor() { }
- 
+  getTodaysDate(){
+    return this.todaysDate;
+  }
   getTagsummaryList()
   {
     return this.tagSummaryOption;

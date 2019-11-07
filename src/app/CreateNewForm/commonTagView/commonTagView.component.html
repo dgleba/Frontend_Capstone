@@ -1,11 +1,31 @@
-<div class="container">
+<div class="container-fluid ccommonTagView">
+    <div class="stackpole-logo">
+        <img src="assets/download.png" width="250px" height="70px">
+    </div>
+<div class="internal-triangle"></div>
+<h2 class="internal-header">Internal Issue</h2>
+<div class="internal-container">
   <div class="row">
     <div class="col-sm-3">
       <router-outlet name="sidemenu"></router-outlet>
     </div>
     <div class="col-sm-9">
-      <nav class="navbar navbar-light bg-light">
         <form class="form-inline ">
+     
+            <div id="navcontainer">
+                <ul id="navlist">
+                <li><a href="#" [routerLinkActive]="['active']" routerLink="qualityTag" >Quality Alert - In</a></li>
+                <li><a href="#" [routerLinkActive]="['active']" routerLink="holdTag">Hold Tag</a></li>
+                <li><a href="#" [routerLinkActive]="['active']" routerLink="tpcTag">TPC Tag</a></li>
+                <li><a href="#" [routerLinkActive]="['active']" routerLink="specialInstruction">Special Instruction</a></li>
+                <li><a href="#" [routerLinkActive]="['active']" routerLink="picture">Picture</a></li>
+                </ul>
+                </div>
+
+
+
+     
+          <!--
           <button class="btn btn-outline-info header_css " type="button" [routerLinkActive]="['active']" routerLink="qualityTag"> Quality Alert - In
           </button>
           <button class="btn btn-outline-info header_css" type="button" [routerLinkActive]="['active']" routerLink="holdTag"> Hold Tag </button>
@@ -13,11 +33,12 @@
           <button class="btn btn-outline-info header_css" type="button" [routerLinkActive]="['active']" routerLink="specialInstruction"> Special
             Instruction </button>
           <button class="btn btn-outline-info header_css" type="button" [routerLinkActive]="['active']" routerLink="picture"> Picture </button>
+      -->
         </form>
-      </nav>
       <router-outlet></router-outlet>
      
       
     </div>
   </div>
+</div>
 </div>

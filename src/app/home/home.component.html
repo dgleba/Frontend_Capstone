@@ -1,20 +1,45 @@
-<div class="container-fluid maindiv">
-  <div class="row">
-      <div class="col-sm btn_div1"></div>
-    <div class="col-sm btn_div" [routerLink]="'/newForm'">Create a New Form</div>
-    <div class="col-sm btn_div">External Issue Form</div>
-    <div class="col-sm btn_div1"></div>
+<div class="container-fluid home">
+  <div class="stackpole-logo">
+    <img src="assets/download.png" height="70px" width="250px">
   </div>
-  <div class="row">
-      <div class="col-sm btn_div1"></div>
-      <div class="col-sm btn_div">Reprint</div>
-      <div class="col-sm btn_div">Filter</div>
-      <div class="col-sm btn_div1"></div>
-  </div>
-  <div class="row">
-      <div class="col-sm btn_div1"></div>
-    <div class="col-sm btn_div">Admin</div>
-    <div class="col-sm btn_div">Quit Application</div>
-    <div class="col-sm btn_div1"></div>
+  <div class="home-triangle"></div>
+  <h2 class="home-header">Home</h2>
+  <div class="home-container">
+    <div class="row">
+      <div class="col-6" [routerLink]="'/newForm'">
+        <p>
+          <button type="button" class="btn   btn-primary">Create a New Form</button>
+        </p>
+      </div>
+      <div class="col-6">
+        <p>
+          <button type="button" class="btn   btn-primary">External Issue Form</button>
+        </p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-6">
+        <p>
+          <button type="button" class="btn   btn-primary">Reprint</button>
+        </p>
+      </div>
+      <div class="col-6">
+        <p><button type="button" class="btn   btn-primary">
+            Filter</button> </p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-6">
+        <p>
+          <button type="button" class="btn   btn-primary"> Admin </button>
+        </p>
+      </div>
+      <div class="col-6">
+        <p><button type="button" class="btn   btn-primary">
+            Quit Application</button></p>
+      </div>
+    </div>
   </div>
 </div>

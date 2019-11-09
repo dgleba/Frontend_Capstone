@@ -70,19 +70,21 @@ export class UpdateTagDataComponent implements OnInit {
   getSelectedPartNumber (event: any) {    
     this.selectedPartNum = event.target.value;
     this.utilityService.setSelectedPartNum(this.selectedPartNum);
+    this.qualityTagData.PartID=this.selectedPartNum;
     
   }
   getSelectedReason (event: any) {    
     this.selectedReason = event.target.value;
     this.utilityService.setSelectedReason(this.selectedReason);
+    this.qualityTagData.Reason=this.selectedReason;
     
   }
 
   updateTag() {
     console.log(this.utilityService.getSelectedPartNum(),"in quality");
-    if (this.utilityService.getSelectedPartNum()) {
-      if (this.utilityService.getSelectedReason()) {
-        if (this.utilityService.getIssuedBy()) {
+    if (this.qualityTagData.PartID) {
+      if (this.qualityTagData.Reason) {
+        if (this.qualityTagData.Issuedby) {
           //api call
           this.updateTagApiCall();
         } else {

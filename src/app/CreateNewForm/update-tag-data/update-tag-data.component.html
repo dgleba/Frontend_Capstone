@@ -7,11 +7,11 @@
         <div class="row">
             <p>Part Number</p>
                 <select class="form-control" (change)="getSelectedPartNumber($event)">
-                    <option [ngValue]="null" disabled>
+                    <option disabled>
                         Part Number
                     </option>
                     <option *ngFor="let partNum of partNumberList; let i = index"
-                        [selected]="partNum.id ==='qualityTagData.PartID'">
+                        [selected]="partNum.id ===qualityTagData.PartID">
                         {{partNum.id}}
                     </option>
                 </select>
@@ -22,11 +22,11 @@
             
             <p>Reason</p>
             <select class="form-control" (change)="getSelectedReason($event)">
-                <option [ngValue]="null" disabled>
+                <option disabled>
                     Reason
                 </option>
                 <option *ngFor="let reason of reasonList; let i = index"
-                    [selected]="reason.reason ==='qualityTagData.Reason'">
+                    [selected]="reason.Reason ===qualityTagData.Reason">
                     {{reason.Reason}}
                 </option>
             </select>
@@ -35,8 +35,9 @@
         
             <div class="row">
             <p>Issued By</p>
+
             <input type="text" class="form-control" placeholder="Issued By" aria-label="Issued By" 
-            (focusout)="focusOutFunction(e)"  [(ngModel)]='qualityTagData.Issuedby' [ngModelOptions]="{standalone: true}">
+            (focusout)="focusOutFunction(e)"  [(ngModel)]="qualityTagData.Issuedby" [ngModelOptions]="{standalone: true}">
             </div>
             <br>
             

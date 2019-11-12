@@ -18,6 +18,8 @@ import {AuthGuardService} from './Service/auth-guard.service';
 import { GetTagDataComponent } from './CreateNewForm/get-tag-data/get-tag-data.component'
 import { DatePipe } from '@angular/common';
 import { UpdateTagDataComponent } from './CreateNewForm/update-tag-data/update-tag-data.component';
+import { ExternalIssueFormComponent } from './external-issue-form/external-issue-form.component';
+import { PartValueCalculatorComponent } from './external-issue-form/part-value-calculator/part-value-calculator.component';
 
 const appRoutes : Routes = [
   {path:'', component:LoginComponent},
@@ -34,6 +36,9 @@ const appRoutes : Routes = [
   {path: 'picture',component : AddPictureComponent}]},
   {path: 'getTag',component : GetTagDataComponent , canActivate: [AuthGuardService]},
   {path: 'updateTag/:id',component : UpdateTagDataComponent , canActivate: [AuthGuardService]},
+  {path: 'externalIssueForm', component:ExternalIssueFormComponent,  canActivate: [AuthGuardService]},
+  {path: 'partValueCalculator',component : PartValueCalculatorComponent , canActivate: [AuthGuardService]},
+  
   { path: '**', component: PageNotFoundComponent },
  
 ];
@@ -53,7 +58,9 @@ const appRoutes : Routes = [
     AddPictureComponent,
     PageNotFoundComponent,
     GetTagDataComponent,
-    UpdateTagDataComponent
+    UpdateTagDataComponent,
+    ExternalIssueFormComponent,
+    PartValueCalculatorComponent
   ],
   imports: [
     BrowserModule,

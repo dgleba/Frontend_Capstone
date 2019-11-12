@@ -1,42 +1,66 @@
-<div class="row">
-        <div class="col-md">
-            <!-- START card-->
-            <div class="card card-default">
-               <div class="card-body">
-                  <!-- START table-responsive-->
-                  <div class="table-responsive">
-                     <table class="table">
-                        <thead>
-                           <tr>
-                              <th>Tag ID</th>
-                              <th>Edit</th>
-                              <th>Date</th>
-                              <th>Part Number</th>
-                              <th>Reason</th>
-                              <th>Issued By</th>
-                              <th>Ok'd By</th>
-                              <th>Length Of Change</th>
-                                                      
-                           </tr>
-                        </thead>
-                        <tbody>
-                           <tr  *ngFor="let qualityTagData of qualityTagDataList; let i = index">
-                                <td>{{qualityTagData.id}}</td>
-                                <td><button type="button" class="btn btn-secondary"(click)="updatetag(qualityTagData.id)">Edit</button></td> 
-                                <td>{{qualityTagData.Date}}</td>
-                                <td>{{qualityTagData.PartID}}</td>
-                                <td>{{qualityTagData.Reason}}</td>
-                                <td>{{qualityTagData.Issuedby}}</td>
-                                <td>{{qualityTagData.Okdby}}</td>
-                                <td>{{qualityTagData.Lengthofchange}}</td>
-                                                        
-                           </tr>
-                        </tbody>
-                     </table>
-                  </div>
-                  <!-- END table-responsive-->
-               </div>
+
+<div class="container-fluid cgetTagData">
+   <div class="getTagData-triangle"></div>
+   <div class="getTagData-header">
+      <div class="row">
+         <div class="col-6">
+            <h2 style="text-align: center;">Quite Long Header Text</h2>
+         </div>
+
+         <div class="col-6">
+
+            <div class="input-group">
+               <input type="text" style="margin-right: 10px;" class="form-control input-search" name="tagId" id="tagId"
+                  placeholder="Tag ID">
+               <input type="text" style="margin-right: 10px;" class="form-control input-search" name="date" id="date"
+                  placeholder="Date">
+               <input type="text" style="margin-right: 10px;" class="form-control input-search" name="partNumber"
+                  id="partNumber" placeholder="Part Number">
+
+
             </div>
-            <!-- END card-->
          </div>
-         </div>
+
+      </div>
+   </div>
+   <div class="getTagData-container" >
+   <div class="row">
+
+      <!-- START table-responsive-->
+      <table class="table table-hover ">
+         
+            <thead>
+               <tr>
+                  <th>Tag ID</th>
+                  <th>Edit</th>
+                  <th>Date</th>
+                  <th>Part Number</th>
+                  <th>Reason</th>
+                  <th>Issued By</th>
+                  <th>Ok'd By</th>
+                  <th>Length Of Change</th>
+
+               </tr>
+            </thead>
+            <tbody>
+               <tr *ngFor="let qualityTagData of qualityTagDataList; let i = index">
+                  <td>{{qualityTagData.id}}</td>
+                  <td><button type="button" class="btn btn-secondary"
+                        (click)="updatetag(qualityTagData.id)">Edit</button></td>
+                  <td>{{qualityTagData.Date}}</td>
+                  <td>{{qualityTagData.PartID}}</td>
+                  <td>{{qualityTagData.Reason}}</td>
+                  <td>{{qualityTagData.Issuedby}}</td>
+                  <td>{{qualityTagData.Okdby}}</td>
+                  <td>{{qualityTagData.Lengthofchange}}</td>
+
+               </tr>
+            </tbody>
+         </table>
+     
+      <!-- END table-responsive-->
+   
+   
+   </div>
+</div>
+</div>

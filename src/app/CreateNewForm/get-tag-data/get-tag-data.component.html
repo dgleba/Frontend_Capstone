@@ -1,43 +1,42 @@
-
 <div class="container-fluid cgetTagData">
    <div class="getTagData-triangle"></div>
    <div class="getTagData-header">
       <div class="row">
          <div class="col-8">
-            <h2 style="text-align: center;">Tag List</h2>
+            <h2 style="text-align: left;">Tag List</h2>
          </div>
          <div class="col-4">
             <div class="input-group">
-                  <select class="form-control"   (change)="getSelectedSearchOption($event)">
-                        <option disabled>Search By</option>
-                        <option *ngFor="let searchOption of searchOption; let i = index" [ngValue]="searchOption">
-                            {{searchOption.searchBy}}
-                        </option>
-                    </select>
-                    <div  *ngIf ="!isSelectedOptionDate">
-                        <input type="text" style="margin-right: 10px;" class="form-control input-search" name="searchOption" 
-                        placeholder="{{selectedSearchOption}}" [(ngModel)]="selectedSearchOption">
-                    </div>
-                    <div *ngIf="isSelectedOptionDate">
-                        <input type="text" style="margin-right: 10px;" class="form-control input-search" 
-                        name="searchOption" type="date"  placeholder="{{selectedSearchOption}}" [(ngModel)]="selectedSearchOption">                       
-                    </div>
-                 <button type="button" class="btn btn-secondary"
-                        (click)="updatetag(qualityTagData.id)">Submit</button>
+               <select class="form-control" required (change)="getSelectedSearchOption($event)">
+                  <option disabled>Search By</option>
+                  <option *ngFor="let searchOption of searchOption; let i = index" [ngValue]="searchOption">
+                     {{searchOption.searchBy}}
+                  </option>
+               </select>
+               <div *ngIf="!isSelectedOptionDate">
+                  <input type="text" style="margin-right: 10px;" class="form-control input-search"  required="" name="searchOption"
+                     placeholder="{{selectedSearchOption}}" data-ng-model="selectedSearchOption">
+               </div>
+               <div *ngIf="isSelectedOptionDate">
+                  <input type="text" style="margin-right: 10px;" class="form-control input-search"  required="" name="searchOption"
+                     type="date" placeholder="{{selectedSearchOption}}" data-ng-model="selectedSearchOption">
+               </div>
+               <button type="button" class="btn btn-secondary" (click)="updatetag(qualityTagData.id)">Submit</button>
             </div>
          </div>
       </div>
    </div>
-   <div class="getTagData-container" >
-   <div class="row">
+   <div class="getTagData-container">
+      <div class="row">
 
-      <!-- START table-responsive-->
-      <table class="table table-hover ">
-         
+         <!-- START table-responsive-->
+         <table class="table table-hover ">
+
             <thead>
                <tr>
-                  <th>Tag ID</th>
                   <th>Edit</th>
+                  <th>Tag ID</th>
+
                   <th>Date</th>
                   <th>Part Number</th>
                   <th>Reason</th>
@@ -49,9 +48,9 @@
             </thead>
             <tbody>
                <tr *ngFor="let qualityTagData of qualityTagDataList; let i = index">
-                     <td><button type="button" class="btn btn-secondary"
+                  <td><button type="button" class="btn btn-secondary"
                         (click)="updatetag(qualityTagData.id)">Edit</button></td>
-                  <td>{{qualityTagData.id}}</td>                 
+                  <td>{{qualityTagData.id}}</td>
                   <td>{{qualityTagData.Date}}</td>
                   <td>{{qualityTagData.PartID}}</td>
                   <td>{{qualityTagData.Reason}}</td>
@@ -62,10 +61,10 @@
                </tr>
             </tbody>
          </table>
-     
-      <!-- END table-responsive-->
-   
-   
+
+         <!-- END table-responsive-->
+
+
+      </div>
    </div>
-</div>
 </div>

@@ -12,9 +12,26 @@ export class GetTagDataComponent implements OnInit {
 
   constructor( private restAPIService: RestAPIService , private router : Router) { }
   qualityTagDataList:QualityTagData[];
-  ngOnInit() {
-    
+  searchOption : any = [
+    {id: '1', searchBy: 'Tag ID', isChecked: false},
+    {id: '2', searchBy: 'Part Number', isChecked: false},
+    {id: '3', searchBy: 'Date', isChecked: false},
+   ];
+   selectedSearchOption:string;
+   isSelectedOptionDate:boolean;
+  ngOnInit() {    
     this.getQualityTagData();
+  }
+
+   //event handler to get the selected value of part num
+   getSelectedSearchOption(event: any) {
+    this.selectedSearchOption = event.target.value;
+    if(this.selectedSearchOption==='Date'){
+      this.isSelectedOptionDate=true;
+    }else{
+      this.isSelectedOptionDate=false;
+    }
+   
   }
 
   //Api getQualityTagData
@@ -27,6 +44,7 @@ export class GetTagDataComponent implements OnInit {
        }
     )
   }
+   //Api to update a tag
   updatetag(id:number){
     console.log("its here");
     this.router.navigate(['/updateTag',id]);

@@ -17,6 +17,8 @@ export class SidemenuComponent implements OnInit {
   public reasonList : Reason[];
   public selectedPartNum: string = '';
   public selectedReason: string = '';
+  public processStepId: string;
+  public machineStepId: string;
   ngOnInit() {
     this.getPartList();
     this.getReasonList();
@@ -38,6 +40,16 @@ export class SidemenuComponent implements OnInit {
     this.utilityService.setSelectedReason(this.selectedReason);
     
   }
+   //event handler to get the selected value of part num
+   getSelectedProcessStep(event: any) {
+    this.processStepId = event.target.value;
+    this.utilityService.setSelectedProcessStep(this.processStepId);
+  }
+  getSelectedMachine(event: any) {
+    this.machineStepId = event.target.value;
+    this.utilityService.setSelectedMachineStep(this.machineStepId);
+  }
+  //
   getSelectedTag (id:number) {
     var updatedObjectArray=this.utilityService.getTagsummaryList();
     var updatedObj=updatedObjectArray[id];

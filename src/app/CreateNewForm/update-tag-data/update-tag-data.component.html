@@ -1,13 +1,12 @@
 <div class="container-fluid cupdateTag">
- 
-        <div class="updateTag-triangle"></div>
-        <h2 class="updateTag-header">Update Tag</h2>
-        <div class="updateTag-container">
-      
-            
-    <form>
-        <div class="row">
-            <div class="col-4 col-lg-4">
+    <div class="updateTag-triangle"></div>
+    <h2 class="updateTag-header">
+        <button type="button" class="btn btn-primary" id="home-btn" routerLink="../../home">Home</button>
+        Update Tag</h2>
+    <div class="updateTag-container">
+        <form>
+            <div class="row">
+                <div class="col-4 col-lg-4">
 
                     <p>Part Number</p>
                     <select class="form-control" (change)="getSelectedPartNumber($event)">
@@ -19,10 +18,8 @@
                             {{partNum.id}}
                         </option>
                     </select>
-
-            </div>
-            
-            <div class="col-4 col-lg-4">
+                </div>
+                <div class="col-4 col-lg-4">
                     <p>Reason</p>
                     <select class="form-control" (change)="getSelectedReason($event)">
                         <option disabled>
@@ -33,46 +30,39 @@
                             {{reason.Reason}}
                         </option>
                     </select>
-
-            </div>
-            
-            <div class="col-4 col-lg-4">
+                </div>
+                <div class="col-4 col-lg-4">
                     <p>Issued By</p>
-
-                    <input type="text" class="form-control" placeholder="Issued By" aria-label="Issued By" 
-                    (focusout)="focusOutFunction(e)"  [(ngModel)]="qualityTagData.Issuedby" [ngModelOptions]="{standalone: true}">
+                    <input type="text" class="form-control" placeholder="Issued By" aria-label="Issued By"
+                        (focusout)="focusOutFunction(e)" [(ngModel)]="qualityTagData.Issuedby"
+                        [ngModelOptions]="{standalone: true}">
+                </div>
             </div>
-
-        </div>
             <div class="row">
-                    <div class="col-4">
-                            <p>OK'd by :</p>
-                            <input type="text" name="okdBy" class="form-control" [(ngModel)]='qualityTagData.Okdby'
-                                [ngModelOptions]="{standalone: true}">
-                    </div>
-                    <div class="col-4">
-                            <p>Body</p>
-                            <textarea name="body" class="form-control" placeholder="Enter..." name="story" rows="4" cols="50"
-                                [(ngModel)]='qualityTagData.body' [ngModelOptions]="{standalone: true}"></textarea>
-                    </div>
-                    <div class="col-4">
-                            <p>Length of Change</p>
-                            <input type="text" class="form-control" aria-label="Length of change"
-                                [(ngModel)]='qualityTagData.Lengthofchange' [ngModelOptions]="{standalone: true}">
-                    </div>
+                <div class="col-4">
+                    <p>OK'd by :</p>
+                    <input type="text" name="okdBy" class="form-control" [(ngModel)]='qualityTagData.Okdby'
+                        [ngModelOptions]="{standalone: true}">
+                </div>
+                <div class="col-4">
+                    <p>Body</p>
+                    <textarea name="body" class="form-control" placeholder="Enter..." name="story" rows="4" cols="50"
+                        [(ngModel)]='qualityTagData.body' [ngModelOptions]="{standalone: true}"></textarea>
+                </div>
+                <div class="col-4">
+                    <p>Length of Change</p>
+                    <input type="text" class="form-control" aria-label="Length of change"
+                        [(ngModel)]='qualityTagData.Lengthofchange' [ngModelOptions]="{standalone: true}">
+                </div>
             </div>
-            
-            
-         
-        
-        <div class="row">
-            <div class="col-4"></div>
-            <div class="col-4" id="my_centered_buttons">
-                <button type="button" class="btn btn-primary btn-lg" (click)="updateTag()">Submit</button>
+            <div class="row">
+                <div class="col-4"></div>
+                <div class="col-4" id="my_centered_buttons">
+                    <button type="button" class="btn btn-primary btn-lg" (click)="updateTag()">Submit</button>
+                </div>
+                <div class="col-4"></div>
             </div>
-            <div class="col-4"></div>
-        </div>
-    </form>
+        </form>
 
-</div>
+    </div>
 </div>

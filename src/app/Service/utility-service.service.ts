@@ -48,6 +48,9 @@ tagSummaryOption : any = [
   {
     return this.token = localStorage.getItem('token');
   }
+  deleteToken(){
+    localStorage.removeItem('token');
+  }
 
   setSelectedPartNum(partNum:string){
     this.partNum=partNum;   

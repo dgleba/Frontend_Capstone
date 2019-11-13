@@ -1,44 +1,19 @@
-
 <div class="row">
-    <div class="col">
-        <p>Machine Step</p>
-        <select class="form-control">
-            <option [ngValue]="null" disabled>Machine Step</option>
-            <option *ngFor="let machineStep of machineStep; let i = index" [ngValue]="machineStep">
-                {{machineStep.MachineDesc}}
-            </option>
-        </select>
-    </div>
 
-    <div class="col">
-        <p>Process Step</p>
-        <select class="form-control">
-            <option [ngValue]="null" disabled>Process Step</option>
-            <option *ngFor="let processStep of processStep; let i = index" [ngValue]="processStep">
-                {{processStep.Department}}
-            </option>
-        </select>
-    </div>
-    <div class="col">
+    <div class="col-lg-6 form-group">
         <label>Quantity</label>
         <input type="text" class="form-control" aria-label="Quantity" aria-describedby="basic-addon2">
     </div>
-</div>
-<br>
-<br>
 
-<hr>
-<div class="row">
-    <div class="col">
+    <div class="col-lg-6 form-group">
         <p>Body :</p>
         <textarea id="story1" placeholder="Enter..." name="story" rows="4" cols="100"></textarea>
 
     </div>
 </div>
+
 <div class="row">
     <div class="col" id="my_centered_buttons">
         <button type="button" class="btn btn-primary btn-lg" (click)="submitForm()">Submit</button>
     </div>
 </div>
-
-<br>

@@ -1,8 +1,7 @@
 <h4>Internal</h4>
-<hr>
+
 
 <div class="form-group">
-    <label>Part Number</label>
     <select class="form-control" (change)="getSelectedPartNumber($event)">
             <option [ngValue]="null" disabled>Part Number</option>
         <option *ngFor="let partNum of partNumberList; let i = index" [ngValue]="partNum">
@@ -11,10 +10,8 @@
     </select>
 </div>
 
-
-<hr>
 <div class="form-group">
-<label>Reason</label>
+
 <select class="form-control" (change)="getSelectedReason($event)">
     <option [ngValue]="null" disabled>Reason</option>
 <option *ngFor="let reason of reasonList; let i = index" [ngValue]="reason">
@@ -23,12 +20,30 @@
 </select>
 </div>
 
-<hr>
+<div class="form-group">      
+        <select class="form-control"   (change)="getSelectedProcessStep($event)">
+            <option disabled>Process Step</option>
+            <option *ngFor="let processStep of processStep; let i = index" [ngValue]="processStep">
+                {{processStep.Department}}
+            </option>
+        </select>
+</div>
+    <div class="form-group">
+      
+        <select class="form-control"  (change)="getSelectedMachine($event)">
+            <option [ngValue]="null" disabled>Machine Step</option>
+            <option *ngFor="let machineStep of machineStep; let i = index" [ngValue]="machineId">
+                {{machineStep.MachineDesc}}
+            </option>
+        </select>
+    </div>
+
+
 <div class="form-group">
     <label>Issued By</label>
 <input type="text" class="form-control" placeholder="Issued By" aria-label="Issued By" id="issuedByValue" (focusout)="focusOutFunction(e)" aria-describedby="basic-addon2">
 </div>
-<hr>
+
 <div class="form-group">
         <label>Tag Summary</label>
 <div class="checkbox" *ngFor="let tagSummary of tagSummaryList ; let i = index">

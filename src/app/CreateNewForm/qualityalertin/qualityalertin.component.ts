@@ -20,8 +20,7 @@ export class QualityalertinComponent implements OnInit {
   expiredOn: Date;
   public processStep: ProcessStep[];
   public machineStep: MachineStep[];
-  public processStepId: string;
-  public machineStepId: string;
+ 
   constructor(public restAPIService: RestAPIService,
     public utilityService: UtilityServiceService, private router: Router) { }
 
@@ -53,15 +52,7 @@ export class QualityalertinComponent implements OnInit {
       }
     )
   }
-  //event handler to get the selected value of part num
-  getSelectedProcessStep(event: any) {
-    this.processStepId = event.target.value;
-    this.utilityService.setSelectedProcessStep(this.processStepId);
-  }
-  getSelectedMachine(event: any) {
-    this.machineStepId = event.target.value;
-    this.utilityService.setSelectedMachineStep(this.machineStepId);
-  }
+ 
   //validation 
   submitForm() {
     console.log(this.utilityService.getSelectedPartNum(),"in quality");

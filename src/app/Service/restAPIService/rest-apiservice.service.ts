@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
 import { UtilityServiceService } from '../utility-service.service';
+import {HttpParams} from  "@angular/common/http";
 
 
 @Injectable({
@@ -11,7 +12,7 @@ import { UtilityServiceService } from '../utility-service.service';
 export class RestAPIService {
 
   // Define API
-  apiURL = 'http://192.168.0.40:6036';
+  apiURL = 'http://192.168.0.41:6036';
 
 
   constructor(private http: HttpClient, private utilityService: UtilityServiceService) { }
@@ -95,6 +96,16 @@ export class RestAPIService {
       .pipe(
         catchError(this.handleError)
       )
+  }
+
+  //searchBy api call
+  getDataBySearch(tagId,partNo,date){
+    console.log("part in search rest",partNo);
+    return this.http.get(this.apiURL + '/tbl_quality_issues.json?utf8=%E2%9C%93&q%5BPartID_cont%5D='
+    +partNo+'&q%5BDate_cont%5D='+date,this.httpOptions)
+    .pipe(
+      catchError(this.handleError)
+    )
   }
 
 

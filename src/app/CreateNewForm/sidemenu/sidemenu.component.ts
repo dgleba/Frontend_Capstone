@@ -3,6 +3,8 @@ import { UtilityServiceService } from 'src/app/Service/utility-service.service';
 import { RestAPIService } from 'src/app/Service/restAPIService/rest-apiservice.service';
 import {Partnumber} from 'src/app/Model/partnumber';
 import {Reason} from 'src/app/Model/reason';
+import { ProcessStep } from '../../Model/processStep';
+import { MachineStep } from '../../Model/machine';
 
 @Component({
   selector: 'app-sidemenu',
@@ -15,6 +17,8 @@ export class SidemenuComponent implements OnInit {
   tagSummaryList = this.utilityService.getTagsummaryList();
   public partNumberList: Partnumber[];
   public reasonList : Reason[];
+  public processStep: ProcessStep[];
+  public machineStep: MachineStep[];
   public selectedPartNum: string = '';
   public selectedReason: string = '';
   public processStepId: string;
@@ -22,6 +26,11 @@ export class SidemenuComponent implements OnInit {
   ngOnInit() {
     this.getPartList();
     this.getReasonList();
+     //call processList  
+     this.getProcessList();
+     //call machineList  
+     this.getMachineList();
+   
   }  
   focusOutFunction ($event) {
     var val = (<HTMLInputElement>document.getElementById("issuedByValue")).value;
@@ -76,6 +85,23 @@ export class SidemenuComponent implements OnInit {
        }
     )
   }
+  // get processList
+  getProcessList() {
+    this.restAPIService.getProcessList().subscribe(
+      (data: any) => {
+        this.processStep = data;
+      }
+    )
+  }
+  // get machineList
+  getMachineList() {
+    this.restAPIService.getMachineList().subscribe(
+      (data: any) => {
+        this.machineStep = data;
+      }
+    )
+  }
+ 
   //api calls end
 
 

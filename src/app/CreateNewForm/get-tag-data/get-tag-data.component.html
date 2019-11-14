@@ -16,14 +16,14 @@
                   </option>
                </select>
                <div *ngIf="!isSelectedOptionDate">
-                  <input type="text" style="margin-right: 10px;" class="form-control input-search"  required="" name="searchOption"
-                     placeholder="{{selectedSearchOption}}" data-ng-model="selectedSearchOption">
+                  <input type="text" style="margin-right: 10px;" class="form-control input-search"  required name="searchOption"
+                     placeholder="{{selectedSearchOption}}" data-ng-model="selectedSearchOption" [(ngModel)]="searchValue">
                </div>
                <div *ngIf="isSelectedOptionDate">
-                  <input type="text" style="margin-right: 10px;" class="form-control input-search"  required="" name="searchOption"
-                     type="date" placeholder="{{selectedSearchOption}}" data-ng-model="selectedSearchOption">
+                  <input type="text" style="margin-right: 10px;" class="form-control input-search"  required name="searchOption"
+                     type="date" placeholder="{{selectedSearchOption}}" [(ngModel)]="searchValue" data-ng-model="selectedSearchOption">
                </div>
-               <button type="button" class="btn btn-secondary" (click)="updatetag(qualityTagData.id)">Submit</button>
+               <button type="button" class="btn btn-secondary" (click)="searchTag()">Submit</button>
             </div>
          </div>
       </div>

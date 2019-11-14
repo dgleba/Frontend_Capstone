@@ -1,8 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { RestAPIService } from '../../Service/restAPIService/rest-apiservice.service'
 import { UtilityServiceService } from '../../Service/utility-service.service'
-import { ProcessStep } from '../../Model/processStep';
-import { MachineStep } from '../../Model/machine';
+
 import { Router } from '@angular/router';
 
 
@@ -18,17 +17,13 @@ export class QualityalertinComponent implements OnInit {
     okdBy: '', body: '', Issuedby: '', Lengthofchange:''
   }
   expiredOn: Date;
-  public processStep: ProcessStep[];
-  public machineStep: MachineStep[];
+  
  
   constructor(public restAPIService: RestAPIService,
     public utilityService: UtilityServiceService, private router: Router) { }
 
   ngOnInit() {
-    //call processList  
-    this.getProcessList();
-    //call machineList  
-    this.getMachineList();
+  
   }
   addDays() {
     this.expiredOn = new Date();
@@ -36,23 +31,7 @@ export class QualityalertinComponent implements OnInit {
     console.log(this.expiredOn);
   }
 
-  // get processList
-  getProcessList() {
-    this.restAPIService.getProcessList().subscribe(
-      (data: any) => {
-        this.processStep = data;
-      }
-    )
-  }
-  // get machineList
-  getMachineList() {
-    this.restAPIService.getMachineList().subscribe(
-      (data: any) => {
-        this.machineStep = data;
-      }
-    )
-  }
- 
+  
   //validation 
   submitForm() {
     console.log(this.utilityService.getSelectedPartNum(),"in quality");

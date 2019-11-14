@@ -1,13 +1,17 @@
-<div class="row">
-  <div class="col">
+<div class="row add-margin">
+  <div class="col-lg-6">
     <label>OK'd by :</label>
     <input type="text" class="form-control" aria-label="OK'd By" aria-describedby="basic-addon2">
   </div>
-  <div class="col">
+</div>
+<div class="row add-margin">
+  <div class="col-lg-6">
     <p>Body</p>
     <textarea id="story6" placeholder="Enter.." name="story" rows="5" cols="50"></textarea>
   </div>
-  <div class="col form-group">
+</div>
+<div class="row add-margin">
+  <div class="col-lg-6 form-group">
     <p>Length of Change</p>
     <div class="input-group">
       <input type="text" class="form-control" [(ngModel)]="tagDetails.Lengthofchange"
@@ -19,8 +23,7 @@
     <p>{{ expiredOn }}</p>
   </div>
 </div>
-
-<div class="row">
+<div class="row add-margin">
   <div class="col" id="my_centered_buttons">
     <button type="button" class="btn btn-primary btn-lg" (click)="submitForm()">Submit</button>
   </div>

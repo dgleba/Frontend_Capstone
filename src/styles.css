@@ -2,3 +2,9 @@
 #home-btn{
     float: left;
   }
+  .add-padding{
+    padding: 10px;
+  }
+  .add-margin{
+    margin: 10px;
+  }

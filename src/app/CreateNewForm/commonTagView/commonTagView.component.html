@@ -1,47 +1,62 @@
 <div class="container-fluid ccommonTagView">
-<div class="internal-triangle">
-   
-</div>
-<h2 class="internal-header">
-    <button type="button" class="btn btn-primary" id="home-btn" routerLink="../home" >Home</button>
-  Internal Issue
-</h2>
+  <div class="internal-triangle">
 
-<div class="internal-container">
-  <div class="row">
-    <div class="col-sm-3 vertical-section">
-      <router-outlet name="sidemenu"></router-outlet>
-    </div>
-    <div class="col-sm-9">
-        <form class="form-inline ">
-     
-            <div id="navcontainer">
-                <ul id="navlist">
-                <li><a href="#" [routerLinkActive]="['active']" routerLink="qualityTag" >Quality Alert - In</a></li>
-                <li><a href="#" [routerLinkActive]="['active']" routerLink="holdTag">Hold Tag</a></li>
-                <li><a href="#" [routerLinkActive]="['active']" routerLink="tpcTag">TPC Tag</a></li>
-                <li><a href="#" [routerLinkActive]="['active']" routerLink="specialInstruction">Special Instruction</a></li>
-                <li><a href="#" [routerLinkActive]="['active']" routerLink="picture">Picture</a></li>
-                </ul>
-                </div>
+  </div>
+  <h2 class="internal-header">
+    <button type="button" class="btn btn-primary" id="home-btn" routerLink="../home">Home</button>
+    Internal Issue
+  </h2>
+
+  <div class="internal-container">
+    <div class="row">
+      <div class="col-sm-3 vertical-section">
+        <router-outlet name="sidemenu"></router-outlet>
+      </div>
+      <div class="col-sm-9 remove-padding">
+        <!-- <form class="form-inline "> -->
+
+        <!-- <div id="navcontainer">
+            <ul id="navlist">
+              <li><a href="#" [routerLinkActive]="['active']" routerLink="qualityTag">Quality Alert - In</a></li>
+              <li><a href="#" [routerLinkActive]="['active']" routerLink="holdTag">Hold Tag</a></li>
+              <li><a href="#" [routerLinkActive]="['active']" routerLink="tpcTag">TPC Tag</a></li>
+              <li><a href="#" [routerLinkActive]="['active']" routerLink="specialInstruction">Special Instruction</a>
+              </li>
+              <li><a href="#" [routerLinkActive]="['active']" routerLink="picture">Picture</a></li>
+            </ul>
+          </div> -->
 
 
+        <!-- Classic tabs -->
+        <div class="classic-tabs custom-tabs">
 
-     
-          <!--
-          <button class="btn btn-outline-info header_css " type="button" [routerLinkActive]="['active']" routerLink="qualityTag"> Quality Alert - In
-          </button>
-          <button class="btn btn-outline-info header_css" type="button" [routerLinkActive]="['active']" routerLink="holdTag"> Hold Tag </button>
-          <button class="btn btn-outline-info header_css" type="button" [routerLinkActive]="['active']" routerLink="tpcTag"> TPC Tag </button>
-          <button class="btn btn-outline-info header_css" type="button" [routerLinkActive]="['active']" routerLink="specialInstruction"> Special
-            Instruction </button>
-          <button class="btn btn-outline-info header_css" type="button" [routerLinkActive]="['active']" routerLink="picture"> Picture </button>
-      -->
-        </form>
-      <router-outlet></router-outlet>
-     
-      
+          <ul class="nav tabs-cyan" id="myClassicTab" role="tablist">
+            <li class="nav-item">
+              <a class="nav-link  waves-light active show" id="profile-tab-classic" data-toggle="tab"
+                href="#profile-classic" role="tab" aria-controls="profile-classic" routerLink="qualityTag"
+                aria-selected="true">Quality Tag</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link waves-light" id="follow-tab-classic" data-toggle="tab" href="#follow-classic"
+                role="tab" aria-controls="follow-classic" routerLink="holdTag" aria-selected="false">Hold Tag</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link waves-light" id="contact-tab-classic" data-toggle="tab" href="#contact-classic"
+                role="tab" aria-controls="contact-classic" routerLink="tpcTag" aria-selected="false">Tpc Tag</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link waves-light" id="awesome-tab-classic" data-toggle="tab" href="#awesome-classic"
+                role="tab" aria-controls="awesome-classic" routerLink="specialInstruction" aria-selected="false">Special
+                Instructions</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link waves-light" id="awesome-tab-classic" data-toggle="tab" href="#awesome-classic"
+                role="tab" aria-controls="awesome-classic" routerLink="picture" aria-selected="false">Pictures</a>
+            </li>
+          </ul>
+        </div>
+        <router-outlet></router-outlet>
+      </div>     
     </div>
   </div>
-</div>
 </div>

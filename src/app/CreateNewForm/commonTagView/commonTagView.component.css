@@ -104,3 +104,10 @@ color: #000066;
   margin: 0px;
  
 }
+.custom-tabs{
+  background-color: rgb(212, 215, 219);
+  height: 50px;
+}
+.remove-padding{
+  padding: 0px;
+}

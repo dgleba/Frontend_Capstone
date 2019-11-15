@@ -5,25 +5,23 @@
             <input type="text" name="okdBy" class="form-control" [(ngModel)]="tagDetails.okdBy"
                 [ngModelOptions]="{standalone: true}">
         </div>
+        <div class="col-md-6 form-group">
+                <p>Length of Change</p>
+                <div class="input-group">
+                    <input type="text" class="form-control" [(ngModel)]="tagDetails.Lengthofchange" placeholder="Length of change"
+                        [ngModelOptions]="{standalone: true}" (change)="addDays()" aria-label="Length of change">
+                    <div class="input-group-append">
+                        <span class="input-group-text">Days</span>
+                    </div>
+                </div>
+                <p>{{ expiredOn }}</p>
+            </div>
     </div>
     <div class="row">
         <div class="col-lg-6 form-group">
             <p>Body</p>
-            <textarea name="body" class="form-control" [(ngModel)]="tagDetails.body"
+            <textarea autosize class="form-control my-textarea" [(ngModel)]="tagDetails.body"
                 [ngModelOptions]="{standalone: true}" placeholder="Enter..." name="story" rows="4"></textarea>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-6 form-group">
-            <p>Length of Change</p>
-            <div class="input-group">
-                <input type="text" class="form-control" [(ngModel)]="tagDetails.Lengthofchange" placeholder="Length of change"
-                    [ngModelOptions]="{standalone: true}" (change)="addDays()" aria-label="Length of change">
-                <div class="input-group-append">
-                    <span class="input-group-text">Days</span>
-                </div>
-            </div>
-            <p>{{ expiredOn }}</p>
         </div>
     </div>
     <div class="row">

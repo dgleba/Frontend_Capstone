@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RestAPIService } from 'src/app/Service/restAPIService/rest-apiservice.service';
 
 @Component({
   selector: 'app-add-picture',
@@ -10,21 +11,26 @@ export class AddPictureComponent implements OnInit {
   imgURL: any;
   imgURL1: any;
   public message: string;
+  
  
-  constructor() { }
+  constructor(private restAPIService: RestAPIService) { }
   ngOnInit() {
+  }
+  uploadImage(){
+    this.restAPIService.uploadImage(this.imgURL).subscribe((data: any)=>{
+      console.log(data);
+    });
+
   }
   
   preview(files,imageNo:number) {
     if (files.length === 0)
-      return;
- 
+      return; 
     var mimeType = files[0].type;
     if (mimeType.match(/image\/*/) == null) {
       this.message = "Only images are supported.";
       return;
-    }
- 
+    } 
     var reader = new FileReader();
     this.imagePath = files;
     reader.readAsDataURL(files[0]); 
@@ -33,8 +39,7 @@ export class AddPictureComponent implements OnInit {
         this.imgURL = reader.result;
       }else{       
         this.imgURL1 = reader.result;
-      }
-     
+      }     
     }
   }
 

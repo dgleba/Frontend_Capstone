@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import {AutosizeModule} from 'ngx-autosize';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import {Routes, RouterModule} from '@angular/router';
@@ -66,7 +67,8 @@ const appRoutes : Routes = [
     BrowserModule,
     FormsModule,
     RouterModule.forRoot(appRoutes),
-    HttpClientModule
+    HttpClientModule,
+    AutosizeModule
   ],
   providers: [AuthGuardService,DatePipe],
   bootstrap: [AppComponent]

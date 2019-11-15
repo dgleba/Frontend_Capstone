@@ -24,6 +24,13 @@ export class RestAPIService {
       'Authorization': 'Bearer' + " " + this.utilityService.getToken()
     })
   }
+  // file upload header
+  filehttpOptions={
+    headers: new HttpHeaders({
+      'Content-Type': 'multipart/form-data; boundary=--------------------------119990622078711153870282',
+      'Authorization': 'Bearer' + " " + this.utilityService.getToken()
+    })
+  }
 
   // HttpClient API Post() method => Fetch User list
   doLogin(user) {
@@ -48,6 +55,16 @@ export class RestAPIService {
   updateTag(tagData,id){
     console.log("in service update Tag", tagData);
     return this.http.put(this.apiURL + '/tbl_quality_issues/'+id+'.json', tagData,this.httpOptions)
+      .pipe(
+        catchError(this.handleError)
+      )
+  }
+  // Api to upload Image
+  uploadImage(file){
+    console.log("image data", file);
+    const formData = new FormData();
+    formData.append('country_of_origin[avatar]', file);
+    return this.http.put(this.apiURL + '/country_of_origins/10.json',formData,this.httpOptions)
       .pipe(
         catchError(this.handleError)
       )

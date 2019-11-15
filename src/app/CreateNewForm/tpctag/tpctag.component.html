@@ -1,34 +1,35 @@
 <div class="row add-padding">
+    <div class="col-lg-6">
+      <p>Length of Change</p>
+      <div class="input-group">
+        <input type="text" class="form-control" [(ngModel)]="tagDetails.Lengthofchange"
+          [ngModelOptions]="{standalone: true}" (change)="addDays()" aria-label="Length of change">
+        <div class="input-group-append">
+          <span class="input-group-text">Days</span>
+        </div>
+      </div>
+      <p>{{ expiredOn }}</p>
+    </div>
+  </div>
+<div class="row add-padding">
   <div class="col-lg-6">
     <p>Feature : </p>
-    <textarea id="story3" placeholder="Enter Feature..." name="story" rows="3" cols="100"></textarea>
+    <textarea autosize placeholder="Enter Feature..." name="story" rows="3" cols="100"></textarea>
   </div>
 </div>
 <div class="row add-padding">
   <div class="col-lg-6">
     <p>Body : </p>
-    <textarea id="story4" placeholder="Enter..." name="story" rows="3" cols="100"></textarea>
+    <textarea autosize placeholder="Enter..." name="story" rows="3" cols="100"></textarea>
   </div>
 </div>
 <div class="row add-padding">
   <div class="col-lg-6">
     <p>Changed : </p>
-    <textarea id="story5" placeholder="Enter..." name="story" rows="3" cols="100"></textarea>
+    <textarea autosize placeholder="Enter..." name="story" rows="3" cols="100"></textarea>
   </div>
 </div>
-<div class="row add-padding">
-  <div class="col-lg-6">
-    <p>Length of Change</p>
-    <div class="input-group">
-      <input type="text" class="form-control" [(ngModel)]="tagDetails.Lengthofchange"
-        [ngModelOptions]="{standalone: true}" (change)="addDays()" aria-label="Length of change">
-      <div class="input-group-append">
-        <span class="input-group-text">Days</span>
-      </div>
-    </div>
-    <p>{{ expiredOn }}</p>
-  </div>
-</div>
+
 <div class="row add-padding">
   <div class="col-lg-6" id="my_centered_buttons">
     <button type="button" class="btn btn-primary btn-lg" (click)="submitForm()">Submit</button>

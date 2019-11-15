@@ -14,6 +14,29 @@ import { MachineStep } from '../../Model/machine';
 export class SidemenuComponent implements OnInit {
   constructor(private utilityService: UtilityServiceService, private restAPIService: RestAPIService) {
   }
+  keyword = 'name';
+  data = [
+     {
+       id: 1,
+       name: 'Usa'
+     },
+     {
+       id: 2,
+       name: 'England'
+     },
+     {
+      id: 3,
+      name: 'Enter'
+    },
+    {
+      id: 2,
+      name: 'Entiy'
+    },
+    {
+     id: 3,
+     name: 'Entesss'
+   }
+  ];
   tagSummaryList = this.utilityService.getTagsummaryList();
   public partNumberList: Partnumber[];
   public reasonList : Reason[];

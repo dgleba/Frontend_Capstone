@@ -13,47 +13,21 @@ export class GetTagDataComponent implements OnInit {
   constructor(private restAPIService: RestAPIService, private router: Router) { }
   qualityTagDataList: QualityTagData[];
   searchOption: any = [
-    { id: '1', searchBy: 'Tag ID', isChecked: false },
-    { id: '2', searchBy: 'Part Number', isChecked: false },
-    { id: '3', searchBy: 'Date', isChecked: false },
+    { id: '1', searchBy: 'Tag ID', isChecked: false ,value:''},
+    { id: '2', searchBy: 'Part Number', isChecked: false ,value:'' },
+    { id: '3', searchBy: 'Text has', isChecked: false ,value:'' },
+    { id: '4', searchBy: 'Date', isChecked: false ,value:'' },
   ];
-  selectedSearchOption: string;
-  isSelectedOptionDate: boolean;
-  searchValue: string;
+  
   ngOnInit() {
     this.getQualityTagData();
   }
 
   searchTag() {
-    console.log("search value", this.searchValue);
-    if (!this.searchValue) {
-      alert("Enter data to be searched");
-    }
-    else {
-      switch (this.selectedSearchOption) {
-        case "TagId":
-          this.callSearchByDataApi(this.searchValue,"","");
-          break;
-        case "Part Number":
-            this.callSearchByDataApi("",this.searchValue,"");
-          break;
-        case "Date":
-            this.callSearchByDataApi("","",this.searchValue,);
-          break;
-
-      }
-    }
+    console.log("search value", this.searchOption);
+   
   }
-  //event handler to get the selected value of part num
-  getSelectedSearchOption(event: any) {
-    this.selectedSearchOption = event.target.value;
-    if (this.selectedSearchOption === 'Date') {
-      this.isSelectedOptionDate = true;
-    } else {
-      this.isSelectedOptionDate = false;
-    }
-
-  }
+  
   // Api to get data by searching 
   callSearchByDataApi(tagId,partNo,date){
     this.restAPIService.getDataBySearch(tagId,partNo,date).subscribe(
@@ -81,7 +55,7 @@ export class GetTagDataComponent implements OnInit {
       }
     )
   }
-  //Api to update a tag
+  //go to update page with id
   updatetag(id: number) {
     console.log("its here");
     this.router.navigate(['/updateTag', id]);

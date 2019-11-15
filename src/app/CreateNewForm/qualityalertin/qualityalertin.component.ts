@@ -34,7 +34,7 @@ export class QualityalertinComponent implements OnInit {
   
   //validation 
   submitForm() {
-    console.log(this.tagDetails.Okdby,"okdby ");
+    console.log(this.tagDetails.Okdby,"okdby malti");
     // console.log(this.utilityService.getSelectedPartNum(),"in quality");
     // if (this.utilityService.getSelectedPartNum()) {
     //   if (this.utilityService.getSelectedReason()) {
@@ -57,7 +57,7 @@ export class QualityalertinComponent implements OnInit {
     this.tagDetails.Issuedby = this.utilityService.getIssuedBy();
     this.tagDetails.PartID = this.utilityService.getSelectedPartNum();
     this.tagDetails.Reason=this.utilityService.getSelectedReason();   
-    this.utilityService.setOkdBy(this.tagDetails.okdBy);
+    this.utilityService.setOkdBy(this.tagDetails.Okdby);
     this.utilityService.setBody(this.tagDetails.body);
     console.log(this.tagDetails);
     //this.utilityService.setLengthOfChange(this.tagDetails.lengthOfChange);

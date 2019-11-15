@@ -1,5 +1,23 @@
 <h4>Internal</h4>
-
+<div class="ng-autocomplete">
+    <ng-autocomplete 
+      [data]="data"
+      [searchKeyword]="keyword"
+      (selected)='selectEvent($event)'
+      (inputChanged)='onChangeSearch($event)'
+      (inputFocused)='onFocused($event)'
+      [itemTemplate]="itemTemplate"
+      [notFoundTemplate]="notFoundTemplate">                                 
+    </ng-autocomplete>
+     
+    <ng-template #itemTemplate let-item>
+    <a [innerHTML]="item.name"></a>
+    </ng-template>
+     
+    <ng-template #notFoundTemplate let-notFound>
+    <div [innerHTML]="notFound"></div>
+    </ng-template>
+</div>
 
 <div class="form-group">
     <select class="form-control" (change)="getSelectedPartNumber($event)">
@@ -13,7 +31,7 @@
 <div class="form-group">
 
 <select class="form-control" (change)="getSelectedReason($event)">
-    <option [ngValue]="null" disabled>Reason</option>
+    <option disabled>Reason</option>
 <option *ngFor="let reason of reasonList; let i = index" [ngValue]="reason">
     {{reason.Reason}}
 </option>
@@ -31,7 +49,7 @@
     <div class="form-group">
       
         <select class="form-control"  (change)="getSelectedMachine($event)">
-            <option [ngValue]="null" disabled>Machine ID And Description</option>
+            <option disabled>Machine ID And Description</option>
             <option *ngFor="let machineStep of machineStep; let i = index" [ngValue]="machineId">
                     {{machineStep.id }} {{ machineStep.MachineDesc}}
             </option>

@@ -10,23 +10,17 @@
          <div class="col-4">
             <div>
                <div>
-                     <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">Search By</button>
+                     <button type="button" class="btn btn-info add-margin" data-toggle="collapse" data-target="#demo">Search By</button>
+                     <button type="button" class="btn btn-secondary add-margin" data-toggle="collapse" data-target="#demo" (click)="searchTag()">Submit</button>
                </div>
                  
-               <div id="demo" class="collapse" *ngFor="let searchOption of searchOption; let i = index" >
-                     <input type="text" placeholder="{{searchOption.searchBy}}" data-ng-model="searchOption"/>
+               <div id="demo" class="collapse"  *ngFor="let searchOption of searchOption; let i = index" >
+                     <input *ngIf="searchOption.searchBy !='Date'" type="text" class="form-control add-width-height"
+                     [(ngModel)]="searchOption.value" placeholder="{{searchOption.searchBy}}" data-ng-model="searchOption"/>
+                     <input *ngIf="searchOption.searchBy ==='Date'" type="date" class="form-control add-width-height"
+                     [(ngModel)]="searchOption.value" placeholder="{{searchOption.searchBy}}" data-ng-model="searchOption"/>
                </div>
-              
-               <!-- <select class="form-control" required (change)="getSelectedSearchOption($event)">
-                  <option disabled>Search By</option>
-                  <option *ngFor="let searchOption of searchOption; let i = index" [ngValue]="searchOption">
-                     <div>
-                        <p>{{searchOption.searchBy}}</p>
-                     </div>
-                  </option>
-               </select> -->
-               
-               <button type="button" class="btn btn-secondary" (click)="searchTag()">Submit</button>
+                 
             </div>
          </div>
       </div>
@@ -41,7 +35,6 @@
                <tr>
                   <th>Edit</th>
                   <th>Tag ID</th>
-
                   <th>Date</th>
                   <th>Part Number</th>
                   <th>Reason</th>

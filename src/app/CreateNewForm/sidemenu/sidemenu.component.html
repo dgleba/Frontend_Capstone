@@ -31,9 +31,9 @@
     <div class="form-group">
       
         <select class="form-control"  (change)="getSelectedMachine($event)">
-            <option [ngValue]="null" disabled>Machine Step</option>
+            <option [ngValue]="null" disabled>Machine ID And Description</option>
             <option *ngFor="let machineStep of machineStep; let i = index" [ngValue]="machineId">
-                {{machineStep.MachineDesc}}
+                    {{machineStep.id }} {{ machineStep.MachineDesc}}
             </option>
         </select>
     </div>

@@ -13,8 +13,8 @@ import { Router } from '@angular/router';
 })
 export class QualityalertinComponent implements OnInit {
   @Input() tagDetails = {
-    Date: '', PartID: '',
-    okdBy: '', body: '', Issuedby: '', Lengthofchange:''
+    Date: '', PartID: '', Reason:'',
+    Okdby: '', body: '', Issuedby: '', Lengthofchange:''
   }
   expiredOn: Date;
   
@@ -34,30 +34,32 @@ export class QualityalertinComponent implements OnInit {
   
   //validation 
   submitForm() {
-    console.log(this.utilityService.getSelectedPartNum(),"in quality");
-    if (this.utilityService.getSelectedPartNum()) {
-      if (this.utilityService.getSelectedReason()) {
-        if (this.utilityService.getIssuedBy()) {
-          //api call
-          this.createTagApiCall();
-        } else {
-          alert("Enter Issued by");
-        }
-      } else {
-        alert("Select Reason");
-      }
-    } else {
-      alert("Select Part Number");
-    }
+    console.log(this.tagDetails.Okdby,"okdby ");
+    // console.log(this.utilityService.getSelectedPartNum(),"in quality");
+    // if (this.utilityService.getSelectedPartNum()) {
+    //   if (this.utilityService.getSelectedReason()) {
+    //     if (this.utilityService.getIssuedBy()) {
+    //       //api call
+    //       this.createTagApiCall();
+    //     } else {
+    //       alert("Enter Issued by");
+    //     }
+    //   } else {
+    //     alert("Select Reason");
+    //   }
+    // } else {
+    //   alert("Select Part Number");
+    // }
   }
 
   createTagApiCall() {
     this.tagDetails.Date=this.utilityService.getTodaysDate().toDateString();
     this.tagDetails.Issuedby = this.utilityService.getIssuedBy();
     this.tagDetails.PartID = this.utilityService.getSelectedPartNum();
-    console.log(this.tagDetails);
+    this.tagDetails.Reason=this.utilityService.getSelectedReason();   
     this.utilityService.setOkdBy(this.tagDetails.okdBy);
     this.utilityService.setBody(this.tagDetails.body);
+    console.log(this.tagDetails);
     //this.utilityService.setLengthOfChange(this.tagDetails.lengthOfChange);
     this.restAPIService.createTag(this.tagDetails).subscribe((data: any) => {
       console.log(data);

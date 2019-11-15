@@ -10,6 +10,7 @@ export class AddPictureComponent implements OnInit {
   public imagePath;
   imgURL: any;
   imgURL1: any;
+ file:File;
   public message: string;
   
  
@@ -17,23 +18,23 @@ export class AddPictureComponent implements OnInit {
   ngOnInit() {
   }
   uploadImage(){
-    this.restAPIService.uploadImage(this.imgURL).subscribe((data: any)=>{
+    this.restAPIService.uploadImage(this.file).subscribe((data: any)=>{
       console.log(data);
     });
 
   }
   
-  preview(files,imageNo:number) {
-    if (files.length === 0)
+  preview(event,imageNo:number) {
+    this.file=event.target.files[0];
+    if (event.length === 0)
       return; 
-    var mimeType = files[0].type;
+    var mimeType = this.file.type;
     if (mimeType.match(/image\/*/) == null) {
       this.message = "Only images are supported.";
       return;
     } 
     var reader = new FileReader();
-    this.imagePath = files;
-    reader.readAsDataURL(files[0]); 
+    reader.readAsDataURL(this.file); 
     reader.onload = (_event) => { 
       if(imageNo==1){       
         this.imgURL = reader.result;

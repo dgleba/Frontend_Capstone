@@ -27,7 +27,6 @@ export class RestAPIService {
   // file upload header
   filehttpOptions={
     headers: new HttpHeaders({
-      'Content-Type': 'multipart/form-data; boundary=--------------------------119990622078711153870282',
       'Authorization': 'Bearer' + " " + this.utilityService.getToken()
     })
   }
@@ -64,7 +63,7 @@ export class RestAPIService {
     console.log("image data", file);
     const formData = new FormData();
     formData.append('country_of_origin[avatar]', file);
-    return this.http.put(this.apiURL + '/country_of_origins/10.json',formData,this.httpOptions)
+    return this.http.put(this.apiURL + '/country_of_origins/10.json',formData,this.filehttpOptions)
       .pipe(
         catchError(this.handleError)
       )

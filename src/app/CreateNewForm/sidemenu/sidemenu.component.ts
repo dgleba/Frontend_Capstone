@@ -38,21 +38,15 @@ export class SidemenuComponent implements OnInit {
    }
   ];
   tagSummaryList = this.utilityService.getTagsummaryList();
-  public partNumberList: Partnumber[];
-  public reasonList : Reason[];
-  public processStep: ProcessStep[];
-  public machineStep: MachineStep[];
+  public partNumberList=this.utilityService.getPartNumberList();
+  public reasonList=this.utilityService.getReasonList();
+  public processStep=this.utilityService.getProcessList();
+  public machineStep=this.utilityService.getMachineList();
   public selectedPartNum: string = '';
   public selectedReason: string = '';
   public processStepId: string;
   public machineStepId: string;
   ngOnInit() {
-    this.getPartList();
-    this.getReasonList();
-     //call processList  
-     this.getProcessList();
-     //call machineList  
-     this.getMachineList();
    
   }  
   focusOutFunction ($event) {
@@ -91,41 +85,7 @@ export class SidemenuComponent implements OnInit {
   
   }
 
-  // api calls start
-  getPartList() {    
-    this.restAPIService.getPartList().subscribe(
-      (data: any) => {
-        this.partNumberList = data;    
-       
-       }
-    )
-  }
-
-  getReasonList() {    
-    this.restAPIService.getReasonList().subscribe(
-      (data: any) => {
-        this.reasonList = data;    
-       }
-    )
-  }
-  // get processList
-  getProcessList() {
-    this.restAPIService.getProcessList().subscribe(
-      (data: any) => {
-        this.processStep = data;
-      }
-    )
-  }
-  // get machineList
-  getMachineList() {
-    this.restAPIService.getMachineList().subscribe(
-      (data: any) => {
-        this.machineStep = data;
-      }
-    )
-  }
- 
-  //api calls end
+  
 
 
 

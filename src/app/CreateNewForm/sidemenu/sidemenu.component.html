@@ -1,17 +1,12 @@
 <h4>Internal</h4>
 <div class="ng-autocomplete">
     <ng-autocomplete 
-      [data]="data"
-      [searchKeyword]="keyword"
-      (selected)='selectEvent($event)'
-      (inputChanged)='onChangeSearch($event)'
-      (inputFocused)='onFocused($event)'
-      [itemTemplate]="itemTemplate"
-      [notFoundTemplate]="notFoundTemplate">                                 
+      [data]="partNumberListmalti"
+      [searchKeyword]="keyword">                                 
     </ng-autocomplete>
      
     <ng-template #itemTemplate let-item>
-    <a [innerHTML]="item.name"></a>
+    <a [innerHTML]="item.description"></a>
     </ng-template>
      
     <ng-template #notFoundTemplate let-notFound>

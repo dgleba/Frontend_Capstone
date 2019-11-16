@@ -12,7 +12,7 @@ import {HttpParams} from  "@angular/common/http";
 export class RestAPIService {
 
   // Define API
-  apiURL = 'http://192.168.0.41:6036';
+  apiURL = 'http://172.20.10.8:6036';
 
 
   constructor(private http: HttpClient, private utilityService: UtilityServiceService) { }

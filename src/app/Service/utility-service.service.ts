@@ -1,5 +1,9 @@
 import { Injectable } from '@angular/core';
 import { DatePipe } from '@angular/common';
+import {Partnumber} from 'src/app/Model/partnumber';
+import {Reason} from 'src/app/Model/reason';
+import { ProcessStep } from 'src/app/Model/processStep';
+import { MachineStep } from 'src/app/Model/machine';
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +16,10 @@ tagSummaryOption : any = [
   {id: '4', tagName: 'Special Instruction', isChecked: false,tagVlue:0},
   {id: '5', tagName: 'Quality Alert - IN', isChecked: false,tagVlue:0},
   {id: '6', tagName: 'Supplier Issue', isChecked: false,tagVlue:0}];
+  public partNumberList: Partnumber[];
+  public reasonList : Reason[];
+  public processStepList: ProcessStep[];
+  public machineStepList: MachineStep[];
   token : string;
   partNum:string;
   reason:string;
@@ -118,7 +126,34 @@ tagSummaryOption : any = [
     this.okdBy='';
     this.quatity=0;
     this.body='';
-
+  }
+//getter setter for part number
+  setPartNumberList(partList){
+    this.partNumberList=partList;
+  }
+  getPartNumberList(){
+    return this.partNumberList;
+  }
+  //getter setter for reason
+  setReasonList(reasonList){
+    this.reasonList=reasonList;
+  }
+  getReasonList(){
+    return this.reasonList;
+  }
+  //getter setter for process
+  setProcessList(processList){
+    this.processStepList=processList;
+  }
+  getProcessList(){
+    return this.processStepList;
+  }
+   //getter setter for machine
+   setMachineList(machineList){
+    this.machineStepList=machineList;
+  }
+  getMachineList(){
+    return this.machineStepList;
   }
   
 }

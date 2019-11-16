@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders,HttpParams } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
 import { UtilityServiceService } from '../utility-service.service';
-import {HttpParams} from  "@angular/common/http";
+
 
 
 @Injectable({
@@ -12,7 +12,7 @@ import {HttpParams} from  "@angular/common/http";
 export class RestAPIService {
 
   // Define API
-  apiURL = 'http://172.20.10.8:6036';
+  apiURL = 'http://192.168.0.41:6036';
 
 
   constructor(private http: HttpClient, private utilityService: UtilityServiceService) { }
@@ -115,10 +115,24 @@ export class RestAPIService {
   }
 
   //searchBy api call
-  getDataBySearch(tagId,partNo,date){
-    console.log("part in search rest",partNo);
-    return this.http.get(this.apiURL + '/tbl_quality_issues.json?utf8=%E2%9C%93&q%5BPartID_cont%5D='
-    +partNo+'&q%5BDate_cont%5D='+date,this.httpOptions)
+  getDataBySearch(searchObl){
+    let myHeader=new HttpHeaders();
+    myHeader=myHeader.append( 'Content-Type','application/json');
+    myHeader=myHeader.append( 'Authorization','Bearer' + " " + this.utilityService.getToken());
+    console.log("hearder",myHeader);
+    let  params = new HttpParams();
+    params = params.append('utf8','%E2%9C%93');
+    if(searchObl[0].value){
+      params = params.append('q%5Bid_cont%5D',searchObl[0].value);
+    } 
+    if(searchObl[1].value){
+      params = params.append('q%5BPartID_cont%5D',searchObl[1].value);
+    } 
+    if(searchObl[2].value){
+      params = params.append('q%5Bdate_cont%5D',searchObl[3].value);
+    }   
+    console.log("params",params);
+    return this.http.get(this.apiURL + '/tbl_quality_issues.json', {headers:myHeader,params:params})
     .pipe(
       catchError(this.handleError)
     )

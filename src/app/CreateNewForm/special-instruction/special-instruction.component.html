@@ -14,8 +14,8 @@
   <div class="col-lg-6 form-group">
     <p>Length of Change</p>
     <div class="input-group">
-      <input type="text" class="form-control" [(ngModel)]="tagDetails.Lengthofchange"
-        [ngModelOptions]="{standalone: true}" (change)="addDays()" aria-label="Length of change">
+      <input type="text" class="form-control"
+        (change)="addDays()" aria-label="Length of change">
       <div class="input-group-append">
         <span class="input-group-text">Days</span>
       </div>

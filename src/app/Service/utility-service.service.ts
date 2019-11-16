@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { DatePipe } from '@angular/common';
+import {QualityTagData} from '../Model/qualtiyTagData';
 import {Partnumber} from 'src/app/Model/partnumber';
 import {Reason} from 'src/app/Model/reason';
 import { ProcessStep } from 'src/app/Model/processStep';
@@ -10,12 +11,13 @@ import { MachineStep } from 'src/app/Model/machine';
 })
 export class UtilityServiceService {
 tagSummaryOption : any = [
-  {id: '1', tagName: 'Quality Alert', isChecked: false,tagVlue:0},
-  {id: '2', tagName: 'Hold Tag', isChecked: false,tagVlue:0},
-  {id: '3', tagName: 'TPC Tag', isChecked: false,tagVlue:0},
-  {id: '4', tagName: 'Special Instruction', isChecked: false,tagVlue:0},
-  {id: '5', tagName: 'Quality Alert - IN', isChecked: false,tagVlue:0},
-  {id: '6', tagName: 'Supplier Issue', isChecked: false,tagVlue:0}];
+  {id: '1', tagName: 'Quality Alert', isChecked: false},
+  {id: '2', tagName: 'Hold Tag', isChecked: false},
+  {id: '3', tagName: 'TPC Tag', isChecked: false},
+  {id: '4', tagName: 'Special Instruction', isChecked: false},
+  {id: '5', tagName: 'Quality Alert - IN', isChecked: false},
+  {id: '6', tagName: 'Supplier Issue', isChecked: false}];
+  public internalTagData:QualityTagData;
   public partNumberList: Partnumber[];
   public reasonList : Reason[];
   public processStepList: ProcessStep[];
@@ -126,6 +128,14 @@ tagSummaryOption : any = [
     this.okdBy='';
     this.quatity=0;
     this.body='';
+  }
+
+  //getter setter for qualityTagData
+  setInternalTagData(internalTagObj){
+    this.internalTagData=internalTagObj;
+  }
+  getInternalTagData(){
+    return this.internalTagData;
   }
 //getter setter for part number
   setPartNumberList(partList){

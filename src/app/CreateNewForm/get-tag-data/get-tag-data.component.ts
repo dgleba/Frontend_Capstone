@@ -25,12 +25,13 @@ export class GetTagDataComponent implements OnInit {
 
   searchTag() {
     console.log("search value", this.searchOption);
+    this.callSearchByDataApi();
    
   }
   
   // Api to get data by searching 
-  callSearchByDataApi(tagId,partNo,date){
-    this.restAPIService.getDataBySearch(tagId,partNo,date).subscribe(
+  callSearchByDataApi(){
+    this.restAPIService.getDataBySearch(this.searchOption).subscribe(
       (data: any) => {
         this.qualityTagDataList = data;
         if(this.qualityTagDataList.length!=0){
@@ -38,8 +39,7 @@ export class GetTagDataComponent implements OnInit {
         }else{
           alert("No data available");
           this.getQualityTagData();
-        }
-       
+        }      
 
       }
     )

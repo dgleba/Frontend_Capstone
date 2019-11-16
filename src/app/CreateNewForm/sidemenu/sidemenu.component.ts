@@ -1,10 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { UtilityServiceService } from 'src/app/Service/utility-service.service';
 import { RestAPIService } from 'src/app/Service/restAPIService/rest-apiservice.service';
-import {Partnumber} from 'src/app/Model/partnumber';
-import {Reason} from 'src/app/Model/reason';
-import { ProcessStep } from '../../Model/processStep';
-import { MachineStep } from '../../Model/machine';
+import { QualityTagData } from 'src/app/Model/qualtiyTagData';
+import {Partnumber} from '../../Model/partnumber';
+import {Reason} from '../../Model/reason';
+import {ProcessStep} from '../../Model/processStep';
+import {MachineStep} from '../../Model/machine';
+import { from } from 'rxjs';
+
 
 @Component({
   selector: 'app-sidemenu',
@@ -16,15 +19,15 @@ export class SidemenuComponent implements OnInit {
   }
   keyword = 'name';
   data = [
-     {
-       id: 1,
-       name: 'Usa'
-     },
-     {
-       id: 2,
-       name: 'England'
-     },
-     {
+    {
+      id: 1,
+      name: 'Usa'
+    },
+    {
+      id: 2,
+      name: 'England'
+    },
+    {
       id: 3,
       name: 'Enter'
     },
@@ -33,59 +36,127 @@ export class SidemenuComponent implements OnInit {
       name: 'Entiy'
     },
     {
-     id: 3,
-     name: 'Entesss'
-   }
+      id: 3,
+      name: 'Entesss'
+    }
   ];
   tagSummaryList = this.utilityService.getTagsummaryList();
-  public partNumberList=this.utilityService.getPartNumberList();
-  public reasonList=this.utilityService.getReasonList();
-  public processStep=this.utilityService.getProcessList();
-  public machineStep=this.utilityService.getMachineList();
+  public internalTagData: QualityTagData;
+  public partNumberList:Partnumber[];
+  public reasonList:Reason[];
+  public processStep:ProcessStep[];
+  public machineStep:MachineStep[];
   public selectedPartNum: string = '';
   public selectedReason: string = '';
   public processStepId: string;
   public machineStepId: string;
   ngOnInit() {
-   
-  }  
-  focusOutFunction ($event) {
+    this.getMachineList();
+    this.getPartList();
+    this.getProcessList();
+    this.getReasonList();
+
+  }
+  focusOutFunction($event) {
     var val = (<HTMLInputElement>document.getElementById("issuedByValue")).value;
-    this.utilityService.setIssuedBy(val);
-   
- }
+    this.internalTagData.Issuedby = val;
+    this.utilityService.setInternalTagData(this.internalTagData);
+
+  }
 
   //event handler to get the selected value of part num
-  getSelectedPartNumber (event: any) {    
-    this.selectedPartNum = event.target.value;
-    this.utilityService.setSelectedPartNum(this.selectedPartNum);
-    
+  getSelectedPartNumber(event: any) {
+    this.internalTagData.PartID = event.target.value;
+    this.utilityService.setInternalTagData(this.internalTagData);
+
   }
-  getSelectedReason (event: any) {    
-    this.selectedReason = event.target.value;
-    this.utilityService.setSelectedReason(this.selectedReason);
-    
+  getSelectedReason(event: any) {
+    // this.selectedReason = event.target.value;
+    // this.utilityService.setSelectedReason(this.selectedReason);
+    this.internalTagData.Reason = event.target.value;
+    this.utilityService.setInternalTagData(this.internalTagData);
+
   }
-   //event handler to get the selected value of part num
-   getSelectedProcessStep(event: any) {
+  //event handler to get the selected value of part num
+  getSelectedProcessStep(event: any) {
     this.processStepId = event.target.value;
     this.utilityService.setSelectedProcessStep(this.processStepId);
+
   }
   getSelectedMachine(event: any) {
     this.machineStepId = event.target.value;
     this.utilityService.setSelectedMachineStep(this.machineStepId);
+    this.internalTagData.MachineID = event.target.value;
+    this.utilityService.setInternalTagData(this.internalTagData);
   }
   //
-  getSelectedTag (id:number) {
-    var updatedObjectArray=this.utilityService.getTagsummaryList();
-    var updatedObj=updatedObjectArray[id];
-    updatedObj.isChecked=!updatedObj.isChecked;
-    updatedObjectArray.tagVlue=1;
-   this.utilityService.setUpdatedTagSummaryObject(updatedObj,id);
-  
+  getSelectedTag(id: number) {
+    var updatedObjectArray = this.utilityService.getTagsummaryList();
+    var updatedObj = updatedObjectArray[id];
+    updatedObj.isChecked = !updatedObj.isChecked;
+    updatedObjectArray.tagVlue = 1;
+    this.utilityService.setUpdatedTagSummaryObject(updatedObj, id);
+    this.setInternalTagBoolean(this.utilityService.getTagsummaryList);
+
   }
 
-  
+  //api calls start
+getPartList() {    
+  this.restAPIService.getPartList().subscribe(
+    (data: any) => {
+      this.partNumberList=data;
+      this.utilityService.setPartNumberList(data);    
+     
+     }
+  )
+}
+
+getReasonList() {    
+  this.restAPIService.getReasonList().subscribe(
+    (data: any) => {
+      this.reasonList=data;
+      this.utilityService.setReasonList(data);    
+     }
+  )
+}
+// get processList
+getProcessList() {
+  this.restAPIService.getProcessList().subscribe(
+    (data: any) => {
+      this.processStep=data;
+      this.utilityService.setProcessList(data);
+    }
+  )
+}
+// get machineList
+getMachineList() {
+  this.restAPIService.getMachineList().subscribe(
+    (data: any) => {
+      this.machineStep=data;
+      this.utilityService.setMachineList(data);
+    }
+  )
+} 
+//api calls end
+  setInternalTagBoolean(tagSummaryList) {
+    for (let tagsummary of tagSummaryList) {
+      switch (tagsummary.id) {
+        case 0:
+          console.log(tagsummary.isChecked);
+          break;
+        case 1:
+            console.log(tagsummary.isChecked);
+          break;
+        case 2:
+          break;
+        case 3:
+          break;
+
+
+      }
+    }
+
+  }
 
 
 

@@ -15,8 +15,8 @@ export class GetTagDataComponent implements OnInit {
   searchOption: any = [
     { id: '1', searchBy: 'Tag ID', isChecked: false ,value:''},
     { id: '2', searchBy: 'Part Number', isChecked: false ,value:'' },
-    { id: '3', searchBy: 'Text has', isChecked: false ,value:'' },
-    { id: '4', searchBy: 'Date', isChecked: false ,value:'' },
+    { id: '3', searchBy: 'Date', isChecked: false ,value:'' },
+    { id: '4', searchBy: 'Text Has', isChecked: false ,value:'' },
   ];
   
   ngOnInit() {

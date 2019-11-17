@@ -121,15 +121,17 @@ export class RestAPIService {
     myHeader=myHeader.append( 'Authorization','Bearer' + " " + this.utilityService.getToken());
     console.log("hearder",myHeader);
     let  params = new HttpParams();
-    params = params.append('utf8','%E2%9C%93');
     if(searchObl[0].value){
-      params = params.append('q%5Bid_cont%5D',searchObl[0].value);
+      params = params.append('q[id_cont]',searchObl[0].value);
     } 
     if(searchObl[1].value){
-      params = params.append('q%5BPartID_cont%5D',searchObl[1].value);
+      params = params.append('q[PartID_cont]',searchObl[1].value);
     } 
     if(searchObl[2].value){
-      params = params.append('q%5Bdate_cont%5D',searchObl[3].value);
+      params = params.append('q[date_cont]',searchObl[3].value);
+    }
+    if(searchObl[3].value){
+      params=params.append('q[ProblemType_or_PartID_or_Issuedby_or_OpertionHd_or_OpertionTp_or_OpertionSp_or_OpertionQA_or_Reason_or_ReasonNote_or_Feature_or_Changed_or_Comment_or_SpecialInst_or_QualityAlert_or_QualityAlertMemo_or_CustomerRefNum_or_DispositionCustomer_or_DispositionStackpole_or_Okdby_or_FeatureNumber_or_OperationNumber_or_body_or_operation_cont_any]',searchObl[3].value);
     }   
     console.log("params",params);
     return this.http.get(this.apiURL + '/tbl_quality_issues.json', {headers:myHeader,params:params})

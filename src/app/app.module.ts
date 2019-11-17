@@ -24,7 +24,7 @@ import { ExternalIssueFormComponent } from "./external-issue-form/external-issue
 import { PartValueCalculatorComponent } from "./external-issue-form/part-value-calculator/part-value-calculator.component";
 
 const appRoutes: Routes = [
-  { path: "home", component: HomeComponent },
+  { path: "", component: LoginComponent },
   { path: "login", component: LoginComponent },
   { path: "home", component: HomeComponent },
   {

@@ -1,64 +1,82 @@
 <h4>Internal</h4>
 <div class="ng-autocomplete">
-    <ng-autocomplete 
-      [data]="partNumberListmalti"
-      [searchKeyword]="keyword">                                 
-    </ng-autocomplete>
-     
-    <ng-template #itemTemplate let-item>
+  <ng-autocomplete [data]="partNumberListmalti" [searchKeyword]="keyword">
+  </ng-autocomplete>
+
+  <ng-template #itemTemplate let-item>
     <a [innerHTML]="item.description"></a>
-    </ng-template>
-     
-    <ng-template #notFoundTemplate let-notFound>
+  </ng-template>
+
+  <ng-template #notFoundTemplate let-notFound>
     <div [innerHTML]="notFound"></div>
-    </ng-template>
+  </ng-template>
 </div>
 
 <div class="form-group">
-    <select class="form-control" (change)="getSelectedPartNumber($event)">
-            <option [ngValue]="null" disabled>Part Number</option>
-        <option *ngFor="let partNum of partNumberList; let i = index" [ngValue]="partNum">
-            {{partNum.id}}
-        </option>
-    </select>
+  <select class="form-control" (change)="getSelectedPartNumber($event)">
+    <option [ngValue]="null" disabled>Part Number</option>
+    <option
+      *ngFor="let partNum of partNumberList; let i = index"
+      [ngValue]="partNum"
+    >
+      {{ partNum.id }}
+    </option>
+  </select>
 </div>
 
 <div class="form-group">
-
-<select class="form-control" (change)="getSelectedReason($event)">
+  <select class="form-control" (change)="getSelectedReason($event)">
     <option disabled>Reason</option>
-<option *ngFor="let reason of reasonList; let i = index" [ngValue]="reason">
-    {{reason.Reason}}
-</option>
-</select>
-</div>
-
-<div class="form-group">      
-        <select class="form-control"   (change)="getSelectedProcessStep($event)">
-            <option disabled>Process Step</option>
-            <option *ngFor="let processStep of processStep; let i = index" [ngValue]="processStep">
-                {{processStep.Department}}
-            </option>
-        </select>
-</div>
-    <div class="form-group">
-      
-        <select class="form-control"  (change)="getSelectedMachine($event)">
-            <option disabled>Machine ID And Description</option>
-            <option *ngFor="let machineStep of machineStep; let i = index" [ngValue]="machineId">
-                    {{machineStep.id }} {{ machineStep.MachineDesc}}
-            </option>
-        </select>
-    </div>
-
-
-<div class="form-group">
-<input type="text" class="form-control" placeholder="Issued By" aria-label="Issued By" id="issuedByValue" (focusout)="focusOutFunction(e)" aria-describedby="basic-addon2">
+    <option *ngFor="let reason of reasonList; let i = index" [ngValue]="reason">
+      {{ reason.Reason }}
+    </option>
+  </select>
 </div>
 
 <div class="form-group">
-        <label>Tag Summary</label>
-<div class="checkbox" *ngFor="let tagSummary of tagSummaryList ; let i = index">
-    <label><input type="checkbox"  (change)="getSelectedTag(i)"> {{tagSummary.tagName}} </label>
+  <select class="form-control" (change)="getSelectedProcessStep($event)">
+    <option disabled>Process Step</option>
+    <option
+      *ngFor="let processStep of processStep; let i = index"
+      [ngValue]="processStep"
+    >
+      {{ processStep.Department }}
+    </option>
+  </select>
 </div>
+<div class="form-group">
+  <select class="form-control" (change)="getSelectedMachine($event)">
+    <option disabled>Machine ID And Description</option>
+    <option
+      *ngFor="let machineStep of machineStep; let i = index"
+      [ngValue]="machineId"
+    >
+      {{ machineStep.id }} {{ machineStep.MachineDesc }}
+    </option>
+  </select>
+</div>
+
+<div class="form-group">
+  <input
+    type="text"
+    class="form-control"
+    placeholder="Issued By"
+    aria-label="Issued By"
+    id="issuedByValue"
+    (focusout)="focusOutFunction(e)"
+    aria-describedby="basic-addon2"
+  />
+</div>
+
+<div class="form-group">
+  <label>Tag Summary</label>
+  <div
+    class="checkbox"
+    *ngFor="let tagSummary of tagSummaryList; let i = index"
+  >
+    <label
+      ><input type="checkbox" (change)="getSelectedTag(i)" />
+      {{ tagSummary.tagName }}
+    </label>
+  </div>
 </div>

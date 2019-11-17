@@ -1,48 +1,41 @@
+body {
+  background: #456;
+  font-family: "Open Sans", sans-serif;
+}
 
-  body {
-    background: #456;
-    font-family: 'Open Sans', sans-serif;
-  }
-
-.cgetTagData{
+.cgetTagData {
   width: auto;
-  margin:auto;
+  margin: auto;
   font-size: 18px;
-    }
-
-   .container-fluid {
-    padding: 0 !important;
-}
- 
-  /*triange */
-  .getTagData-triangle {
-    width: 0;
-    margin-right: auto;
-    margin-left: auto;
-    border: 12px solid transparent;
-    border-bottom-color: #000060;
-  }
-
-  .getTagData-header {
-    background: #000060;
-    padding: 20px;
-    font-size: 1.4em;
-    font-weight: normal;
-    text-align: center;
-    text-transform: uppercase;
-    color: #fff;
-    margin-top: 0;
-    margin-bottom: 0;
-  }
-
-  .getTagData-container{
-    background:white;
-    padding-right: 15px;
-    padding-left: 15px;
 }
 
+.container-fluid {
+  padding: 0 !important;
+}
 
-thead{
-  background-color:#6200ea;
+/*triange */
+.getTagData-triangle {
+  width: 0;
+  margin-right: auto;
+  margin-left: auto;
+  border: 12px solid transparent;
+  border-bottom-color: #000060;
+}
+
+.getTagData-header {
+  background: #000060;
+  padding: 20px;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.getTagData-container {
+  background: white;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+thead {
+  background-color: #6200ea;
   color: white;
 }

@@ -4,6 +4,7 @@ export class QualityTagData {
     Issuedby: string;
     Reason: string;
     MachineID:string;
+    ProcessStep:string;
     Date:string;
     Okdby: string;
     body:string;
@@ -17,4 +18,5 @@ export class QualityTagData {
     TPCTag:boolean;
     SpecialInstWritten:boolean;
     Changed:string;
+ 
 }

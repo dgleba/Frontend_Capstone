@@ -1,16 +1,18 @@
 <div class="row add-margin">
     <div class="col-lg-6 form-group">
         <label>Quantity</label>
-        <input type="text" class="form-control" aria-label="Quantity" aria-describedby="basic-addon2">
+        <input type="text" class="form-control" aria-label="Quantity" [(ngModel)]="internalTagData.qty"
+        [ngModelOptions]="{standalone: true}">
     </div>
 </div>
 <div class="row add-margin">
     <div class="col-lg-6 form-group">
         <p>Body :</p>
-        <textarea autosize placeholder="Enter..." name="story" rows="4" cols="50"></textarea>
+        <textarea autosize placeholder="Enter..." [(ngModel)]="internalTagData.body"
+        [ngModelOptions]="{standalone: true}" rows="4" cols="50"></textarea>
     </div>
 </div>
-<div class="row">
+<div class="row add-margin">
     <div class="col-lg-6" id="my_centered_buttons">
         <button type="button" class="btn btn-primary btn-lg" (click)="submitForm()">Submit</button>
     </div>

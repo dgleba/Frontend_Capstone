@@ -83,7 +83,8 @@ export class SidemenuComponent implements OnInit {
   //event handler to get the selected value of part num
   getSelectedProcessStep(event: any) {
     this.processStepId = event.target.value;
-
+    this.internalTagData.ProcessStep = event.target.value;
+    this.utilityService.setInternalTagData(this.internalTagData);
   }
   getSelectedMachine(event: any) {
     this.internalTagData.MachineID = event.target.value;

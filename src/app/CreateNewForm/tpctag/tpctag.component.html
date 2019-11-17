@@ -2,7 +2,7 @@
     <div class="col-lg-6">
       <p>Length of Change</p>
       <div class="input-group">
-        <input type="text" class="form-control" [(ngModel)]="tagDetails.Lengthofchange"
+        <input type="text" class="form-control" [(ngModel)]="internalTagData.Lengthofchange"
           [ngModelOptions]="{standalone: true}" (change)="addDays()" aria-label="Length of change">
         <div class="input-group-append">
           <span class="input-group-text">Days</span>
@@ -14,19 +14,22 @@
 <div class="row add-padding">
   <div class="col-lg-6">
     <p>Feature : </p>
-    <textarea autosize placeholder="Enter Feature..." name="story" rows="3" cols="100"></textarea>
+    <textarea autosize placeholder="Enter Feature..." [(ngModel)]="internalTagData.Feature"
+    [ngModelOptions]="{standalone: true}" rows="3" cols="100"></textarea>
   </div>
 </div>
 <div class="row add-padding">
   <div class="col-lg-6">
     <p>Body : </p>
-    <textarea autosize placeholder="Enter..." name="story" rows="3" cols="100"></textarea>
+    <textarea autosize placeholder="Enter..." [(ngModel)]="internalTagData.body"
+    [ngModelOptions]="{standalone: true}" rows="3" cols="100"></textarea>
   </div>
 </div>
 <div class="row add-padding">
   <div class="col-lg-6">
     <p>Changed : </p>
-    <textarea autosize placeholder="Enter..." name="story" rows="3" cols="100"></textarea>
+    <textarea autosize placeholder="Enter..." [(ngModel)]="internalTagData.Changed"
+     [ngModelOptions]="{standalone: true}" rows="3" cols="100"></textarea>
   </div>
 </div>
 

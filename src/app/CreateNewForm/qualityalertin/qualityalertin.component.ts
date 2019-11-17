@@ -1,10 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { RestAPIService } from '../../Service/restAPIService/rest-apiservice.service'
 import { UtilityServiceService } from '../../Service/utility-service.service'
-import {QualityTagData} from '../../Model/qualtiyTagData'
-
 import { Router } from '@angular/router';
-import { from } from 'rxjs';
+
 
 
 
@@ -14,11 +12,9 @@ import { from } from 'rxjs';
   styleUrls: ['./qualityalertin.component.css']
 })
 export class QualityalertinComponent implements OnInit {
-  
+ constructor(public restAPIService: RestAPIService, public utilityService: UtilityServiceService, private router: Router) { }
   expiredOn: Date;
-  public internalTagData=this.utilityService.getInternalTagData(); 
-  constructor(public restAPIService: RestAPIService,
-  public utilityService: UtilityServiceService, private router: Router) { }
+  public internalTagData=this.utilityService.getInternalTagData();
   ngOnInit() {
     console.log("inter part",this.internalTagData);
   }
@@ -50,6 +46,7 @@ export class QualityalertinComponent implements OnInit {
   createTagApiCall() {    
     //this.utilityService.setLengthOfChange(this.tagDetails.lengthOfChange);
     this.restAPIService.createTag(this.internalTagData).subscribe((data: any) => {
+    
       console.log(data);
       this.router.navigate(['/getTag'])
     })

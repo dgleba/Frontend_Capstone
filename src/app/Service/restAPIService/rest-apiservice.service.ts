@@ -12,7 +12,7 @@ import { UtilityServiceService } from '../utility-service.service';
 export class RestAPIService {
 
   // Define API
-  apiURL = 'http://192.168.0.41:6036';
+  apiURL = 'http://192.168.0.32:6036';
 
 
   constructor(private http: HttpClient, private utilityService: UtilityServiceService) { }
@@ -59,11 +59,19 @@ export class RestAPIService {
       )
   }
   // Api to upload Image
-  uploadImage(file,id){
-    console.log("image data", file);
+  uploadImage(file1,file2,documents,id){
+    console.log("image data", documents);
+  //  var  myDocument: string | Blob [];
+  //  myDocument=new Array;
+  //   for(var i = 0; i < documents.length; i++){
+  //       console.log("json array of document", documents[i]);
+  //       myDocument.push(documents[i]);
+  //     }      
     const formData = new FormData();
-    formData.append('country_of_origin[avatar]', file);
-    return this.http.put(this.apiURL + '/country_of_origins/'+id+'.json',formData,this.filehttpOptions)
+    formData.append('tbl_quality_issue[picture01]', file1);
+    formData.append('tbl_quality_issue[picture02]', file2);
+    formData.append('tbl_quality_issue[documents]', documents);
+    return this.http.put(this.apiURL + '/tbl_quality_issues/'+id+'.json',formData,this.filehttpOptions)
       .pipe(
         catchError(this.handleError)
       )

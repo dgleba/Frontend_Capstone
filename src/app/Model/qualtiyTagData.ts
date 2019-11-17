@@ -10,11 +10,11 @@ export class QualityTagData {
     Lengthofchange:number;
     qty:number;
     Feature:string;
-    QualityMemo:false;
-    QualityATag:false;
-    Supplier_Issue:false;
-    HoldTag:false;
-    TPCTag:false;
-    SpecialInstWritten:false;
+    QualityMemo:boolean;
+    QualityATag:boolean;
+    Supplier_Issue:boolean;
+    HoldTag:boolean;
+    TPCTag:boolean;
+    SpecialInstWritten:boolean;
     Changed:string;
 }

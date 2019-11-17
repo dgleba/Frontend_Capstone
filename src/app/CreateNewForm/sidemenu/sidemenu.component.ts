@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { UtilityServiceService } from 'src/app/Service/utility-service.service';
 import { RestAPIService } from 'src/app/Service/restAPIService/rest-apiservice.service';
-import { QualityTagData } from 'src/app/Model/qualtiyTagData';
+import {QualityTagData} from '../../Model/qualtiyTagData';
 import {Partnumber} from '../../Model/partnumber';
 import {Reason} from '../../Model/reason';
 import {ProcessStep} from '../../Model/processStep';
 import {MachineStep} from '../../Model/machine';
 import { from } from 'rxjs';
+
 
 
 @Component({
@@ -41,7 +42,7 @@ export class SidemenuComponent implements OnInit {
     }
   ];
   tagSummaryList = this.utilityService.getTagsummaryList();
-  public internalTagData: QualityTagData;
+  public internalTagData=this.utilityService.getInternalTagData();
   public partNumberList:Partnumber[];
   public reasonList:Reason[];
   public processStep:ProcessStep[];
@@ -51,6 +52,8 @@ export class SidemenuComponent implements OnInit {
   public processStepId: string;
   public machineStepId: string;
   ngOnInit() {
+   
+    console.log("inter part",this.internalTagData);
     this.getMachineList();
     this.getPartList();
     this.getProcessList();
@@ -66,13 +69,13 @@ export class SidemenuComponent implements OnInit {
 
   //event handler to get the selected value of part num
   getSelectedPartNumber(event: any) {
-    this.internalTagData.PartID = event.target.value;
+    this.selectedPartNum=event.target.value;
+    this.internalTagData.PartID = this.selectedPartNum;
     this.utilityService.setInternalTagData(this.internalTagData);
 
   }
   getSelectedReason(event: any) {
-    // this.selectedReason = event.target.value;
-    // this.utilityService.setSelectedReason(this.selectedReason);
+     this.selectedReason = event.target.value;
     this.internalTagData.Reason = event.target.value;
     this.utilityService.setInternalTagData(this.internalTagData);
 
@@ -80,12 +83,9 @@ export class SidemenuComponent implements OnInit {
   //event handler to get the selected value of part num
   getSelectedProcessStep(event: any) {
     this.processStepId = event.target.value;
-    this.utilityService.setSelectedProcessStep(this.processStepId);
 
   }
   getSelectedMachine(event: any) {
-    this.machineStepId = event.target.value;
-    this.utilityService.setSelectedMachineStep(this.machineStepId);
     this.internalTagData.MachineID = event.target.value;
     this.utilityService.setInternalTagData(this.internalTagData);
   }
@@ -94,10 +94,35 @@ export class SidemenuComponent implements OnInit {
     var updatedObjectArray = this.utilityService.getTagsummaryList();
     var updatedObj = updatedObjectArray[id];
     updatedObj.isChecked = !updatedObj.isChecked;
-    updatedObjectArray.tagVlue = 1;
     this.utilityService.setUpdatedTagSummaryObject(updatedObj, id);
-    this.setInternalTagBoolean(this.utilityService.getTagsummaryList);
-
+    this.setInternalTagBoolean(this.utilityService.getTagsummaryList());
+  }
+  setInternalTagBoolean(tagSummaryList) {
+    console.log("tag list",tagSummaryList);
+    for (let tagsummary of tagSummaryList) {
+      switch (tagsummary.id) {
+        case '1':
+          this.internalTagData.QualityMemo = tagsummary.isChecked;
+          break;
+        case '2':
+            this.internalTagData.HoldTag = tagsummary.isChecked;
+          break;
+        case '3':
+            this.internalTagData.TPCTag = tagsummary.isChecked;
+          break;
+        case '4':
+            this.internalTagData.SpecialInstWritten = tagsummary.isChecked;
+          break;
+        case '5':
+          this.internalTagData.QualityATag = tagsummary.isChecked;
+          break;
+        case '6':
+          this.internalTagData.Supplier_Issue = tagsummary.isChecked;
+          break;
+      }
+    }
+    this.utilityService.setInternalTagData(this.internalTagData);
+    console.log("internal tag data",this.utilityService.getInternalTagData());
   }
 
   //api calls start
@@ -138,26 +163,7 @@ getMachineList() {
   )
 } 
 //api calls end
-  setInternalTagBoolean(tagSummaryList) {
-    for (let tagsummary of tagSummaryList) {
-      switch (tagsummary.id) {
-        case 0:
-          console.log(tagsummary.isChecked);
-          break;
-        case 1:
-            console.log(tagsummary.isChecked);
-          break;
-        case 2:
-          break;
-        case 3:
-          break;
 
-
-      }
-    }
-
-  }
-
-
+  
 
 }

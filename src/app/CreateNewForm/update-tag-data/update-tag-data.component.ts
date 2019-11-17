@@ -13,10 +13,6 @@ import { Router } from '@angular/router';
   styleUrls: ['./update-tag-data.component.css']
 })
 export class UpdateTagDataComponent implements OnInit {
-  @Input() tagDetails = {
-    Date: '', PartID: '',
-    okdBy: '', body: '', Issuedby: '', Lengthofchange:''
-  }
   constructor(private restAPIService: RestAPIService,private route:ActivatedRoute,
     public utilityService: UtilityServiceService,private router: Router) { }
   public editTagId:number;
@@ -34,7 +30,7 @@ export class UpdateTagDataComponent implements OnInit {
   }
   focusOutFunction ($event) {
     var val = (<HTMLInputElement>document.getElementById("issuedByValue")).value;
-    this.utilityService.setIssuedBy(val);
+    this.qualityTagData.Issuedby=val;
    
  }
    // api calls start
@@ -44,7 +40,7 @@ export class UpdateTagDataComponent implements OnInit {
       (data: any) => {
         console.log("by id data",data);  
         this.qualityTagData = data;
-        this.utilityService.setIssuedBy(this.qualityTagData.Issuedby); 
+
        }
     )
    }
@@ -69,19 +65,14 @@ export class UpdateTagDataComponent implements OnInit {
   //event handler to get the selected value of part num
   getSelectedPartNumber (event: any) {    
     this.selectedPartNum = event.target.value;
-    this.utilityService.setSelectedPartNum(this.selectedPartNum);
-    this.qualityTagData.PartID=this.selectedPartNum;
-    
+    this.qualityTagData.PartID=this.selectedPartNum;    
   }
   getSelectedReason (event: any) {    
     this.selectedReason = event.target.value;
-    this.utilityService.setSelectedReason(this.selectedReason);
-    this.qualityTagData.Reason=this.selectedReason;
-    
+    this.qualityTagData.Reason=this.selectedReason;    
   }
 
   updateTag() {
-    console.log(this.utilityService.getSelectedPartNum(),"in quality");
     if (this.qualityTagData.PartID) {
       if (this.qualityTagData.Reason) {
         if (this.qualityTagData.Issuedby) {
@@ -100,13 +91,10 @@ export class UpdateTagDataComponent implements OnInit {
 
   updateTagApiCall() {
     this.qualityTagData.Date=this.utilityService.getTodaysDate().toDateString();
-    this.qualityTagData.Issuedby = this.utilityService.getIssuedBy();
-    this.qualityTagData.PartID = this.utilityService.getSelectedPartNum();
     console.log(this.qualityTagData,"quality");
     //this.utilityService.setLengthOfChange(this.tagDetails.lengthOfChange);
     this.restAPIService.updateTag(this.qualityTagData,this.editTagId).subscribe((data: any) => {
       console.log(data);
-      this.utilityService.clearData();
       this.router.navigate(['/getTag'])
     })
 

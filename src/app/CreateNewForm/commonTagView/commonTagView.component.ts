@@ -16,19 +16,4 @@ export class CommonTagView implements OnInit {
   }
   
 
-  
-  //submitForm
-  submitForm(){ 
-    if(this.utilityService.getSelectedPartNum()!=undefined){
-      if(this.utilityService.getSelectedReason()!=undefined){ 
-            
-      } else{
-        alert("Select Reason");
-      }
-    } else{
-      alert("Select Part Number");
-    }
-    console.log(this.utilityService.getSelectedPartNum(),"in common tag");
-  }
-
 }

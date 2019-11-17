@@ -59,11 +59,11 @@ export class RestAPIService {
       )
   }
   // Api to upload Image
-  uploadImage(file){
+  uploadImage(file,id){
     console.log("image data", file);
     const formData = new FormData();
     formData.append('country_of_origin[avatar]', file);
-    return this.http.put(this.apiURL + '/country_of_origins/10.json',formData,this.filehttpOptions)
+    return this.http.put(this.apiURL + '/country_of_origins/'+id+'.json',formData,this.filehttpOptions)
       .pipe(
         catchError(this.handleError)
       )
@@ -139,7 +139,6 @@ export class RestAPIService {
   }
 
 
-
   handleError(error) {
     let errorMessage = '';
     if (error.error instanceof ErrorEvent) {
@@ -152,10 +151,6 @@ export class RestAPIService {
     console.log("error",errorMessage);  
     return throwError(errorMessage);
   }
-
-
-
-
 
 
 }

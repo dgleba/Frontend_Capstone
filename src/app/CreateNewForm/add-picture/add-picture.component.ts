@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RestAPIService } from 'src/app/Service/restAPIService/rest-apiservice.service';
 
+
 @Component({
   selector: 'app-add-picture',
   templateUrl: './add-picture.component.html',
@@ -17,8 +18,8 @@ export class AddPictureComponent implements OnInit {
   constructor(private restAPIService: RestAPIService) { }
   ngOnInit() {
   }
-  uploadImage(){
-    this.restAPIService.uploadImage(this.file).subscribe((data: any)=>{
+  uploadImage(id){
+    this.restAPIService.uploadImage(this.file,id).subscribe((data: any)=>{
       console.log(data);
     });
 

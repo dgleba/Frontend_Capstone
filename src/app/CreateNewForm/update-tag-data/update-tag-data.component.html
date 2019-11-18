@@ -6,63 +6,68 @@
     <div class="updateTag-container">
         <form>
             <div class="row">
-                <div class="col-4 col-lg-4">
-
-                    <p>Part Number</p>
-                    <select class="form-control" (change)="getSelectedPartNumber($event)">
-                        <option disabled>
-                            Part Number
-                        </option>
-                        <option *ngFor="let partNum of partNumberList; let i = index"
-                            [selected]="partNum.id ===qualityTagData.PartID">
-                            {{partNum.id}}
-                        </option>
-                    </select>
+                <div class="col-6">
+                    <div class="ng-autocomplete">
+                        <ng-autocomplete [data]="partNumberList" [searchKeyword]="partNumId" placeHolder="Part Number"
+                            (selected)='getSelectedPartNumber($event)' (inputCleared)="clearData()"
+                            [itemTemplate]="itemTemplate" [notFoundTemplate]="notFoundTemplate">
+                        </ng-autocomplete>
+                        <ng-template #itemTemplate let-item>
+                            <a [innerHTML]="item.id"></a>
+                        </ng-template>
+                        <ng-template #notFoundTemplate let-notFound>
+                            <div [innerHTML]="notFound"></div>
+                        </ng-template>
+                    </div>
                 </div>
-                <div class="col-4 col-lg-4">
-                    <p>Reason</p>
-                    <select class="form-control" (change)="getSelectedReason($event)">
-                        <option disabled>
-                            Reason
-                        </option>
-                        <option *ngFor="let reason of reasonList; let i = index"
-                            [selected]="reason.Reason ===qualityTagData.Reason">
-                            {{reason.Reason}}
-                        </option>
-                    </select>
+                <div class="col-6">
+                    <div class="ng-autocomplete">
+                        <ng-autocomplete [data]="reasonList" [searchKeyword]="reasonKeyword" placeHolder="Reason"
+                            (selected)='getSelectedReason($event)' (inputCleared)="clearData()"
+                            [itemTemplate]="reasonTemplate" [notFoundTemplate]="notFoundReasonTemplate">
+                        </ng-autocomplete>
+                        <ng-template #reasonTemplate let-item>
+                            <a [innerHTML]="item.Reason"></a>
+                        </ng-template>
+                        <ng-template #notFoundReasonTemplate let-notFound>
+                            <div [innerHTML]="notFound"></div>
+                        </ng-template>
+                    </div>
                 </div>
-                <div class="col-4 col-lg-4">
+            </div>
+            <div class="row">
+                <div class="col-6">
                     <p>Issued By</p>
                     <input type="text" class="form-control" placeholder="Issued By" aria-label="Issued By"
                         (focusout)="focusOutFunction(e)" [(ngModel)]="qualityTagData.Issuedby"
                         [ngModelOptions]="{standalone: true}">
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-4">
+                <div class="col-6">
                     <p>OK'd by :</p>
                     <input type="text" name="okdBy" class="form-control" [(ngModel)]='qualityTagData.Okdby'
                         [ngModelOptions]="{standalone: true}">
                 </div>
-                <div class="col-4">
+            </div>
+            <div class="row">
+
+                <div class="col-6">
                     <p>Body</p>
-                    <textarea name="body" class="form-control" placeholder="Enter..." name="story" rows="4" cols="50"
-                        [(ngModel)]='qualityTagData.body' [ngModelOptions]="{standalone: true}"></textarea>
+                    <textarea name="body" autosize class="form-control" placeholder="Enter..." name="story" rows="4"
+                        cols="50" [(ngModel)]='qualityTagData.body' [ngModelOptions]="{standalone: true}"></textarea>
                 </div>
-                <div class="col-4">
+                <div class="col-6">
                     <p>Length of Change</p>
                     <input type="text" class="form-control" aria-label="Length of change"
                         [(ngModel)]='qualityTagData.Lengthofchange' [ngModelOptions]="{standalone: true}">
                 </div>
             </div>
             <div class="row">
-                <div class="col-4"></div>
+
                 <div class="col-4" id="my_centered_buttons">
                     <button type="button" class="btn btn-primary btn-lg" (click)="updateTag()">Submit</button>
                 </div>
-                <div class="col-4"></div>
+
             </div>
         </form>
-
     </div>
 </div>

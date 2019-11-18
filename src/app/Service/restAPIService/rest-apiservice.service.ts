@@ -12,11 +12,7 @@ import { UtilityServiceService } from '../utility-service.service';
 export class RestAPIService {
 
   // Define API
-<<<<<<< Updated upstream
   apiURL = 'http://192.168.0.41:6036';
-=======
-  apiURL = 'http://192.168.43.250:6036';
->>>>>>> Stashed changes
 
 
   constructor(private http: HttpClient, private utilityService: UtilityServiceService) { }

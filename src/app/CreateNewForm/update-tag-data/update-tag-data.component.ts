@@ -14,13 +14,14 @@ import { Router } from '@angular/router';
 })
 export class UpdateTagDataComponent implements OnInit {
   constructor(private restAPIService: RestAPIService,private route:ActivatedRoute,
-    public utilityService: UtilityServiceService,private router: Router) { }
+  public utilityService: UtilityServiceService,private router: Router) { }
   public editTagId:number;
   public partNumberList: Partnumber[];
   public reasonList : Reason[];
   public qualityTagData:QualityTagData;
-  public selectedPartNum: string = '';
-  public selectedReason: string = '';
+  
+  partNumId = 'id';
+  reasonKeyword='Reason';
   
   ngOnInit() {
     this.editTagId=parseInt(this.route.snapshot.paramMap.get("id"));   
@@ -64,14 +65,16 @@ export class UpdateTagDataComponent implements OnInit {
 
   //event handler to get the selected value of part num
   getSelectedPartNumber (event: any) {    
-    this.selectedPartNum = event.target.value;
-    this.qualityTagData.PartID=this.selectedPartNum;    
+    this.qualityTagData.PartID=event.id;    
   }
-  getSelectedReason (event: any) {    
-    this.selectedReason = event.target.value;
-    this.qualityTagData.Reason=this.selectedReason;    
+  //event handler to get the selected value of reason
+  getSelectedReason (event: any) {  
+   this.qualityTagData.Reason=event.Reason;    
   }
-
+  clearData(){
+    this.qualityTagData.PartID = '';
+    this.qualityTagData.Reason = '';     
+  }
   updateTag() {
     if (this.qualityTagData.PartID) {
       if (this.qualityTagData.Reason) {

@@ -12,7 +12,12 @@ import { UtilityServiceService } from '../utility-service.service';
 export class RestAPIService {
 
   // Define API
+<<<<<<< Updated upstream
   apiURL = 'http://192.168.0.41:6036';
+=======
+
+  apiURL = 'http://192.168.43.250:6036';
+>>>>>>> Stashed changes
 
 
   constructor(private http: HttpClient, private utilityService: UtilityServiceService) { }
@@ -80,6 +85,13 @@ export class RestAPIService {
     .pipe(
       catchError(this.handleError)
     )
+}
+// API to fetch CustomerList
+getCustomerList(){
+  return this.http.get(this.apiURL + '/tbl_customers.json',this.httpOptions)
+  .pipe(
+    catchError(this.handleError)
+  )
 }
 
   // API to fetch Part Numer

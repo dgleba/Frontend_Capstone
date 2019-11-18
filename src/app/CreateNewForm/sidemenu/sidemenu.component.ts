@@ -50,7 +50,13 @@ export class SidemenuComponent implements OnInit {
     this.internalTagData.PartID = event.id;
     this.utilityService.setInternalTagData(this.internalTagData);
   }
-  
+  clearData(){
+    this.internalTagData.PartID = '';
+    this.internalTagData.Reason = '';
+    this.internalTagData.ProcessStep = '';
+    this.internalTagData.MachineID = '';
+    console.log("not part num",this.internalTagData.PartID); 
+  }
     //event handler to get the selected value of reason
   getSelectedReason(event: any) {
     console.log("select reason num", event.Reason);

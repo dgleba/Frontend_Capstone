@@ -5,6 +5,7 @@
     [searchKeyword]="partNumId"
     placeHolder="Part Number"
     (selected)='getSelectedPartNumber($event)'
+    (inputCleared)="clearData()"
     [itemTemplate]="itemTemplate"
     [notFoundTemplate]="notFoundTemplate">                                 
   </ng-autocomplete>   
@@ -22,6 +23,7 @@
     [searchKeyword]="reasonKeyword"
     placeHolder="Reason"
     (selected)='getSelectedReason($event)'
+    (inputCleared)="clearData()"
     [itemTemplate]="reasonTemplate"
     [notFoundTemplate]="notFoundReasonTemplate">                                 
   </ng-autocomplete>   
@@ -39,6 +41,7 @@
     [searchKeyword]="processKeyword"
     placeHolder="Process Step"
     (selected)='getSelectedProcessStep($event)'
+    (inputCleared)="clearData()"
     [itemTemplate]="processTemplate"
     [notFoundTemplate]="notFoundProcessTemplate">                                 
   </ng-autocomplete>   
@@ -56,6 +59,7 @@
     [searchKeyword]="machineKeyword1"
     placeHolder="Machine Step"
     (selected)='getSelectedMachine($event)'
+    (inputCleared)="clearData()"
     [itemTemplate]="machineTemplate"
     [notFoundTemplate]="notFoundMachineTemplate">                                 
   </ng-autocomplete>   

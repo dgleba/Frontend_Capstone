@@ -1,1 +1,51 @@
-<p>quality-alert-external works!</p>
+
+<form class="add-padding add-margin">
+    <div class="row">
+            <div class="col">
+                    <label>Est. Cost : </label>
+                    <input type="text"  class="form-control" placeholder="$0.00">
+            </div>
+            <div class="col">
+                    <label>No. Of Pieces</label>
+                    <input type="text"  class="form-control" placeholder="0">
+            </div>
+            <div class="col">
+                    <div class="form-group">
+                            <label>Customer</label>
+                            <select class="form-control" (change)="getSelectedQualityCustomer($event)">
+                              <option [ngValue]="null" disabled>Customer</option>
+                              <option
+                                *ngFor="let qualityCustomer of QualityCustomerList; let i = index"
+                                [ngValue]="qualityCustomer"
+                              >
+                                {{ qualityCustomer.id }}
+                              </option>
+                            </select>
+                    </div>
+            </div>
+    </div>
+    <div class="row">
+            <div class="col">
+                    <label>Customer Ref Num : </label>
+                    <input type="text"  class="form-control" placeholder="Customer Reference Number">
+            </div>
+            <div class="col">
+                    <label>No. Of Pieces</label>
+                    <input type="text"  class="form-control" placeholder="0">
+            </div>
+            <div class="col">
+                    <div class="form-group">
+                            <label>Stackpole</label>
+                            <select class="form-control" (change)="getSelectedstackpole($event)">
+                              <option [ngValue]="null" disabled>Stackpole</option>
+                              <option
+                                *ngFor="let stackpole of stackpoleList; let i = index"
+                                [ngValue]="stackpole"
+                              >
+                                {{ stackpole.id }}
+                              </option>
+                            </select>
+                    </div>
+            </div>
+    </div>
+</form>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UtilityServiceService } from 'src/app/Service/utility-service.service';
 
 @Component({
   selector: 'app-side-menu-external',
@@ -7,8 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SideMenuExternalComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private utilityService: UtilityServiceService) { }
+  tagSummaryList = this.utilityService.getTagsummaryList();
   ngOnInit() {
   }
 

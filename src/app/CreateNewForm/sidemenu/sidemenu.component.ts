@@ -18,47 +18,24 @@ import { from } from 'rxjs';
 export class SidemenuComponent implements OnInit {
   constructor(private utilityService: UtilityServiceService, private restAPIService: RestAPIService) {
   }
-  keyword = 'name';
-  data = [
-    {
-      id: 1,
-      name: 'Usa'
-    },
-    {
-      id: 2,
-      name: 'England'
-    },
-    {
-      id: 3,
-      name: 'Enter'
-    },
-    {
-      id: 2,
-      name: 'Entiy'
-    },
-    {
-      id: 3,
-      name: 'Entesss'
-    }
-  ];
+  partNumId = 'id';
+  reasonKeyword='Reason';
+  processKeyword='Department';
+  machineKeyword1='MachineDesc';
+
   tagSummaryList = this.utilityService.getTagsummaryList();
   public internalTagData=this.utilityService.getInternalTagData();
   public partNumberList:Partnumber[];
   public reasonList:Reason[];
   public processStep:ProcessStep[];
   public machineStep:MachineStep[];
-  public selectedPartNum: string = '';
-  public selectedReason: string = '';
   public processStepId: string;
   public machineStepId: string;
-  ngOnInit() {
-   
-    console.log("inter part",this.internalTagData);
+  ngOnInit() {   
     this.getMachineList();
     this.getPartList();
     this.getProcessList();
     this.getReasonList();
-
   }
   focusOutFunction($event) {
     var val = (<HTMLInputElement>document.getElementById("issuedByValue")).value;
@@ -69,25 +46,29 @@ export class SidemenuComponent implements OnInit {
 
   //event handler to get the selected value of part num
   getSelectedPartNumber(event: any) {
-    this.selectedPartNum=event.target.value;
-    this.internalTagData.PartID = this.selectedPartNum;
+    console.log("select part num", event.id);
+    this.internalTagData.PartID = event.id;
     this.utilityService.setInternalTagData(this.internalTagData);
-
   }
+  
+    //event handler to get the selected value of reason
   getSelectedReason(event: any) {
-     this.selectedReason = event.target.value;
-    this.internalTagData.Reason = event.target.value;
+    console.log("select reason num", event.Reason);
+    this.internalTagData.Reason = event.Reason;
     this.utilityService.setInternalTagData(this.internalTagData);
 
   }
-  //event handler to get the selected value of part num
-  getSelectedProcessStep(event: any) {
-    this.processStepId = event.target.value;
-    this.internalTagData.ProcessStep = event.target.value;
+  //event handler to get the selected value of process step
+  getSelectedProcessStep(event: any) {    
+    console.log("select process num", event.Department);
+    this.internalTagData.ProcessStep = event.Department;
     this.utilityService.setInternalTagData(this.internalTagData);
   }
+  //event handler to get the selected value of machine step
   getSelectedMachine(event: any) {
-    this.internalTagData.MachineID = event.target.value;
+    console.log("select machine num", event.id);
+    console.log("select machine des", event.MachineDesc);
+    this.internalTagData.MachineID = event.id;
     this.utilityService.setInternalTagData(this.internalTagData);
   }
   //

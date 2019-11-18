@@ -1,66 +1,81 @@
 <h4>Internal</h4>
 <div class="ng-autocomplete">
-  <ng-autocomplete [data]="partNumberListmalti" [searchKeyword]="keyword">
-  </ng-autocomplete>
-
+  <ng-autocomplete 
+    [data]="partNumberList"
+    [searchKeyword]="partNumId"
+    placeHolder="Part Number"
+    (selected)='getSelectedPartNumber($event)'
+    [itemTemplate]="itemTemplate"
+    [notFoundTemplate]="notFoundTemplate">                                 
+  </ng-autocomplete>   
   <ng-template #itemTemplate let-item>
-    <a [innerHTML]="item.description"></a>
-  </ng-template>
-
+  <a [innerHTML]="item.id"></a>
+  </ng-template>   
   <ng-template #notFoundTemplate let-notFound>
-    <div [innerHTML]="notFound"></div>
+  <div [innerHTML]="notFound"></div>
   </ng-template>
 </div>
 
-<div class="form-group">
-  <select class="form-control" (change)="getSelectedPartNumber($event)">
-    <option [ngValue]="null" disabled>Part Number</option>
-    <option
-      *ngFor="let partNum of partNumberList; let i = index"
-      [ngValue]="partNum"
-    >
-      {{ partNum.id }}
-    </option>
-  </select>
+<div class="ng-autocomplete">
+  <ng-autocomplete 
+    [data]="reasonList"
+    [searchKeyword]="reasonKeyword"
+    placeHolder="Reason"
+    (selected)='getSelectedReason($event)'
+    [itemTemplate]="reasonTemplate"
+    [notFoundTemplate]="notFoundReasonTemplate">                                 
+  </ng-autocomplete>   
+  <ng-template #reasonTemplate let-item>
+  <a [innerHTML]="item.Reason"></a>
+  </ng-template>   
+  <ng-template #notFoundReasonTemplate let-notFound>
+  <div [innerHTML]="notFound"></div>
+  </ng-template>
 </div>
 
-<div class="form-group">
-  <select class="form-control" (change)="getSelectedReason($event)">
-    <option disabled>Reason</option>
-    <option *ngFor="let reason of reasonList; let i = index" [ngValue]="reason">
-      {{ reason.Reason }}
-    </option>
-  </select>
+<div class="ng-autocomplete">
+  <ng-autocomplete 
+    [data]="processStep"
+    [searchKeyword]="processKeyword"
+    placeHolder="Process Step"
+    (selected)='getSelectedProcessStep($event)'
+    [itemTemplate]="processTemplate"
+    [notFoundTemplate]="notFoundProcessTemplate">                                 
+  </ng-autocomplete>   
+  <ng-template #processTemplate let-item>
+  <a [innerHTML]="item.Department"></a>
+  </ng-template>   
+  <ng-template #notFoundProcessTemplate let-notFound>
+  <div [innerHTML]="notFound"></div>
+  </ng-template>
 </div>
 
-<div class="form-group">
-  <select class="form-control" (change)="getSelectedProcessStep($event)">
-    <option disabled>Process Step</option>
-    <option
-      *ngFor="let processStep of processStep; let i = index"
-      [ngValue]="processStep"
-    >
-      {{ processStep.Department }}
-    </option>
-  </select>
+<div class="ng-autocomplete">
+  <ng-autocomplete 
+    [data]="machineStep"
+    [searchKeyword]="machineKeyword1"
+    placeHolder="Machine Step"
+    (selected)='getSelectedMachine($event)'
+    [itemTemplate]="machineTemplate"
+    [notFoundTemplate]="notFoundMachineTemplate">                                 
+  </ng-autocomplete>   
+  <ng-template #machineTemplate let-item>
+      <ul class='nav'>
+          <li><a [innerHTML]="item.id"></a></li>
+          <li><a [innerHTML]="item.MachineDesc"></a></li>
+      </ul>
+  </ng-template>   
+  <ng-template #notFoundMachineTemplate let-notFound>
+  <div [innerHTML]="notFound"></div>
+  </ng-template>
 </div>
-<div class="form-group">
-  <select class="form-control" (change)="getSelectedMachine($event)">
-    <option disabled>Machine ID And Description</option>
-    <option
-      *ngFor="let machineStep of machineStep; let i = index"
-      [ngValue]="machineId"
-    >
-      {{ machineStep.id }} {{ machineStep.MachineDesc }}
-    </option>
-  </select>
-</div>
+
 
 <div class="form-group">
   <input
     type="text"
     class="form-control"
-    placeholder="Issued By"
+    placeholder="Enter Issued By"
     aria-label="Issued By"
     id="issuedByValue"
     (focusout)="focusOutFunction(e)"

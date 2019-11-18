@@ -1,0 +1,18 @@
+<div class="row add-padding add-margin">
+    <div class="col">
+        <input #picture1 type="file" accept='image/*' (change)="preview($event,1)" />
+        <img class="add-padding" [src]="imgURL" height="200" *ngIf="imgURL">
+    </div>
+    <div class="col">
+        <input #picture2 type="file" accept='image/*' (change)="preview($event,2)" />
+        <img class="add-padding" [src]="imgURL1" height="200" *ngIf="imgURL1">
+    </div>
+    <div class="col">
+        <input #document type="file" name="document" multiple (change)="getDocument($event)" >
+    </div>
+    <div class="row add-margin">
+            <div class="col-lg-6" id="my_centered_buttons">
+                <button type="button" class="btn btn-primary btn-lg" (click)="uploadImage()">Submit</button>
+            </div>
+        </div>
+</div>

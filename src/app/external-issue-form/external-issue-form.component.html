@@ -4,8 +4,8 @@
     <h2 class="eIssueForm-header">Home</h2>
     <div class="eIssueForm-container">
       <div class="row">
-        <div class="col-6">
-          <button type="button" class="btn   btn-primary">
+        <div class="col-6" [routerLink]="'/externalIssueTag'">
+          <button type="button" class="btn btn-primary" >
             External Issue Form
           </button>
         </div>
@@ -25,42 +25,4 @@
       </div>
     </div>
   </div>
-
-  <!-- <div class="container-fluid eIssueForm">
-    <div class="eIssueForm-triangle"></div>
-    <h2 class="eIssueForm-header">Home</h2>
-    <div class="eIssueForm-container">
-      <div class="row">
-        <div class="col-6">
-          <p>
-            <button type="button" class="btn   btn-primary">
-              External Issue Form
-            </button>
-          </p>
-        </div>
-        <div class="col-6" [routerLink]="'/partValueCalculator'">
-          <p>
-            <button type="button" class="btn btn-primary">
-              Part Value Calculator
-            </button>
-          </p>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-6">
-          <p>
-            <button type="button" class="btn btn-primary">
-              Customer Issues
-            </button>
-          </p>
-        </div>
-        <div class="col-6">
-          <p>
-            <button type="button" class="btn btn-primary">Customer Info</button>
-          </p>
-        </div>
-      </div>
-    </div>
-  </div> -->
 </div>

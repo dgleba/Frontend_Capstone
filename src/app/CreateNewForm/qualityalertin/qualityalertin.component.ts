@@ -3,9 +3,6 @@ import { RestAPIService } from '../../Service/restAPIService/rest-apiservice.ser
 import { UtilityServiceService } from '../../Service/utility-service.service'
 import { Router } from '@angular/router';
 
-
-
-
 @Component({
   selector: 'app-qualityalertin',
   templateUrl: './qualityalertin.component.html',

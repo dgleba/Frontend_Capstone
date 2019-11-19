@@ -5,7 +5,7 @@ import {Partnumber} from 'src/app/Model/partnumber';
 import {Reason} from 'src/app/Model/reason';
 import { ProcessStep } from 'src/app/Model/processStep';
 import { MachineStep } from 'src/app/Model/machine';
-
+import {ExternalTagData} from 'src/app/Model/externalTagData';
 @Injectable({
   providedIn: 'root'
 })
@@ -18,6 +18,7 @@ tagSummaryOption : any = [
   {id: '5', tagName: 'Quality Alert - IN', isChecked: false},
   {id: '6', tagName: 'Supplier Issue', isChecked: false}];
   public internalTagData=new QualityTagData;
+  public externalTagData = new ExternalTagData;
   public partNumberList: Partnumber[];
   public reasonList : Reason[];
   public processStepList: ProcessStep[];

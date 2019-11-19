@@ -35,8 +35,8 @@
       </ul>
     </div>
 
-    <div class="internal-container">
-      <div class="row ">
+    <div class="internal-container" [(ngModel)]="externalTagData.isPictureComponent">
+      <div class="row" *ngIf="!externalTagData.isPictureComponent">
         <div class="col-4 ng-autocomplete">
           <ng-autocomplete [data]="reasonList" [searchKeyword]="reasonKeyword" placeHolder="Reason"
             (selected)='getSelectedReason($event)' (inputCleared)="clearData()" [itemTemplate]="reasonTemplate"
@@ -49,9 +49,6 @@
             <div [innerHTML]="notFound"></div>
           </ng-template>
         </div>
-
-
-
         <div class="col-4 ng-autocomplete">
           <ng-autocomplete [data]="partNumberList" [searchKeyword]="partNumId" placeHolder="Part Number"
             (selected)='getSelectedPartNumber($event)' (inputCleared)="clearData()" [itemTemplate]="itemTemplate"
@@ -64,9 +61,6 @@
             <div [innerHTML]="notFound"></div>
           </ng-template>
         </div>
-
-
-
         <div class="col-4 ng-autocomplete">
           <ng-autocomplete [data]="customerList" [searchKeyword]="customerKeyword" placeHolder="Customer Name"
             (inputCleared)="clearData()" [itemTemplate]="itemCustomerTemplate"
@@ -81,7 +75,7 @@
         </div>
       </div>
       <router-outlet></router-outlet>
-     <div class="row">
+     <div class="row add-margin add-padding">
       <button type="button" class="btn btn-primary btn-lg btn-sub" (click)="submitForm()">Submit</button>
      </div>
     </div>

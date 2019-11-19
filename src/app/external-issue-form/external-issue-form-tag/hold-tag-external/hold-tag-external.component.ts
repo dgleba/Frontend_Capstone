@@ -12,6 +12,8 @@ export class HoldTagExternalComponent implements OnInit {
   constructor(private utilityService:UtilityServiceService) { }
   public externalTagData=this.utilityService.getExternalTagData();
   ngOnInit() {
+    this.externalTagData.isPictureComponent=false;
+    this.utilityService.setExternalTagData(this.externalTagData);
   }
 
 }

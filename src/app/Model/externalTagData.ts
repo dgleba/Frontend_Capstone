@@ -41,4 +41,7 @@ export class ExternalTagData {
   MachineID: string;
   ProcessStep: string;
   commentTextArea: string;
+
+  // to show the pannel in picture component 
+  isPictureComponent:boolean;
 }

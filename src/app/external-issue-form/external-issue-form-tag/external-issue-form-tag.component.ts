@@ -28,6 +28,8 @@ export class ExternalIssueFormTagComponent implements OnInit {
     this.getPartList();
     this.getCustomerList();
     this.getReasonList();
+    this.externalTagData.isPictureComponent=false;
+    this.utilityService.setExternalTagData(this.externalTagData);
   }
   focusOutFunction($event) {
     var val = (<HTMLInputElement>document.getElementById("issuedByValue")).value;

@@ -11,7 +11,10 @@ export class QualityAlertExternalComponent implements OnInit {
 
   constructor(private utilityService:UtilityServiceService) { }
   public externalTagData=this.utilityService.getExternalTagData();
-  ngOnInit() {}
+  ngOnInit() {
+    this.externalTagData.isPictureComponent=false;
+    this.utilityService.setExternalTagData(this.externalTagData);
+  }
 
  
 

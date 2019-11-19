@@ -53,13 +53,10 @@ body {
     color:white;
   }
 
- .btn-lg
- {
-  position:absolute;
-  top: 50%;
-  left: 100%;
-  height:75px;
-  width:130px;
- }
-  
+  .btn-sub
+  {
+position: relative; 
+left: 50%;
+}
+
   

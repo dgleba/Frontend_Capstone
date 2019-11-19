@@ -70,6 +70,13 @@ tagSummaryOption : any = [
   getInternalTagData(){
     return this.internalTagData;
   }
+   //getter setter for externaTagData
+   setExternalTagData(externalObj){
+    this.externalTagData=externalObj;
+  }
+  getExternalTagData(){
+    return this.externalTagData;
+  }
 //getter setter for part number
   setPartNumberList(partList){
     this.partNumberList=partList;

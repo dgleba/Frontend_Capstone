@@ -34,50 +34,26 @@ body {
   .internal-container {
     background: #ebebeb;
     padding: 12px;
-    padding-top: 0px;
+    padding-top: 10px;
     padding-bottom: 0px;
+    margin-top: 10px;
   }
-  
-  /*-- Navigation --*/
-  #navcontainer ul {
-    display: block;
-    list-style: none outside;
-    padding: 0;
-    margin: 0 0 0 50px;
-    font-family: Verdana, sans-serif;
-    font: 18px;
+  .external-container {
+    background: #bdbdbd;
+    
   }
-  
-  #navcontainer li {
-    padding: 0;
-    margin-top: 30px;
-    margin-right: 40px;
-    margin-left: 40px;
-    margin-bottom: auto;
-    border-top: 1px solid #cecbc6;
-    border-right: 1px solid #cecbc6;
-    border-left: 1px solid #cecbc6;
-    background-color: white;
-    color: #ffffff;
-    /* the next 4 lines are magic */
-    display: block;
-    float: left;
-    position: relative;
-    top: -1.5em;
-  }
-  
+ 
   #navcontainer a:link,
   #navcontainer a:visited {
-    background-color: #000066;
+    background-color: black;
     color: #ffffff;
     text-decoration: none;
-    padding-left: 1em;
-    padding-right: 1em;
+   
   }
   
   #navcontainer a:hover {
     background-color: #cecbc6;
-    color: #000066;
+    color: white;
   }
   
   #navcontainerclear {
@@ -91,17 +67,10 @@ body {
   
   #navcontainer li#active a {
     background-color: #fff;
-    color: #000066;
+    color: white;
   }
-  .vertical-section {
-    background-color: #4455664f;
-    margin: 0px;
-  }
-  .custom-tabs {
-    background-color: rgb(212, 215, 219);
-    /* height: 50px; */
-  }
-  .remove-padding {
-    padding: 0px;
-  }
+
+
+ 
+  
   

@@ -2,21 +2,21 @@
 
 
         <div class="row">
-                <div class="col">
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                         <label>
                                 <input type="checkbox" [(ngModel)]="externalTagData.ExtQualityATag"
                                 [ngModelOptions]="{standalone: true}" />
                                 Quality A Tag
                         </label>
                 </div>
-                <div class="col">
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                         <label>
                                 <input type="checkbox" [(ngModel)]="externalTagData.ExtSupplierIssue"
                                 [ngModelOptions]="{standalone: true}" />
                                 Supplier Issue
                         </label>
                 </div>
-                <div class="col">
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                         <input type="text" class="form-control" [(ngModel)]="externalTagData.Issuedby"
                         [ngModelOptions]="{standalone: true}" placeholder="Issued By ">
                 </div>
@@ -25,17 +25,17 @@
         </div>
         <hr>
         <div class="row">
-                <div class="col">
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                         <label>Est. Cost : </label>
                         <input type="text" class="form-control" [(ngModel)]="externalTagData.EstCost"
                         [ngModelOptions]="{standalone: true}" placeholder="$0.00">
                 </div>
-                <div class="col">
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                         <label>No. Of Pieces</label>
                         <input type="text" class="form-control" [(ngModel)]="externalTagData.NoOfPieces"
                         [ngModelOptions]="{standalone: true}" placeholder="0">
                 </div>
-                <div class="col">
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                         <div class="form-group">
                                 <label>Customer</label>
                                 <select class="form-control" (change)="getSelectedQualityCustomer($event)">
@@ -49,17 +49,17 @@
                 </div>
         </div>
         <div class="row">
-                <div class="col">
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                         <label>Customer Ref Num : </label>
                         <input type="text" class="form-control" [(ngModel)]="externalTagData.CustomerRefNum"
                         [ngModelOptions]="{standalone: true}" placeholder="Customer Reference Number">
                 </div>
-                <div class="col">
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                         <label>Date Issued</label>
                         <input type="date" class="form-control" [(ngModel)]="externalTagData.DateIssued"
                         [ngModelOptions]="{standalone: true}" placeholder="Customer Reference Number">
                 </div>
-                <div class="col">
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                         <div class="form-group">
                                 <label>Stackpole</label>
                                 <select class="form-control" (change)="getSelectedstackpole($event)">
@@ -74,7 +74,7 @@
         </div>
         <hr>
         <div class="row">
-                <div class="col">
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
 
                         <label>
                                 <input type="checkbox" [(ngModel)]="externalTagData.CertifiedMaterialTagIssued"
@@ -82,14 +82,14 @@
                                 Certified Material Tag Issued
                         </label>
                 </div>
-                <div class="col">
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                         <label>
                                 <input type="checkbox" [(ngModel)]="externalTagData.ExtControlPlan"
                                 [ngModelOptions]="{standalone: true}" />
                                 Control Plan
                         </label>
                 </div>
-                <div class="col">
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                         <label>
                                 <input type="checkbox" [(ngModel)]="externalTagData.ExtLayeredAudit"
                                 [ngModelOptions]="{standalone: true}"/>

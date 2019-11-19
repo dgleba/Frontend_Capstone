@@ -2,21 +2,21 @@
 
    
     <div class="row">
-            <div class="col">
+            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                     <label>
                             <input type="checkbox" [(ngModel)]="externalTagData.ExtTPCTag"
                             [ngModelOptions]="{standalone: true}" />
                             TPC Tag
                     </label>
             </div>
-            <div class="col">
+            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                     <label>
                             <input type="checkbox" [(ngModel)]="externalTagData.ExtSupplierIssue"
                             [ngModelOptions]="{standalone: true}" />
                             Supplier Issue
                     </label>
             </div>
-            <div class="col">
+            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                     <input type="text" class="form-control" [(ngModel)]="externalTagData.Issuedby"
                     [ngModelOptions]="{standalone: true}" placeholder="Issued By">
             </div>
@@ -25,12 +25,12 @@
     </div>
     <hr>
     <div class="row">
-            <div class="col">
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                     <label>Ok'd By : </label>
                     <input type="text" class="form-control" [(ngModel)]="externalTagData.Okdby"
                     [ngModelOptions]="{standalone: true}" placeholder="Ok'd by">
             </div>
-            <div class="col">
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                 <p>Length of Change</p>
                 <div class="input-group">
                   <input type="text" class="form-control" [(ngModel)]="externalTagData.Lengthofchange"
@@ -41,7 +41,7 @@
                 </div>
                 <p>{{ expiredOn }}</p>
               </div>
-            <div class="col">
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                 <div class="form-group">
                         <label>Process Step</label>
                         <select class="form-control" (change)="getSelectedQualityCustomer($event)">
@@ -53,7 +53,7 @@
                         </select>
                 </div>
         </div>
-            <div class="col">
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                     <div class="form-group">
                             <label>Machine Number</label>
                             <select class="form-control" (change)="getSelectedQualityCustomer($event)">

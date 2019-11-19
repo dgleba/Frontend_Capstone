@@ -37,7 +37,7 @@
 
     <div class="internal-container" [(ngModel)]="externalTagData.isPictureComponent">
       <div class="row" *ngIf="!externalTagData.isPictureComponent">
-        <div class="col-4 ng-autocomplete">
+        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 ng-autocomplete">
           <ng-autocomplete [data]="reasonList" [searchKeyword]="reasonKeyword" placeHolder="Reason"
             (selected)='getSelectedReason($event)' (inputCleared)="clearData()" [itemTemplate]="reasonTemplate"
             [notFoundTemplate]="notFoundReasonTemplate">
@@ -49,7 +49,7 @@
             <div [innerHTML]="notFound"></div>
           </ng-template>
         </div>
-        <div class="col-4 ng-autocomplete">
+        <div class=" col-lg-4 col-md-4 col-sm-12 col-xs-12 ng-autocomplete">
           <ng-autocomplete [data]="partNumberList" [searchKeyword]="partNumId" placeHolder="Part Number"
             (selected)='getSelectedPartNumber($event)' (inputCleared)="clearData()" [itemTemplate]="itemTemplate"
             [notFoundTemplate]="notFoundTemplate">
@@ -61,7 +61,7 @@
             <div [innerHTML]="notFound"></div>
           </ng-template>
         </div>
-        <div class="col-4 ng-autocomplete">
+        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 ng-autocomplete">
           <ng-autocomplete [data]="customerList" [searchKeyword]="customerKeyword" placeHolder="Customer Name"
             (inputCleared)="clearData()" [itemTemplate]="itemCustomerTemplate"
             [notFoundTemplate]="notFoundCustomerTemplate">

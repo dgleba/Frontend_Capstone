@@ -35,33 +35,25 @@
       </ul>
     </div>
 
-
-
     <div class="internal-container">
-    <div class="row">
-      
-      <div class="col">
-        <div class="ng-autocomplete">
-          <ng-autocomplete 
-            [data]="reasonList"
-            [searchKeyword]="reasonKeyword"
-            placeHolder="Reason"
-            (selected)='getSelectedReason($event)'
-            (inputCleared)="clearData()"
-            [itemTemplate]="reasonTemplate"
-            [notFoundTemplate]="notFoundReasonTemplate">                                 
-          </ng-autocomplete>   
+      <div class="row ">
+
+        <div class="col-4 ng-autocomplete">
+          <ng-autocomplete [data]="reasonList" [searchKeyword]="reasonKeyword" placeHolder="Reason"
+            (selected)='getSelectedReason($event)' (inputCleared)="clearData()" [itemTemplate]="reasonTemplate"
+            [notFoundTemplate]="notFoundReasonTemplate">
+          </ng-autocomplete>
           <ng-template #reasonTemplate let-item>
-          <a [innerHTML]="item.Reason"></a>
-          </ng-template>   
+            <a [innerHTML]="item.Reason"></a>
+          </ng-template>
           <ng-template #notFoundReasonTemplate let-notFound>
-          <div [innerHTML]="notFound"></div>
+            <div [innerHTML]="notFound"></div>
           </ng-template>
         </div>
-      </div>
 
-      <div class="col">
-        <div class="ng-autocomplete">
+
+
+        <div class="col-4 ng-autocomplete">
           <ng-autocomplete [data]="partNumberList" [searchKeyword]="partNumId" placeHolder="Part Number"
             (selected)='getSelectedPartNumber($event)' (inputCleared)="clearData()" [itemTemplate]="itemTemplate"
             [notFoundTemplate]="notFoundTemplate">
@@ -73,10 +65,11 @@
             <div [innerHTML]="notFound"></div>
           </ng-template>
         </div>
-      </div>
 
-      <div class="col">
-        <div class="ng-autocomplete">
+
+
+        <div class="col-4 ng-autocomplete">
+
           <ng-autocomplete [data]="customerList" [searchKeyword]="customerKeyword" placeHolder="Customer Name"
             (inputCleared)="clearData()" [itemTemplate]="itemCustomerTemplate"
             [notFoundTemplate]="notFoundCustomerTemplate">
@@ -89,8 +82,7 @@
           </ng-template>
         </div>
       </div>
+      <router-outlet></router-outlet>
     </div>
-    <router-outlet></router-outlet>
   </div>
-</div>
 </div>

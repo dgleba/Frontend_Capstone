@@ -43,34 +43,23 @@ body {
     
   }
  
-  #navcontainer a:link,
-  #navcontainer a:visited {
-    background-color: black;
-    color: #ffffff;
-    text-decoration: none;
-   
+  .nav-item{
+    padding-right: 200px;
+    padding-left: 60px;
+    color :white;
   }
-  
-  #navcontainer a:hover {
-    background-color: #cecbc6;
-    color: white;
-  }
-  
-  #navcontainerclear {
-    display: none;
-  }
-  
-  html > body #navcontainerclear {
-    display: block;
-    clear: both;
-  }
-  
-  #navcontainer li#active a {
-    background-color: #fff;
-    color: white;
+  .nav
+  {
+    color:white;
   }
 
-
- 
+ .btn-lg
+ {
+  position:absolute;
+  top: 50%;
+  left: 100%;
+  height:75px;
+  width:130px;
+ }
   
   

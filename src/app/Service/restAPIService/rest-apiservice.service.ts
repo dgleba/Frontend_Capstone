@@ -3,8 +3,7 @@ import { HttpClient, HttpHeaders,HttpParams } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
 import { UtilityServiceService } from '../utility-service.service';
-
-
+import { Partnumber } from 'src/app/Model/partnumber';
 
 @Injectable({
   providedIn: 'root'
@@ -12,12 +11,7 @@ import { UtilityServiceService } from '../utility-service.service';
 export class RestAPIService {
 
   // Define API
-<<<<<<< Updated upstream
-  apiURL = 'http://192.168.0.41:6036';
-=======
-
-  apiURL = 'http://192.168.43.250:6036';
->>>>>>> Stashed changes
+  apiURL = 'http://192.168.0.40:6036';
 
 
   constructor(private http: HttpClient, private utilityService: UtilityServiceService) { }
@@ -101,6 +95,7 @@ getCustomerList(){
         catchError(this.handleError)
       )
   }
+
 
   // API to fetch Reason
   getReasonList() {

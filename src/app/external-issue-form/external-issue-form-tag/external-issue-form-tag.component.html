@@ -1,99 +1,92 @@
 <div class="container-fluid ccommonTagView">
-    <div class="internal-triangle"></div>
-    <h2 class="internal-header">
-      <button
-        type="button"
-        class="btn btn-primary"
-        id="home-btn"
-        routerLink="../home"
-      >
-        Home
-      </button>
-     External Issue
-    </h2>
-  
-    <div class="internal-container">
-      <div class="row">
-        <div class="col-sm-3 vertical-section">
-          <router-outlet name="sidemenuExternal"></router-outlet>
+  <div class="internal-triangle"></div>
+  <h2 class="internal-header">
+    <button type="button" class="btn btn-primary" id="home-btn" routerLink="../home">
+      Home
+    </button>
+    External Issue
+  </h2>
+
+  <div class="internal-container">
+    <div class="row">
+      <ul class="nav nav-pills tabs-cyan custom-tabs" id="myClassicTab" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link  waves-light active show" id="profile-tab-classic" data-toggle="tab"
+            href="#profile-classic" role="tab" aria-controls="profile-classic" routerLink="qualityAlertExternal"
+            aria-selected="true">Quality Tag</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link waves-light" id="follow-tab-classic" data-toggle="tab" href="#follow-classic" role="tab"
+            aria-controls="follow-classic" routerLink="holdTagExternal" aria-selected="false">Hold Tag</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link waves-light" id="contact-tab-classic" data-toggle="tab" href="#contact-classic" role="tab"
+            aria-controls="contact-classic" routerLink="tpcTagExternal" aria-selected="false">Tpc Tag</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link waves-light" id="awesome-tab-classic" data-toggle="tab" href="#awesome-classic" role="tab"
+            aria-controls="awesome-classic" routerLink="specialInstructionExternal" aria-selected="false">Special
+            Instructions</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link waves-light" id="awesome-tab-classic" data-toggle="tab" href="#awesome-classic" role="tab"
+            aria-controls="awesome-classic" routerLink="pictureExternal" aria-selected="false">Pictures</a>
+        </li>
+      </ul>
+    </div>
+    <div class="row">
+      
+      <div class="col">
+        <div class="ng-autocomplete">
+          <ng-autocomplete 
+            [data]="reasonList"
+            [searchKeyword]="reasonKeyword"
+            placeHolder="Reason"
+            (selected)='getSelectedReason($event)'
+            (inputCleared)="clearData()"
+            [itemTemplate]="reasonTemplate"
+            [notFoundTemplate]="notFoundReasonTemplate">                                 
+          </ng-autocomplete>   
+          <ng-template #reasonTemplate let-item>
+          <a [innerHTML]="item.Reason"></a>
+          </ng-template>   
+          <ng-template #notFoundReasonTemplate let-notFound>
+          <div [innerHTML]="notFound"></div>
+          </ng-template>
         </div>
-        <div class="col-sm-9 remove-padding">
-  
-          <ul
-            class="nav nav-pills tabs-cyan custom-tabs"
-            id="myClassicTab"
-            role="tablist"
-          >
-            <li class="nav-item">
-              <a
-                class="nav-link  waves-light active show"
-                id="profile-tab-classic"
-                data-toggle="tab"
-                href="#profile-classic"
-                role="tab"
-                aria-controls="profile-classic"
-                routerLink="qualityAlertExternal"
-                aria-selected="true"
-                >Quality Tag</a
-              >
-            </li>
-            <li class="nav-item">
-              <a
-                class="nav-link waves-light"
-                id="follow-tab-classic"
-                data-toggle="tab"
-                href="#follow-classic"
-                role="tab"
-                aria-controls="follow-classic"
-                routerLink="holdTagExternal"
-                aria-selected="false"
-                >Hold Tag</a
-              >
-            </li>
-            <li class="nav-item">
-              <a
-                class="nav-link waves-light"
-                id="contact-tab-classic"
-                data-toggle="tab"
-                href="#contact-classic"
-                role="tab"
-                aria-controls="contact-classic"
-                routerLink="tpcTagExternal"
-                aria-selected="false"
-                >Tpc Tag</a
-              >
-            </li>
-            <li class="nav-item">
-              <a
-                class="nav-link waves-light"
-                id="awesome-tab-classic"
-                data-toggle="tab"
-                href="#awesome-classic"
-                role="tab"
-                aria-controls="awesome-classic"
-                routerLink="specialInstructionExternal"
-                aria-selected="false"
-                >Special Instructions</a
-              >
-            </li>
-            <li class="nav-item">
-              <a
-                class="nav-link waves-light"
-                id="awesome-tab-classic"
-                data-toggle="tab"
-                href="#awesome-classic"
-                role="tab"
-                aria-controls="awesome-classic"
-                routerLink="pictureExternal"
-                aria-selected="false"
-                >Pictures</a
-              >
-            </li>
-          </ul>
-  
-          <router-outlet></router-outlet>
+      </div>
+
+      <div class="col">
+        <div class="ng-autocomplete">
+          <ng-autocomplete [data]="partNumberList" [searchKeyword]="partNumId" placeHolder="Part Number"
+            (selected)='getSelectedPartNumber($event)' (inputCleared)="clearData()" [itemTemplate]="itemTemplate"
+            [notFoundTemplate]="notFoundTemplate">
+          </ng-autocomplete>
+          <ng-template #itemTemplate let-item>
+            <a [innerHTML]="item.id"></a>
+          </ng-template>
+          <ng-template #notFoundTemplate let-notFound>
+            <div [innerHTML]="notFound"></div>
+          </ng-template>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="ng-autocomplete">
+          <ng-autocomplete [data]="customerList" [searchKeyword]="customerKeyword" placeHolder="Customer Name"
+            (inputCleared)="clearData()" [itemTemplate]="itemCustomerTemplate"
+            [notFoundTemplate]="notFoundCustomerTemplate">
+          </ng-autocomplete>
+          <ng-template #itemCustomerTemplate let-item>
+            <a [innerHTML]="item.CustName"></a>
+          </ng-template>
+          <ng-template #notFoundCustomerTemplate let-notFound>
+            <div [innerHTML]="notFound"></div>
+          </ng-template>
         </div>
       </div>
     </div>
+    <router-outlet></router-outlet>
   </div>
-  
+
+</div>

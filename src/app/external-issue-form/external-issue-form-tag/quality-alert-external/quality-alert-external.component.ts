@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {ExternalUtilityServiceService} from 'src/app/Service/external-utility-service';
+import {UtilityServiceService} from 'src/app/Service/utility-service.service';
 
 @Component({
   selector: 'app-quality-alert-external',
@@ -7,9 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class QualityAlertExternalComponent implements OnInit {
 
-  constructor() { }
+  constructor(private externalUtilityService :  ExternalUtilityServiceService, private utilityService:UtilityServiceService) { }
  
-  ngOnInit() {
-  }
+  ngOnInit() {}
+
+ 
 
 }

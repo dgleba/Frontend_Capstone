@@ -41,7 +41,6 @@ export class SidemenuComponent implements OnInit {
     var val = (<HTMLInputElement>document.getElementById("issuedByValue")).value;
     this.internalTagData.Issuedby = val;
     this.utilityService.setInternalTagData(this.internalTagData);
-
   }
 
   //event handler to get the selected value of part num

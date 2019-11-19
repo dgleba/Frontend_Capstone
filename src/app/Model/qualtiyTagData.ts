@@ -18,6 +18,4 @@ export class QualityTagData {
     TPCTag:boolean;
     SpecialInstWritten:boolean;
     Changed:string;
-    CustName:string;
- 
 }

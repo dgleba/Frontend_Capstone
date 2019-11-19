@@ -23,7 +23,6 @@ import { UpdateTagDataComponent } from "./CreateNewForm/update-tag-data/update-t
 import { ExternalIssueFormComponent } from "./external-issue-form/external-issue-form.component";
 import { PartValueCalculatorComponent } from "./external-issue-form/part-value-calculator/part-value-calculator.component";
 import { ExternalIssueFormTagComponent } from './external-issue-form/external-issue-form-tag/external-issue-form-tag.component';
-import { SideMenuExternalComponent } from './external-issue-form/external-issue-form-tag/side-menu-external/side-menu-external.component';
 import { QualityAlertExternalComponent } from './external-issue-form/external-issue-form-tag/quality-alert-external/quality-alert-external.component';
 import { HoldTagExternalComponent } from './external-issue-form/external-issue-form-tag/hold-tag-external/hold-tag-external.component';
 import { TpcTagExternalComponent } from './external-issue-form/external-issue-form-tag/tpc-tag-external/tpc-tag-external.component';
@@ -53,7 +52,6 @@ const appRoutes: Routes = [
   { path: "externalIssueTag", 
   component: ExternalIssueFormTagComponent ,
   children: [
-    {path: "" , outlet: "sidemenuExternal" , component: SideMenuExternalComponent},
     {path:"", component:QualityAlertExternalComponent},
     {path:"qualityAlertExternal", component:QualityAlertExternalComponent},
     {path:"holdTagExternal", component: HoldTagExternalComponent},
@@ -85,7 +83,6 @@ const appRoutes: Routes = [
     ExternalIssueFormComponent,
     PartValueCalculatorComponent,
     ExternalIssueFormTagComponent,
-    SideMenuExternalComponent,
     QualityAlertExternalComponent,
     HoldTagExternalComponent,
     TpcTagExternalComponent,

@@ -1,1 +1,71 @@
-<p>hold-tag-external works!</p>
+<form class="add-padding add-margin">
+
+   
+    <div class="row">
+            <div class="col">
+                    <label>
+                            <input type="checkbox" (change)="getChangedQualityATag()" />
+                            Hold Tag
+                    </label>
+            </div>
+            <div class="col">
+                    <label>
+                            <input type="checkbox" (change)="getChangedSupplierIssue()" />
+                            Supplier Issue
+                    </label>
+            </div>
+            <div class="col">
+                    <input type="text" class="form-control" placeholder="Issued By">
+            </div>
+
+
+    </div>
+    <hr>
+    <div class="row">
+            <div class="col">
+                    <label>Quantity : </label>
+                    <input type="text" class="form-control" placeholder="0">
+            </div>
+            <div class="col">
+                <div class="form-group">
+                        <label>Process Step</label>
+                        <select class="form-control" (change)="getSelectedQualityCustomer($event)">
+                                <option [ngValue]="null" disabled>Customer</option>
+                                <option *ngFor="let qualityCustomer of QualityCustomerList; let i = index"
+                                        [ngValue]="qualityCustomer">
+                                        {{ qualityCustomer.id }}
+                                </option>
+                        </select>
+                </div>
+        </div>
+            <div class="col">
+                    <div class="form-group">
+                            <label>Machine Number</label>
+                            <select class="form-control" (change)="getSelectedQualityCustomer($event)">
+                                    <option [ngValue]="null" disabled>Customer</option>
+                                    <option *ngFor="let qualityCustomer of QualityCustomerList; let i = index"
+                                            [ngValue]="qualityCustomer">
+                                            {{ qualityCustomer.id }}
+                                    </option>
+                            </select>
+                    </div>
+            </div>
+    </div>
+    
+    <div class="row">
+            <div class="col form-group">
+                    <p>Reason</p>
+                    <textarea autosize class="form-control my-textarea" placeholder="Enter..." name="story"
+                            rows="4"></textarea>
+            </div>
+           
+    </div>
+
+    <div class="row">
+            <div class="col form-group">
+                    <p>Comment</p>
+                    <textarea autosize class="form-control my-textarea" placeholder="Enter..." name="story"
+                            rows="4"></textarea>
+            </div>
+    </div>
+</form>

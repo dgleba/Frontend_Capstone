@@ -1,1 +1,87 @@
-<p>special-instruction-external works!</p>
+<form class="add-padding add-margin">
+
+    <div class="row">
+            <div class="col">
+                    <label>
+                            <input type="checkbox" (change)="getChangedQualityATag()" />
+                            Special Inst. Written
+                    </label>
+            </div>
+            <div class="col">
+                    <label>
+                            <input type="checkbox" (change)="getChangedSupplierIssue()" />
+                            Supplier Issue
+                    </label>
+            </div>
+            <div class="col">
+                    <input type="text" class="form-control" placeholder="Issued By">
+            </div>
+
+
+    </div>
+   
+    <div class="row">
+        <div class="col">
+                <label>Ok'd By : </label>
+                <input type="text" class="form-control" placeholder="0">
+        </div>
+        <div class="col">
+            <p>Length of Change</p>
+            <div class="input-group">
+              <input type="text" class="form-control" [(ngModel)]="internalTagData.Lengthofchange"
+                [ngModelOptions]="{standalone: true}" (change)="addDays()" aria-label="Length of change">
+              <div class="input-group-append">
+                <span class="input-group-text">Days</span>
+              </div>
+            </div>
+            <p>{{ expiredOn }}</p>
+          </div>
+        <div class="col">
+            <div class="form-group">
+                    <label>Process Step</label>
+                    <select class="form-control" (change)="getSelectedQualityCustomer($event)">
+                            <option [ngValue]="null" disabled>Customer</option>
+                            <option *ngFor="let qualityCustomer of QualityCustomerList; let i = index"
+                                    [ngValue]="qualityCustomer">
+                                    {{ qualityCustomer.id }}
+                            </option>
+                    </select>
+            </div>
+    </div>
+        <div class="col">
+                <div class="form-group">
+                        <label>Machine Number</label>
+                        <select class="form-control" (change)="getSelectedQualityCustomer($event)">
+                                <option [ngValue]="null" disabled>Customer</option>
+                                <option *ngFor="let qualityCustomer of QualityCustomerList; let i = index"
+                                        [ngValue]="qualityCustomer">
+                                        {{ qualityCustomer.id }}
+                                </option>
+                        </select>
+                </div>
+        </div>
+</div>
+
+<div class="row">
+<div class="col form-group">
+        <p>Feature : </p>
+        <textarea autosize class="form-control my-textarea" placeholder="Enter..." name="story"
+                rows="4"></textarea>
+</div>
+
+</div>
+<div class="row">
+<div class="col form-group">
+    <p>Special Instructions / Quality Memo : </p>
+    <textarea autosize class="form-control my-textarea" placeholder="Enter..." name="story"
+            rows="4"></textarea>
+</div>
+</div>
+<div class="row">
+    <div class="col form-group">
+        <p>Comment : </p>
+        <textarea autosize class="form-control my-textarea" placeholder="Enter..." name="story"
+                rows="4"></textarea>
+    </div>
+</div>
+</form>

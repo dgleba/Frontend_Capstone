@@ -5,7 +5,6 @@ import {Partnumber} from 'src/app/Model/partnumber';
 import {Reason} from 'src/app/Model/reason';
 import { ProcessStep } from 'src/app/Model/processStep';
 import { MachineStep } from 'src/app/Model/machine';
-import { Customer} from 'src/app/Model/customer'
 
 @Injectable({
   providedIn: 'root'
@@ -21,7 +20,6 @@ tagSummaryOption : any = [
   public internalTagData=new QualityTagData;
   public partNumberList: Partnumber[];
   public reasonList : Reason[];
-  public customerList : Customer[];
   public processStepList: ProcessStep[];
   public machineStepList: MachineStep[];
   token : string;
@@ -79,13 +77,6 @@ tagSummaryOption : any = [
     return this.partNumberList;
   }
 
-//getter setter for customer
-setCustomerList(custList){
-  this.customerList=custList;
-}
-getCustomerList(){
-  return this.customerList;
-}
   //getter setter for reason
   setReasonList(reasonList){
     this.reasonList=reasonList;

@@ -69,6 +69,7 @@
 
 
         <div class="col-4 ng-autocomplete">
+
           <ng-autocomplete [data]="customerList" [searchKeyword]="customerKeyword" placeHolder="Customer Name"
             (inputCleared)="clearData()" [itemTemplate]="itemCustomerTemplate"
             [notFoundTemplate]="notFoundCustomerTemplate">
@@ -83,5 +84,13 @@
       </div>
       <router-outlet></router-outlet>
     </div>
+
+    <router-outlet></router-outlet>
+    <div class="col">
+      <div class="col-lg-6" id="my_centered_buttons">
+          <button type="button" class="btn btn-primary btn-lg" (click)="submitForm()">Submit</button>
+      </div>
+  </div>
+
   </div>
 </div>

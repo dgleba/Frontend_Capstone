@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {UtilityServiceService} from 'src/app/Service/utility-service.service';
+import {ExternalTagData} from '../../../Model/externalTagData';
 
 @Component({
   selector: 'app-hold-tag-external',
@@ -7,8 +9,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HoldTagExternalComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private utilityService:UtilityServiceService) { }
+  public externalTagData=this.utilityService.getExternalTagData();
   ngOnInit() {
   }
 

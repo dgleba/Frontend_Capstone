@@ -4,6 +4,7 @@ import {UtilityServiceService} from 'src/app/Service/utility-service.service'
 import {Partnumber} from 'src/app/Model/partnumber'
 import {Customer} from 'src/app/Model/customer'
 import {Reason} from 'src/app/Model/reason';
+import {ExternalTagData} from 'src/app/Model/externalTagData';
 
 @Component({
   selector: 'app-external-issue-form-tag',
@@ -14,18 +15,50 @@ export class ExternalIssueFormTagComponent implements OnInit {
 
   constructor(private restAPIService: RestAPIService, private utilityService:UtilityServiceService ) { }
   
-  public internalTagData=this.utilityService.getInternalTagData();
+  public externalTagData=this.utilityService.getExternalTagData();
   private partNumberList : Partnumber[]; 
+  public reasonList : Reason[]; 
+  public customerList : Customer[];
   private partNumId= 'id';
   private reasonKeyword='Reason';
   private customerKeyword='CustName';  
-  public reasonList : Reason[]; 
-  public customerList : Customer[];
+  
 
   ngOnInit() {
     this.getPartList();
     this.getCustomerList();
     this.getReasonList();
+  }
+  focusOutFunction($event) {
+    var val = (<HTMLInputElement>document.getElementById("issuedByValue")).value;
+    this.externalTagData.Issuedby = val;
+    this.utilityService.setExternalTagData(this.externalTagData);
+  }
+  //event handler to get the selected value of part num
+  getSelectedPartNumber(event: any) {
+    console.log("select part num", event.id);
+    this.externalTagData.PartID = event.id;
+    this.utilityService.setExternalTagData(this.externalTagData);
+  }
+  clearData(){
+    this.externalTagData.PartID = '';
+    this.externalTagData.Reason = '';
+    this.externalTagData.ProcessStep = '';
+    this.externalTagData.MachineID = '';
+    console.log("not part num",this.externalTagData.PartID); 
+  }
+    //event handler to get the selected value of reason
+  getSelectedReason(event: any) {
+    console.log("select reason num", event.Reason);
+    this.externalTagData.Reason = event.Reason;
+    this.utilityService.setExternalTagData(this.externalTagData);
+
+  }
+  //event handler to get the selected value of process step
+  getSelectedProcessStep(event: any) {    
+    console.log("select process num", event.Department);
+    this.externalTagData.ProcessStep = event.Department;
+    this.utilityService.setExternalTagData(this.externalTagData);
   }
 
    //api calls start
@@ -39,11 +72,7 @@ getPartList() {
   )
 }
 
-focusOutFunction($event) {
-  var val = (<HTMLInputElement>document.getElementById("issuedByValue")).value;
-  this.internalTagData.Issuedby = val;
-  this.utilityService.setInternalTagData(this.internalTagData);
-}
+
 
 getReasonList() {    
   this.restAPIService.getReasonList().subscribe(

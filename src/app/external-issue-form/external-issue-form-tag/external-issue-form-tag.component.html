@@ -37,7 +37,6 @@
 
     <div class="internal-container">
       <div class="row ">
-
         <div class="col-4 ng-autocomplete">
           <ng-autocomplete [data]="reasonList" [searchKeyword]="reasonKeyword" placeHolder="Reason"
             (selected)='getSelectedReason($event)' (inputCleared)="clearData()" [itemTemplate]="reasonTemplate"
@@ -69,7 +68,6 @@
 
 
         <div class="col-4 ng-autocomplete">
-
           <ng-autocomplete [data]="customerList" [searchKeyword]="customerKeyword" placeHolder="Customer Name"
             (inputCleared)="clearData()" [itemTemplate]="itemCustomerTemplate"
             [notFoundTemplate]="notFoundCustomerTemplate">

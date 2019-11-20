@@ -3,7 +3,7 @@ body {
     font-family: "Open Sans", sans-serif;
   }
   
-  .ccommonTagView {
+  .externalTagView {
     width: auto;
     margin: auto;
     font-size: 18px;
@@ -11,7 +11,7 @@ body {
   }
   
   /*triange */
-  .internal-triangle {
+  .external-triangle {
     width: 0;
     margin-right: auto;
     margin-left: auto;
@@ -19,7 +19,7 @@ body {
     border-bottom-color: #000060;
   }
   
-  .internal-header {
+  .external-header {
     background: #000060;
     padding: 20px;
     font-size: 1.4em;
@@ -31,32 +31,12 @@ body {
     margin-bottom: 0;
   }
   
-  .internal-container {
+  .external-container {
     background: #ebebeb;
     padding: 12px;
     padding-top: 10px;
     padding-bottom: 0px;
-    margin-top: 10px;
-  }
-  .external-container {
-    background: #bdbdbd;
-    
-  }
- 
-  .nav-item{
-    padding-right: 85px;
-    padding-left: 30px;
-    color :white;
-  }
-  .nav
-  {
-    color:white;
   }
 
-  .btn-sub
-  {
-position: relative; 
-left: 50%;
-}
 
   

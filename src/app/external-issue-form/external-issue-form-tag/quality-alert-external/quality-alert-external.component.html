@@ -9,12 +9,15 @@
                                 Quality A Tag
                         </label>
                 </div>
-                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                        <label>
-                                <input type="checkbox" [(ngModel)]="externalTagData.ExtSupplierIssue"
-                                [ngModelOptions]="{standalone: true}" />
-                                Supplier Issue
-                        </label>
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 form-check">
+                                
+                                                <input class="form-check-input" type="checkbox" id="gridCheck1">
+                                                <label class="form-check-label" for="gridCheck1">
+                                                  Supplier Issue
+                                                </label>
+                                       
+
+
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                         <input type="text" class="form-control" [(ngModel)]="externalTagData.Issuedby"

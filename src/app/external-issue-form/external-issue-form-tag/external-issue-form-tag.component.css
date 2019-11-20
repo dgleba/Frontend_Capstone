@@ -1,13 +1,12 @@
 body {
     background: #456;
     font-family: "Open Sans", sans-serif;
+    overflow: hidden;
   }
   
   .externalTagView {
-    width: auto;
-    margin: auto;
-    font-size: 18px;
-    padding: 0px;
+    font-size: 16px;
+   
   }
   
   /*triange */
@@ -27,16 +26,8 @@ body {
     text-align: center;
     text-transform: uppercase;
     color: #fff;
-    margin-top: 0;
-    margin-bottom: 0;
   }
   
-  .external-container {
-    background: #ebebeb;
-    padding: 12px;
-    padding-top: 10px;
-    padding-bottom: 0px;
-  }
 
 
   

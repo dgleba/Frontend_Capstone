@@ -126,6 +126,20 @@ getCustomerList(){
       )
   }
 
+  // api to search part number contains
+  getPartNumContains(searchPartNumber){
+    let myHeader=new HttpHeaders();
+    myHeader=myHeader.append( 'Content-Type','application/json');
+    myHeader=myHeader.append( 'Authorization','Bearer' + " " + this.utilityService.getToken());
+    console.log("hearder",myHeader);
+    let  params = new HttpParams();
+    params = params.append('q[PartID_cont]',searchPartNumber);
+    return this.http.get(this.apiURL + '/tbl_quality_issues.json', {headers:myHeader,params:params})
+    .pipe(
+      catchError(this.handleError)
+    )   
+  }
+
   //searchBy api call
   getDataBySearch(searchObl){
     let myHeader=new HttpHeaders();

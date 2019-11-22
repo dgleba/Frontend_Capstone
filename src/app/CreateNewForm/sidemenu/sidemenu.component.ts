@@ -44,9 +44,9 @@ export class SidemenuComponent implements OnInit {
   }
 
   //event handler to get the selected value of part num
-  getSelectedPartNumber(event: any) {
-    console.log("select part num", event.id);
-    this.internalTagData.PartID = event.id;
+  getSelectedPartNumber(event) {
+    console.log("select part num", event.target.value);
+    this.internalTagData.PartID =event.target.value;
     this.utilityService.setInternalTagData(this.internalTagData);
   }
   clearData(){
@@ -57,16 +57,16 @@ export class SidemenuComponent implements OnInit {
     console.log("not part num",this.internalTagData.PartID); 
   }
     //event handler to get the selected value of reason
-  getSelectedReason(event: any) {
-    console.log("select reason num", event.Reason);
-    this.internalTagData.Reason = event.Reason;
+  getSelectedReason(event) {
+    console.log("select reason num", event.target.value);
+    this.internalTagData.Reason = event.target.value;
     this.utilityService.setInternalTagData(this.internalTagData);
 
   }
   //event handler to get the selected value of process step
   getSelectedProcessStep(event: any) {    
-    console.log("select process num", event.Department);
-    this.internalTagData.ProcessStep = event.Department;
+    console.log("select process num", event.target.value);
+    this.internalTagData.ProcessStep = event.target.value;
     this.utilityService.setInternalTagData(this.internalTagData);
   }
   //event handler to get the selected value of machine step

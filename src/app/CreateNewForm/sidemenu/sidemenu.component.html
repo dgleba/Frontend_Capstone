@@ -1,5 +1,5 @@
 <h4>Internal</h4>
-<div class="ng-autocomplete test-auto">
+<!-- <div class="ng-autocomplete test-auto">
   <ng-autocomplete 
     [data]="partNumberList"
     [searchKeyword]="partNumId"
@@ -72,9 +72,38 @@
   <ng-template #notFoundMachineTemplate let-notFound>
   <div [innerHTML]="notFound"></div>
   </ng-template>
+</div> -->
+
+<div class="form-group">
+  <select class="form-control" (change)="getSelectedPartNumber($event)">
+    <option [ngValue]="null" disabled>Part Number</option>
+    <option
+      *ngFor="let partNum of partNumberList; let i = index"
+      [ngValue]="partNum">
+      {{ partNum.id }}
+    </option>
+  </select>
 </div>
 
+<div class="form-group">
+  <select class="form-control" (change)="getSelectedReason($event)">
+    <option disabled>Reason</option>
+    <option *ngFor="let reason of reasonList; let i = index" [ngValue]="reason">
+      {{ reason.Reason }}
+    </option>
+  </select>
+</div>
 
+<div class="form-group">
+  <select class="form-control" (change)="getSelectedProcessStep($event)">
+    <option disabled>Process Step</option>
+    <option
+      *ngFor="let processStep of processStep; let i = index"
+      [ngValue]="processStep">
+      {{ processStep.Department }}
+    </option>
+  </select>
+</div>
 <div class="form-group">
   <input
     type="text"

@@ -6,33 +6,29 @@
     <div class="updateTag-container">
         <form>
             <div class="row">
-                <div class="col-6">
-                    <div class="ng-autocomplete">
-                        <ng-autocomplete [data]="partNumberList" [searchKeyword]="partNumId" placeHolder="Part Number"
-                            (selected)='getSelectedPartNumber($event)' (inputCleared)="clearData()"
-                            [itemTemplate]="itemTemplate" [notFoundTemplate]="notFoundTemplate">
-                        </ng-autocomplete>
-                        <ng-template #itemTemplate let-item>
-                            <a [innerHTML]="item.id"></a>
-                        </ng-template>
-                        <ng-template #notFoundTemplate let-notFound>
-                            <div [innerHTML]="notFound"></div>
-                        </ng-template>
-                    </div>
+                <div class="col-4 col-lg-4">
+                    <p>Part Number</p>
+                    <select class="form-control" (change)="getSelectedPartNumber($event)">
+                        <option disabled>
+                            Part Number
+                        </option>
+                        <option *ngFor="let partNum of partNumberList; let i = index"
+                            [selected]="partNum.id ===qualityTagData.PartID">
+                            {{partNum.id}}
+                        </option>
+                    </select>
                 </div>
-                <div class="col-6">
-                    <div class="ng-autocomplete">
-                        <ng-autocomplete [data]="reasonList" [searchKeyword]="reasonKeyword" placeHolder="Reason"
-                            (selected)='getSelectedReason($event)' (inputCleared)="clearData()"
-                            [itemTemplate]="reasonTemplate" [notFoundTemplate]="notFoundReasonTemplate">
-                        </ng-autocomplete>
-                        <ng-template #reasonTemplate let-item>
-                            <a [innerHTML]="item.Reason"></a>
-                        </ng-template>
-                        <ng-template #notFoundReasonTemplate let-notFound>
-                            <div [innerHTML]="notFound"></div>
-                        </ng-template>
-                    </div>
+                <div class="col-4 col-lg-4">
+                    <p>Reason</p>
+                    <select class="form-control" (change)="getSelectedReason($event)">
+                        <option disabled>
+                            Reason
+                        </option>
+                        <option *ngFor="let reason of reasonList; let i = index"
+                            [selected]="reason.Reason ===qualityTagData.Reason">
+                            {{reason.Reason}}
+                        </option>
+                    </select>
                 </div>
             </div>
             <div class="row">

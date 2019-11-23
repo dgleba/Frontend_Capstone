@@ -18,7 +18,7 @@ import { from } from 'rxjs';
 export class SidemenuComponent implements OnInit {
   constructor(private utilityService: UtilityServiceService, private restAPIService: RestAPIService) {
   }
-  partNumId = 'id';
+  partNumId = 'PartID';
   reasonKeyword='Reason';
   processKeyword='Department';
   machineKeyword1='MachineDesc';
@@ -42,31 +42,47 @@ export class SidemenuComponent implements OnInit {
     this.internalTagData.Issuedby = val;
     this.utilityService.setInternalTagData(this.internalTagData);
   }
-
   //event handler to get the selected value of part num
   getSelectedPartNumber(event) {
-    console.log("select part num", event.target.value);
-    this.internalTagData.PartID =event.target.value;
+    console.log("select part num", event.PartID);
+    this.internalTagData.PartID =event.PartID;
     this.utilityService.setInternalTagData(this.internalTagData);
   }
+  onChangePartNumber(val: string) {
+    console.log("on change search ", val);
+    this.restAPIService.getListByContains(val,'','').subscribe(
+      (data: any) => {
+        this.partNumberList=data; 
+       }
+    )
+  }
+  // part functions closed
   clearData(){
     this.internalTagData.PartID = '';
     this.internalTagData.Reason = '';
     this.internalTagData.ProcessStep = '';
     this.internalTagData.MachineID = '';
+    this.getPartList();
     console.log("not part num",this.internalTagData.PartID); 
   }
     //event handler to get the selected value of reason
   getSelectedReason(event) {
-    console.log("select reason num", event.target.value);
-    this.internalTagData.Reason = event.target.value;
+    console.log("select reason num", event.Reason);
+    this.internalTagData.Reason = event.Reason;
     this.utilityService.setInternalTagData(this.internalTagData);
-
+  }
+  onChangeReasonNumber(val: string) {
+    console.log("on change search ", val);
+    this.restAPIService.getListByContains('',val,'').subscribe(
+      (data: any) => {
+        this.reasonList=data; 
+       }
+    )
   }
   //event handler to get the selected value of process step
-  getSelectedProcessStep(event: any) {    
-    console.log("select process num", event.target.value);
-    this.internalTagData.ProcessStep = event.target.value;
+  getSelectedProcessStep(event) {    
+    console.log("select process num", event.Department);
+    this.internalTagData.ProcessStep = event.Department;
     this.utilityService.setInternalTagData(this.internalTagData);
   }
   //event handler to get the selected value of machine step
@@ -116,9 +132,14 @@ export class SidemenuComponent implements OnInit {
 getPartList() {    
   this.restAPIService.getPartList().subscribe(
     (data: any) => {
-      this.partNumberList=data;
-      this.utilityService.setPartNumberList(data);    
-     
+      const newData = data.map(({ id:PartID, Description, RptScrap,PlantNumber,url}) => ({
+        PartID,
+        Description,
+        RptScrap,
+        PlantNumber,url
+    }));
+      this.partNumberList=newData;
+      this.utilityService.setPartNumberList(data);  
      }
   )
 }

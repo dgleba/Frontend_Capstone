@@ -18,9 +18,10 @@ export class LoginComponent implements OnInit {
         this.restApi.doLogin(this.userDetails).subscribe((data:any 
         ) => {
             console.log(data);
+            this.restApi.setApiSuccessmessage("Login Successfull")
             this.utilityApi.setToken(data.token);
             this.router.navigate(['/home'])
-        })
+        });
       }
    
 }

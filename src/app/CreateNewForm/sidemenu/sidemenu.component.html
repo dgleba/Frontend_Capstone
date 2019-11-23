@@ -1,16 +1,17 @@
 <h4>Internal</h4>
-<!-- <div class="ng-autocomplete test-auto">
+<div class="ng-autocomplete test-auto">
   <ng-autocomplete 
     [data]="partNumberList"
     [searchKeyword]="partNumId"
-    placeHolder="Part Number"
+    placeHolder="Select Part Number"
     (selected)='getSelectedPartNumber($event)'
+    (inputChanged)='onChangePartNumber($event)'
     (inputCleared)="clearData()"
     [itemTemplate]="itemTemplate"
     [notFoundTemplate]="notFoundTemplate">                                 
   </ng-autocomplete>   
   <ng-template #itemTemplate let-item>
-  <a [innerHTML]="item.id"></a>
+  <a [innerHTML]="item.PartID"></a>
   </ng-template>   
   <ng-template #notFoundTemplate let-notFound>
   <div [innerHTML]="notFound"></div>
@@ -21,7 +22,7 @@
   <ng-autocomplete 
     [data]="reasonList"
     [searchKeyword]="reasonKeyword"
-    placeHolder="Reason"
+    placeHolder="Select Reason"
     (selected)='getSelectedReason($event)'
     (inputCleared)="clearData()"
     [itemTemplate]="reasonTemplate"
@@ -35,11 +36,11 @@
   </ng-template>
 </div>
 
-<div class="ng-autocomplete test-auto">
+ <div class="ng-autocomplete test-auto">
   <ng-autocomplete 
     [data]="processStep"
     [searchKeyword]="processKeyword"
-    placeHolder="Process Step"
+    placeHolder="Select Process Step"
     (selected)='getSelectedProcessStep($event)'
     (inputCleared)="clearData()"
     [itemTemplate]="processTemplate"
@@ -57,7 +58,7 @@
   <ng-autocomplete 
     [data]="machineStep"
     [searchKeyword]="machineKeyword1"
-    placeHolder="Machine Step"
+    placeHolder="Select Machine Step"
     (selected)='getSelectedMachine($event)'
     (inputCleared)="clearData()"
     [itemTemplate]="machineTemplate"
@@ -72,9 +73,9 @@
   <ng-template #notFoundMachineTemplate let-notFound>
   <div [innerHTML]="notFound"></div>
   </ng-template>
-</div> -->
+</div>
 
-<div class="form-group">
+<!-- <div class="form-group">
   <select class="form-control" (change)="getSelectedPartNumber($event)">
     <option [ngValue]="null" disabled>Part Number</option>
     <option
@@ -92,9 +93,9 @@
       {{ reason.Reason }}
     </option>
   </select>
-</div>
+</div> -->
 
-<div class="form-group">
+<!-- <div class="form-group">
   <select class="form-control" (change)="getSelectedProcessStep($event)">
     <option disabled>Process Step</option>
     <option
@@ -103,7 +104,7 @@
       {{ processStep.Department }}
     </option>
   </select>
-</div>
+</div> -->
 <div class="form-group">
   <input
     type="text"

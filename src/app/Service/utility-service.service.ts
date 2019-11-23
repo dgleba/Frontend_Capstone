@@ -10,6 +10,12 @@ import {ExternalTagData} from 'src/app/Model/externalTagData';
   providedIn: 'root'
 })
 export class UtilityServiceService {
+  apiData:any={
+    isApiCalled:false,
+    isApiResponseSuccessful:true,
+    msg : ''
+  }
+  
 tagSummaryOption : any = [
   {id: '1', tagName: 'Quality Alert', isChecked: false},
   {id: '2', tagName: 'Hold Tag', isChecked: false},
@@ -38,7 +44,14 @@ tagSummaryOption : any = [
   this.todaysDate = new Date();
    console.log(this.datePipe.transform(this.todaysDate,"yyyy-MM-dd HH:mm:ss"));
   } 
-
+  //getter setter for api Response boolean
+ setApiResponse(apiData){
+   this.apiData=apiData;
+ }
+ getApiResponse(){
+   return this.apiData;
+ }
+ //end for getter setter apiResponse
   getTodaysDate(){
     return this.todaysDate;
   }

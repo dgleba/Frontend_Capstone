@@ -11,7 +11,7 @@ import { Partnumber } from 'src/app/Model/partnumber';
 export class RestAPIService {
 
   // Define API
-  apiURL = 'http://192.168.0.40:6036';
+  apiURL = 'http://192.168.0.41:6036';
 
 
   constructor(private http: HttpClient, private utilityService: UtilityServiceService) { }
@@ -125,15 +125,22 @@ getCustomerList(){
         catchError(this.handleError)
       )
   }
-
   // api to search part number contains
-  getPartNumContains(searchPartNumber){
+  getListByContains(searchPartNumber,searchReason,searchProcess){
+    console.log("on change search in rest api ", searchPartNumber);
     let myHeader=new HttpHeaders();
     myHeader=myHeader.append( 'Content-Type','application/json');
     myHeader=myHeader.append( 'Authorization','Bearer' + " " + this.utilityService.getToken());
     console.log("hearder",myHeader);
     let  params = new HttpParams();
-    params = params.append('q[PartID_cont]',searchPartNumber);
+    if(searchPartNumber){
+      params = params.append('q[PartID_cont]',searchPartNumber);
+    }else if(searchReason){
+      params = params.append('q[Reason_cont]',searchReason);
+    }else if(searchProcess){
+      params = params.append('q[Reason_cont]',searchReason);
+    }
+   
     return this.http.get(this.apiURL + '/tbl_quality_issues.json', {headers:myHeader,params:params})
     .pipe(
       catchError(this.handleError)
@@ -176,9 +183,22 @@ getCustomerList(){
       // Get server-side error
       errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
     }
-    console.log("error",errorMessage);  
+    console.log("error",errorMessage);    
     return throwError(errorMessage);
   }
-
+  setApiErrorResponse(errorMessage){
+    var  apiData= this.utilityService.getApiResponse();
+    apiData.msg=errorMessage;
+    apiData.isApiCalled=true;
+    apiData.isApiResponseSuccessful=false;
+    this.utilityService.setApiResponse(apiData);
+  }
+  setApiSuccessmessage(message){
+    var  apiData= this.utilityService.getApiResponse();
+    apiData.msg=message;
+    apiData.isApiCalled=true;
+    apiData.isApiResponseSuccessful=true;
+    this.utilityService.setApiResponse(apiData);
+  }
 
 }

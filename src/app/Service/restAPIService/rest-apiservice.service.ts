@@ -20,7 +20,7 @@ export class RestAPIService {
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
-      'Authorization': 'Bearer' + " " + this.utilityService.getToken()
+      'Authorization': 'Bearer'+" "+ this.utilityService.getToken()
     })
   }
   // file upload header
@@ -90,6 +90,7 @@ getCustomerList(){
 
   // API to fetch Part Numer
   getPartList() {
+    console.log(this.httpOptions);
     return this.http.get(this.apiURL + '/parts.json', this.httpOptions)
       .pipe(
         catchError(this.handleError)

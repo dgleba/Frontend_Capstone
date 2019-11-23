@@ -42,7 +42,6 @@ tagSummaryOption : any = [
   todaysDate:Date;
   constructor(private datePipe: DatePipe) { 
   this.todaysDate = new Date();
-   console.log(this.datePipe.transform(this.todaysDate,"yyyy-MM-dd HH:mm:ss"));
   } 
   //getter setter for api Response boolean
  setApiResponse(apiData){
@@ -70,6 +69,10 @@ tagSummaryOption : any = [
 
   getToken()
   {
+    if (localStorage.getItem("token") === null) {
+     alert("empty token");
+    }
+    
     return this.token = localStorage.getItem('token');
   }
   deleteToken(){

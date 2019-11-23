@@ -69,10 +69,6 @@ tagSummaryOption : any = [
 
   getToken()
   {
-    if (localStorage.getItem("token") === null) {
-     alert("empty token");
-    }
-    
     return this.token = localStorage.getItem('token');
   }
   deleteToken(){

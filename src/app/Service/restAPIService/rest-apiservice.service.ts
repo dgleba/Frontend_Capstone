@@ -91,7 +91,10 @@ getCustomerList(){
   // API to fetch Part Numer
   getPartList() {
     console.log(this.httpOptions);
-    return this.http.get(this.apiURL + '/parts.json', this.httpOptions)
+    let myHeader=new HttpHeaders();
+    myHeader=myHeader.append( 'Content-Type','application/json');
+    myHeader=myHeader.append( 'Authorization','Bearer' + " " + this.utilityService.getToken());
+    return this.http.get(this.apiURL + '/parts.json', {headers:myHeader})
       .pipe(
         catchError(this.handleError)
       )
@@ -100,21 +103,30 @@ getCustomerList(){
 
   // API to fetch Reason
   getReasonList() {
-    return this.http.get(this.apiURL + '/tbl_htpc_reasons.json', this.httpOptions)
+    let myHeader=new HttpHeaders();
+    myHeader=myHeader.append( 'Content-Type','application/json');
+    myHeader=myHeader.append( 'Authorization','Bearer' + " " + this.utilityService.getToken());
+    return this.http.get(this.apiURL + '/tbl_htpc_reasons.json', {headers:myHeader})
       .pipe(
         catchError(this.handleError)
       )
   }
   // API to fetch processStep
   getProcessList() {
-    return this.http.get(this.apiURL + '/depts.json', this.httpOptions)
+    let myHeader=new HttpHeaders();
+    myHeader=myHeader.append( 'Content-Type','application/json');
+    myHeader=myHeader.append( 'Authorization','Bearer' + " " + this.utilityService.getToken());
+    return this.http.get(this.apiURL + '/depts.json', {headers:myHeader})
       .pipe(
         catchError(this.handleError)
       )
   }
   // API to fetch machineList
   getMachineList() {
-    return this.http.get(this.apiURL + '/machines.json', this.httpOptions)
+    let myHeader=new HttpHeaders();
+    myHeader=myHeader.append( 'Content-Type','application/json');
+    myHeader=myHeader.append( 'Authorization','Bearer' + " " + this.utilityService.getToken());
+    return this.http.get(this.apiURL + '/machines.json',  {headers:myHeader})
       .pipe(
         catchError(this.handleError)
       )

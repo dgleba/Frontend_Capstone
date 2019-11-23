@@ -32,10 +32,10 @@ import { PictureExternalComponent } from './external-issue-form/external-issue-f
 const appRoutes: Routes = [
   { path: "", component: LoginComponent },
   { path: "login", component: LoginComponent },
-  { path: "home", component: HomeComponent },
+  { path: "home", component: HomeComponent, canActivate: [AuthGuardService] },
   {
     path: "newForm",
-    component: CommonTagView,
+    component: CommonTagView,canActivate: [AuthGuardService],
     children: [
       { path: "", outlet: "sidemenu", component: SidemenuComponent },
       { path: "", component: QualityalertinComponent },
@@ -46,11 +46,11 @@ const appRoutes: Routes = [
       { path: "picture", component: AddPictureComponent }
     ]
   },
-  { path: "getTag", component: GetTagDataComponent },
-  { path: "updateTag/:id", component: UpdateTagDataComponent },
-  { path: "externalIssueForm", component: ExternalIssueFormComponent },
+  { path: "getTag", component: GetTagDataComponent,canActivate: [AuthGuardService] },
+  { path: "updateTag/:id", component: UpdateTagDataComponent ,canActivate: [AuthGuardService]},
+  { path: "externalIssueForm", component: ExternalIssueFormComponent,canActivate: [AuthGuardService] },
   { path: "externalIssueTag", 
-  component: ExternalIssueFormTagComponent ,
+  component: ExternalIssueFormTagComponent ,canActivate: [AuthGuardService],
   children: [
     {path:"", component:QualityAlertExternalComponent},
     {path:"qualityAlertExternal", component:QualityAlertExternalComponent},
@@ -60,7 +60,7 @@ const appRoutes: Routes = [
     {path:"pictureExternal", component:PictureExternalComponent}
   ]
 },
-  { path: "partValueCalculator", component: PartValueCalculatorComponent },
+  { path: "partValueCalculator", component: PartValueCalculatorComponent,canActivate: [AuthGuardService] },
 
   { path: "**", component: PageNotFoundComponent }
 ];

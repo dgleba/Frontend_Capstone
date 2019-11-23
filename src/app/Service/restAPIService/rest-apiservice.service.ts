@@ -140,7 +140,6 @@ getCustomerList(){
   }
   // api to search part number contains
   getListByContains(searchPartNumber,searchReason,searchProcess){
-    console.log("on change search in rest api ", searchPartNumber);
     let myHeader=new HttpHeaders();
     myHeader=myHeader.append( 'Content-Type','application/json');
     myHeader=myHeader.append( 'Authorization','Bearer' + " " + this.utilityService.getToken());
@@ -162,10 +161,10 @@ getCustomerList(){
 
   //searchBy api call
   getDataBySearch(searchObl){
+   
     let myHeader=new HttpHeaders();
     myHeader=myHeader.append( 'Content-Type','application/json');
     myHeader=myHeader.append( 'Authorization','Bearer' + " " + this.utilityService.getToken());
-    console.log("hearder",myHeader);
     let  params = new HttpParams();
     if(searchObl[0].value){
       params = params.append('q[id_cont]',searchObl[0].value);
@@ -173,8 +172,10 @@ getCustomerList(){
     if(searchObl[1].value){
       params = params.append('q[PartID_cont]',searchObl[1].value);
     } 
-    if(searchObl[2].value){
-      params = params.append('q[date_cont]',searchObl[3].value);
+    if(searchObl[2].value){  
+      // date to be send in the form yyyy-mm   
+      searchObl[2].value=searchObl[2].value.slice(0, 7); 
+      params = params.append('q[date_cont]',searchObl[2].value);
     }
     if(searchObl[3].value){
       params=params.append('q[ProblemType_or_PartID_or_Issuedby_or_OpertionHd_or_OpertionTp_or_OpertionSp_or_OpertionQA_or_Reason_or_ReasonNote_or_Feature_or_Changed_or_Comment_or_SpecialInst_or_QualityAlert_or_QualityAlertMemo_or_CustomerRefNum_or_DispositionCustomer_or_DispositionStackpole_or_Okdby_or_FeatureNumber_or_OperationNumber_or_body_or_operation_cont_any]',searchObl[3].value);

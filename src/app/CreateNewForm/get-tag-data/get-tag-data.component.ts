@@ -35,7 +35,6 @@ export class GetTagDataComponent implements OnInit {
       (data: any) => {
         this.qualityTagDataList = data;
         if(this.qualityTagDataList.length!=0){
-          console.log(this.qualityTagDataList, "from api");
         }else{
           alert("No data available");
           this.getQualityTagData();
@@ -50,14 +49,11 @@ export class GetTagDataComponent implements OnInit {
     this.restAPIService.getAllQualtityTag().subscribe(
       (data: any) => {
         this.qualityTagDataList = data;
-        console.log(this.qualityTagDataList, "from api");
-
-      }
+        }
     )
   }
   //go to update page with id
   updatetag(id: number) {
-    console.log("its here");
     this.router.navigate(['/updateTag', id]);
   }
 }

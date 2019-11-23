@@ -120,11 +120,11 @@
 <div class="form-group">
   <label>Tag Summary</label>
   <div
-    class="checkbox"
+    class="custom-control custom-checkbox"
     *ngFor="let tagSummary of tagSummaryList; let i = index"
   >
     <label
-      ><input type="checkbox" (change)="getSelectedTag(i)" />
+      ><input type="checkbox"  class="custom-control-input" (change)="getSelectedTag(i)" />
       {{ tagSummary.tagName }}
     </label>
   </div>

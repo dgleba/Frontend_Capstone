@@ -95,6 +95,7 @@ export class SidemenuComponent implements OnInit {
   }
   //
   getSelectedTag(id: number) {
+    console.log("check clicked");
     var updatedObjectArray = this.utilityService.getTagsummaryList();
     var updatedObj = updatedObjectArray[id];
     updatedObj.isChecked = !updatedObj.isChecked;

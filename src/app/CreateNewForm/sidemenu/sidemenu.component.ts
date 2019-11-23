@@ -32,10 +32,10 @@ export class SidemenuComponent implements OnInit {
   public processStepId: string;
   public machineStepId: string;
   ngOnInit() {   
-    this.getMachineList();
+   
     this.getPartList();
-    this.getProcessList();
-    this.getReasonList();
+   
+    
   }
   focusOutFunction($event) {
     var val = (<HTMLInputElement>document.getElementById("issuedByValue")).value;
@@ -138,8 +138,10 @@ getPartList() {
         RptScrap,
         PlantNumber,url
     }));
+    this.getReasonList();
       this.partNumberList=newData;
-      this.utilityService.setPartNumberList(data);  
+      this.utilityService.setPartNumberList(data); 
+
      }
   )
 }
@@ -147,6 +149,7 @@ getPartList() {
 getReasonList() {    
   this.restAPIService.getReasonList().subscribe(
     (data: any) => {
+      this.getProcessList();
       this.reasonList=data;
       this.utilityService.setReasonList(data);    
      }
@@ -156,6 +159,7 @@ getReasonList() {
 getProcessList() {
   this.restAPIService.getProcessList().subscribe(
     (data: any) => {
+      this.getMachineList();
       this.processStep=data;
       this.utilityService.setProcessList(data);
     }

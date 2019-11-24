@@ -9,4 +9,9 @@ import {UtilityServiceService} from 'src/app/Service/utility-service.service';
 export class AppComponent {
   constructor(public utilityService: UtilityServiceService) {}
     apiData=this.utilityService.getApiResponse();
+   closeAlert(){
+     console.log("close alert");
+     this.apiData.isApiCalled=false;
+     this.utilityService.setApiResponse(this.apiData);
+   }
 }

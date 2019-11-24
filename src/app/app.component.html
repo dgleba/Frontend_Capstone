@@ -1,12 +1,12 @@
 <div class="add-margin" *ngIf="apiData.isApiCalled" [(ngModel)]="apiData.isApiCalled" name="apiData.isApiCalled"
     ngDefaultControl [ngModelOptions]="{standalone: true}">
-    <div class="alert alert-success alert-dismissible" *ngIf="apiData.isApiResponseSuccessful" role="alert">
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+    <div class="alert alert-success alert-dismissible" fade show *ngIf="apiData.isApiResponseSuccessful" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close" (click)="closeAlert()"><span
                 aria-hidden="true">&times;</span></button>
         <strong> {{apiData.msg}}!</strong>
     </div>
-    <div class="alert alert-danger alert-dismissible" *ngIf="!apiData.isApiResponseSuccessful" role="alert">
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+    <div class="alert alert-danger alert-dismissible" fade show *ngIf="!apiData.isApiResponseSuccessful" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close" (click)="closeAlert()"><span
                 aria-hidden="true">&times;</span></button>
         <strong> {{apiData.msg}}!</strong>
     </div>

@@ -1,4 +1,4 @@
-<div class="container-fluid ccommonTagView">
+<div class="container-fluid">
   <div class="internal-triangle"></div>
   <h2 class="internal-header">
     Internal Issue
@@ -30,17 +30,15 @@
       </ul>
     </div>
   </nav>
-  <div class="jumbotron">
-    <div class="internal-container">
+    <div class="internal-container container-fluid">
       <div class="row">
-        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 vertical-section">
+        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12  vertical-section add-padding">
           <router-outlet name="sidemenu"></router-outlet>
         </div>
-        <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+        <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 another-panel">
 
           <router-outlet></router-outlet>
         </div>
       </div>
     </div>
   </div>
-</div>

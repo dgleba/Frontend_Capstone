@@ -119,6 +119,7 @@ export class SidemenuComponent implements OnInit {
 getPartList() {    
   this.restAPIService.getPartList().subscribe(
     (data: any) => {
+      data=data.unique();
       const newData = data.map(({ id:PartID, Description, RptScrap,PlantNumber,url}) => ({
         PartID,
         Description,
@@ -136,6 +137,7 @@ getPartList() {
 onChangePartNumber(val: string) {
   console.log("on change search ", val);
   this.restAPIService.getListByContains(val,'','').subscribe((data: any) => {
+    data=data.unique();
       this.partNumberList=data; 
      },error=>{
       this.restAPIService.setApiErrorResponse(error)

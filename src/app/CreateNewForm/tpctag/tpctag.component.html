@@ -12,24 +12,26 @@
     </div>
   </div>
 <div class="row">
-  <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 form-group">
+  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group">
     <p>Feature : </p>
-    <textarea autosize placeholder="Enter Feature..." [(ngModel)]="internalTagData.Feature"
-    [ngModelOptions]="{standalone: true}" rows="3" cols="100"></textarea>
+    <textarea autosize class="form-control my-textarea" [(ngModel)]="internalTagData.Feature"
+    [ngModelOptions]="{standalone: true}" placeholder="Enter..." rows="4"></textarea>
   </div>
 </div>
+
 <div class="row">
-  <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 form-group">
-    <p>Body : </p>
-    <textarea autosize placeholder="Enter..." [(ngModel)]="internalTagData.body"
-    [ngModelOptions]="{standalone: true}" rows="3" cols="100"></textarea>
+  <div class="col-lg col-md col-sm col-xs form-group">
+      <p>Body</p>
+      <textarea autosize class="form-control my-textarea" [(ngModel)]="internalTagData.body"
+          [ngModelOptions]="{standalone: true}" placeholder="Enter..." name="story" rows="4"></textarea>
   </div>
 </div>
+
 <div class="row">
-  <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 form-group">
+  <div class="col-lg col-md col-sm col-xs form-group">
     <p>Changed : </p>
-    <textarea autosize placeholder="Enter..." [(ngModel)]="internalTagData.Changed"
-     [ngModelOptions]="{standalone: true}" rows="3" cols="100"></textarea>
+    <textarea autosize class="form-control my-textarea" [(ngModel)]="internalTagData.Changed"
+     [ngModelOptions]="{standalone: true}" placeholder="Enter..."  rows="4"></textarea>
   </div>
 </div>
 

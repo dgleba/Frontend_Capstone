@@ -19,8 +19,7 @@ export class UpdateTagDataComponent implements OnInit {
   public editTagId:number;
   public partNumberList: Partnumber[];
   public reasonList : Reason[];
-  public qualityTagData:QualityTagData;
-  
+  public qualityTagData=this.utilityService.getInternalTagData();  
   partNumId = 'id';
   reasonKeyword='Reason';
   
@@ -34,8 +33,7 @@ export class UpdateTagDataComponent implements OnInit {
   }
   focusOutFunction ($event) {
     var val = (<HTMLInputElement>document.getElementById("issuedByValue")).value;
-    this.qualityTagData.Issuedby=val;
-   
+    this.qualityTagData.Issuedby=val;   
  }
    // api calls start
    getQualityTagDataById(id:number){
@@ -70,12 +68,12 @@ export class UpdateTagDataComponent implements OnInit {
   }
 
   //event handler to get the selected value of part num
-  getSelectedPartNumber (event: any) {    
-    this.qualityTagData.PartID=event.id;    
+  getSelectedPartNumber (event) {    
+    this.qualityTagData.PartID=event.target.value;    
   }
   //event handler to get the selected value of reason
-  getSelectedReason (event: any) {  
-   this.qualityTagData.Reason=event.Reason;    
+  getSelectedReason (event) {  
+   this.qualityTagData.Reason=event.target.value;    
   }
   clearData(){
     this.qualityTagData.PartID = '';

@@ -11,16 +11,20 @@ import { UtilityServiceService } from '../Service/utility-service.service';
 export class LoginComponent implements OnInit {
     @Input() userDetails = {user:{email: '', password:''}}
     constructor(public restApi: RestAPIService, public utilityApi: UtilityServiceService, private router: Router) {}
+    apiData=this.utilityApi.getApiResponse();
+   
     ngOnInit() {
+        this.apiData.isApiCalled=false;
     }
     loginUser() {
-        console.log(this.userDetails);
-        this.restApi.doLogin(this.userDetails).subscribe((data:any 
-        ) => {
+        this.restApi.doLogin(this.userDetails).subscribe((data:any) => {
             console.log(data);
-            this.restApi.setApiSuccessmessage("Login Successfull")
+            this.restApi.setApiSuccessmessage("Login Successful")
             this.utilityApi.setToken(data.token);
             this.router.navigate(['/home'])
+        },
+        error => {
+            this.restApi.setApiErrorResponse(error)
         });
       }
    

@@ -38,9 +38,11 @@ export class SpecialInstructionComponent implements OnInit {
   createTagApiCall() {    
     //this.utilityService.setLengthOfChange(this.tagDetails.lengthOfChange);
     this.restAPIService.createTag(this.internalTagData).subscribe((data: any) => {    
-      console.log(data);
+      this.restAPIService.setApiSuccessmessage("Tag created successfully")
       this.router.navigate(['/getTag'])
-    })
+    },error=>{
+      this.restAPIService.setApiErrorResponse(error)
+     })
   }
   
 }

@@ -32,7 +32,6 @@ export class RestAPIService {
 
   // HttpClient API Post() method => Fetch User list
   doLogin(user) {
-    console.log("in service", user);
     return this.http.post(this.apiURL + '/users/sign_in.json', user)
       .pipe(
         catchError(this.handleError)
@@ -197,9 +196,10 @@ getCustomerList(){
       // Get server-side error
       errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
     }
-    console.log("error",errorMessage);    
+    console.log("error",errorMessage); 
     return throwError(errorMessage);
   }
+  // set api error response
   setApiErrorResponse(errorMessage){
     var  apiData= this.utilityService.getApiResponse();
     apiData.msg=errorMessage;
@@ -207,11 +207,13 @@ getCustomerList(){
     apiData.isApiResponseSuccessful=false;
     this.utilityService.setApiResponse(apiData);
   }
+  // set api succes response
   setApiSuccessmessage(message){
     var  apiData= this.utilityService.getApiResponse();
     apiData.msg=message;
     apiData.isApiCalled=true;
     apiData.isApiResponseSuccessful=true;
+    console.log("api response",apiData);
     this.utilityService.setApiResponse(apiData);
   }
 

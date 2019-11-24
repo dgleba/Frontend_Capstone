@@ -15,6 +15,7 @@ import { Router } from '@angular/router';
 export class UpdateTagDataComponent implements OnInit {
   constructor(private restAPIService: RestAPIService,private route:ActivatedRoute,
   public utilityService: UtilityServiceService,private router: Router) { }
+  apiData=this.utilityService.getApiResponse();
   public editTagId:number;
   public partNumberList: Partnumber[];
   public reasonList : Reason[];
@@ -28,6 +29,8 @@ export class UpdateTagDataComponent implements OnInit {
     this.getQualityTagDataById(this.editTagId);
     this.getPartList();
     this.getReasonList();
+    this.apiData.isApiCalled=false;
+    this.utilityService.setApiResponse(this.apiData); 
   }
   focusOutFunction ($event) {
     var val = (<HTMLInputElement>document.getElementById("issuedByValue")).value;
@@ -38,10 +41,10 @@ export class UpdateTagDataComponent implements OnInit {
    getQualityTagDataById(id:number){
     console.log("by id");
     this.restAPIService.getQualityTagDataById(id).subscribe(
-      (data: any) => {
-        console.log("by id data",data);  
+      (data: any) => {  
         this.qualityTagData = data;
-
+       },error=>{
+        this.restAPIService.setApiErrorResponse(error)
        }
     )
    }
@@ -49,8 +52,9 @@ export class UpdateTagDataComponent implements OnInit {
    getPartList() {    
     this.restAPIService.getPartList().subscribe(
       (data: any) => {
-        this.partNumberList = data;    
-       
+        this.partNumberList = data; 
+       },error=>{
+        this.restAPIService.setApiErrorResponse(error)
        }
     )
   }
@@ -59,6 +63,8 @@ export class UpdateTagDataComponent implements OnInit {
     this.restAPIService.getReasonList().subscribe(
       (data: any) => {
         this.reasonList = data;    
+       },error=>{
+        this.restAPIService.setApiErrorResponse(error)
        }
     )
   }
@@ -97,9 +103,10 @@ export class UpdateTagDataComponent implements OnInit {
     console.log(this.qualityTagData,"quality");
     //this.utilityService.setLengthOfChange(this.tagDetails.lengthOfChange);
     this.restAPIService.updateTag(this.qualityTagData,this.editTagId).subscribe((data: any) => {
-      console.log(data);
+      this.restAPIService.setApiSuccessmessage("Tag updated successfully");
       this.router.navigate(['/getTag'])
-    })
-
+    },error=>{
+      this.restAPIService.setApiErrorResponse(error)
+     });
   }
 }

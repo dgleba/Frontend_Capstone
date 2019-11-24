@@ -49,14 +49,7 @@ export class SidemenuComponent implements OnInit {
     this.internalTagData.PartID =event.PartID;
     this.utilityService.setInternalTagData(this.internalTagData);
   }
-  onChangePartNumber(val: string) {
-    console.log("on change search ", val);
-    this.restAPIService.getListByContains(val,'','').subscribe(
-      (data: any) => {
-        this.partNumberList=data; 
-       }
-    )
-  }
+  
   // part functions closed
   clearData(){
     this.internalTagData.PartID = '';
@@ -72,14 +65,7 @@ export class SidemenuComponent implements OnInit {
     this.internalTagData.Reason = event.Reason;
     this.utilityService.setInternalTagData(this.internalTagData);
   }
-  onChangeReasonNumber(val: string) {
-    console.log("on change search ", val);
-    this.restAPIService.getListByContains('',val,'').subscribe(
-      (data: any) => {
-        this.reasonList=data; 
-       }
-    )
-  }
+ 
   //event handler to get the selected value of process step
   getSelectedProcessStep(event) {    
     console.log("select process num", event.Department);
@@ -129,7 +115,6 @@ export class SidemenuComponent implements OnInit {
     this.utilityService.setInternalTagData(this.internalTagData);
     console.log("internal tag data",this.utilityService.getInternalTagData());
   }
-
   //api calls start
 getPartList() {    
   this.restAPIService.getPartList().subscribe(
@@ -139,32 +124,55 @@ getPartList() {
         Description,
         RptScrap,
         PlantNumber,url
-    }));
-    
+    }));    
       this.partNumberList=newData;
       this.utilityService.setPartNumberList(data); 
-
+     },error=>{
+      this.restAPIService.setApiErrorResponse(error)
      }
   )
 }
-
+// on change part number in auto complete
+onChangePartNumber(val: string) {
+  console.log("on change search ", val);
+  this.restAPIService.getListByContains(val,'','').subscribe((data: any) => {
+      this.partNumberList=data; 
+     },error=>{
+      this.restAPIService.setApiErrorResponse(error)
+     }
+  )
+}
+// api call to get reason list
 getReasonList() {    
   this.restAPIService.getReasonList().subscribe(
-    (data: any) => {
-      
+    (data: any) => {      
       this.reasonList=data;
       this.utilityService.setReasonList(data);    
+     },error=>{
+      this.restAPIService.setApiErrorResponse(error)
+     }
+  )
+}
+// on change part number in auto complete
+onChangeReasonNumber(val: string) {
+  console.log("on change search ", val);
+  this.restAPIService.getListByContains('',val,'').subscribe(
+    (data: any) => {
+      this.reasonList=data; 
+     },error=>{
+      this.restAPIService.setApiErrorResponse(error)
      }
   )
 }
 // get processList
 getProcessList() {
   this.restAPIService.getProcessList().subscribe(
-    (data: any) => {
-      
+    (data: any) => {      
       this.processStep=data;
       this.utilityService.setProcessList(data);
-    }
+    },error=>{
+      this.restAPIService.setApiErrorResponse(error)
+     }
   )
 }
 // get machineList
@@ -173,11 +181,11 @@ getMachineList() {
     (data: any) => {
       this.machineStep=data;
       this.utilityService.setMachineList(data);
-    }
+    },error=>{
+      this.restAPIService.setApiErrorResponse(error)
+     }
   )
 } 
-//api calls end
-
-  
+//api calls end  
 
 }

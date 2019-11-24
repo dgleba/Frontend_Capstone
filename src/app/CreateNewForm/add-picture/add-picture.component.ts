@@ -44,24 +44,27 @@ export class AddPictureComponent implements OnInit {
 
   createTagApiCall() {
     this.restAPIService.createTag(this.internalTagData).subscribe((data: any) => {
-      console.log(data);
+      this.restAPIService.setApiSuccessmessage("Tag created successfully")
       this.uploadImage(data.id);
       //this.router.navigate(['/getTag'])
-    })
+    },error=>{
+      this.restAPIService.setApiErrorResponse(error)
+     })
   }
   // api call to upload image
   uploadImage(id) {
     console.log("id in image upload",id);
     this.restAPIService.uploadImage(this.picture1, this.picture2, this.document, id).subscribe((data: any) => {
       console.log(data);
-    });
+    },error=>{
+      this.restAPIService.setApiErrorResponse(error)
+     });
   }
   // get document list of files
   getDocument(event){
     if (event.length === 0)
     return;
-   this.document=event.target.files;
-  
+   this.document=event.target.files;  
   }
 
   // set the preview for image

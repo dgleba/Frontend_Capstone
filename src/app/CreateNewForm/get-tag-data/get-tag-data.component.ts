@@ -9,7 +9,6 @@ import { Router } from '@angular/router';
   styleUrls: ['./get-tag-data.component.css']
 })
 export class GetTagDataComponent implements OnInit {
-
   constructor(private restAPIService: RestAPIService, private router: Router) { }
   qualityTagDataList: QualityTagData[];
   searchOption: any = [
@@ -36,7 +35,7 @@ export class GetTagDataComponent implements OnInit {
         this.qualityTagDataList = data;
         if(this.qualityTagDataList.length!=0){
         }else{
-          alert("No data available");
+         this.restAPIService.setApiErrorResponse("No Data Available")
           this.getQualityTagData();
         }      
 
@@ -49,7 +48,9 @@ export class GetTagDataComponent implements OnInit {
     this.restAPIService.getAllQualtityTag().subscribe(
       (data: any) => {
         this.qualityTagDataList = data;
-        }
+        },error=>{
+          this.restAPIService.setApiErrorResponse(error)
+         }
     )
   }
   //go to update page with id

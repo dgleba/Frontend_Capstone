@@ -12,17 +12,7 @@ export class RestAPIService {
 
   // Define API
   apiURL = 'http://192.168.0.41:6036';
-
-
   constructor(private http: HttpClient, private utilityService: UtilityServiceService) { }
-
-  // Http Options
-  httpOptions = {
-    headers: new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Authorization': 'Bearer'+" "+ this.utilityService.getToken()
-    })
-  }
   // file upload header
   filehttpOptions={
     headers: new HttpHeaders({
@@ -40,8 +30,10 @@ export class RestAPIService {
 
   //API to createTag
   createTag(tagData) {
-    console.log("in service create tag", tagData);
-    return this.http.post(this.apiURL + '/tbl_quality_issues.json', tagData,this.httpOptions)
+    let myHeader=new HttpHeaders();
+    myHeader=myHeader.append( 'Content-Type','application/json');
+    myHeader=myHeader.append( 'Authorization','Bearer' + " " + this.utilityService.getToken());  
+    return this.http.post(this.apiURL + '/tbl_quality_issues.json', tagData,{headers:myHeader})
       .pipe(
         catchError(this.handleError)
       )
@@ -50,8 +42,11 @@ export class RestAPIService {
 
   //API to updateTag
   updateTag(tagData,id){
+    let myHeader=new HttpHeaders();
+  myHeader=myHeader.append( 'Content-Type','application/json');
+  myHeader=myHeader.append( 'Authorization','Bearer' + " " + this.utilityService.getToken());  
     console.log("in service update Tag", tagData);
-    return this.http.put(this.apiURL + '/tbl_quality_issues/'+id+'.json', tagData,this.httpOptions)
+    return this.http.put(this.apiURL + '/tbl_quality_issues/'+id+'.json', tagData,{headers:myHeader})
       .pipe(
         catchError(this.handleError)
       )
@@ -74,14 +69,20 @@ export class RestAPIService {
 
  // API to fetch qualityTag Data by Id
  getQualityTagDataById(id:number) {
-  return this.http.get(this.apiURL + '/tbl_quality_issues/'+id+'.json', this.httpOptions)
+  let myHeader=new HttpHeaders();
+  myHeader=myHeader.append( 'Content-Type','application/json');
+  myHeader=myHeader.append( 'Authorization','Bearer' + " " + this.utilityService.getToken());
+  return this.http.get(this.apiURL + '/tbl_quality_issues/'+id+'.json', {headers:myHeader})
     .pipe(
       catchError(this.handleError)
     )
 }
 // API to fetch CustomerList
 getCustomerList(){
-  return this.http.get(this.apiURL + '/tbl_customers.json',this.httpOptions)
+  let myHeader=new HttpHeaders();
+    myHeader=myHeader.append( 'Content-Type','application/json');
+    myHeader=myHeader.append( 'Authorization','Bearer' + " " + this.utilityService.getToken());
+  return this.http.get(this.apiURL + '/tbl_customers.json',{headers:myHeader})
   .pipe(
     catchError(this.handleError)
   )
@@ -89,8 +90,7 @@ getCustomerList(){
 
   // API to fetch Part Numer
   getPartList() {
-    console.log(this.httpOptions);
-    let myHeader=new HttpHeaders();
+   let myHeader=new HttpHeaders();
     myHeader=myHeader.append( 'Content-Type','application/json');
     myHeader=myHeader.append( 'Authorization','Bearer' + " " + this.utilityService.getToken());
     return this.http.get(this.apiURL + '/parts.json', {headers:myHeader})
@@ -125,14 +125,17 @@ getCustomerList(){
     let myHeader=new HttpHeaders();
     myHeader=myHeader.append( 'Content-Type','application/json');
     myHeader=myHeader.append( 'Authorization','Bearer' + " " + this.utilityService.getToken());
-    return this.http.get(this.apiURL + '/machines.json',  {headers:myHeader})
+    return this.http.get(this.apiURL + '/machines.json',{headers:myHeader})
       .pipe(
         catchError(this.handleError)
       )
   }
   //getAllQualtityTag
-  getAllQualtityTag(){   
-    return this.http.get(this.apiURL + '/tbl_quality_issues.json', this.httpOptions)
+  getAllQualtityTag(){ 
+    let myHeader=new HttpHeaders();
+    myHeader=myHeader.append( 'Content-Type','application/json');
+    myHeader=myHeader.append( 'Authorization','Bearer' + " " + this.utilityService.getToken());  
+    return this.http.get(this.apiURL + '/tbl_quality_issues.json',{headers:myHeader})
       .pipe(
         catchError(this.handleError)
       )
@@ -150,8 +153,7 @@ getCustomerList(){
       params = params.append('q[Reason_cont]',searchReason);
     }else if(searchProcess){
       params = params.append('q[Reason_cont]',searchReason);
-    }
-   
+    }   
     return this.http.get(this.apiURL + '/tbl_quality_issues.json', {headers:myHeader,params:params})
     .pipe(
       catchError(this.handleError)
@@ -159,8 +161,7 @@ getCustomerList(){
   }
 
   //searchBy api call
-  getDataBySearch(searchObl){
-   
+  getDataBySearch(searchObl){   
     let myHeader=new HttpHeaders();
     myHeader=myHeader.append( 'Content-Type','application/json');
     myHeader=myHeader.append( 'Authorization','Bearer' + " " + this.utilityService.getToken());
@@ -185,7 +186,6 @@ getCustomerList(){
       catchError(this.handleError)
     )
   }
-
 
   handleError(error) {
     let errorMessage = '';

@@ -1,5 +1,5 @@
-<div class="row add-padding">
-    <div class="col-lg-6">
+<div class="row">
+    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 form-group">
       <p>Length of Change</p>
       <div class="input-group">
         <input type="text" class="form-control" [(ngModel)]="internalTagData.Lengthofchange"
@@ -11,29 +11,29 @@
       <p>{{ expiredOn }}</p>
     </div>
   </div>
-<div class="row add-padding">
-  <div class="col-lg-6">
+<div class="row">
+  <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 form-group">
     <p>Feature : </p>
     <textarea autosize placeholder="Enter Feature..." [(ngModel)]="internalTagData.Feature"
     [ngModelOptions]="{standalone: true}" rows="3" cols="100"></textarea>
   </div>
 </div>
-<div class="row add-padding">
-  <div class="col-lg-6">
+<div class="row">
+  <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 form-group">
     <p>Body : </p>
     <textarea autosize placeholder="Enter..." [(ngModel)]="internalTagData.body"
     [ngModelOptions]="{standalone: true}" rows="3" cols="100"></textarea>
   </div>
 </div>
-<div class="row add-padding">
-  <div class="col-lg-6">
+<div class="row">
+  <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 form-group">
     <p>Changed : </p>
     <textarea autosize placeholder="Enter..." [(ngModel)]="internalTagData.Changed"
      [ngModelOptions]="{standalone: true}" rows="3" cols="100"></textarea>
   </div>
 </div>
 
-<div class="row add-padding">
+<div class="row">
   <div class="col-lg-6" id="my_centered_buttons">
     <button type="button" class="btn btn-primary btn-lg" (click)="submitForm()">Submit</button>
   </div>

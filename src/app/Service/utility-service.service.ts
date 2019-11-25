@@ -23,7 +23,7 @@ tagSummaryOption : any = [
   {id: '4', tagName: 'Special Instruction', isChecked: false},
   {id: '5', tagName: 'Quality Alert - IN', isChecked: false},
   {id: '6', tagName: 'Supplier Issue', isChecked: false}];
-  public internalTagData=new QualityTagData;
+  public internalTagData:QualityTagData;
   public externalTagData = new ExternalTagData;
   public partNumberList: Partnumber[];
   public reasonList : Reason[];

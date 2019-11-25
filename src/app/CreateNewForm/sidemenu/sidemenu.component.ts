@@ -31,10 +31,7 @@ export class SidemenuComponent implements OnInit {
   public machineStep:MachineStep[];
   public processStepId: string;
   public machineStepId: string;
-  ngOnInit() { 
-    var  qtagData=new QualityTagData();
-    this.utilityService.setInternalTagData(qtagData);
-    console.log("qta in comman", this.utilityService.getInternalTagData());  
+  ngOnInit() {    
     this.internalTagData=this.utilityService.getInternalTagData(); 
     this.getPartList();
     this.getReasonList();

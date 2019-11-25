@@ -1,4 +1,13 @@
-﻿import { Component, OnInit,Input } from '@angular/core';
+﻿
+/**
+* @ngdoc service
+* @name rfx.rest
+* @description
+* # rest
+* Service to talk with backend api.
+*/
+
+import { Component, OnInit,Input } from '@angular/core';
 import { Router} from '@angular/router';
 import { RestAPIService } from "../Service/restAPIService/rest-apiservice.service";
 import { UtilityServiceService } from '../Service/utility-service.service';

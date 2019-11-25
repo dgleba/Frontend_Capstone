@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders,HttpParams } from '@angular/common/http';
+import { HttpClient, HttpHeaders,HttpParams, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
 import { UtilityServiceService } from '../utility-service.service';
@@ -11,7 +11,7 @@ import { Partnumber } from 'src/app/Model/partnumber';
 export class RestAPIService {
 
   // Define API
-  apiURL = 'http://192.168.0.40:6036';
+  apiURL = 'http://192.168.0.41:6036';
   constructor(private http: HttpClient, private utilityService: UtilityServiceService) { }
   // file upload header
   filehttpOptions={
@@ -187,16 +187,20 @@ getCustomerList(){
     )
   }
 
-  handleError(error) {
-    let errorMessage = '';
-    if (error.error instanceof ErrorEvent) {
-      // Get client-side error
-      errorMessage = error.error.message;
-    } else {
-      // Get server-side error
-      errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
-    }
-    console.log("error",errorMessage); 
+  handleError(error: HttpErrorResponse) {
+    let errorMessage = error.error.error;
+    // if (error.error instanceof ErrorEvent) {
+    //   // Get client-side error
+    //   errorMessage = error.error.message;
+      
+    // } else {
+    //   // Get server-side error
+    //   if(error.status==401){
+    //     console.log("error is un");
+    //   }
+    //   errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
+    // }
+    // console.log("error",errorMessage); 
     return throwError(errorMessage);
   }
   // set api error response

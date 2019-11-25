@@ -40,7 +40,8 @@ export class HoldtagComponent implements OnInit {
 
   createTagApiCall() {    
     //this.utilityService.setLengthOfChange(this.tagDetails.lengthOfChange);
-    this.restAPIService.createTag(this.internalTagData).subscribe((data: any) => {    
+    this.restAPIService.createTag(this.internalTagData).subscribe((data: any) => {  
+      this.utilityService.setInternalTagData('');  
       this.restAPIService.setApiSuccessmessage("Tag created successfully")
       this.router.navigate(['/getTag'])
     },error=>{

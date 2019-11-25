@@ -41,7 +41,7 @@ export class TpctagComponent implements OnInit {
   createTagApiCall() {    
     //this.utilityService.setLengthOfChange(this.tagDetails.lengthOfChange);
     this.restAPIService.createTag(this.internalTagData).subscribe((data: any) => {    
-      console.log(data);
+    this.utilityService.setInternalTagData('');
       this.restAPIService.setApiSuccessmessage("Tag created successfully")
       this.router.navigate(['/getTag'])
     },error=>{

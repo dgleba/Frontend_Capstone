@@ -44,6 +44,7 @@ export class QualityalertinComponent implements OnInit {
     //this.utilityService.setLengthOfChange(this.tagDetails.lengthOfChange);
     this.restAPIService.createTag(this.internalTagData).subscribe((data: any) => {
       this.restAPIService.setApiSuccessmessage("Tag created successfully");
+      this.utilityService.setInternalTagData('');
       this.router.navigate(['/getTag'])
     },error=>{
       this.restAPIService.setApiErrorResponse(error)

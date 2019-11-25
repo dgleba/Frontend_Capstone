@@ -4,6 +4,7 @@ import { AutosizeModule } from "ngx-autosize";
 import { AutocompleteLibModule } from "angular-ng-autocomplete";
 import { AppComponent } from "./app.component";
 import { FormsModule } from "@angular/forms";
+import { ReactiveFormsModule } from '@angular/forms';
 import { Routes, RouterModule } from "@angular/router";
 import { CommonTagView } from "./CreateNewForm/commonTagView/commonTagView.component";
 import { HomeComponent } from "./home/home.component";
@@ -93,6 +94,7 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(appRoutes),
     HttpClientModule,
     AutosizeModule,

@@ -11,7 +11,7 @@ import { Partnumber } from 'src/app/Model/partnumber';
 export class RestAPIService {
 
   // Define API
-  apiURL = 'http://192.168.0.41:6036';
+  apiURL = 'http://192.168.0.40:6036';
   constructor(private http: HttpClient, private utilityService: UtilityServiceService) { }
   // file upload header
   filehttpOptions={

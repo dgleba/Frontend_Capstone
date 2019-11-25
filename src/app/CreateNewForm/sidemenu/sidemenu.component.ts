@@ -119,7 +119,6 @@ export class SidemenuComponent implements OnInit {
 getPartList() {    
   this.restAPIService.getPartList().subscribe(
     (data: any) => {
-      data=data.unique();
       const newData = data.map(({ id:PartID, Description, RptScrap,PlantNumber,url}) => ({
         PartID,
         Description,

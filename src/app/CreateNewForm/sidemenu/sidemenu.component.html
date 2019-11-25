@@ -1,5 +1,6 @@
 <div class="mybackground">
-    <ng-autocomplete [data]="partNumberList" [searchKeyword]="partNumId" placeHolder="Select Part Number"
+    <ng-autocomplete
+    [data]="partNumberList" [searchKeyword]="partNumId" placeHolder="Select Part Number"
     (selected)='getSelectedPartNumber($event)' (inputChanged)='onChangePartNumber($event)' (inputCleared)="clearData()"
     [itemTemplate]="itemTemplate" [notFoundTemplate]="notFoundTemplate">
   </ng-autocomplete>

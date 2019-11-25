@@ -1,11 +1,11 @@
 <h5 class="row add-margin">Upload Pictures</h5>
 <div class="row add-padding add-margin">
     <span class="border border-primary">
-        <div class="col add-margin">
+        <div class="col-6 col-lg-6 col-md col-sm-12 col-xs-12 add-margin">
             <input #picture1 type="file" accept='image/*' (change)="preview($event,1)" />
             <img class="add-padding" [src]="imgURL" height="200" *ngIf="imgURL">
         </div>
-        <div class="col add-margin">
+        <div class="col-6 col-lg-6 col-md col-sm-12 col-xs-12 add-margin">
              <input #picture2 type="file" accept='image/*' (change)="preview($event,2)" />
                 <img class="add-padding" [src]="imgURL1" height="200" *ngIf="imgURL1">
          </div>

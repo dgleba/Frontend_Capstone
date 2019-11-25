@@ -8,9 +8,7 @@ body {
   margin: auto;
   font-size: 18px;
 }
-.container-fluid {
-  padding: 1 !important;
-}
+
 /* Reset top and bottom margins from certain elements */
 
 /*triange */
@@ -32,11 +30,13 @@ body {
   color: #fff;
 }
 
-.updateTag-container{
-    
-        background:#ebebeb;
-        padding-right: 15px;
-        padding-left: 15px;
-    
+.body-update-tag{
+        background:#9e9e9e;  
+        padding-top: 20px;
+}
+
+.home-button{
+  color: white;
+
 }
 

@@ -1,4 +1,7 @@
-<div class="mybackground">
+
+ <div class="container-fluid">
+<div class="row">
+    <div class="col-lg col-md col-sm col-xs form-group">
     <ng-autocomplete
     [data]="partNumberList" [searchKeyword]="partNumId" placeHolder="Select Part Number"
     (selected)='getSelectedPartNumber($event)' (inputChanged)='onChangePartNumber($event)' (inputCleared)="clearData()"
@@ -10,8 +13,12 @@
   <ng-template #notFoundTemplate let-notFound>
     <div [innerHTML]="notFound"></div>
   </ng-template>
-  <br>
+  </div>
+  </div>
+
   
+  <div class="row">
+      <div class="col-lg col-md col-sm col-xs form-group">
   <ng-autocomplete [data]="reasonList" [searchKeyword]="reasonKeyword" placeHolder="Select Reason"
     (selected)='getSelectedReason($event)' (inputCleared)="clearData()" [itemTemplate]="reasonTemplate"
     [notFoundTemplate]="notFoundReasonTemplate">
@@ -22,8 +29,12 @@
   <ng-template #notFoundReasonTemplate let-notFound>
     <div [innerHTML]="notFound"></div>
   </ng-template>
-  <br>
+  </div>
+  </div>
+
   
+  <div class="row">
+      <div class="col-lg col-md col-sm col-xs form-group">
   <ng-autocomplete [data]="processStep" [searchKeyword]="processKeyword" placeHolder="Select Process Step"
     (selected)='getSelectedProcessStep($event)' (inputCleared)="clearData()" [itemTemplate]="processTemplate"
     [notFoundTemplate]="notFoundProcessTemplate">
@@ -48,7 +59,9 @@
   <ng-template #notFoundMachineTemplate let-notFound>
     <div [innerHTML]="notFound"></div>
   </ng-template>
-  <br>
+  </div>
+  </div>
+ 
   
   <!-- <div class="form-group">
     <select class="form-control" (change)="getSelectedPartNumber($event)">
@@ -81,16 +94,22 @@
     </select>
   </div> -->
   
+  <div class="row">
+      <div class="col-lg col-md col-sm col-xs form-group">
   <input type="text" class="form-control" placeholder="Enter Issued By" aria-label="Issued By" id="issuedByValue"
     (focusout)="focusOutFunction(e)" aria-describedby="basic-addon2" />
-  <br>
-  
-  <div class="form-group">
-    <label>Tag Summary</label>
+</div>
+</div>
+  <hr class="tag_hr">
+
+<div class="row">
+    <div class="col-lg col-md col-sm col-xs form-group">
+    <h6>Tag Summary</h6>
     <div *ngFor="let tagSummary of tagSummaryList; let i = index">
       <label><input type="checkbox" (change)="getSelectedTag(i)" />
         {{ tagSummary.tagName }}
       </label>
+    </div>
     </div>
   </div>
 </div>

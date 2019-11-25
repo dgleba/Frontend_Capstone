@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 form-group">
-      <label>Quantity</label>
+      <label class="font-weight-bold">Quantity</label>
       <input
         type="text"
         class="form-control"
@@ -13,17 +13,15 @@
 
    <div class="row">
         <div class="col-lg col-md col-sm col-xs form-group">
-            <p>Body</p>
+            <label class="font-weight-bold">Body</label>
             <textarea autosize class="form-control my-textarea" [(ngModel)]="internalTagData.body"
                 [ngModelOptions]="{standalone: true}" placeholder="Enter..." name="story" rows="4"></textarea>
         </div>
     </div>
 
-  <div class="row">
-    <div class="col-lg col-md col-sm col-xs" id="my_centered_buttons">
-      <button type="button" class="btn btn-primary btn-lg" (click)="submitForm()">
-        Submit
-      </button>
+    <div class="row">
+        <div class="col text-center form-group">
+            <button class="btn btn-primary btn-lg" (click)="submitForm()">Submit</button>
+        </div>
     </div>
-  </div>
   

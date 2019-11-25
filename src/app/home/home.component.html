@@ -1,42 +1,48 @@
 <div class="container">
-  <div class="jumbotron">
     <div class="home-triangle"></div>
     <h2 class="home-header">Home</h2>
     <div class="home-container">
+    
       <div class="row">
-        <div class="col-6" [routerLink]="'/newForm'">
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" [routerLink]="'/newForm'">
           <button type="button" class="btn   btn-primary">
             Create a New Form
           </button>
         </div>
-        <div class="col-6" [routerLink]="'/externalIssueForm'">
+     
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" [routerLink]="'/externalIssueForm'">
           <button type="button" class="btn   btn-primary">
             External Issue Form
           </button>
         </div>
       </div>
+  
       <div class="row">
-        <div class="col-6">
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
           <button type="button" class="btn btn-primary">Reprint</button>
         </div>
-        <div class="col-6" [routerLink]="'/getTag'">
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" [routerLink]="'/getTag'">
           <button type="button" class="btn btn-primary">
             Filter
           </button>
         </div>
       </div>
+  
+      
       <div class="row">
-        <div class="col-6">
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
           <button type="button" class="btn btn-primary">Admin</button>
         </div>
-        <div class="col-6">
+       
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
           <button type="button" class="btn btn-primary" (click)="logout()">
             Quit Application
           </button>
         </div>
       </div>
+      
     </div>
-  </div>
+
 
   <!-- <div class="container-fluid home">
  

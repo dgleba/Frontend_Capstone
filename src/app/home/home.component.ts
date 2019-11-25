@@ -13,6 +13,7 @@ export class HomeComponent implements OnInit {
   constructor(public utilityService:UtilityServiceService,private router: Router) { }
 
   ngOnInit() {
+    
     this.token = localStorage.getItem('token');
     
    

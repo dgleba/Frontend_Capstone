@@ -1,3 +1,4 @@
+import {enviornment} from 'src/enviornment';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders,HttpParams, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
@@ -11,7 +12,7 @@ import { Partnumber } from 'src/app/Model/partnumber';
 export class RestAPIService {
 
   // Define API
-  apiURL = 'http://192.168.0.40:6036';
+  apiURL = enviornment.apiURL1;
   constructor(private http: HttpClient, private utilityService: UtilityServiceService) { }
   // file upload header
   filehttpOptions={

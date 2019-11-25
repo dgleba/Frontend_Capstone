@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { RestAPIService } from '../../Service/restAPIService/rest-apiservice.service'
 import { UtilityServiceService } from '../../Service/utility-service.service'
 import { Router } from '@angular/router';
+import { QualityTagData } from 'src/app/Model/qualtiyTagData';
 
 @Component({
   selector: 'app-qualityalertin',
@@ -11,8 +12,9 @@ import { Router } from '@angular/router';
 export class QualityalertinComponent implements OnInit {
  constructor(public restAPIService: RestAPIService, public utilityService: UtilityServiceService, private router: Router) { }
   expiredOn: Date;
-  public internalTagData=this.utilityService.getInternalTagData();
+  public internalTagData:QualityTagData;
   ngOnInit() {
+    this.internalTagData=this.utilityService.getInternalTagData();
     console.log("inter part",this.internalTagData);
   }
   addDays() {
@@ -22,7 +24,7 @@ export class QualityalertinComponent implements OnInit {
   }  
   //validation 
   submitForm() {
-    console.log(this.internalTagData,"okdby malti");
+
     if (this.internalTagData.PartID) {
       if (this.internalTagData.Reason) {
         if (this.internalTagData.Issuedby) {
@@ -44,7 +46,6 @@ export class QualityalertinComponent implements OnInit {
     //this.utilityService.setLengthOfChange(this.tagDetails.lengthOfChange);
     this.restAPIService.createTag(this.internalTagData).subscribe((data: any) => {
       this.restAPIService.setApiSuccessmessage("Tag created successfully");
-      this.utilityService.setInternalTagData('');
       this.router.navigate(['/getTag'])
     },error=>{
       this.restAPIService.setApiErrorResponse(error)

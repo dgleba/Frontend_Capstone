@@ -24,14 +24,18 @@ export class SidemenuComponent implements OnInit {
   machineKeyword1='MachineDesc';
 
   tagSummaryList = this.utilityService.getTagsummaryList();
-  public internalTagData=this.utilityService.getInternalTagData();
+  public internalTagData;
   public partNumberList:Partnumber[];
   public reasonList:Reason[];
   public processStep:ProcessStep[];
   public machineStep:MachineStep[];
   public processStepId: string;
   public machineStepId: string;
-  ngOnInit() {    
+  ngOnInit() { 
+    var  qtagData=new QualityTagData();
+    this.utilityService.setInternalTagData(qtagData);
+    console.log("qta in comman", this.utilityService.getInternalTagData());  
+    this.internalTagData=this.utilityService.getInternalTagData(); 
     this.getPartList();
     this.getReasonList();
     this.getProcessList();
@@ -46,7 +50,7 @@ export class SidemenuComponent implements OnInit {
   //event handler to get the selected value of part num
   getSelectedPartNumber(event) {
     console.log("select part num", event.PartID);
-    this.internalTagData.PartID =event.PartID;
+    this.internalTagData.PartID=event.PartID;
     this.utilityService.setInternalTagData(this.internalTagData);
   }
   
@@ -136,7 +140,6 @@ getPartList() {
 onChangePartNumber(val: string) {
   console.log("on change search ", val);
   this.restAPIService.getListByContains(val,'','').subscribe((data: any) => {
-    data=data.unique();
       this.partNumberList=data; 
      },error=>{
       this.restAPIService.setApiErrorResponse(error)

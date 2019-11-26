@@ -1,3 +1,15 @@
+/**
+ * @ngdoc component
+ * @name rfx.component:HomeComponent
+ * @element Button and Header
+ * @function
+ *
+ * @description
+ * After Login screen this screen should be displayed
+ *
+ * 
+ **/
+
 import { Component, OnInit } from '@angular/core';
 import{UtilityServiceService} from '../Service/utility-service.service';
 

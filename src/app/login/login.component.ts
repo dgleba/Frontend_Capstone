@@ -1,11 +1,14 @@
-﻿
-/**
-* @ngdoc service
-* @name rfx.rest
-* @description
-* # rest
-* Service to talk with backend api.
-*/
+﻿/**
+ * @ngdoc Component
+ * @name rfx.component:login
+ * @element Email Id , Password , SignIn Button
+ * @function
+ *
+ * @description
+ * Login functionality.
+ *
+ * 
+ **/
 
 import { Component, OnInit,Input } from '@angular/core';
 import { Router} from '@angular/router';

@@ -127,7 +127,7 @@ getPartList() {
         PlantNumber,url
     }));    
       this.partNumberList=newData;
-      this.utilityService.setPartNumberList(data); 
+      this.utilityService.setPartNumberList(this.partNumberList); 
      },error=>{
       this.restAPIService.setApiErrorResponse(error)
      }

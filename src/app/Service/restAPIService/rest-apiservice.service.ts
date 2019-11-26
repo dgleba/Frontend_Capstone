@@ -38,7 +38,6 @@ export class RestAPIService {
       .pipe(
         catchError(this.handleError)
       )
-
   }
 
   //API to updateTag
@@ -57,11 +56,15 @@ export class RestAPIService {
     console.log("image data", documents);
     const formData = new FormData();
     formData.append('tbl_quality_issue[picture01]', file1);
-    formData.append('tbl_quality_issue[picture02]', file2);
+    if(file2){
+      formData.append('tbl_quality_issue[picture02]', file2);
+    }    
     var ins = documents.length;
-    for (var x = 0; x < ins; x++) {
-      formData.append('tbl_quality_issue[documents][]', documents[x]);      
-    }   
+    if(ins>0){
+      for (var x = 0; x < ins; x++) {
+        formData.append('tbl_quality_issue[documents][]', documents[x]);      
+      }   
+    }    
     return this.http.put(this.apiURL + '/tbl_quality_issues/'+id+'.json',formData,this.filehttpOptions)
       .pipe(
         catchError(this.handleError)
@@ -189,7 +192,8 @@ getCustomerList(){
   }
 
   handleError(error: HttpErrorResponse) {
-    let errorMessage = error.error.error;
+   
+    let errorMessage = error.error.message;
     // if (error.error instanceof ErrorEvent) {
     //   // Get client-side error
     //   errorMessage = error.error.message;
@@ -218,7 +222,6 @@ getCustomerList(){
     apiData.msg=message;
     apiData.isApiCalled=true;
     apiData.isApiResponseSuccessful=true;
-    console.log("api response",apiData);
     this.utilityService.setApiResponse(apiData);
   }
 

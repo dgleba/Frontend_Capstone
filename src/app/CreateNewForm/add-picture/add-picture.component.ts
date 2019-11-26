@@ -47,7 +47,7 @@ export class AddPictureComponent implements OnInit {
       this.utilityService.setInternalTagData('');
       this.restAPIService.setApiSuccessmessage("Tag created successfully")
       this.uploadImage(data.id);
-      //this.router.navigate(['/getTag'])
+      this.router.navigate(['/getTag'])
     },error=>{
       this.restAPIService.setApiErrorResponse(error)
      })

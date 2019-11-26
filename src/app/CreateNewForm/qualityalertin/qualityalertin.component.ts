@@ -24,7 +24,6 @@ export class QualityalertinComponent implements OnInit {
   }  
   //validation 
   submitForm() {
-
     if (this.internalTagData.PartID) {
       if (this.internalTagData.Reason) {
         if (this.internalTagData.Issuedby) {

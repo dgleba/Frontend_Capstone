@@ -8,7 +8,7 @@
         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 form-group">
                 <label class="font-weight-bold" >Length of Change</label>
                 <div class="input-group">
-                    <input type="text" class="form-control" [(ngModel)]="internalTagData.Lengthofchange" placeholder="Length of change"
+                    <input type="number" min="0"   onkeydown="javascript: return event.keyCode == 69 ? false : true" class="form-control" [(ngModel)]="internalTagData.Lengthofchange" placeholder="Length of change"
                         [ngModelOptions]="{standalone: true}" (change)="addDays()" aria-label="Length of change">
                     <div class="input-group-append">
                         <span class="input-group-text">Days</span>

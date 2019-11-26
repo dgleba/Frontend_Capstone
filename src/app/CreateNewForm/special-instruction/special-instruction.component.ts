@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {RestAPIService} from '../../Service/restAPIService/rest-apiservice.service'
 import{UtilityServiceService} from '../../Service/utility-service.service'
 import { Router } from '@angular/router';
-
+import { QualityTagData } from 'src/app/Model/qualtiyTagData';
 
 @Component({
   selector: 'app-special-instruction',
@@ -11,14 +11,14 @@ import { Router } from '@angular/router';
 })
 export class SpecialInstructionComponent implements OnInit {  
   constructor(public restAPIService: RestAPIService,public utilityService:UtilityServiceService,private router: Router) { }
- 
-  public internalTagData=this.utilityService.getInternalTagData();
-   ngOnInit() {      
-    
-  } 
+  public internalTagData:QualityTagData;
+  ngOnInit() { 
+   this.internalTagData=this.utilityService.getInternalTagData();
+   console.log("hold part",this.internalTagData);
+ } 
    //validation 
    submitForm() {
-    console.log(this.internalTagData,"okdby malti");
+    console.log(this.internalTagData);
     if (this.internalTagData.PartID) {
       if (this.internalTagData.Reason) {
         if (this.internalTagData.Issuedby) {

@@ -52,8 +52,11 @@ export class LoginComponent implements OnInit {
             this.router.navigate(['/home'])
         },
         error => {
-            this.restApi.setApiErrorResponse(error)
+            if(error.status==401){
+                console.log("error in side menu",error.error.error);
+                var errorMessage=error.error.error;     
+                this.restApi.setApiErrorResponse(errorMessage);
+               }   
         });
-      }
-   
+      }   
 }

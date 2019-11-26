@@ -3,6 +3,7 @@ import {RestAPIService} from '../../Service/restAPIService/rest-apiservice.servi
 
 import { UtilityServiceService } from '../../Service/utility-service.service'
 import { Router } from '@angular/router';
+import { QualityTagData } from 'src/app/Model/qualtiyTagData';
 
 
 
@@ -13,9 +14,10 @@ import { Router } from '@angular/router';
 })
 export class HoldtagComponent implements OnInit {
   constructor(public restAPIService: RestAPIService,public utilityService:UtilityServiceService,private router: Router) { }
-  public internalTagData=this.utilityService.getInternalTagData();
+  public internalTagData:QualityTagData;
    ngOnInit() { 
-    
+    this.internalTagData=this.utilityService.getInternalTagData();
+    console.log("hold part",this.internalTagData);
   } 
   
   //validation 

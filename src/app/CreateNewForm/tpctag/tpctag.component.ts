@@ -14,10 +14,11 @@ import { Router } from '@angular/router';
 export class TpctagComponent implements OnInit {
  
   constructor(public restAPIService: RestAPIService,public utilityService:UtilityServiceService,private router: Router) { }
-  public internalTagData=this.utilityService.getInternalTagData();
-   ngOnInit() { 
-   
-  }   
+  public internalTagData:QualityTagData;
+  ngOnInit() { 
+   this.internalTagData=this.utilityService.getInternalTagData();
+   console.log("tpc part",this.internalTagData);
+ }  
   //validation 
   submitForm() {
     console.log(this.internalTagData,"okdby malti");

@@ -145,25 +145,18 @@ getCustomerList(){
       )
   }
   // api to search part number contains
-  getListByContains(searchPartNumber,searchReason,searchProcess){
+  getPartListByContains(searchPartNumber){
     let myHeader=new HttpHeaders();
     myHeader=myHeader.append( 'Content-Type','application/json');
     myHeader=myHeader.append( 'Authorization','Bearer' + " " + this.utilityService.getToken());
     console.log("hearder",myHeader);
-    let  params = new HttpParams();
-    if(searchPartNumber){
-      params = params.append('q[PartID_cont]',searchPartNumber);
-    }else if(searchReason){
-      params = params.append('q[Reason_cont]',searchReason);
-    }else if(searchProcess){
-      params = params.append('q[Reason_cont]',searchReason);
-    }   
-    return this.http.get(this.apiURL + '/tbl_quality_issues.json', {headers:myHeader,params:params})
+    let  params = new HttpParams();    
+      params = params.append('q[PartID_cont]',searchPartNumber);   
+    return this.http.get(this.apiURL + '/parts.json', {headers:myHeader,params:params})
     .pipe(
       catchError(this.handleError)
     )   
   }
-
   //searchBy api call
   getDataBySearch(searchObl){   
     let myHeader=new HttpHeaders();
@@ -191,22 +184,24 @@ getCustomerList(){
     )
   }
 
-  handleError(error: HttpErrorResponse) {
-   
-    let errorMessage = error.error.message;
-    // if (error.error instanceof ErrorEvent) {
-    //   // Get client-side error
-    //   errorMessage = error.error.message;
-      
-    // } else {
-    //   // Get server-side error
-    //   if(error.status==401){
-    //     console.log("error is un");
-    //   }
-    //   errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
-    // }
-    // console.log("error",errorMessage); 
-    return throwError(errorMessage);
+  handleError(error) { 
+    var errorMessage;  
+    if (error instanceof HttpErrorResponse) {
+      if (error.error instanceof ErrorEvent) {
+          console.error("Error Event");
+      } else {
+         // console.log(`error status : ${error.status} ${error.statusText}`);
+          switch (error.status) {
+              case 401:      //login
+                 errorMessage="Invalid Email or password."
+                  break;
+              case 403:     //forbidden
+              errorMessage="Forbidden"
+                  break;
+          }
+      } 
+  }
+  return throwError(error);
   }
   // set api error response
   setApiErrorResponse(errorMessage){

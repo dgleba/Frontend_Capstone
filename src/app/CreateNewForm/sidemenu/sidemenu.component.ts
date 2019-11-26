@@ -7,6 +7,7 @@ import {Reason} from '../../Model/reason';
 import {ProcessStep} from '../../Model/processStep';
 import {MachineStep} from '../../Model/machine';
 import { from } from 'rxjs';
+import { Router } from '@angular/router';
 
 
 
@@ -16,13 +17,12 @@ import { from } from 'rxjs';
   styleUrls: ['./sidemenu.component.css']
 })
 export class SidemenuComponent implements OnInit {
-  constructor(private utilityService: UtilityServiceService, private restAPIService: RestAPIService) {
+  constructor(private utilityService: UtilityServiceService, private restAPIService: RestAPIService,private router: Router) {
   }
-  partNumId = 'PartID';
+  partNumId = 'id';
   reasonKeyword='Reason';
   processKeyword='Department';
   machineKeyword1='MachineDesc';
-
   tagSummaryList = this.utilityService.getTagsummaryList();
   public internalTagData;
   public partNumberList:Partnumber[];
@@ -36,8 +36,7 @@ export class SidemenuComponent implements OnInit {
     this.getPartList();
     this.getReasonList();
     this.getProcessList();
-    this.getMachineList();
-    
+    this.getMachineList();    
   }
   focusOutFunction($event) {
     var val = (<HTMLInputElement>document.getElementById("issuedByValue")).value;
@@ -46,8 +45,7 @@ export class SidemenuComponent implements OnInit {
   }
   //event handler to get the selected value of part num
   getSelectedPartNumber(event) {
-    console.log("select part num", event.PartID);
-    this.internalTagData.PartID=event.PartID;
+    this.internalTagData.PartID=event.id;
     this.utilityService.setInternalTagData(this.internalTagData);
   }
   
@@ -62,28 +60,23 @@ export class SidemenuComponent implements OnInit {
   }
     //event handler to get the selected value of reason
   getSelectedReason(event) {
-    console.log("select reason num", event.Reason);
     this.internalTagData.Reason = event.Reason;
     this.utilityService.setInternalTagData(this.internalTagData);
   }
  
   //event handler to get the selected value of process step
   getSelectedProcessStep(event) {    
-    console.log("select process num", event.Department);
     this.internalTagData.ProcessStep = event.Department;
     this.utilityService.setInternalTagData(this.internalTagData);
   }
   //event handler to get the selected value of machine step
   getSelectedMachine(event: any) {
-    console.log("select machine num", event.id);
-    console.log("select machine des", event.MachineDesc);
     this.internalTagData.MachineID = event.id;
     this.utilityService.setInternalTagData(this.internalTagData);
   }
-  //
+  //get selected tag summary
   getSelectedTag(id: number) {
-    console.log("check clicked");
-    var updatedObjectArray = this.utilityService.getTagsummaryList();
+   var updatedObjectArray = this.utilityService.getTagsummaryList();
     var updatedObj = updatedObjectArray[id];
     updatedObj.isChecked = !updatedObj.isChecked;
     this.utilityService.setUpdatedTagSummaryObject(updatedObj, id);
@@ -116,30 +109,38 @@ export class SidemenuComponent implements OnInit {
     this.utilityService.setInternalTagData(this.internalTagData);
     console.log("internal tag data",this.utilityService.getInternalTagData());
   }
-  //api calls start
+ //api calls start
 getPartList() {    
   this.restAPIService.getPartList().subscribe(
-    (data: any) => {
-      const newData = data.map(({ id:PartID, Description, RptScrap,PlantNumber,url}) => ({
-        PartID,
-        Description,
-        RptScrap,
-        PlantNumber,url
-    }));    
-      this.partNumberList=newData;
+    (data: any) => {     
+      this.partNumberList=data;
       this.utilityService.setPartNumberList(this.partNumberList); 
      },error=>{
-      this.restAPIService.setApiErrorResponse(error)
+       if(error.status==401){
+        console.log("error in side menu",error.error.error);
+        var errorMessage=error.error.error;     
+        this.restAPIService.setApiErrorResponse(errorMessage);
+        this. moveToLoginScreen();
+       }       
      }
   )
+}
+// moved to login screen
+moveToLoginScreen(){
+  this.router.navigate(['/login']);
 }
 // on change part number in auto complete
 onChangePartNumber(val: string) {
   console.log("on change search ", val);
-  this.restAPIService.getListByContains(val,'','').subscribe((data: any) => {
+  this.restAPIService.getPartListByContains(val).subscribe((data: any) => {
       this.partNumberList=data; 
      },error=>{
-      this.restAPIService.setApiErrorResponse(error)
+      if(error.status==401){
+        console.log("error in side menu",error.error.error);
+        var errorMessage=error.error.error;     
+        this.restAPIService.setApiErrorResponse(errorMessage);
+        this. moveToLoginScreen();
+       }   
      }
   )
 }
@@ -150,21 +151,16 @@ getReasonList() {
       this.reasonList=data;
       this.utilityService.setReasonList(data);    
      },error=>{
-      this.restAPIService.setApiErrorResponse(error)
+      if(error.status==401){
+        console.log("error in side menu",error.error.error);
+        var errorMessage=error.error.error;     
+        this.restAPIService.setApiErrorResponse(errorMessage);
+        this. moveToLoginScreen();
+       }   
      }
   )
 }
-// on change part number in auto complete
-onChangeReasonNumber(val: string) {
-  console.log("on change search ", val);
-  this.restAPIService.getListByContains('',val,'').subscribe(
-    (data: any) => {
-      this.reasonList=data; 
-     },error=>{
-      this.restAPIService.setApiErrorResponse(error)
-     }
-  )
-}
+
 // get processList
 getProcessList() {
   this.restAPIService.getProcessList().subscribe(
@@ -172,7 +168,12 @@ getProcessList() {
       this.processStep=data;
       this.utilityService.setProcessList(data);
     },error=>{
-      this.restAPIService.setApiErrorResponse(error)
+      if(error.status==401){
+        console.log("error in side menu",error.error.error);
+        var errorMessage=error.error.error;     
+        this.restAPIService.setApiErrorResponse(errorMessage);
+        this. moveToLoginScreen();
+       }   
      }
   )
 }
@@ -183,10 +184,14 @@ getMachineList() {
       this.machineStep=data;
       this.utilityService.setMachineList(data);
     },error=>{
-      this.restAPIService.setApiErrorResponse(error)
+      if(error.status==401){
+        console.log("error in side menu",error.error.error);
+        var errorMessage=error.error.error;     
+        this.restAPIService.setApiErrorResponse(errorMessage);
+        this. moveToLoginScreen();
+       }   
      }
   )
 } 
 //api calls end  
-
 }

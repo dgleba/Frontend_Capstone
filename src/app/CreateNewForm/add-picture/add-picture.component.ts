@@ -2,19 +2,15 @@ import { Component, OnInit } from '@angular/core';
 import { RestAPIService } from 'src/app/Service/restAPIService/rest-apiservice.service';
 import { UtilityServiceService } from '../../Service/utility-service.service'
 import { Router } from '@angular/router';
-
+import { QualityTagData } from 'src/app/Model/qualtiyTagData';
 @Component({
   selector: 'app-add-picture',
   templateUrl: './add-picture.component.html',
   styleUrls: ['./add-picture.component.css']
 })
 export class AddPictureComponent implements OnInit {
-
-
   constructor(private restAPIService: RestAPIService, public utilityService: UtilityServiceService, private router: Router) { }
-  ngOnInit() {
-  }
-  public internalTagData = this.utilityService.getInternalTagData();
+  public internalTagData:QualityTagData;
   public imagePath;
   imgURL: any;
   imgURL1: any;
@@ -22,6 +18,11 @@ export class AddPictureComponent implements OnInit {
   picture1: File;
   picture2: File;
   public message: string;
+   ngOnInit() { 
+    this.internalTagData=this.utilityService.getInternalTagData();
+    console.log("add pic part",this.internalTagData);
+  } 
+ 
   //validation 
   submitForm() {
     console.log(this.internalTagData, "okdby malti");

@@ -3,7 +3,7 @@
     <div class="col-lg col-md col-sm col-xs form-group">
       <ng-autocomplete [data]="partNumberList" [searchKeyword]="partNumId" placeHolder="Select Part Number"
         (selected)='getSelectedPartNumber($event)' (inputChanged)='onChangePartNumber($event)'
-        (inputCleared)="clearData()" [itemTemplate]="itemTemplate" [notFoundTemplate]="notFoundTemplate">
+        (inputCleared)="clearPartData()" [itemTemplate]="itemTemplate" [notFoundTemplate]="notFoundTemplate">
       </ng-autocomplete>
       <ng-template #itemTemplate let-item>
         <a [innerHTML]="item.id"></a>
@@ -17,7 +17,7 @@
   <div class="row">
     <div class="col-lg col-md col-sm col-xs form-group">
       <ng-autocomplete [data]="reasonList" [searchKeyword]="reasonKeyword" placeHolder="Select Reason"
-        (selected)='getSelectedReason($event)' (inputCleared)="clearData()" [itemTemplate]="reasonTemplate"
+        (selected)='getSelectedReason($event)' (inputCleared)="clearReasonData()" [itemTemplate]="reasonTemplate"
         [notFoundTemplate]="notFoundReasonTemplate">
       </ng-autocomplete>
       <ng-template #reasonTemplate let-item>
@@ -33,7 +33,7 @@
   <div class="row">
     <div class="col-lg col-md col-sm col-xs form-group">
       <ng-autocomplete [data]="processStep" [searchKeyword]="processKeyword" placeHolder="Select Process Step"
-        (selected)='getSelectedProcessStep($event)' (inputCleared)="clearData()" [itemTemplate]="processTemplate"
+        (selected)='getSelectedProcessStep($event)' (inputCleared)="clearProcessData()" [itemTemplate]="processTemplate"
         [notFoundTemplate]="notFoundProcessTemplate">
       </ng-autocomplete>
       <ng-template #processTemplate let-item>
@@ -44,7 +44,7 @@
       </ng-template>
       <br>
       <ng-autocomplete [data]="machineStep" [searchKeyword]="machineKeyword1" placeHolder="Select Machine Step"
-        (selected)='getSelectedMachine($event)' (inputCleared)="clearData()" [itemTemplate]="machineTemplate"
+        (selected)='getSelectedMachine($event)' (inputCleared)="clearMachineData()" [itemTemplate]="machineTemplate"
         [notFoundTemplate]="notFoundMachineTemplate">
       </ng-autocomplete>
       <ng-template #machineTemplate let-item>

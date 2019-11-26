@@ -49,15 +49,7 @@ export class SidemenuComponent implements OnInit {
     this.utilityService.setInternalTagData(this.internalTagData);
   }
   
-  // part functions closed
-  clearData(){
-    this.internalTagData.PartID = '';
-    this.internalTagData.Reason = '';
-    this.internalTagData.ProcessStep = '';
-    this.internalTagData.MachineID = '';
-    this.getPartList();
-    console.log("not part num",this.internalTagData.PartID); 
-  }
+  
     //event handler to get the selected value of reason
   getSelectedReason(event) {
     this.internalTagData.Reason = event.Reason;
@@ -193,5 +185,22 @@ getMachineList() {
      }
   )
 } 
-//api calls end  
+//api calls end 
+
+
+// clear calls in auto complete
+clearMachineData(){
+  this.internalTagData.MachineID = '';
+}
+
+clearPartData(){
+  this.internalTagData.PartID = '';   
+}
+clearProcessData(){
+  this.internalTagData.ProcessStep = '';
+}
+clearReasonData(){
+  this.internalTagData.Reason = '';
+}
+// clear call done
 }

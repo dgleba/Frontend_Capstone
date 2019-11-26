@@ -4,7 +4,11 @@ import { HttpClient, HttpHeaders,HttpParams, HttpErrorResponse } from '@angular/
 import { Observable, throwError } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
 import { UtilityServiceService } from '../utility-service.service';
-import { Partnumber } from 'src/app/Model/partnumber';
+import { timeout } from 'rxjs/operators';
+import { timeoutWith } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
+
+import { of, TimeoutError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -24,9 +28,22 @@ export class RestAPIService {
   // HttpClient API Post() method => Fetch User list
   doLogin(user) {
     return this.http.post(this.apiURL + '/users/sign_in.json', user)
-      .pipe(
-        catchError(this.handleError)
-      )
+    .pipe(
+      timeout(2000),
+      map(res => {
+        return res;
+      }),
+      catchError(err => {
+        console.log(err);
+        if (err.name === 'TimeoutError') {
+          this.setApiErrorResponse("Server is not responding");
+        }
+        return Observable.throw(err)
+      })
+    );
+      // .pipe(
+      //   catchError(this.handleError)
+      // )
   }
 
   //API to createTag

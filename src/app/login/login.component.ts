@@ -12,7 +12,11 @@ import { Router} from '@angular/router';
 import { RestAPIService } from "../Service/restAPIService/rest-apiservice.service";
 import { UtilityServiceService } from '../Service/utility-service.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-
+import { timeout } from 'rxjs/operators';
+import { timeoutWith } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
+import { catchError } from 'rxjs/operators';
+import { of, TimeoutError } from 'rxjs';
 @Component({
     templateUrl: 'login.component.html',
     styleUrls: ['./login.component.css']

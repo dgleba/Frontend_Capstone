@@ -47,8 +47,7 @@ export class SidemenuComponent implements OnInit {
   getSelectedPartNumber(event) {
     this.internalTagData.PartID=event.id;
     this.utilityService.setInternalTagData(this.internalTagData);
-  }
-  
+  }  
   
     //event handler to get the selected value of reason
   getSelectedReason(event) {
@@ -187,12 +186,10 @@ getMachineList() {
 } 
 //api calls end 
 
-
 // clear calls in auto complete
 clearMachineData(){
   this.internalTagData.MachineID = '';
 }
-
 clearPartData(){
   this.internalTagData.PartID = '';   
 }

@@ -1,3 +1,15 @@
+/**
+ * @ngdoc directive
+ * @name rfx.directive:rAutogrow
+ * @element textarea
+ * @function
+ *
+ * @description
+ * Resize textarea automatically to the size of its text content.
+ *
+ * 
+ **/
+
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 import { AutosizeModule } from "ngx-autosize";

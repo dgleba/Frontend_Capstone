@@ -48,7 +48,7 @@ const appRoutes: Routes = [
     component: ExternalIssueFormTagComponent ,canActivate: [AuthGuardService],
     children: [
       {path:"", component:QualityAlertExternalComponent},
-      {path:"qualityAlertExternal", component:QualityAlertExternalComponent},
+     // {path:"qualityAlertExternal", component:QualityAlertExternalComponent},
       {path:"holdTagExternal", component: HoldTagExternalComponent},
       {path:"tpcTagExternal", component: TpcTagExternalComponent},
       {path:"specialInstructionExternal", component:SpecialInstructionExternalComponent},

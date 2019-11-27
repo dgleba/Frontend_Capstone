@@ -226,6 +226,9 @@ getCustomerList(){
     apiData.msg=errorMessage;
     apiData.isApiCalled=true;
     apiData.isApiResponseSuccessful=false;
+    setTimeout(function() {
+      apiData.isApiCalled = false;
+    }, 3000);
     this.utilityService.setApiResponse(apiData);
   }
   // set api succes response
@@ -234,6 +237,9 @@ getCustomerList(){
     apiData.msg=message;
     apiData.isApiCalled=true;
     apiData.isApiResponseSuccessful=true;
+    setTimeout(function() {
+      apiData.isApiCalled = false;
+    }, 3000);
     this.utilityService.setApiResponse(apiData);
   }
 

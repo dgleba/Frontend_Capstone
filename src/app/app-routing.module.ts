@@ -29,7 +29,7 @@ const appRoutes: Routes = [
     { path: "login", component: LoginComponent },
     { path: "home", component: HomeComponent, canActivate: [AuthGuardService] },
     {
-      path: "newForm",
+      path: "internalTag",
       component: CommonTagView,canActivate: [AuthGuardService],
       children: [
         { path: "", outlet: "sidemenu", component: SidemenuComponent },

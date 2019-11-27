@@ -15,11 +15,7 @@ import { Router} from '@angular/router';
 import { RestAPIService } from "../Service/restAPIService/rest-apiservice.service";
 import { UtilityServiceService } from '../Service/utility-service.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { timeout } from 'rxjs/operators';
-import { timeoutWith } from 'rxjs/operators';
-import { map } from 'rxjs/operators';
-import { catchError } from 'rxjs/operators';
-import { of, TimeoutError } from 'rxjs';
+
 @Component({
     templateUrl: 'login.component.html',
     styleUrls: ['./login.component.css']
@@ -46,6 +42,7 @@ export class LoginComponent implements OnInit {
 
     loginUser() {
         this.submitted = true;
+        console.log("value of submittted",this.submitted);
         // stop here if form is invalid
         if (this.LoginForm.invalid) {
             return;
@@ -55,14 +52,18 @@ export class LoginComponent implements OnInit {
         this.restApi.doLogin(this.userDetails).subscribe((data:any) => {
             console.log(data);
             this.restApi.setApiSuccessmessage("Login Successful")
+            this.submitted = false;
             this.utilityApi.setToken(data.token);
             this.router.navigate(['/home'])
         },
         error => {
             if(error.status==401){
                 console.log("error in side menu",error.error.error);
-                var errorMessage=error.error.error;     
-                this.restApi.setApiErrorResponse(errorMessage);
+                var errorMessage=error.error.error;                 
+                this.restApi.setApiErrorResponse(errorMessage);                
+               }else{
+                this.submitted = false;
+                this.restApi.setApiErrorResponse(error.message);
                }   
         });
       }   

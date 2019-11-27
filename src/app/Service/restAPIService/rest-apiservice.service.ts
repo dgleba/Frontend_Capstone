@@ -33,17 +33,17 @@ export class RestAPIService {
       map(res => {
         return res;
       }),
-      catchError(err => {
-        console.log(err);
-        if (err.name === 'TimeoutError') {
-          this.setApiErrorResponse("Server is not responding");
-        }
-        return Observable.throw(err)
-      })
-    );
-      // .pipe(
-      //   catchError(this.handleError)
-      // )
+      catchError(this.handleError)
+      // catchError(err => {
+      //   console.log(err);
+      //   if (err.name === 'TimeoutError') {
+      //     this.setApiErrorResponse(err.message);
+      //   }
+      //   return Observable.throw(err)
+      // }
+      )
+    
+    
   }
 
   //API to createTag
@@ -201,31 +201,35 @@ getCustomerList(){
     )
   }
 
-  handleError(error) { 
-    var errorMessage;  
+  handleError(error) {
     if (error instanceof HttpErrorResponse) {
+      var errorMessage;
       if (error.error instanceof ErrorEvent) {
-          console.error("Error Event");
+        console.error("Error Event");
       } else {
-         // console.log(`error status : ${error.status} ${error.statusText}`);
-          switch (error.status) {
-              case 401:      //login
-                 errorMessage="Invalid Email or password."
-                  break;
-              case 403:     //forbidden
-              errorMessage="Forbidden"
-                  break;
-          }
-      } 
+        switch (error.status) {
+          case 401:      //login
+            errorMessage = "Invalid Email or password."
+            break;
+          case 403:     //forbidden
+            errorMessage = "Forbidden"
+            break;
+        }
+      }
+    } else if (error.name === 'TimeoutError') {
+     }
+    return throwError(error);
   }
-  return throwError(error);
-  }
+ 
   // set api error response
   setApiErrorResponse(errorMessage){
     var  apiData= this.utilityService.getApiResponse();
     apiData.msg=errorMessage;
     apiData.isApiCalled=true;
     apiData.isApiResponseSuccessful=false;
+    setTimeout(function() {
+      apiData.isApiCalled = false;
+    }, 3000);
     this.utilityService.setApiResponse(apiData);
   }
   // set api succes response
@@ -234,6 +238,9 @@ getCustomerList(){
     apiData.msg=message;
     apiData.isApiCalled=true;
     apiData.isApiResponseSuccessful=true;
+    setTimeout(function() {
+      apiData.isApiCalled = false;
+    }, 3000);
     this.utilityService.setApiResponse(apiData);
   }
 

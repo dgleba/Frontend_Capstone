@@ -1,77 +1,46 @@
 <form class="add-padding add-margin">
-
-   
-    <div class="row">
-            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                    <label>
-                            <input type="checkbox" [(ngModel)]="externalTagData.ExtHoldTag"
-                            [ngModelOptions]="{standalone: true}" />
-                            Hold Tag
-                    </label>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                    <label>
-                            <input type="checkbox" [(ngModel)]="externalTagData.ExtSupplierIssue"
-                            [ngModelOptions]="{standalone: true}" />
-                            Supplier Issue
-                    </label>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                    <input type="text" class="form-control" [(ngModel)]="externalTagData.Issuedby"
-                    [ngModelOptions]="{standalone: true}" placeholder="Issued By">
-            </div>
-
-
-    </div>
-    <hr>
-    <div class="row">
-            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                    <label>Quantity : </label>
-                    <input type="text" class="form-control" [(ngModel)]="externalTagData.qty"
-                    [ngModelOptions]="{standalone: true}" placeholder="0">
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                <div class="form-group">
-                        <label>Process Step</label>
-                        <select class="form-control" (change)="getSelectedQualityCustomer($event)">
-                                <option [ngValue]="null" disabled>Customer</option>
-                                <option *ngFor="let qualityCustomer of QualityCustomerList; let i = index"
-                                        [ngValue]="qualityCustomer">
-                                        {{ qualityCustomer.id }}
-                                </option>
-                        </select>
+ <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 form-check">
+                                <label><input type="checkbox"/>  Hold Tag</label>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 form-check">
+                        <label><input type="checkbox"/>  Supplier Issue</label>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                        <input type="text" class="form-control" [(ngModel)]="externalTagData.textIssuedBy"
+                                [ngModelOptions]="{standalone: true}" placeholder="Issued By">
                 </div>
         </div>
-            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                    <div class="form-group">
-                            <label>Machine Number</label>
-                            <select class="form-control" (change)="getSelectedQualityCustomer($event)">
-                                    <option [ngValue]="null" disabled>Customer</option>
-                                    <option *ngFor="let qualityCustomer of QualityCustomerList; let i = index"
-                                            [ngValue]="qualityCustomer">
-                                            {{ qualityCustomer.id }}
-                                    </option>
-                            </select>
-                    </div>
-            </div>
-    </div>
-    
-    <div class="row">
-            <div class="col form-group">
-                    <p>Reason</p>
-                    <textarea autosize class="form-control my-textarea" [(ngModel)]="externalTagData.ReasonTextArea"
-                    [ngModelOptions]="{standalone: true}" placeholder="Enter..." name="story"
-                            rows="4"></textarea>
-            </div>
-           
-    </div>
+        <hr>
+        <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                        <label class="font-weight-bold">Quantity</label>
+                        <input type="text" class="form-control" [(ngModel)]="externalTagData.textQty"
+                                [ngModelOptions]="{standalone: true}" placeholder="0">
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                        <label class="font-weight-bold">Process Step</label>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
 
-    <div class="row">
-            <div class="col form-group">
-                    <p>Comment</p>
-                    <textarea autosize class="form-control my-textarea" [(ngModel)]="externalTagData.commentTextArea"
-                    [ngModelOptions]="{standalone: true}" placeholder="Enter..." name="story"
-                            rows="4"></textarea>
-            </div>
-    </div>
+                        <label class="font-weight-bold">Machine Number</label>
+
+                </div>
+        </div>
+        <div class="row">
+                <div class="col-lg col-md col-sm col-xs form-group">
+                        <label class="font-weight-bold">Reason</label>
+                        <textarea autosize class="form-control my-textarea" [(ngModel)]="externalTagData.textAreaReason"
+                                [ngModelOptions]="{standalone: true}" placeholder="Enter..." name="story"
+                                rows="4"></textarea>
+                </div>
+        </div>
+        <div class="row">
+                <div class="col-lg col-md col-sm col-xs form-group">
+                        <label class="font-weight-bold">Comment</label>
+                        <textarea autosize class="form-control my-textarea"
+                                [(ngModel)]="externalTagData.textAreaComment" [ngModelOptions]="{standalone: true}"
+                                placeholder="Enter..." name="story" rows="4"></textarea>
+                </div>
+        </div>
 </form>

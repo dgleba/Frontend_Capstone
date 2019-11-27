@@ -17,7 +17,7 @@ import { AutocompleteLibModule } from "angular-ng-autocomplete";
 import { AppComponent } from "./app.component";
 import { FormsModule } from "@angular/forms";
 import { ReactiveFormsModule } from '@angular/forms';
-import { Routes, RouterModule } from "@angular/router";
+import { AppRoutingModule } from './app-routing.module';
 import { CommonTagView } from "./CreateNewForm/commonTagView/commonTagView.component";
 import { HomeComponent } from "./home/home.component";
 import { HoldtagComponent } from "./CreateNewForm/holdtag/holdtag.component";
@@ -42,41 +42,8 @@ import { TpcTagExternalComponent } from './external-issue-form/external-issue-fo
 import { SpecialInstructionExternalComponent } from './external-issue-form/external-issue-form-tag/special-instruction-external/special-instruction-external.component';
 import { PictureExternalComponent } from './external-issue-form/external-issue-form-tag/picture-external/picture-external.component';
 
-const appRoutes: Routes = [
-  { path: "", component: LoginComponent },
-  { path: "login", component: LoginComponent },
-  { path: "home", component: HomeComponent, canActivate: [AuthGuardService] },
-  {
-    path: "newForm",
-    component: CommonTagView,canActivate: [AuthGuardService],
-    children: [
-      { path: "", outlet: "sidemenu", component: SidemenuComponent },
-      { path: "", component: QualityalertinComponent },
-      { path: "qualityTag", component: QualityalertinComponent },
-      { path: "holdTag", component: HoldtagComponent },
-      { path: "tpcTag", component: TpctagComponent },
-      { path: "specialInstruction", component: SpecialInstructionComponent },
-      { path: "picture", component: AddPictureComponent }
-    ]
-  },
-  { path: "getTag", component: GetTagDataComponent,canActivate: [AuthGuardService] },
-  { path: "updateTag/:id", component: UpdateTagDataComponent ,canActivate: [AuthGuardService]},
-  { path: "externalIssueForm", component: ExternalIssueFormComponent,canActivate: [AuthGuardService] },
-  { path: "externalIssueTag", 
-  component: ExternalIssueFormTagComponent ,canActivate: [AuthGuardService],
-  children: [
-    {path:"", component:QualityAlertExternalComponent},
-    {path:"qualityAlertExternal", component:QualityAlertExternalComponent},
-    {path:"holdTagExternal", component: HoldTagExternalComponent},
-    {path:"tpcTagExternal", component: TpcTagExternalComponent},
-    {path:"specialInstructionExternal", component:SpecialInstructionExternalComponent},
-    {path:"pictureExternal", component:PictureExternalComponent}
-  ]
-},
-  { path: "partValueCalculator", component: PartValueCalculatorComponent,canActivate: [AuthGuardService] },
 
-  { path: "**", component: PageNotFoundComponent }
-];
+
 
 @NgModule({
   declarations: [
@@ -106,11 +73,12 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     FormsModule,
+    AppRoutingModule,
     ReactiveFormsModule,
-    RouterModule.forRoot(appRoutes),
     HttpClientModule,
     AutosizeModule,
     AutocompleteLibModule
+  
   ],
   providers: [AuthGuardService, DatePipe],
   bootstrap: [AppComponent]

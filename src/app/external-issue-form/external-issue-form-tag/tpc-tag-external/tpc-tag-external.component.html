@@ -3,21 +3,13 @@
    
     <div class="row">
             <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                    <label>
-                            <input type="checkbox" [(ngModel)]="externalTagData.ExtTPCTag"
-                            [ngModelOptions]="{standalone: true}" />
-                            TPC Tag
-                    </label>
+                        <label><input type="checkbox" />  TPC Tag</label>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                    <label>
-                            <input type="checkbox" [(ngModel)]="externalTagData.ExtSupplierIssue"
-                            [ngModelOptions]="{standalone: true}" />
-                            Supplier Issue
-                    </label>
+                        <label><input type="checkbox"/>  Supplier Issue</label>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                    <input type="text" class="form-control" [(ngModel)]="externalTagData.Issuedby"
+                    <input type="text" class="form-control" [(ngModel)]="externalTagData.textIssuedBy"
                     [ngModelOptions]="{standalone: true}" placeholder="Issued By">
             </div>
 
@@ -27,13 +19,13 @@
     <div class="row">
             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                     <label>Ok'd By : </label>
-                    <input type="text" class="form-control" [(ngModel)]="externalTagData.Okdby"
+                    <input type="text" class="form-control" [(ngModel)]="externalTagData.textOkdBy"
                     [ngModelOptions]="{standalone: true}" placeholder="Ok'd by">
             </div>
             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                 <p>Length of Change</p>
                 <div class="input-group">
-                  <input type="text" class="form-control" [(ngModel)]="externalTagData.Lengthofchange"
+                  <input type="text" class="form-control" [(ngModel)]="externalTagData.textLengthofchange"
                     [ngModelOptions]="{standalone: true}" (change)="addDays()" aria-label="Length of change">
                   <div class="input-group-append">
                     <span class="input-group-text">Days</span>
@@ -42,64 +34,46 @@
                 <p>{{ expiredOn }}</p>
               </div>
             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                <div class="form-group">
-                        <label>Process Step</label>
-                        <select class="form-control" (change)="getSelectedQualityCustomer($event)">
-                                <option [ngValue]="null" disabled>Customer</option>
-                                <option *ngFor="let qualityCustomer of QualityCustomerList; let i = index"
-                                        [ngValue]="qualityCustomer">
-                                        {{ qualityCustomer.id }}
-                                </option>
-                        </select>
-                </div>
+                
+                <label class="font-weight-bold">Process Step</label>
+                        
         </div>
             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                    <div class="form-group">
-                            <label>Machine Number</label>
-                            <select class="form-control" (change)="getSelectedQualityCustomer($event)">
-                                    <option [ngValue]="null" disabled>Customer</option>
-                                    <option *ngFor="let qualityCustomer of QualityCustomerList; let i = index"
-                                            [ngValue]="qualityCustomer">
-                                            {{ qualityCustomer.id }}
-                                    </option>
-                            </select>
-                    </div>
+                    
+                <label class="font-weight-bold">Machine Number</label>
+                            
             </div>
     </div>
     
     <div class="row">
-            <div class="col form-group">
-                    <p>Feature : </p>
-                    <textarea autosize class="form-control my-textarea" [(ngModel)]="externalTagData.FeatureTextArea"
-                    [ngModelOptions]="{standalone: true}" placeholder="Enter..." name="story"
-                            rows="4"></textarea>
+        <div class="col-lg col-md col-sm col-xs form-group">
+                <label class="font-weight-bold">Feature</label>
+                <textarea autosize class="form-control my-textarea" [(ngModel)]="externalTagData.textAreaFeature"
+                    [ngModelOptions]="{standalone: true}" placeholder="Enter..." name="story" rows="4"></textarea>
             </div>
            
     </div>
     <div class="row">
-        <div class="col form-group">
-                <p>Reason : </p>
-                <textarea autosize class="form-control my-textarea" [(ngModel)]="externalTagData.Reason"
-                [ngModelOptions]="{standalone: true}" placeholder="Enter..." name="story"
-                        rows="4"></textarea>
-        </div>
+        <div class="col-lg col-md col-sm col-xs form-group">
+                <label class="font-weight-bold">Reason</label>
+                <textarea autosize class="form-control my-textarea" [(ngModel)]="externalTagData.textAreaReason"
+                    [ngModelOptions]="{standalone: true}" placeholder="Enter..." name="story" rows="4"></textarea>
+            </div>
        
 </div>
 <div class="row">
-    <div class="col form-group">
-            <p>changed : </p>
-            <textarea autosize class="form-control my-textarea" [(ngModel)]="externalTagData.Changed"
-            [ngModelOptions]="{standalone: true}" placeholder="Enter..." name="story"
-                    rows="4"></textarea>
-    </div>
+        <div class="col-lg col-md col-sm col-xs form-group">
+                <label class="font-weight-bold">Changed</label>
+                <textarea autosize class="form-control my-textarea" [(ngModel)]="externalTagData.textAreaChanged"
+                    [ngModelOptions]="{standalone: true}" placeholder="Enter..." name="story" rows="4"></textarea>
+            </div>
    
 </div>
     <div class="row">
-            <div class="col form-group">
-                    <p>Comment : </p>
-                    <textarea autosize class="form-control my-textarea" [(ngModel)]="externalTagData.commentTextArea"
-                    [ngModelOptions]="{standalone: true}" placeholder="Enter..." name="story"
-                            rows="4"></textarea>
+        <div class="col-lg col-md col-sm col-xs form-group">
+                <label class="font-weight-bold">Comment</label>
+                <textarea autosize class="form-control my-textarea" [(ngModel)]="externalTagData.textAreaComment"
+                    [ngModelOptions]="{standalone: true}" placeholder="Enter..." name="story" rows="4"></textarea>
             </div>
     </div>
 </form>

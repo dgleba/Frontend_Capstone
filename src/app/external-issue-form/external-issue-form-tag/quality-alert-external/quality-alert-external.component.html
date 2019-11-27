@@ -3,119 +3,84 @@
 
         <div class="row">
                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                                <div class="custom-control custom-checkbox">
-                                                <input type="checkbox" class="custom-control-input" id="defaultUnchecked">
-                                                <label class="custom-control-label" for="defaultUnchecked">Default unchecked</label>
-                                            </div>
+                        <label><input type="checkbox"/>  Quality A Tag</label>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 form-check">
-                                
-                                                <input class="form-check-input" type="checkbox" id="gridCheck1">
-                                                <label class="form-check-label" for="gridCheck1">
-                                                  Supplier Issue
-                                                </label>
-                                       
-
-
+                         <label><input type="checkbox"/>  Supplier Issue</label>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                        <input type="text" class="form-control" [(ngModel)]="externalTagData.Issuedby"
-                        [ngModelOptions]="{standalone: true}" placeholder="Issued By ">
+                        <input type="text" class="form-control" [(ngModel)]="externalTagData.textIssuedBy"
+                                [ngModelOptions]="{standalone: true}" placeholder="Issued By ">
                 </div>
 
 
         </div>
         <hr>
+        
         <div class="row">
                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                        <label>Est. Cost : </label>
-                        <input type="text" class="form-control" [(ngModel)]="externalTagData.EstCost"
-                        [ngModelOptions]="{standalone: true}" placeholder="$0.00">
+                        <label class="font-weight-bold">Est. Cost</label>
+                        <input type="text" class="form-control" [(ngModel)]="externalTagData.textEstCost"
+                                [ngModelOptions]="{standalone: true}" placeholder="$0.00">
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                        <label>No. Of Pieces</label>
-                        <input type="text" class="form-control" [(ngModel)]="externalTagData.NoOfPieces"
-                        [ngModelOptions]="{standalone: true}" placeholder="0">
+                        <label class="font-weight-bold">No. Of Pieces</label>
+                        <input type="text" class="form-control" [(ngModel)]="externalTagData.textNoOfPieces"
+                                [ngModelOptions]="{standalone: true}" placeholder="0">
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                         <div class="form-group">
-                                <label>Customer</label>
-                                <select class="form-control" (change)="getSelectedQualityCustomer($event)">
-                                        <option [ngValue]="null" disabled>Customer</option>
-                                        <option *ngFor="let qualityCustomer of QualityCustomerList; let i = index"
-                                                [ngValue]="qualityCustomer">
-                                                {{ qualityCustomer.id }}
-                                        </option>
-                                </select>
+                                <label class="font-weight-bold">Customer</label>
+
                         </div>
                 </div>
         </div>
         <div class="row">
                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                        <label>Customer Ref Num : </label>
-                        <input type="text" class="form-control" [(ngModel)]="externalTagData.CustomerRefNum"
-                        [ngModelOptions]="{standalone: true}" placeholder="Customer Reference Number">
+                        <label class="font-weight-bold">Customer Ref Num</label>
+                        <input type="text" class="form-control" [(ngModel)]="externalTagData.textCustomerRefNum"
+                                [ngModelOptions]="{standalone: true}" placeholder="Customer Reference Number">
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                        <label>Date Issued</label>
+                        <label class="font-weight-bold">Date Issued</label>
                         <input type="date" class="form-control" [(ngModel)]="externalTagData.DateIssued"
-                        [ngModelOptions]="{standalone: true}" placeholder="Customer Reference Number">
+                                [ngModelOptions]="{standalone: true}" placeholder="Customer Reference Number">
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                         <div class="form-group">
-                                <label>Stackpole</label>
-                                <select class="form-control" (change)="getSelectedstackpole($event)">
-                                        <option [ngValue]="null" disabled>Stackpole</option>
-                                        <option *ngFor="let stackpole of stackpoleList; let i = index"
-                                                [ngValue]="stackpole">
-                                                {{ stackpole.id }}
-                                        </option>
-                                </select>
+                                <label class="font-weight-bold">Stackpole</label>
+
                         </div>
                 </div>
         </div>
         <hr>
         <div class="row">
                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-
-                        <label>
-                                <input type="checkbox" [(ngModel)]="externalTagData.CertifiedMaterialTagIssued"
-                                [ngModelOptions]="{standalone: true}" />
-                                Certified Material Tag Issued
-                        </label>
+                        <label><input type="checkbox" />  Certified Material Tag Issued</label>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                        <label>
-                                <input type="checkbox" [(ngModel)]="externalTagData.ExtControlPlan"
-                                [ngModelOptions]="{standalone: true}" />
-                                Control Plan
-                        </label>
+                        <label><input type="checkbox" />  Control Plan</label>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                        <label>
-                                <input type="checkbox" [(ngModel)]="externalTagData.ExtLayeredAudit"
-                                [ngModelOptions]="{standalone: true}"/>
-                                Layered Audit
-                        </label>
-
+                        <label><input type="checkbox" />  Layered Audit</label>
                 </div>
         </div>
         <hr>
         <div class="row">
-                <div class="col form-group">
-                        <p>Quality Alert</p>
-                        <textarea autosize class="form-control my-textarea" [(ngModel)]="externalTagData.QualityAlertTextArea"
-                        [ngModelOptions]="{standalone: true}" placeholder="Enter..." name="story"
+                <div class="col-lg col-md col-sm col-xs form-group">
+                        <label class="font-weight-bold">Quality Alert</label>
+                        <textarea autosize class="form-control my-textarea" [(ngModel)]="externalTagData.textAreaQualityAlert"
+                                [ngModelOptions]="{standalone: true}" placeholder="Enter..." name="story"
                                 rows="4"></textarea>
                 </div>
 
         </div>
 
         <div class="row">
-                <div class="col form-group">
-                        <p>Comment</p>
-                        <textarea autosize class="form-control my-textarea" [(ngModel)]="externalTagData.commentTextArea"
-                        [ngModelOptions]="{standalone: true}" placeholder="Enter..." name="story"
+                <div class="col-lg col-md col-sm col-xs form-group">
+                        <label class="font-weight-bold">Comment</label>
+                        <textarea autosize class="form-control my-textarea" [(ngModel)]="externalTagData.textAreaComment"
+                                [ngModelOptions]="{standalone: true}" placeholder="Enter..." name="story"
                                 rows="4"></textarea>
                 </div>
         </div>

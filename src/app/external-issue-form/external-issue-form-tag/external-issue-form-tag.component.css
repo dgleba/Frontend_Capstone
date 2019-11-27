@@ -27,7 +27,12 @@ body {
     text-transform: uppercase;
     color: #fff;
   }
-  
+   
+.navbar-light .navbar-nav .active>.nav-link{
+  color: white;
+  font-weight: bold;
+}
 
-
-  
+.home-button{
+  color: white;
+}

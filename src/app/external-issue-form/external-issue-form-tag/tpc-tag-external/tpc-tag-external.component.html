@@ -36,12 +36,34 @@
             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                 
                 <label class="font-weight-bold">Process Step</label>
+                <ng-autocomplete [data]="processStep" [searchKeyword]="processKeyword" placeHolder="Select Process Step"
+                (selected)='getSelectedProcessStep($event)' (inputCleared)="clearProcessData()" [itemTemplate]="processTemplate"
+                [notFoundTemplate]="notFoundProcessTemplate">
+              </ng-autocomplete>
+              <ng-template #processTemplate let-item>
+                <a [innerHTML]="item.Department"></a>
+              </ng-template>
+              <ng-template #notFoundProcessTemplate let-notFound>
+                <div [innerHTML]="notFound"></div>
+              </ng-template>
                         
         </div>
             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                     
                 <label class="font-weight-bold">Machine Number</label>
-                            
+                <ng-autocomplete [data]="machineStep" [searchKeyword]="machineKeyword1" placeHolder="Select Machine Step"
+                (selected)='getSelectedMachine($event)' (inputCleared)="clearMachineData()" [itemTemplate]="machineTemplate"
+                [notFoundTemplate]="notFoundMachineTemplate">
+              </ng-autocomplete>
+              <ng-template #machineTemplate let-item>
+                <ul class='nav'>
+                  <li><a [innerHTML]="item.id"></a></li>
+                  <li><a [innerHTML]="item.MachineDesc"></a></li>
+                </ul>
+              </ng-template>
+              <ng-template #notFoundMachineTemplate let-notFound>
+                <div [innerHTML]="notFound"></div>
+              </ng-template>         
             </div>
     </div>
     
@@ -76,4 +98,3 @@
                     [ngModelOptions]="{standalone: true}" placeholder="Enter..." name="story" rows="4"></textarea>
             </div>
     </div>
-</form>

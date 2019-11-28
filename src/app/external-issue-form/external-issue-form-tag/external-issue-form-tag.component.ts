@@ -33,7 +33,7 @@ export class ExternalIssueFormTagComponent implements OnInit {
   }
   focusOutFunction($event) {
     var val = (<HTMLInputElement>document.getElementById("issuedByValue")).value;
-    this.externalTagData.Issuedby = val;
+    this.externalTagData.textIssuedBy = val;
     this.utilityService.setExternalTagData(this.externalTagData);
   }
   //event handler to get the selected value of part num

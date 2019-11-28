@@ -3,45 +3,45 @@ export class ExternalTagData {
   //-Common Field
   CustomerName: string;
   PartID: string;
-  Reason: string;
-  Issuedby: string;
-  ExtSupplierIssue: boolean;
-  //-Quality Alert
-  EstCost: number;
-  NoOfPieces: Number;
-  CustomerRefNum: Number;
-  DateIssued: Date;
-  CustomerDisposition: string;
-  Stackpole: string;
-  CertifiedMaterialTagIssued: boolean;
-  ExtControlPlan: boolean;
-  ExtLayeredAudit: boolean;
-  ExtQualityATag: boolean;
-  QualityAlertTextArea: string;
-
-  //--Hold Tag
-  ExtHoldTag: boolean;
-  ReasonTextArea: string;
-  qty: number;
-
-  //--TPC Tag
-  ExtModWritten: boolean;
-  Okdby: string;
-  ExtTPCTag: boolean;
-  FeatureTextArea: string;
-
-  //--Special Inst
-  ExtSpecialInstWritten: boolean;
-  SpecialInstructionTextArea: string;
-
-  Date: string;
-  Lengthofchange: number;
-  Feature: string;
-  Changed: string;
+  checkSupplierIssue: boolean;
   MachineID: string;
   ProcessStep: string;
-  commentTextArea: string;
+  Reason:string
+  textLengthofchange: number;
+  textOkdBy:string
+  textAreaComment : string;
+  textAreaChanged: string;
+  textAreaReason: string;
+  textIssuedBy: string;
+  textAreaFeature: string;
+  //-Quality Alert
+  checkQualityAlert : boolean;
+  textEstCost: number;
+  textNoOfPieces: Number;
+  textCustomerRefNum: Number;
+  datepickerDateIssued: Date;
+  dropCustomerDisposition: string;
+  dropStackpoleDisposition: string;
+  checkCertifiedMaterialTagIssued: boolean;
+  checkControlPlan: boolean;
+  checkLayeredAudit: boolean;
+  checkQualityATag: boolean;
+  textAreaQualityAlert: string;
 
+  //--Hold Tag
+  checkHoldTag: boolean;
+  ReasonTextArea: string;
+  textQty: number;
+
+  //--TPC Tag
+  checkTPCTag: boolean;
+  checkModWritten: boolean;
+  
+
+  //--Special Inst
+  textSpecialInstWritten: boolean;
+  textAreaSpecialInst:string;
+  
   // to show the pannel in picture component 
   isPictureComponent:boolean;
 }

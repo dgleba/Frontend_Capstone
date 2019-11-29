@@ -3,7 +3,8 @@
    
     <div class="row">
             <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                        <label><input type="checkbox" />  TPC Tag</label>
+                        <label><input type="checkbox" [(ngModel)]="externalTagData.checkTPCTag"
+                          [ngModelOptions]="{standalone: true}"/>  TPC Tag</label>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                         <label><input type="checkbox" [(ngModel)]="externalTagData.checkSupplierIssue"
@@ -19,12 +20,12 @@
     <hr>
     <div class="row">
             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                    <label>Ok'd By : </label>
+                    <label class="font-weight-bold">Ok'd By : </label>
                     <input type="text" class="form-control" [(ngModel)]="externalTagData.textOkdBy"
                     [ngModelOptions]="{standalone: true}" placeholder="Ok'd by">
             </div>
             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                <p>Length of Change</p>
+                <p class="font-weight-bold">Length of Change</p>
                 <div class="input-group">
                   <input type="text" class="form-control" [(ngModel)]="externalTagData.textLengthofchange"
                     [ngModelOptions]="{standalone: true}" (change)="addDays()" aria-label="Length of change">

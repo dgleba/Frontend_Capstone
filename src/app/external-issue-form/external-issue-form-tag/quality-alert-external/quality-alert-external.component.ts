@@ -8,7 +8,6 @@ import {ExternalTagData} from '../../../Model/externalTagData';
   styleUrls: ['./quality-alert-external.component.css']
 })
 export class QualityAlertExternalComponent implements OnInit {
-
   constructor(private utilityService:UtilityServiceService) { }
   public externalTagData:ExternalTagData;
   ngOnInit() {

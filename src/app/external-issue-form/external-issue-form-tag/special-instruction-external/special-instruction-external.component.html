@@ -2,7 +2,8 @@
 
     <div class="row">
             <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                        <label><input type="checkbox"/>  Special Inst. Written</label>
+                        <label><input type="checkbox" [(ngModel)]="externalTagData.textSpecialInstWritten"
+                          [ngModelOptions]="{standalone: true}"/>  Special Inst. Written</label>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                         <label><input type="checkbox" [(ngModel)]="externalTagData.checkSupplierIssue"

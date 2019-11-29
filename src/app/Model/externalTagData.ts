@@ -1,5 +1,6 @@
 export class ExternalTagData {
   id: number;
+  Date:string;
   //-Common Field
   CustomerName: string;
   PartID: string;

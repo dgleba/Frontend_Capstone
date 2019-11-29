@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {UtilityServiceService} from 'src/app/Service/utility-service.service';
-import { RestAPIService } from 'src/app/Service/restAPIService/rest-apiservice.service';
+import {UtilityServiceService} from '../../../Service/utility-service.service';
+import { RestAPIService } from '../../../Service/restAPIService/rest-apiservice.service';
 import { Router } from '@angular/router';
-import { ExternalTagData } from 'src/app/Model/externalTagData';
+import { ExternalTagData } from '../../../Model/externalTagData';
 
 @Component({
   selector: 'app-picture-external',
@@ -18,8 +18,9 @@ document: Array<File> = [];
 picture1: File;
 picture2: File;
 public message: string;
- ngOnInit() { 
+ ngOnInit() {  
   this.externalTagData=this.utilityService.getExternalTagData();
+  this.externalTagData.isPictureComponent=true;
   console.log("add pic part",this.externalTagData);
 } 
 

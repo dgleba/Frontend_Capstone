@@ -45,6 +45,16 @@ export class RestAPIService {
     
     
   }
+  // API to deleteTag
+  deleteTag(id){
+    let myHeader=new HttpHeaders();
+    myHeader=myHeader.append( 'Content-Type','application/json');
+    myHeader=myHeader.append( 'Authorization','Bearer' + " " + this.utilityService.getToken()); 
+    return this.http.post(this.apiURL + '/tbl_quality_issues'+id+'/.json', {headers:myHeader})
+    .pipe(
+      catchError(this.handleError)
+    )
+  }
 
   //API to createTag
   createTag(tagData) {
@@ -194,7 +204,6 @@ getCustomerList(){
     if(searchObl[3].value){
       params=params.append('q[ProblemType_or_PartID_or_Issuedby_or_OpertionHd_or_OpertionTp_or_OpertionSp_or_OpertionQA_or_Reason_or_ReasonNote_or_Feature_or_Changed_or_Comment_or_SpecialInst_or_QualityAlert_or_QualityAlertMemo_or_CustomerRefNum_or_DispositionCustomer_or_DispositionStackpole_or_Okdby_or_FeatureNumber_or_OperationNumber_or_body_or_operation_cont_any]',searchObl[3].value);
     }   
-    console.log("params",params);
     return this.http.get(this.apiURL + '/tbl_quality_issues.json', {headers:myHeader,params:params})
     .pipe(
       catchError(this.handleError)

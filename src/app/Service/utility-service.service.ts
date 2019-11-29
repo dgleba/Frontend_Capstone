@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { DatePipe } from '@angular/common';
+import {User} from 'src/app/Model/user';
 import {QualityTagData} from '../Model/qualtiyTagData';
 import {Partnumber} from 'src/app/Model/partnumber';
 import {Reason} from 'src/app/Model/reason';
@@ -23,8 +24,9 @@ tagSummaryOption : any = [
   {id: '4', tagName: 'Special Instruction', isChecked: false},
   {id: '5', tagName: 'Quality Alert - IN', isChecked: false},
   {id: '6', tagName: 'Supplier Issue', isChecked: false}];
+  public user=new User;
   public internalTagData:QualityTagData;
-  public externalTagData = new ExternalTagData;
+  public externalTagData:ExternalTagData;
   public partNumberList: Partnumber[];
   public reasonList : Reason[];
   public processStepList: ProcessStep[];
@@ -74,7 +76,15 @@ tagSummaryOption : any = [
   deleteToken(){
     localStorage.removeItem('token');
   }
-
+//---------setter getter for models-----///
+//getter setter for userMode
+    setUser(myuser){
+      this.user=myuser;
+    }
+    getUser(){
+      console.log(this.user,"in utilit service");
+      return this.user;
+    }
   //getter setter for qualityTagData
   setInternalTagData(internalTagObj){
     this.internalTagData=internalTagObj;

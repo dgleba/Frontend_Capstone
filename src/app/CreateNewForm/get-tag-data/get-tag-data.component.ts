@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { RestAPIService } from 'src/app/Service/restAPIService/rest-apiservice.service';
+import { RestAPIService } from '../../Service/restAPIService/rest-apiservice.service';
+import {UtilityServiceService} from '../../Service/utility-service.service';
 import { QualityTagData } from 'src/app/Model/qualtiyTagData';
+import {User} from 'src/app/Model/user';
 import { Router } from '@angular/router';
 
 @Component({
@@ -9,8 +11,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./get-tag-data.component.css']
 })
 export class GetTagDataComponent implements OnInit {
-  constructor(private restAPIService: RestAPIService, private router: Router) { }
+  constructor(private restAPIService: RestAPIService, private utilityService:UtilityServiceService, private router: Router) { }
   qualityTagDataList: QualityTagData[];
+  user:User;
   searchOption: any = [
     { id: '1', searchBy: 'Tag ID', isChecked: false ,value:''},
     { id: '2', searchBy: 'Part Number', isChecked: false ,value:'' },
@@ -20,12 +23,12 @@ export class GetTagDataComponent implements OnInit {
   
   ngOnInit() {
     this.getQualityTagData();
+    this.user=this.utilityService.getUser();
+    console.log(this.user,"in get");   
   }
 
   searchTag() {
-    console.log("search value", this.searchOption);
-    this.callSearchByDataApi();
-   
+    this.callSearchByDataApi();   
   }
   
   // Api to get data by searching 
@@ -56,5 +59,16 @@ export class GetTagDataComponent implements OnInit {
   //go to update page with id
   updatetag(id: number) {
     this.router.navigate(['/updateTag', id]);
+  }
+  // delete the tag
+  deleteTag(id){
+    this.restAPIService.deleteTag(id).subscribe(
+      (data: any) => {
+        this.getQualityTagData();
+        this.restAPIService.setApiSuccessmessage("Tag deleted successfully");
+        },error=>{
+          this.restAPIService.setApiErrorResponse(error)
+         }
+    )
   }
 }

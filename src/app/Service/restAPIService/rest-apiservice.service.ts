@@ -50,7 +50,7 @@ export class RestAPIService {
     let myHeader=new HttpHeaders();
     myHeader=myHeader.append( 'Content-Type','application/json');
     myHeader=myHeader.append( 'Authorization','Bearer' + " " + this.utilityService.getToken()); 
-    return this.http.post(this.apiURL + '/tbl_quality_issues'+id+'/.json', {headers:myHeader})
+    return this.http.delete(this.apiURL + '/tbl_quality_issues/'+id+'.json', {headers:myHeader})
     .pipe(
       catchError(this.handleError)
     )

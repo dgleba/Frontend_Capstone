@@ -15,6 +15,7 @@ import { Router} from '@angular/router';
 import { RestAPIService } from "../Service/restAPIService/rest-apiservice.service";
 import { UtilityServiceService } from '../Service/utility-service.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {User} from '../Model/user';
 
 @Component({
     templateUrl: 'login.component.html',
@@ -50,7 +51,9 @@ export class LoginComponent implements OnInit {
       this.userDetails.user=this.LoginForm.value;
        // api call for login
         this.restApi.doLogin(this.userDetails).subscribe((data:any) => {
-            console.log(data);
+           var  user =new User;
+            user=data;
+            this.utilityApi.setUser(user);
             this.restApi.setApiSuccessmessage("Login Successful")
             this.submitted = false;
             this.utilityApi.setToken(data.token);

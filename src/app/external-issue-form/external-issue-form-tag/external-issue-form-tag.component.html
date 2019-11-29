@@ -29,17 +29,13 @@
             </li>
           </ul>
         </div>
-      </nav>
-
-
-
-  
+      </nav>  
 <div class="jumbotron">
       <div class="external-container" [(ngModel)]="externalTagData.isPictureComponent">
         <div class="row" *ngIf="!externalTagData.isPictureComponent">
           <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 ng-autocomplete">
             <ng-autocomplete [data]="reasonList" [searchKeyword]="reasonKeyword" placeHolder="Reason"
-              (selected)='getSelectedReason($event)' (inputCleared)="clearData()" [itemTemplate]="reasonTemplate"
+              (selected)='getSelectedReason($event)' (inputCleared)="clearReasonData()" [itemTemplate]="reasonTemplate"
               [notFoundTemplate]="notFoundReasonTemplate">
             </ng-autocomplete>
             <ng-template #reasonTemplate let-item>
@@ -51,7 +47,7 @@
           </div>
           <div class=" col-lg-4 col-md-4 col-sm-12 col-xs-12 ng-autocomplete">
             <ng-autocomplete [data]="partNumberList" [searchKeyword]="partNumId" placeHolder="Part Number"
-              (selected)='getSelectedPartNumber($event)' (inputCleared)="clearData()" [itemTemplate]="itemTemplate"
+              (selected)='getSelectedPartNumber($event)' (inputCleared)="clearPartData()" [itemTemplate]="itemTemplate"
               [notFoundTemplate]="notFoundTemplate">
             </ng-autocomplete>
             <ng-template #itemTemplate let-item>
@@ -63,7 +59,7 @@
           </div>
           <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 ng-autocomplete">
             <ng-autocomplete [data]="customerList" [searchKeyword]="customerKeyword" placeHolder="Customer Name"
-              (inputCleared)="clearData()" [itemTemplate]="itemCustomerTemplate"
+              (inputCleared)="clearCustomerData()" [itemTemplate]="itemCustomerTemplate"
               [notFoundTemplate]="notFoundCustomerTemplate">
             </ng-autocomplete>
             <ng-template #itemCustomerTemplate let-item>
@@ -73,13 +69,11 @@
               <div [innerHTML]="notFound"></div>
             </ng-template>
           </div>
-        </div>
-        
+        </div>        
         <router-outlet></router-outlet>
         <div class="row">
           <button type="button" class="btn btn-primary btn-lg btn-sub" (click)="submitForm()">Submit</button>
         </div>
       </div>
-    </div>
-   
+    </div>   
 </div>

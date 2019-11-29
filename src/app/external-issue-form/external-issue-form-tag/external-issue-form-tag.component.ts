@@ -42,13 +42,23 @@ export class ExternalIssueFormTagComponent implements OnInit {
     this.externalTagData.PartID = event.id;
     this.utilityService.setExternalTagData(this.externalTagData);
   }
-  clearData(){
-    this.externalTagData.PartID = '';
-    this.externalTagData.Reason = '';
-    this.externalTagData.ProcessStep = '';
-    this.externalTagData.MachineID = '';
-    console.log("not part num",this.externalTagData.PartID); 
-  }
+ // clear calls in auto complete
+clearMachineData(){
+  this.externalTagData.MachineID = '';
+}
+clearPartData(){
+  this.externalTagData.PartID = '';   
+}
+clearProcessData(){
+  this.externalTagData.ProcessStep = '';
+}
+clearReasonData(){
+  this.externalTagData.Reason = '';
+}
+clearCustomerData(){
+  this.externalTagData.CustomerName='';
+}
+// clear call done
   setNotInPictureTabBoolean(){
     this.externalTagData.isPictureComponent=false;
     console.log("not in picture boolean", this.externalTagData.isPictureComponent);

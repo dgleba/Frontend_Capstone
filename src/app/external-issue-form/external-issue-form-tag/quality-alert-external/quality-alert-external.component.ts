@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {UtilityServiceService} from 'src/app/Service/utility-service.service';
+import {UtilityServiceService} from '../../../Service/utility-service.service';
 import {ExternalTagData} from '../../../Model/externalTagData';
 
 @Component({
@@ -10,8 +10,9 @@ import {ExternalTagData} from '../../../Model/externalTagData';
 export class QualityAlertExternalComponent implements OnInit {
 
   constructor(private utilityService:UtilityServiceService) { }
-  public externalTagData=this.utilityService.getExternalTagData();
+  public externalTagData:ExternalTagData;
   ngOnInit() {
+    this.externalTagData=this.utilityService.getExternalTagData();
     }
 
   focusOutFunction($event) {

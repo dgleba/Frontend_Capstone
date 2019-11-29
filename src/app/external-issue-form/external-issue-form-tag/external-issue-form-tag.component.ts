@@ -49,6 +49,11 @@ export class ExternalIssueFormTagComponent implements OnInit {
     this.externalTagData.MachineID = '';
     console.log("not part num",this.externalTagData.PartID); 
   }
+  setNotInPictureTabBoolean(){
+    this.externalTagData.isPictureComponent=false;
+    console.log("not in picture boolean", this.externalTagData.isPictureComponent);
+    this.utilityService.setExternalTagData(this.externalTagData);
+  }
     //event handler to get the selected value of reason
   getSelectedReason(event: any) {
     console.log("select reason num", event.Reason);

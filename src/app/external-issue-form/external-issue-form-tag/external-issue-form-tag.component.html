@@ -12,20 +12,20 @@
           <ul class="navbar-nav navbar-center">
             <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions] ="{exact : true}" 
             data-toggle="collapse" data-target=".navbar-collapse.show">
-              <a class="nav-link" aria-selected="true"  routerLink="/externalIssueTag">Quality Tag</a>
+              <a class="nav-link" aria-selected="true"  routerLink="/externalIssueTag" (click)="setNotInPictureTabBoolean()">Quality Tag</a>
             </li>
             <li class="nav-item" routerLinkActive="active"  data-toggle="collapse" data-target=".navbar-collapse.show">
-              <a class="nav-link" aria-selected="false" routerLink="holdTagExternal" >Hold Tag</a>
+              <a class="nav-link" aria-selected="false" routerLink="holdTagExternal" (click)="setNotInPictureTabBoolean()">Hold Tag</a>
             </li>
             <li class="nav-item" routerLinkActive="active" data-toggle="collapse" data-target=".navbar-collapse.show">
-              <a class="nav-link" aria-selected="false" routerLink="tpcTagExternal">Tpc Tag</a>
+              <a class="nav-link" aria-selected="false" routerLink="tpcTagExternal" (click)="setNotInPictureTabBoolean()">Tpc Tag</a>
             </li>
             <li class="nav-item" routerLinkActive="active" data-toggle="collapse" data-target=".navbar-collapse.show">
-              <a class="nav-link"  aria-selected="false" routerLink="specialInstructionExternal">Special
+              <a class="nav-link"  aria-selected="false" routerLink="specialInstructionExternal" (click)="setNotInPictureTabBoolean()">Special
                 Instructions</a>
             </li>
             <li class="nav-item" routerLinkActive="active" data-toggle="collapse" data-target=".navbar-collapse.show">
-              <a class="nav-link"  routerLink="pictureExternal" aria-selected="false">Pictures</a>
+              <a class="nav-link" aria-selected="false"  routerLink="pictureExternal" >Pictures</a>
             </li>
           </ul>
         </div>

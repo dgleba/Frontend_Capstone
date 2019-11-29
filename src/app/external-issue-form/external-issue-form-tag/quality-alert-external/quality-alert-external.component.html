@@ -6,7 +6,8 @@
                         <label><input type="checkbox"/>  Quality A Tag</label>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 form-check">
-                         <label><input type="checkbox"/>  Supplier Issue</label>
+                         <label><input type="checkbox" [(ngModel)]="externalTagData.checkSupplierIssue"
+                                [ngModelOptions]="{standalone: true}"/>  Supplier Issue</label>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                         <input type="text" class="form-control" [(ngModel)]="externalTagData.textIssuedBy"

@@ -29,7 +29,7 @@ submitForm() {
   console.log(this.externalTagData, "okdby malti");
   if (this.externalTagData.PartID) {
     if (this.externalTagData.Reason) {
-      if (this.externalTagData.Issuedby) {
+      if (this.externalTagData.checkSupplierIssue) {
         this.externalTagData.Date = this.utilityService.getTodaysDate().toString();
         //api call
         this.createTagApiCall();

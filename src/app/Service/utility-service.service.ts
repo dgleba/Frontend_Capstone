@@ -24,7 +24,7 @@ tagSummaryOption : any = [
   {id: '4', tagName: 'Special Instruction', isChecked: false},
   {id: '5', tagName: 'Quality Alert - IN', isChecked: false},
   {id: '6', tagName: 'Supplier Issue', isChecked: false}];
-  public user=new User;
+  public isAdmin;
   public internalTagData:QualityTagData;
   public externalTagData:ExternalTagData;
   public partNumberList: Partnumber[];
@@ -78,12 +78,13 @@ tagSummaryOption : any = [
   }
 //---------setter getter for models-----///
 //getter setter for userMode
-    setUser(myuser){
-      this.user=myuser;
+    setIsAdmin(isAdmin){
+      localStorage.setItem('isAdmin',isAdmin);
     }
-    getUser(){
-      console.log(this.user,"in utilit service");
-      return this.user;
+    getIsAdmin(){  
+      var isAdmin=localStorage.getItem('isAdmin'); 
+      this.isAdmin=isAdmin;  
+      return this.isAdmin;
     }
   //getter setter for qualityTagData
   setInternalTagData(internalTagObj){

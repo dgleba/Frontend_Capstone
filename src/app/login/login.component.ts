@@ -51,9 +51,6 @@ export class LoginComponent implements OnInit {
       this.userDetails.user=this.LoginForm.value;
        // api call for login
         this.restApi.doLogin(this.userDetails).subscribe((data:any) => {
-           var  user =new User;
-            user=data;
-            this.utilityApi.setUser(user);
             this.restApi.setApiSuccessmessage("Login Successful")
             this.submitted = false;
             this.utilityApi.setToken(data.token);

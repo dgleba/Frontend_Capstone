@@ -21,7 +21,7 @@
         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
           <button type="button" class="btn btn-primary">Reprint</button>
         </div>
-        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" [routerLink]="'/getTag'">
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" (click)="removeUserAAdmin()"  [routerLink]="'/getTag'">
           <button type="button" class="btn btn-primary">
             Filter
           </button>

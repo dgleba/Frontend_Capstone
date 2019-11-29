@@ -23,22 +23,20 @@ import { Router} from '@angular/router';
 export class HomeComponent implements OnInit {
   token: string;
   constructor(public utilityService:UtilityServiceService,private router: Router) { }
-  public user:User;
+  public user=new User;
   ngOnInit() { 
     this.token = localStorage.getItem('token');   
-    this.user=this.utilityService.getUser();
-    this.user.isAdmin=false;
-    this.utilityService.setUser(this.user);  
-    console.log(this.user,"in home");   
    }
   logout(){
     this.utilityService.deleteToken();
     this.router.navigate(['/login'])
   }
   setUserAsAdmin(){
-    this.user.isAdmin=true;
-    this.utilityService.setUser(this.user);
+    this.utilityService.setIsAdmin(true);
   }
 
+  removeUserAAdmin(){
+    this.utilityService.setIsAdmin(false);
+  }
   
 }

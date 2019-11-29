@@ -13,7 +13,7 @@ import { Router } from '@angular/router';
 export class GetTagDataComponent implements OnInit {
   constructor(private restAPIService: RestAPIService, private utilityService:UtilityServiceService, private router: Router) { }
   qualityTagDataList: QualityTagData[];
-  user:User;
+  isAdmin:boolean;
   searchOption: any = [
     { id: '1', searchBy: 'Tag ID', isChecked: false ,value:''},
     { id: '2', searchBy: 'Part Number', isChecked: false ,value:'' },
@@ -23,8 +23,9 @@ export class GetTagDataComponent implements OnInit {
   
   ngOnInit() {
     this.getQualityTagData();
-    this.user=this.utilityService.getUser();
-    console.log(this.user,"in get");   
+    console.log(this.utilityService.getIsAdmin(),"in get"); 
+      this.isAdmin=this.utilityService.getIsAdmin();
+      console.log(this.isAdmin,"is admin "); 
   }
 
   searchTag() {

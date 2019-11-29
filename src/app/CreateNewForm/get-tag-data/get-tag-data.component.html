@@ -39,7 +39,7 @@
         <thead>
           <tr>
             <th>Edit</th>
-            <th *ngIf="user.isAdmin">Delete</th>
+            <th *ngIf="isAdmin ==='true'">Delete</th>
             <th>Tag ID</th>
             <th>Date</th>
             <th>Part Number</th>
@@ -55,8 +55,8 @@
               <button type="button" class="btn btn-secondary" (click)="updatetag(qualityTagData.id)">
                 Edit
               </button>
-            </td>
-            <td  *ngIf="user.isAdmin">
+            </td>           
+            <td  *ngIf="isAdmin ==='true'">
               <button type="button" class="btn btn-danger" (click)="deleteTag(qualityTagData.id)">
                 Delete
               </button>

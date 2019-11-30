@@ -13,7 +13,7 @@ export class SpecialInstructionComponent implements OnInit {
   constructor(public restAPIService: RestAPIService,public utilityService:UtilityServiceService,private router: Router) { }
   public internalTagData:QualityTagData;
   ngOnInit() { 
-   this.internalTagData=this.utilityService.getInternalTagData();
+   this.internalTagData=this.utilityService.getTagData();
    console.log("hold part",this.internalTagData);
  } 
    //validation 
@@ -38,7 +38,7 @@ export class SpecialInstructionComponent implements OnInit {
   createTagApiCall() {    
     //this.utilityService.setLengthOfChange(this.tagDetails.lengthOfChange);
     this.restAPIService.createTag(this.internalTagData).subscribe((data: any) => { 
-      this.utilityService.setInternalTagData('');   
+      this.utilityService.setTagData('');   
       this.restAPIService.setApiSuccessmessage("Tag created successfully")
       this.router.navigate(['/getTag'])
     },error=>{

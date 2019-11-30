@@ -4,11 +4,11 @@
                         <label><input type="checkbox" /> Hold Tag</label>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 form-check">
-                        <label><input type="checkbox" [(ngModel)]="externalTagData.checkSupplierIssue"
+                        <label><input type="checkbox" [(ngModel)]="externalTagData.Supplier_Issue"
                                 [ngModelOptions]="{standalone: true}"/> Supplier Issue</label>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                        <input type="text" class="form-control" [(ngModel)]="externalTagData.textIssuedBy"
+                        <input type="text" class="form-control" [(ngModel)]="externalTagData.Issuedby"
                                 [ngModelOptions]="{standalone: true}" placeholder="Issued By">
                 </div>
         </div>
@@ -16,7 +16,7 @@
         <div class="row">
                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                         <label class="font-weight-bold">Quantity</label>
-                        <input type="text" class="form-control" [(ngModel)]="externalTagData.textQty"
+                        <input type="text" class="form-control" [(ngModel)]="externalTagData.qty"
                                 [ngModelOptions]="{standalone: true}" placeholder="0">
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
@@ -55,7 +55,7 @@
         <div class="row">
                 <div class="col-lg col-md col-sm col-xs form-group">
                         <label class="font-weight-bold">Reason</label>
-                        <textarea autosize class="form-control my-textarea" [(ngModel)]="externalTagData.textAreaReason"
+                        <textarea autosize class="form-control my-textarea" [(ngModel)]="externalTagData.ReasonNote"
                                 [ngModelOptions]="{standalone: true}" placeholder="Enter..." name="story"
                                 rows="4"></textarea>
                 </div>
@@ -64,7 +64,7 @@
                 <div class="col-lg col-md col-sm col-xs form-group">
                         <label class="font-weight-bold">Comment</label>
                         <textarea autosize class="form-control my-textarea"
-                                [(ngModel)]="externalTagData.textAreaComment" [ngModelOptions]="{standalone: true}"
+                                [(ngModel)]="externalTagData.Comment" [ngModelOptions]="{standalone: true}"
                                 placeholder="Enter..." name="story" rows="4"></textarea>
                 </div>
         </div>

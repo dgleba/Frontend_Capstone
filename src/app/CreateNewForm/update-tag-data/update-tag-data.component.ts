@@ -19,7 +19,7 @@ export class UpdateTagDataComponent implements OnInit {
   public editTagId:number;
   public partNumberList: Partnumber[];
   public reasonList : Reason[];
-  public qualityTagData=this.utilityService.getInternalTagData();  
+  public qualityTagData=this.utilityService.getTagData();  
   partNumId = 'id';
   reasonKeyword='Reason';
   
@@ -108,3 +108,4 @@ export class UpdateTagDataComponent implements OnInit {
      });
   }
 }
+

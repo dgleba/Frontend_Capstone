@@ -6,7 +6,6 @@ import {Partnumber} from 'src/app/Model/partnumber';
 import {Reason} from 'src/app/Model/reason';
 import { ProcessStep } from 'src/app/Model/processStep';
 import { MachineStep } from 'src/app/Model/machine';
-import {ExternalTagData} from 'src/app/Model/externalTagData';
 @Injectable({
   providedIn: 'root'
 })
@@ -25,8 +24,7 @@ tagSummaryOption : any = [
   {id: '5', tagName: 'Quality Alert - IN', isChecked: false},
   {id: '6', tagName: 'Supplier Issue', isChecked: false}];
   public isAdmin;
-  public internalTagData:QualityTagData;
-  public externalTagData=new ExternalTagData;
+  public tagData:QualityTagData;
   public partNumberList: Partnumber[];
   public reasonList : Reason[];
   public processStepList: ProcessStep[];
@@ -87,19 +85,13 @@ tagSummaryOption : any = [
       return this.isAdmin;
     }
   //getter setter for qualityTagData
-  setInternalTagData(internalTagObj){
-    this.internalTagData=internalTagObj;
+  setTagData(internalTagObj){
+    this.tagData=internalTagObj;
   }
-  getInternalTagData(){
-    return this.internalTagData;
+  getTagData(){
+    return this.tagData;
   }
-   //getter setter for externaTagData
-   setExternalTagData(externalObj){
-    this.externalTagData=externalObj;
-  }
-  getExternalTagData(){
-    return this.externalTagData;
-  }
+
 //getter setter for part number
   setPartNumberList(partList){
     this.partNumberList=partList;

@@ -14,7 +14,7 @@ export class QualityalertinComponent implements OnInit {
   expiredOn: Date;
   public internalTagData:QualityTagData;
   ngOnInit() {
-    this.internalTagData=this.utilityService.getInternalTagData();
+    this.internalTagData=this.utilityService.getTagData();
     console.log("inter part",this.internalTagData);
   }
   addDays() {

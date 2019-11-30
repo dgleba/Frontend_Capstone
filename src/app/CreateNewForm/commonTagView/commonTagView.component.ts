@@ -11,14 +11,15 @@ import { QualityTagData } from 'src/app/Model/qualtiyTagData';
 })
 export class CommonTagView implements OnInit,OnDestroy  {
   ngOnDestroy(): void {
-    this.utilityService.setInternalTagData('');
+    this.utilityService.setTagData('');
   }
   constructor(public utilityService: UtilityServiceService) { }
   
   ngOnInit() {
     var  qtagData=new QualityTagData();
-    this.utilityService.setInternalTagData(qtagData);
-    console.log("qta in comman", this.utilityService.getInternalTagData()); 
+    qtagData.ProblemType='IN';
+    this.utilityService.setTagData(qtagData);
+    console.log("qta in comman", this.utilityService.getTagData()); 
   }
   
 

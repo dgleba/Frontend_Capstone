@@ -32,7 +32,7 @@ export class SidemenuComponent implements OnInit {
   public processStepId: string;
   public machineStepId: string;
   ngOnInit() {    
-    this.internalTagData=this.utilityService.getInternalTagData(); 
+    this.internalTagData=this.utilityService.getTagData(); 
     this.getPartList();
     this.getReasonList();
     this.getProcessList();
@@ -41,29 +41,29 @@ export class SidemenuComponent implements OnInit {
   focusOutFunction($event) {
     var val = (<HTMLInputElement>document.getElementById("issuedByValue")).value;
     this.internalTagData.Issuedby = val;
-    this.utilityService.setInternalTagData(this.internalTagData);
+    this.utilityService.setTagData(this.internalTagData);
   }
   //event handler to get the selected value of part num
   getSelectedPartNumber(event) {
     this.internalTagData.PartID=event.id;
-    this.utilityService.setInternalTagData(this.internalTagData);
+    this.utilityService.setTagData(this.internalTagData);
   }  
   
     //event handler to get the selected value of reason
   getSelectedReason(event) {
     this.internalTagData.Reason = event.Reason;
-    this.utilityService.setInternalTagData(this.internalTagData);
+    this.utilityService.setTagData(this.internalTagData);
   }
  
   //event handler to get the selected value of process step
   getSelectedProcessStep(event) {    
     this.internalTagData.ProcessStep = event.Department;
-    this.utilityService.setInternalTagData(this.internalTagData);
+    this.utilityService.setTagData(this.internalTagData);
   }
   //event handler to get the selected value of machine step
   getSelectedMachine(event: any) {
     this.internalTagData.MachineID = event.id;
-    this.utilityService.setInternalTagData(this.internalTagData);
+    this.utilityService.setTagData(this.internalTagData);
   }
   //get selected tag summary
   getSelectedTag(id: number) {
@@ -97,8 +97,8 @@ export class SidemenuComponent implements OnInit {
           break;
       }
     }
-    this.utilityService.setInternalTagData(this.internalTagData);
-    console.log("internal tag data",this.utilityService.getInternalTagData());
+    this.utilityService.setTagData(this.internalTagData);
+    console.log("internal tag data",this.utilityService.getTagData());
   }
  //api calls start
 getPartList() {    

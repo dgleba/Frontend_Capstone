@@ -1,15 +1,15 @@
 <form class="add-padding add-margin">
         <div class="row">
                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                        <label><input type="checkbox" [(ngModel)]="externalTagData.checkQualityAlert"
+                        <label><input type="checkbox" [(ngModel)]="externalTagData.QualityATag"
                                         [ngModelOptions]="{standalone: true}" /> Quality A Tag</label>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 form-check">
-                        <label><input type="checkbox" [(ngModel)]="externalTagData.checkSupplierIssue"
+                        <label><input type="checkbox" [(ngModel)]="externalTagData.Supplier_Issue"
                                         [ngModelOptions]="{standalone: true}" /> Supplier Issue</label>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                        <input type="text" class="form-control" [(ngModel)]="externalTagData.textIssuedBy"
+                        <input type="text" class="form-control" [(ngModel)]="externalTagData.Issuedby"
                                 [ngModelOptions]="{standalone: true}" placeholder="Issued By ">
                 </div>
         </div>
@@ -18,12 +18,12 @@
         <div class="row">
                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                         <label class="font-weight-bold">Est. Cost</label>
-                        <input type="text" class="form-control" [(ngModel)]="externalTagData.textEstCost"
+                        <input type="text" class="form-control" [(ngModel)]="externalTagData.Cost"
                                 [ngModelOptions]="{standalone: true}" placeholder="$0.00">
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                         <label class="font-weight-bold">No. Of Pieces</label>
-                        <input type="text" class="form-control" [(ngModel)]="externalTagData.textNoOfPieces"
+                        <input type="text" class="form-control" [(ngModel)]="externalTagData.NofPiecesQA"
                                 [ngModelOptions]="{standalone: true}" placeholder="0">
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
@@ -36,7 +36,7 @@
         <div class="row">
                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                         <label class="font-weight-bold">Customer Ref Num</label>
-                        <input type="text" class="form-control" [(ngModel)]="externalTagData.textCustomerRefNum"
+                        <input type="text" class="form-control" [(ngModel)]="externalTagData.DispositionCustomer"
                                 [ngModelOptions]="{standalone: true}" placeholder="Customer Reference Number">
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
@@ -54,15 +54,15 @@
         <hr>
         <div class="row">
                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                        <label><input type="checkbox" [(ngModel)]="externalTagData.checkCertifiedMaterialTagIssued"
+                        <label><input type="checkbox" [(ngModel)]="externalTagData.CertTag"
                                 [ngModelOptions]="{standalone: true}"/> Certified Material Tag Issued</label>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                        <label><input type="checkbox" [(ngModel)]="externalTagData.checkControlPlan"
+                        <label><input type="checkbox" [(ngModel)]="externalTagData.ControlPlan"
                                 [ngModelOptions]="{standalone: true}"/> Control Plan</label>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                        <label><input type="checkbox" [(ngModel)]="externalTagData.checkLayeredAudit"
+                        <label><input type="checkbox" [(ngModel)]="externalTagData.LayeredAudit"
                                 [ngModelOptions]="{standalone: true}"/> Layered Audit</label>
                 </div>
         </div>
@@ -71,7 +71,7 @@
                 <div class="col-lg col-md col-sm col-xs form-group">
                         <label class="font-weight-bold">Quality Alert</label>
                         <textarea autosize class="form-control my-textarea"
-                                [(ngModel)]="externalTagData.textAreaQualityAlert" [ngModelOptions]="{standalone: true}"
+                                [(ngModel)]="externalTagData.QualityAlert" [ngModelOptions]="{standalone: true}"
                                 placeholder="Enter..." name="story" rows="4"></textarea>
                 </div>
 
@@ -81,7 +81,7 @@
                 <div class="col-lg col-md col-sm col-xs form-group">
                         <label class="font-weight-bold">Comment</label>
                         <textarea autosize class="form-control my-textarea"
-                                [(ngModel)]="externalTagData.textAreaComment" [ngModelOptions]="{standalone: true}"
+                                [(ngModel)]="externalTagData.Comment" [ngModelOptions]="{standalone: true}"
                                 placeholder="Enter..." name="story" rows="4"></textarea>
                 </div>
         </div>

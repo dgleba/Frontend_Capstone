@@ -82,7 +82,9 @@ export class RestAPIService {
   uploadImage(file1,file2,documents,id){
     console.log("image data", documents);
     const formData = new FormData();
-    formData.append('tbl_quality_issue[picture01]', file1);
+    if(file1){
+      formData.append('tbl_quality_issue[picture01]', file1);
+    }    
     if(file2){
       formData.append('tbl_quality_issue[picture02]', file2);
     }    

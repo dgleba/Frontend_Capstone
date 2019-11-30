@@ -19,7 +19,7 @@ export class AddPictureComponent implements OnInit {
   picture2: File;
   public message: string;
    ngOnInit() { 
-    this.internalTagData=this.utilityService.getInternalTagData();
+    this.internalTagData=this.utilityService.getTagData();
     console.log("add pic part",this.internalTagData);
   } 
  
@@ -45,9 +45,12 @@ export class AddPictureComponent implements OnInit {
 
   createTagApiCall() {
     this.restAPIService.createTag(this.internalTagData).subscribe((data: any) => {
-      this.utilityService.setInternalTagData('');
+      this.utilityService.setTagData('');
       this.restAPIService.setApiSuccessmessage("Tag created successfully")
-      this.uploadImage(data.id);
+      if(this.picture1 || this.picture2 || this.document){
+        this.uploadImage(data.id);
+      }
+     
       this.router.navigate(['/getTag'])
     },error=>{
       this.restAPIService.setApiErrorResponse(error)

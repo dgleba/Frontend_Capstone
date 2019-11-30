@@ -4,7 +4,8 @@ import {UtilityServiceService} from 'src/app/Service/utility-service.service'
 import {Partnumber} from 'src/app/Model/partnumber'
 import {Customer} from 'src/app/Model/customer'
 import {Reason} from 'src/app/Model/reason';
-import {ExternalTagData} from 'src/app/Model/externalTagData';
+import { Router } from '@angular/router';
+import {QualityTagData} from 'src/app/Model/qualtiyTagData';
 
 @Component({
   selector: 'app-external-issue-form-tag',
@@ -13,9 +14,8 @@ import {ExternalTagData} from 'src/app/Model/externalTagData';
 })
 export class ExternalIssueFormTagComponent implements OnInit {
 
-  constructor(private restAPIService: RestAPIService, private utilityService:UtilityServiceService ) { }
-  
-  public externalTagData=this.utilityService.getExternalTagData();
+  constructor(private restAPIService: RestAPIService, private utilityService:UtilityServiceService,private router: Router ) { }  
+  public externalTagData:QualityTagData;
   private partNumberList : Partnumber[]; 
   public reasonList : Reason[]; 
   public customerList : Customer[];
@@ -28,19 +28,22 @@ export class ExternalIssueFormTagComponent implements OnInit {
     this.getPartList();
     this.getCustomerList();
     this.getReasonList();
+   this.externalTagData=new QualityTagData();  
+   this.externalTagData.ProblemType='EX';  
+    console.log("qta in comman", this.utilityService.getTagData()); 
     this.externalTagData.isPictureComponent=false;
-    this.utilityService.setExternalTagData(this.externalTagData);
+    this.utilityService.setTagData(this.externalTagData);
   }
   focusOutFunction($event) {
     var val = (<HTMLInputElement>document.getElementById("issuedByValue")).value;
-    this.externalTagData.textIssuedBy = val;
-    this.utilityService.setExternalTagData(this.externalTagData);
+    this.externalTagData.Issuedby = val;
+    this.utilityService.setTagData(this.externalTagData);
   }
   //event handler to get the selected value of part num
   getSelectedPartNumber(event: any) {
     console.log("select part num", event.id);
     this.externalTagData.PartID = event.id;
-    this.utilityService.setExternalTagData(this.externalTagData);
+    this.utilityService.setTagData(this.externalTagData);
   }
  // clear calls in auto complete
 clearMachineData(){
@@ -62,20 +65,20 @@ clearCustomerData(){
   setNotInPictureTabBoolean(){
     this.externalTagData.isPictureComponent=false;
     console.log("not in picture boolean", this.externalTagData.isPictureComponent);
-    this.utilityService.setExternalTagData(this.externalTagData);
+    this.utilityService.setTagData(this.externalTagData);
   }
     //event handler to get the selected value of reason
   getSelectedReason(event: any) {
     console.log("select reason num", event.Reason);
     this.externalTagData.Reason = event.Reason;
-    this.utilityService.setExternalTagData(this.externalTagData);
+    this.utilityService.setTagData(this.externalTagData);
 
   }
   //event handler to get the selected value of process step
   getSelectedProcessStep(event: any) {    
     console.log("select process num", event.Department);
     this.externalTagData.ProcessStep = event.Department;
-    this.utilityService.setExternalTagData(this.externalTagData);
+    this.utilityService.setTagData(this.externalTagData);
   }
 
    //api calls start
@@ -100,7 +103,6 @@ getReasonList() {
   )
 }
 
-
 getCustomerList() {
   this.restAPIService.getCustomerList().subscribe(
     (data: any) => {
@@ -112,4 +114,44 @@ getCustomerList() {
 }
 //api calls end
 
+submitForm() {
+  console.log("external tag data",this.externalTagData);
+  if (this.externalTagData.PartID) {
+    if (this.externalTagData.Reason) {
+      if (this.externalTagData.Issuedby) {
+        this.externalTagData.Date=this.utilityService.getTodaysDate().toString();
+        //api call
+        this.createTagApiCall();
+      } else {
+        alert("Enter Issued by");
+      }
+    } else {
+      alert("Select Reason");
+    }
+  } else {
+    alert("Select Part Number");
+  }
+}
+
+createTagApiCall() {    
+  //this.utilityService.setLengthOfChange(this.tagDetails.lengthOfChange);
+  this.restAPIService.createTag(this.externalTagData).subscribe((data: any) => {
+    this.restAPIService.setApiSuccessmessage("Tag created successfully");
+    if(this.externalTagData.picture1 || this.externalTagData.picture2 || this.externalTagData.document){
+      this.uploadImage(data.id);
+    }
+    this.router.navigate(['/getTag'])
+  },error=>{
+    this.restAPIService.setApiErrorResponse(error)
+   })
+}
+ // api call to upload image
+ uploadImage(id) {
+  console.log("id in image upload",id);
+  this.restAPIService.uploadImage(this.externalTagData.picture1, this.externalTagData.picture2, this.externalTagData.document, id).subscribe((data: any) => {
+    console.log(data);
+  },error=>{
+    this.restAPIService.setApiErrorResponse(error)
+   });
+}
 }

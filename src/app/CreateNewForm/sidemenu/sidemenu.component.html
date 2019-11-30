@@ -100,11 +100,10 @@
   <hr class="tag_hr">
   <div class="row">
     <div class="col-lg col-md col-sm col-xs form-group">
-      <h6>Tag Summary</h6>
+      <h5>Tag Summary</h5>
       <div *ngFor="let tagSummary of tagSummaryList; let i = index">
-        <label><input type="checkbox" (change)="getSelectedTag(i)" />
-          {{ tagSummary.tagName }}
-        </label>
+        <label class="tag_summary" >
+          <input type="checkbox"  (change)="getSelectedTag(i)" />  {{tagSummary.tagName}}</label>
       </div>
     </div>
   </div>

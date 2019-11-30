@@ -120,6 +120,16 @@ getCustomerList(){
     catchError(this.handleError)
   )
 }
+// API to fetch DispositionLIst
+getDisposition(){
+  let myHeader=new HttpHeaders();
+  myHeader=myHeader.append( 'Content-Type','application/json');
+  myHeader=myHeader.append( 'Authorization','Bearer' + " " + this.utilityService.getToken());
+return this.http.get(this.apiURL + '/tbl_cust_dispoistions.json',{headers:myHeader})
+.pipe(
+  catchError(this.handleError)
+)
+}
 
   // API to fetch Part Numer
   getPartList() {

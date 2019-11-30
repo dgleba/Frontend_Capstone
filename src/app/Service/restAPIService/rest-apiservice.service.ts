@@ -67,6 +67,18 @@ export class RestAPIService {
       )
   }
 
+  // API to send email
+  sendEmail(id){
+    let myHeader=new HttpHeaders();
+    myHeader=myHeader.append( 'Content-Type','application/json');
+    myHeader=myHeader.append( 'Authorization','Bearer' + " " + this.utilityService.getToken());
+    let  params = new HttpParams();    
+    params = params.append('id',id);      
+    return this.http.get(this.apiURL + '/holdtag_email',{headers:myHeader,params:params})
+      .pipe(
+        catchError(this.handleError)
+      )
+  }
   //API to updateTag
   updateTag(tagData,id){
     let myHeader=new HttpHeaders();
@@ -87,13 +99,16 @@ export class RestAPIService {
     }    
     if(file2){
       formData.append('tbl_quality_issue[picture02]', file2);
-    }    
-    var ins = documents.length;
-    if(ins>0){
-      for (var x = 0; x < ins; x++) {
-        formData.append('tbl_quality_issue[documents][]', documents[x]);      
+    }
+    if(documents){
+      var ins = documents.length;
+      if(ins>0){
+        for (var x = 0; x < ins; x++) {
+          formData.append('tbl_quality_issue[documents][]', documents[x]);      
+        }   
       }   
     }    
+    
     return this.http.put(this.apiURL + '/tbl_quality_issues/'+id+'.json',formData,this.filehttpOptions)
       .pipe(
         catchError(this.handleError)

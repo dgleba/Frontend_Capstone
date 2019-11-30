@@ -26,7 +26,7 @@ tagSummaryOption : any = [
   {id: '6', tagName: 'Supplier Issue', isChecked: false}];
   public isAdmin;
   public internalTagData:QualityTagData;
-  public externalTagData:ExternalTagData;
+  public externalTagData=new ExternalTagData;
   public partNumberList: Partnumber[];
   public reasonList : Reason[];
   public processStepList: ProcessStep[];

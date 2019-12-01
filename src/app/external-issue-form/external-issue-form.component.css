@@ -46,7 +46,7 @@ p {
   padding: 12px;
 }
 
-button {
+.btn-primary {
   box-sizing: border-box;
   display: block;
   width: 100%;
@@ -62,4 +62,9 @@ button {
 .col-lg-6 ,.col-md-6 ,.col-sm-12 ,.col-xs-12
 {
  padding: 10px;
+}
+
+.home-button{
+  color: white;
+
 }

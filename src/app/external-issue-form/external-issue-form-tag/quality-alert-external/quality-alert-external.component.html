@@ -26,11 +26,18 @@
                         <input type="text" class="form-control" [(ngModel)]="externalTagData.NofPiecesQA"
                                 [ngModelOptions]="{standalone: true}" placeholder="0">
                 </div>
-                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                        <div class="form-group">
-                                <label class="font-weight-bold">Customer</label>
-
-                        </div>
+                <div class=" col-lg-4 col-md-4 col-sm-12 col-xs-12 ng-autocomplete">
+                        <label class="font-weight-bold">Customer Disposition</label>
+                        <ng-autocomplete [data]="dispositionList" [searchKeyword]="dispostionKey"
+                                placeHolder="Customer Dispoisition" [itemTemplate]="itemCustomerTemplate"
+                                [notFoundTemplate]="notFoundCustomerTemplate">
+                        </ng-autocomplete>
+                        <ng-template #itemCustomerTemplate let-item>
+                                <a [innerHTML]="item.Dispoisition"></a>
+                        </ng-template>
+                        <ng-template #notFoundCustomerTemplate let-notFound>
+                                <div [innerHTML]="notFound"></div>
+                        </ng-template>
                 </div>
         </div>
         <div class="row">
@@ -45,7 +52,7 @@
                                 [ngModelOptions]="{standalone: true}" placeholder="Customer Reference Number">
                 </div>
                 <div class=" col-lg-4 col-md-4 col-sm-12 col-xs-12 ng-autocomplete">
-                                <label class="font-weight-bold">Stackpole</label>
+                        <label class="font-weight-bold">Stackpole</label>
                         <ng-autocomplete [data]="dispositionList" [searchKeyword]="dispostionKey"
                                 placeHolder="Dispoisition" (selected)='getSelectedDisposition($event)'
                                 (inputCleared)="clearPartData()" [itemTemplate]="itemTemplate"

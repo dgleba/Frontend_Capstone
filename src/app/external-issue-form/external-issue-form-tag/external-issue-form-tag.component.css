@@ -26,6 +26,7 @@ body {
     text-align: center;
     text-transform: uppercase;
     color: #fff;
+    margin: 0px;
   }
    
   .navbar-light .navbar-nav .active>.nav-link{

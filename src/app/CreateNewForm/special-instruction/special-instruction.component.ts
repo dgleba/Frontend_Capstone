@@ -12,10 +12,14 @@ import { QualityTagData } from 'src/app/Model/qualtiyTagData';
 export class SpecialInstructionComponent implements OnInit {  
   constructor(public restAPIService: RestAPIService,public utilityService:UtilityServiceService,private router: Router) { }
   public internalTagData:QualityTagData;
+  expiredOn: Date;
   ngOnInit() { 
    this.internalTagData=this.utilityService.getTagData();
    console.log("hold part",this.internalTagData);
  } 
-  
+ addDays() {
+  this.expiredOn= this.utilityService.addDays(this.internalTagData.Lengthofchange);
+  console.log(this.expiredOn);
+} 
   
 }

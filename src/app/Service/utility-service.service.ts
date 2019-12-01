@@ -40,9 +40,15 @@ tagSummaryOption : any = [
   okdBy:string;
   issuedBy:string;
   todaysDate:Date;
+  expiredOn: Date;
   constructor(private datePipe: DatePipe) { 
   this.todaysDate = new Date();
   } 
+  addDays(lengthOfChange) {
+    this.expiredOn = new Date();
+    this.expiredOn.setDate(this.expiredOn.getDate() + parseInt(lengthOfChange.toString()));
+    return this.expiredOn;
+  }  
   //getter setter for api Response boolean
  setApiResponse(apiData){
    this.apiData=apiData;

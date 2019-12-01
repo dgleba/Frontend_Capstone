@@ -18,8 +18,7 @@ export class QualityalertinComponent implements OnInit {
     console.log("inter part",this.internalTagData);
   }
   addDays() {
-    this.expiredOn = new Date();
-    this.expiredOn.setDate(this.expiredOn.getDate() + parseInt(this.internalTagData.Lengthofchange.toString()));
+    this.expiredOn= this.utilityService.addDays(this.internalTagData.Lengthofchange);
     console.log(this.expiredOn);
   }  
  

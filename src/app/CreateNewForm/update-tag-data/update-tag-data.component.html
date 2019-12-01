@@ -4,69 +4,68 @@
         <button type="button" class="btn home-button" id="home-btn" routerLink="../../home">Home</button>
         Update Tag</h2>
     <div class="container-fluid body-update-tag">
-    
-            <div class="row">
-                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 form-group">
-                            <label class="font-weight-bold">Part Number</label>
-                    <select class="form-control" (change)="getSelectedPartNumber($event)">
-                        <option disabled>
-                            Part Number
-                        </option>
-                        <option *ngFor="let partNum of partNumberList; let i = index"
-                            [selected]="partNum.id ===qualityTagData.PartID">
-                            {{partNum.id}}
-                        </option>
-                    </select>
-                </div>
-                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 form-group">
-                        <label class="font-weight-bold">Reason</label>
-                    <select class="form-control" (change)="getSelectedReason($event)">
-                        <option disabled>
-                            Reason
-                        </option>
-                        <option *ngFor="let reason of reasonList; let i = index"
-                            [selected]="reason.Reason ===qualityTagData.Reason">
-                            {{reason.Reason}}
-                        </option>
-                    </select>
-                </div>
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 form-group">
+                <label class="font-weight-bold">Part Number</label>
+                <select class="form-control" (change)="getSelectedPartNumber($event)">
+                    <option disabled>
+                        Part Number
+                    </option>
+                    <option *ngFor="let partNum of partNumberList; let i = index"
+                        [selected]="partNum.id ===qualityTagData.PartID">
+                        {{partNum.id}}
+                    </option>
+                </select>
             </div>
-            <br>
-            <div class="row">
-                    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 form-group">
-                            <label class="font-weight-bold">Issued By</label>
-                    <input type="text" class="form-control" placeholder="Issued By" aria-label="Issued By"
-                        (focusout)="focusOutFunction(e)" [(ngModel)]='qualityTagData.Issuedby'
-                        [ngModelOptions]="{standalone: true}">
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 form-group">
-                        <label class="font-weight-bold">OK'd by :</label>
-                    <input type="text" name="okdBy" class="form-control" [(ngModel)]='qualityTagData.Okdby'
-                        [ngModelOptions]="{standalone: true}">
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 form-group">
-                        <label class="font-weight-bold">Length of Change</label>
-                    <input type="text" class="form-control" aria-label="Length of change"
-                        [(ngModel)]='qualityTagData.Lengthofchange' [ngModelOptions]="{standalone: true}">
-                </div>
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 form-group">
+                <label class="font-weight-bold">Reason</label>
+                <select class="form-control" (change)="getSelectedReason($event)">
+                    <option disabled>
+                        Reason
+                    </option>
+                    <option *ngFor="let reason of reasonList; let i = index"
+                        [selected]="reason.Reason ===qualityTagData.Reason">
+                        {{reason.Reason}}
+                    </option>
+                </select>
             </div>
-            <br>
-            <div class="row">
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 form-group">
+                <label class="font-weight-bold">Issued By</label>
+                <input type="text" class="form-control" placeholder="Issued By" aria-label="Issued By"
+                    (focusout)="focusOutFunction(e)" [(ngModel)]='qualityTagData.Issuedby'
+                    [ngModelOptions]="{standalone: true}">
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 form-group">
+                <label class="font-weight-bold">OK'd by :</label>
+                <input type="text" name="okdBy" class="form-control" [(ngModel)]='qualityTagData.Okdby'
+                    [ngModelOptions]="{standalone: true}">
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 form-group">
+                <label class="font-weight-bold">Length of Change</label>
+                <input type="text" class="form-control" aria-label="Length of change"
+                    [(ngModel)]='qualityTagData.Lengthofchange' [ngModelOptions]="{standalone: true}">
+            </div>
+        </div>
+        <br>
+        <div class="row">
 
-                    <div class="col form-group">
-                            <label class="font-weight-bold">Body</label>
-                    <textarea name="body" autosize class="form-control" placeholder="Enter..." name="story" rows="4"
-                        cols="50" [(ngModel)]='qualityTagData.body' [ngModelOptions]="{standalone: true}"></textarea>
-                </div>
-             
+            <div class="col form-group">
+                <label class="font-weight-bold">Body</label>
+                <textarea name="body" autosize class="form-control" placeholder="Enter..." name="story" rows="4"
+                    cols="50" [(ngModel)]='qualityTagData.body' [ngModelOptions]="{standalone: true}"></textarea>
             </div>
-            <br>
-           
-            <div class="row">
-                    <div class="col text-center form-group">
-                        <button class="btn btn-primary btn-lg" (click)="updateTag()">Update</button>
-                    </div>
-                </div> 
-        
+
+        </div>
+        <br>
+
+        <div class="row">
+            <div class="col text-center form-group">
+                <button class="btn btn-primary btn-lg" (click)="updateTag()">Update</button>
+            </div>
+        </div>
+
     </div>
 </div>

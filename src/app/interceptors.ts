@@ -25,7 +25,7 @@ export class Interceptor implements HttpInterceptor {
     let timeMs = Number(timeStr);
     let currentTime = Date.now();
 
-    if (currentTime - timeMs >= (30 * 1000)) { // change it to one hour by adding (60 * 60 * 1000)
+    if (currentTime - timeMs >= (60 * 60 * 1000)) { // change it to one hour by adding (60 * 60 * 1000)
       console.log('Session exprired, navigating to login page');
       localStorage.removeItem('LAST_REFRESH_TIME');
       this.utilityService.deleteToken();

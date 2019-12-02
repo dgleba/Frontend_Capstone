@@ -12,6 +12,7 @@
 
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
+import { HttpClientModule ,HTTP_INTERCEPTORS} from "@angular/common/http";
 import { AutosizeModule } from "ngx-autosize";
 import { AutocompleteLibModule } from "angular-ng-autocomplete";
 import { AppComponent } from "./app.component";
@@ -27,7 +28,6 @@ import { SidemenuComponent } from "./CreateNewForm/sidemenu/sidemenu.component";
 import { QualityalertinComponent } from "./CreateNewForm/qualityalertin/qualityalertin.component";
 import { PageNotFoundComponent } from "./page-not-found/page-not-found.component";
 import { LoginComponent } from "./login/login.component";
-import { HttpClientModule } from "@angular/common/http";
 import { AddPictureComponent } from "./CreateNewForm/add-picture/add-picture.component";
 import { AuthGuardService } from "./Service/auth-guard.service";
 import { GetTagDataComponent } from "./CreateNewForm/get-tag-data/get-tag-data.component";
@@ -42,6 +42,7 @@ import { TpcTagExternalComponent } from './external-issue-form/external-issue-fo
 import { SpecialInstructionExternalComponent } from './external-issue-form/external-issue-form-tag/special-instruction-external/special-instruction-external.component';
 import { PictureExternalComponent } from './external-issue-form/external-issue-form-tag/picture-external/picture-external.component';
 import { NgxSpinnerModule } from "ngx-spinner";
+import {Interceptor} from 'src/app/interceptors';
 
 
 
@@ -81,7 +82,7 @@ import { NgxSpinnerModule } from "ngx-spinner";
     NgxSpinnerModule
   
   ],
-  providers: [AuthGuardService, DatePipe],
+  providers: [AuthGuardService, DatePipe, { provide: HTTP_INTERCEPTORS, useClass: Interceptor, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

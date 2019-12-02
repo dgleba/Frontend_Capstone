@@ -44,8 +44,13 @@ export class LoginComponent implements OnInit {
 
     loginUser() {
         this.spinner.show();
+        let time = localStorage.getItem('LAST_REFRESH_TIME');
+        if (!time) {
+            let now = Date.now();
+            localStorage.setItem('LAST_REFRESH_TIME', now.toString());
+        }
+
         this.submitted = true;
-        console.log("value of submittted",this.submitted);
         // stop here if form is invalid
         if (this.LoginForm.invalid) {
             return;

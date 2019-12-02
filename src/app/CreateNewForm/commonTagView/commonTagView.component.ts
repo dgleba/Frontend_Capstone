@@ -3,6 +3,7 @@ import { UtilityServiceService } from '../../Service/utility-service.service';
 import { QualityTagData } from 'src/app/Model/qualtiyTagData';
 import { RestAPIService } from 'src/app/Service/restAPIService/rest-apiservice.service';
 import { Router } from '@angular/router';
+import { NgxSpinnerService } from "ngx-spinner";
 
 
 @Component({
@@ -16,7 +17,7 @@ export class CommonTagView implements OnInit, OnDestroy {
   }
   public internalTagData: QualityTagData;
   public isSentEmail: boolean = false;
-  constructor(public utilityService: UtilityServiceService, public restAPIService: RestAPIService, private router: Router) { }
+  constructor(private spinner: NgxSpinnerService,public utilityService: UtilityServiceService, public restAPIService: RestAPIService, private router: Router) { }
 
   ngOnInit() {
     this.internalTagData = new QualityTagData();
@@ -57,6 +58,7 @@ export class CommonTagView implements OnInit, OnDestroy {
   }
   // api to create tag
   createTagApiCall() {
+    this.spinner.show();
     this.restAPIService.createTag(this.internalTagData).subscribe((data: any) => {
       this.utilityService.setTagData('');
       this.restAPIService.setApiSuccessmessage("Tag created successfully")
@@ -68,6 +70,7 @@ export class CommonTagView implements OnInit, OnDestroy {
       }
       this.router.navigate(['/getTag'])
     }, error => {
+      this.spinner.hide();
       this.restAPIService.setApiErrorResponse(error)
     })
   }

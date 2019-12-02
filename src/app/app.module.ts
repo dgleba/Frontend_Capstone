@@ -41,7 +41,7 @@ import { HoldTagExternalComponent } from './external-issue-form/external-issue-f
 import { TpcTagExternalComponent } from './external-issue-form/external-issue-form-tag/tpc-tag-external/tpc-tag-external.component';
 import { SpecialInstructionExternalComponent } from './external-issue-form/external-issue-form-tag/special-instruction-external/special-instruction-external.component';
 import { PictureExternalComponent } from './external-issue-form/external-issue-form-tag/picture-external/picture-external.component';
-
+import { NgxSpinnerModule } from "ngx-spinner";
 
 
 
@@ -77,7 +77,8 @@ import { PictureExternalComponent } from './external-issue-form/external-issue-f
     ReactiveFormsModule,
     HttpClientModule,
     AutosizeModule,
-    AutocompleteLibModule
+    AutocompleteLibModule,
+    NgxSpinnerModule
   
   ],
   providers: [AuthGuardService, DatePipe],

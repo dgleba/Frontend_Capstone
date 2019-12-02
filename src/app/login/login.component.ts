@@ -16,6 +16,7 @@ import { RestAPIService } from "../Service/restAPIService/rest-apiservice.servic
 import { UtilityServiceService } from '../Service/utility-service.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {User} from '../Model/user';
+import { NgxSpinnerService } from "ngx-spinner";
 
 @Component({
     templateUrl: 'login.component.html',
@@ -24,7 +25,7 @@ import {User} from '../Model/user';
 
 export class LoginComponent implements OnInit {
     @Input() userDetails = {user:{email: '', password:''}}
-    constructor(public restApi: RestAPIService, public utilityApi: UtilityServiceService,
+    constructor(private spinner: NgxSpinnerService, public restApi: RestAPIService, public utilityApi: UtilityServiceService,
          private router: Router,private formBuilder: FormBuilder) {}
     apiData=this.utilityApi.getApiResponse();
     LoginForm: FormGroup;
@@ -42,6 +43,7 @@ export class LoginComponent implements OnInit {
     get f() { return this.LoginForm.controls; }
 
     loginUser() {
+        this.spinner.show();
         this.submitted = true;
         console.log("value of submittted",this.submitted);
         // stop here if form is invalid
@@ -51,12 +53,14 @@ export class LoginComponent implements OnInit {
       this.userDetails.user=this.LoginForm.value;
        // api call for login
         this.restApi.doLogin(this.userDetails).subscribe((data:any) => {
+            this.spinner.hide();
             this.restApi.setApiSuccessmessage("Login Successful")
             this.submitted = false;
             this.utilityApi.setToken(data.token);
             this.router.navigate(['/home'])
         },
         error => {
+            this.spinner.hide();
             if(error.status==401){
                 console.log("error in side menu",error.error.error);
                 var errorMessage=error.error.error;                 

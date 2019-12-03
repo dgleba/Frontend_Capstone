@@ -31,7 +31,7 @@ export class CommonTagView implements OnInit, OnDestroy {
   }
   //validation 
   submitForm() {
-    if (this.validateData) {
+    if (this.validateData()) {
       this.internalTagData.Date = this.utilityService.getTodaysDate().toString();
       //api call
       this.createTagApiCall();
@@ -71,7 +71,14 @@ export class CommonTagView implements OnInit, OnDestroy {
       this.router.navigate(['/getTag'])
     }, error => {
       this.spinner.hide();
-      this.restAPIService.setApiErrorResponse(error)
+      if(error.status==401){
+        console.log("error in side menu",error.error.error);
+        var errorMessage=error.error.error;                 
+        this.restAPIService.setApiErrorResponse(errorMessage)                
+       }else{
+        this.restAPIService.setApiErrorResponse(error.message)
+       }
+      
     })
   }
   // api to send email

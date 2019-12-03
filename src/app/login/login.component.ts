@@ -66,6 +66,7 @@ export class LoginComponent implements OnInit {
         },
         error => {
             this.spinner.hide();
+            console.log("error", error);
             if(error.status==401){
                 console.log("error in side menu",error.error.error);
                 var errorMessage=error.error.error;                 

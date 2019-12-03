@@ -28,6 +28,7 @@ export class Interceptor implements HttpInterceptor {
     if (currentTime - timeMs >= (60 * 60 * 1000)) { // change it to one hour by adding (60 * 60 * 1000)
       console.log('Session exprired, navigating to login page');
       localStorage.removeItem('LAST_REFRESH_TIME');
+      localStorage.removeItem('isAdmin');
       this.utilityService.deleteToken();
       this.router.navigate(['/login']);
       return;

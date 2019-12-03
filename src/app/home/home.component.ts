@@ -29,6 +29,7 @@ export class HomeComponent implements OnInit {
    }
   logout(){
     this.utilityService.deleteToken();
+    localStorage.removeItem('isAdmin');
     this.router.navigate(['/login'])
   }
   setUserAsAdmin(){

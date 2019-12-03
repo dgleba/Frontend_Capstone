@@ -6,7 +6,7 @@ import {Customer} from 'src/app/Model/customer'
 import {Reason} from 'src/app/Model/reason';
 import { Router } from '@angular/router';
 import {QualityTagData} from 'src/app/Model/qualtiyTagData';
-
+import { NgxSpinnerService } from "ngx-spinner";
 @Component({
   selector: 'app-external-issue-form-tag',
   templateUrl: './external-issue-form-tag.component.html',
@@ -14,7 +14,7 @@ import {QualityTagData} from 'src/app/Model/qualtiyTagData';
 })
 export class ExternalIssueFormTagComponent implements OnInit {
 
-  constructor(private restAPIService: RestAPIService, private utilityService:UtilityServiceService,private router: Router ) { }  
+  constructor(private spinner: NgxSpinnerService,private restAPIService: RestAPIService, private utilityService:UtilityServiceService,private router: Router ) { }  
   public externalTagData:QualityTagData;
   private partNumberList : Partnumber[]; 
   public reasonList : Reason[]; 
@@ -134,15 +134,23 @@ submitForm() {
 }
 
 createTagApiCall() {    
-  //this.utilityService.setLengthOfChange(this.tagDetails.lengthOfChange);
+  this.spinner.show();
   this.restAPIService.createTag(this.externalTagData).subscribe((data: any) => {
+    this.spinner.hide();
     this.restAPIService.setApiSuccessmessage("Tag created successfully");
     if(this.externalTagData.picture1 || this.externalTagData.picture2 || this.externalTagData.document){
       this.uploadImage(data.id);
     }
     this.router.navigate(['/getTag'])
   },error=>{
-    this.restAPIService.setApiErrorResponse(error)
+    this.spinner.hide();
+    if(error.status==401){
+      console.log("error in side menu",error.error.error);
+      var errorMessage=error.error.error;                 
+      this.restAPIService.setApiErrorResponse(errorMessage)                
+     }else{
+      this.restAPIService.setApiErrorResponse(error.message)
+     }
    })
 }
  // api call to upload image
@@ -151,7 +159,14 @@ createTagApiCall() {
   this.restAPIService.uploadImage(this.externalTagData.picture1, this.externalTagData.picture2, this.externalTagData.document, id).subscribe((data: any) => {
     console.log(data);
   },error=>{
-    this.restAPIService.setApiErrorResponse(error)
+    this.spinner.hide();
+    if(error.status==401){
+      console.log("error in side menu",error.error.error);
+      var errorMessage=error.error.error;                 
+      this.restAPIService.setApiErrorResponse(errorMessage)                
+     }else{
+      this.restAPIService.setApiErrorResponse(error.message)
+     }
    });
 }
 }

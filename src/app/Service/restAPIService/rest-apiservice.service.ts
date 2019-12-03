@@ -73,7 +73,8 @@ export class RestAPIService {
     myHeader=myHeader.append( 'Content-Type','application/json');
     myHeader=myHeader.append( 'Authorization','Bearer' + " " + this.utilityService.getToken());
     let  params = new HttpParams();    
-    params = params.append('id',id);      
+    params = params.append('id',id);
+    var url='10.192.246.172:3000'      
     return this.http.get(this.apiURL + '/holdtag_email',{headers:myHeader,params:params})
       .pipe(
         catchError(this.handleError)

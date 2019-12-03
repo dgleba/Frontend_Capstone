@@ -22,11 +22,15 @@ body {
   border-bottom-color: #000060;
 }
 
-.getTagData-header {
-  background: #000060;
-  padding: 20px;
-  text-transform: uppercase;
-  color: #fff;
+.getTagData-header
+{
+background: #000060;
+padding: 15px;
+font-size: 1.4em;
+font-weight: normal;
+text-transform: uppercase;
+color: #fff;
+margin: 0px;
 }
 
 .getTagData-container {
@@ -38,4 +42,9 @@ body {
 thead {
   background-color: #6200ea;
   color: white;
+}
+
+.home-button{
+  color: white;
+
 }

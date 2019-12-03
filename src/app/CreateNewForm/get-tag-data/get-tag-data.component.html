@@ -1,16 +1,14 @@
 <div class="container-fluid cgetTagData">
   <div class="getTagData-triangle"></div>
-  <div class="header getTagData-header">
+  <div class="getTagData-header">
     <div class="row">
-      <div class="col-8">
-        <button type="button" class="btn btn-primary" id="home-btn" routerLink="../home">
-          Home
-        </button>
-        <h2 style="text-align: center;">
-          Tag List
-        </h2>
+      <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
+        <button type="button" class="btn home-button" id="home-btn" routerLink="../home"><i class="fa fa-home fa-2x" aria-hidden="true" ></i></button>
+        <h2 style="text-align: center;">Tag List</h2>
       </div>
-      <div class="col-4">
+
+
+      <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
         <div>
           <div>
             <button type="button" class="btn btn-info add-margin" data-toggle="collapse" data-target="#demo">
@@ -35,7 +33,8 @@
   <div class="getTagData-container">
     <div class="row">
       <!-- START table-responsive-->
-      <table class="table table-hover ">
+<div class="table-responsive">
+      <table class="table table-hover">
         <thead>
           <tr>
             <th>Edit</th>
@@ -74,7 +73,7 @@
           </tr>
         </tbody>
       </table>
-
+    </div>
       <!-- END table-responsive-->
     </div>
   </div>

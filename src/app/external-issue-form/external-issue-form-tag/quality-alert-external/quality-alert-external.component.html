@@ -52,9 +52,9 @@
                                 [ngModelOptions]="{standalone: true}" placeholder="Customer Reference Number">
                 </div>
                 <div class=" col-lg-4 col-md-4 col-sm-12 col-xs-12 ng-autocomplete">
-                        <label class="font-weight-bold">Stackpole</label>
+                        <label class="font-weight-bold">Stackpole Disposition</label>
                         <ng-autocomplete [data]="dispositionList" [searchKeyword]="dispostionKey"
-                                placeHolder="Dispoisition" (selected)='getSelectedDisposition($event)'
+                                placeHolder="Stackpole Dispoisition" (selected)='getSelectedDisposition($event)'
                                 (inputCleared)="clearPartData()" [itemTemplate]="itemTemplate"
                                 [notFoundTemplate]="notFoundTemplate">
                         </ng-autocomplete>

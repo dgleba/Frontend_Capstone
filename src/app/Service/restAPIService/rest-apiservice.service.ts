@@ -34,13 +34,6 @@ export class RestAPIService {
         return res;
       }),
       catchError(this.handleError)
-      // catchError(err => {
-      //   console.log(err);
-      //   if (err.name === 'TimeoutError') {
-      //     this.setApiErrorResponse(err.message);
-      //   }
-      //   return Observable.throw(err)
-      // }
       )
     
     
@@ -52,6 +45,10 @@ export class RestAPIService {
     myHeader=myHeader.append( 'Authorization','Bearer' + " " + this.utilityService.getToken()); 
     return this.http.delete(this.apiURL + '/tbl_quality_issues/'+id+'.json', {headers:myHeader})
     .pipe(
+      timeout(2000),
+      map(res => {
+        return res;
+      }),
       catchError(this.handleError)
     )
   }
@@ -63,6 +60,10 @@ export class RestAPIService {
     myHeader=myHeader.append( 'Authorization','Bearer' + " " + this.utilityService.getToken());  
     return this.http.post(this.apiURL + '/tbl_quality_issues.json', tagData,{headers:myHeader})
       .pipe(
+        timeout(2000),
+        map(res => {
+          return res;
+        }),
         catchError(this.handleError)
       )
   }
@@ -77,7 +78,11 @@ export class RestAPIService {
     var url='10.192.246.172:3000'      
     return this.http.get(this.apiURL + '/holdtag_email',{headers:myHeader,params:params})
       .pipe(
-        catchError(this.handleError)
+        timeout(2000),
+      map(res => {
+        return res;
+      }),
+      catchError(this.handleError)
       )
   }
   //API to updateTag
@@ -88,7 +93,11 @@ export class RestAPIService {
     console.log("in service update Tag", tagData);
     return this.http.put(this.apiURL + '/tbl_quality_issues/'+id+'.json', tagData,{headers:myHeader})
       .pipe(
-        catchError(this.handleError)
+        timeout(2000),
+      map(res => {
+        return res;
+      }),
+      catchError(this.handleError)
       )
   }
   // Api to upload Image
@@ -112,6 +121,10 @@ export class RestAPIService {
     
     return this.http.put(this.apiURL + '/tbl_quality_issues/'+id+'.json',formData,this.filehttpOptions)
       .pipe(
+        timeout(2000),
+        map(res => {
+          return res;
+        }),
         catchError(this.handleError)
       )
   }
@@ -123,6 +136,10 @@ export class RestAPIService {
   myHeader=myHeader.append( 'Authorization','Bearer' + " " + this.utilityService.getToken());
   return this.http.get(this.apiURL + '/tbl_quality_issues/'+id+'.json', {headers:myHeader})
     .pipe(
+      timeout(2000),
+      map(res => {
+        return res;
+      }),
       catchError(this.handleError)
     )
 }
@@ -133,6 +150,10 @@ getCustomerList(){
     myHeader=myHeader.append( 'Authorization','Bearer' + " " + this.utilityService.getToken());
   return this.http.get(this.apiURL + '/tbl_customers.json',{headers:myHeader})
   .pipe(
+    timeout(2000),
+    map(res => {
+      return res;
+    }),
     catchError(this.handleError)
   )
 }
@@ -196,6 +217,10 @@ return this.http.get(this.apiURL + '/tbl_cust_dispoistions.json',{headers:myHead
     myHeader=myHeader.append( 'Authorization','Bearer' + " " + this.utilityService.getToken());  
     return this.http.get(this.apiURL + '/tbl_quality_issues.json',{headers:myHeader})
       .pipe(
+        timeout(2000),
+        map(res => {
+          return res;
+        }),
         catchError(this.handleError)
       )
   }
@@ -234,6 +259,10 @@ return this.http.get(this.apiURL + '/tbl_cust_dispoistions.json',{headers:myHead
     }   
     return this.http.get(this.apiURL + '/tbl_quality_issues.json', {headers:myHeader,params:params})
     .pipe(
+      timeout(2000),
+      map(res => {
+        return res;
+      }),
       catchError(this.handleError)
     )
   }

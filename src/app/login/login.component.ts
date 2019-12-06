@@ -43,17 +43,18 @@ export class LoginComponent implements OnInit {
     get f() { return this.LoginForm.controls; }
 
     loginUser() {
-        this.spinner.show();
-        let time = localStorage.getItem('LAST_REFRESH_TIME');
-        if (!time) {
-            let now = Date.now();
-            localStorage.setItem('LAST_REFRESH_TIME', now.toString());
-        }
+      
 
         this.submitted = true;
         // stop here if form is invalid
         if (this.LoginForm.invalid) {
             return;
+        }
+        this.spinner.show();
+        let time = localStorage.getItem('LAST_REFRESH_TIME');
+        if (!time) {
+            let now = Date.now();
+            localStorage.setItem('LAST_REFRESH_TIME', now.toString());
         }
       this.userDetails.user=this.LoginForm.value;
        // api call for login

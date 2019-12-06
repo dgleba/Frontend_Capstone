@@ -25,16 +25,23 @@ export class AddPictureComponent implements OnInit {
   } 
  
   checkIfImageIsSet(){
-    var reader = new FileReader();
+    var reader1 = new FileReader();
+    var reader2 = new FileReader();
     if(this.internalTagData.picture1){
       console.log("pic1 alrdy set",this.internalTagData);
-      reader.readAsDataURL(this.internalTagData.picture1);
-      this.imgURL = reader.result;
+      reader1.readAsDataURL(this.internalTagData.picture1);
+      reader1.onload = (_event) => {
+        this.imgURL = reader1.result;
+      }      
     }
     if(this.internalTagData.picture2){
-      reader.readAsDataURL(this.internalTagData.picture2);
-      this.imgURL1 = reader.result;
-      console.log("pic1 alrdy set",this.internalTagData);
+      reader2.readAsDataURL(this.internalTagData.picture2);
+      reader2.onload = (_event) => {
+        this.imgURL1 = reader2.result;
+      }
+    }
+    if(this.internalTagData.document){
+      this.document=this.internalTagData.document;
     }
   }
   // get document list of files
@@ -58,6 +65,7 @@ export class AddPictureComponent implements OnInit {
       mimeType = this.picture1.type;
       this.validateMimeType(mimeType);
       reader.readAsDataURL(this.picture1);
+      
     } else {
       this.picture2 = event.target.files[0];
       this.internalTagData.picture2=this.picture2;

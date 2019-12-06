@@ -1,3 +1,3 @@
 export const enviornment = {
-    apiURL1 : 'http://10.192.36.140:6036'
+    apiURL1 : 'http://192.168.0.27:6036'
 }

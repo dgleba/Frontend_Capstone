@@ -20,10 +20,23 @@ export class AddPictureComponent implements OnInit {
   public message: string;
    ngOnInit() { 
     this.internalTagData=this.utilityService.getTagData();
-    console.log("add pic part",this.internalTagData);
+   
+    this.checkIfImageIsSet();
   } 
  
- 
+  checkIfImageIsSet(){
+    var reader = new FileReader();
+    if(this.internalTagData.picture1){
+      console.log("pic1 alrdy set",this.internalTagData);
+      reader.readAsDataURL(this.internalTagData.picture1);
+      this.imgURL = reader.result;
+    }
+    if(this.internalTagData.picture2){
+      reader.readAsDataURL(this.internalTagData.picture2);
+      this.imgURL1 = reader.result;
+      console.log("pic1 alrdy set",this.internalTagData);
+    }
+  }
   // get document list of files
   getDocument(event){
     if (event.length === 0)

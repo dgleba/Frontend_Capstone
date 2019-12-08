@@ -14,6 +14,7 @@ import { NgxSpinnerService } from "ngx-spinner";
 export class GetTagDataComponent implements OnInit {
   constructor(private spinner: NgxSpinnerService,private restAPIService: RestAPIService, private utilityService:UtilityServiceService, private router: Router) { }
   qualityTagDataList: QualityTagData[];
+  modalContent:QualityTagData;
   isAdmin:boolean;
   searchOption: any = [
     { id: '1', searchBy: 'Tag ID', isChecked: false ,value:''},
@@ -85,6 +86,7 @@ export class GetTagDataComponent implements OnInit {
   }
   // delete the tag
   deleteTag(id){
+    
     this.spinner.show()
     this.restAPIService.deleteTag(id).subscribe(
       (data: any) => {
@@ -103,4 +105,9 @@ export class GetTagDataComponent implements OnInit {
          }
     )
   }
+  openModal(qualtiyTagData){
+    console.log("modal open",qualtiyTagData);
+    this.modalContent=qualtiyTagData;
+  }
+  
 }

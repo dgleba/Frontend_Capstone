@@ -3,7 +3,8 @@
   <div class="getTagData-header">
     <div class="row">
       <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
-        <button type="button" class="btn home-button" id="home-btn" routerLink="../home"><i class="fa fa-home fa-2x" aria-hidden="true" ></i></button>
+        <button type="button" class="btn home-button" id="home-btn" routerLink="../home"><i class="fa fa-home fa-2x"
+            aria-hidden="true"></i></button>
         <h2 style="text-align: center;">Tag List</h2>
       </div>
 
@@ -33,48 +34,67 @@
   <div class="getTagData-container">
     <div class="row">
       <!-- START table-responsive-->
-<div class="table-responsive">
-      <table class="table table-hover">
-        <thead>
-          <tr>
-            <th>Edit</th>
-            <th *ngIf="isAdmin ==='true'">Delete</th>
-            <th>Tag ID</th>
-            <th>Date</th>
-            <th>Part Number</th>
-            <th>Reason</th>
-            <th>Issued By</th>
-            <th>Ok'd By</th>
-            <th>Length Of Change</th>
-          </tr>
-        </thead>
-        <ngx-spinner size="medium" color="#fff" type="ball-clip-rotate-multiple">
-          <p style="color: white"> Loading... </p>
-        </ngx-spinner>
-        <tbody>
-          <tr *ngFor="let qualityTagData of qualityTagDataList; let i = index">
-            <td>
-              <button type="button" class="btn btn-secondary" (click)="updatetag(qualityTagData.id)">
-                Edit
-              </button>
-            </td>           
-            <td  *ngIf="isAdmin ==='true'">
-              <button type="button" class="btn btn-danger" (click)="deleteTag(qualityTagData.id)">
-                Delete
-              </button>
-            </td>
-            <td>{{ qualityTagData.id }}</td>
-            <td>{{ qualityTagData.Date }}</td>
-            <td>{{ qualityTagData.PartID }}</td>
-            <td>{{ qualityTagData.Reason }}</td>
-            <td>{{ qualityTagData.Issuedby }}</td>
-            <td>{{ qualityTagData.Okdby }}</td>
-            <td>{{ qualityTagData.Lengthofchange }}</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>Edit</th>
+              <th *ngIf="isAdmin ==='true'">Delete</th>
+              <th>Tag ID</th>
+              <th>Date</th>
+              <th>Part Number</th>
+              <th>Reason</th>
+              <th>Issued By</th>
+              <th>Ok'd By</th>
+              <th>Length Of Change</th>
+            </tr>
+          </thead>
+          <ngx-spinner size="medium" color="#fff" type="ball-clip-rotate-multiple">
+            <p style="color: white"> Loading... </p>
+          </ngx-spinner>
+          <tbody>
+            <tr *ngFor="let qualityTagData of qualityTagDataList; let i = index">
+              <td>
+                <button type="button" class="btn btn-secondary" (click)="updatetag(qualityTagData.id)">
+                  Edit
+                </button>
+              </td>
+              <td *ngIf="isAdmin ==='true'">
+                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal" (click)="openModal(qualityTagData)">
+                  Delete
+                </button>
+              </td>
+              <td>{{ qualityTagData.id }}</td>
+              <td>{{ qualityTagData.Date }}</td>
+              <td>{{ qualityTagData.PartID }}</td>
+              <td>{{ qualityTagData.Reason }}</td>
+              <td>{{ qualityTagData.Issuedby }}</td>
+              <td>{{ qualityTagData.Okdby }}</td>
+              <td>{{ qualityTagData.Lengthofchange }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
       <!-- END table-responsive-->
+      
+    </div>
+  </div>
+ 
+</div>
+<div class="modal fade" id="myModal" role="dialog" *ngIf="modalContent">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Are you sure to delete?</h4>
+      </div>
+      <div class="modal-body">
+        <p>Tag Id:{{modalContent.id}} </p>
+      </div>
+      <div class="modal-footer">       
+        <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="deleteTag(modalContent.id)">Delete</button>
+        <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
+      </div>
     </div>
   </div>
 </div>

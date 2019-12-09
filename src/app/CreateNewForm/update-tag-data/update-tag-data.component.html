@@ -50,7 +50,7 @@
             </div>
             <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 form-group">
                 <label class="font-weight-bold">Length of Change</label>
-                <input type="text" class="form-control" aria-label="Length of change"
+                <input type="text" class="form-control" onkeypress='return event.charCode >= 48 && event.charCode <= 57' aria-label="Length of change"
                     [(ngModel)]='qualityTagData.Lengthofchange' [ngModelOptions]="{standalone: true}">
             </div>
         </div>

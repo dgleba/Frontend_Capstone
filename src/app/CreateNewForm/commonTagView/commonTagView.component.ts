@@ -97,7 +97,13 @@ export class CommonTagView implements OnInit, OnDestroy {
     this.restAPIService.sendEmail(id).subscribe((data: any) => {
       console.log(data);
     }, error => {
-      this.restAPIService.setApiErrorResponse(error)
+      if(error.status==401){
+        console.log("error in side menu",error.error.error);
+        var errorMessage=error.error.error;                 
+        this.restAPIService.setApiErrorResponse(errorMessage)                
+       }else{
+        this.restAPIService.setApiErrorResponse(error.message)
+       }
     });
   }
   // api call to upload image
@@ -106,7 +112,14 @@ export class CommonTagView implements OnInit, OnDestroy {
     this.restAPIService.uploadImage(this.internalTagData.picture1, this.internalTagData.picture2, this.internalTagData.document, id).subscribe((data: any) => {
       console.log(data);
     }, error => {
-      this.restAPIService.setApiErrorResponse(error)
+      this.spinner.hide();
+      if(error.status==401){
+        console.log("error",error.error.error);
+        var errorMessage=error.error.error;                 
+        this.restAPIService.setApiErrorResponse(errorMessage)                
+       }else{
+        this.restAPIService.setApiErrorResponse(error.message)
+       }
     });
   }
 }

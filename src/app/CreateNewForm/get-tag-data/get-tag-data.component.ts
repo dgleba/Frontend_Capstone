@@ -74,7 +74,8 @@ export class GetTagDataComponent implements OnInit {
           if(error.status==401){
             console.log("error in side menu",error.error.error);
             var errorMessage=error.error.error;                 
-            this.restAPIService.setApiErrorResponse(errorMessage)                
+            this.restAPIService.setApiErrorResponse(errorMessage)   
+            this.router.navigate(['/login'])             
            }else{
             this.restAPIService.setApiErrorResponse(error.message)
            }

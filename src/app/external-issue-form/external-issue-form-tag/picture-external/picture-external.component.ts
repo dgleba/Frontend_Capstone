@@ -21,9 +21,27 @@ public message: string;
  ngOnInit() {  
   this.externalTagData=this.utilityService.getTagData();
   this.externalTagData.isPictureComponent=true;
-  console.log("add pic part",this.externalTagData);
+  this.checkIfImageIsSet();
 } 
-
+checkIfImageIsSet(){
+  var reader1 = new FileReader();
+  var reader2 = new FileReader();
+  if(this.externalTagData.picture1){
+    reader1.readAsDataURL(this.externalTagData.picture1);
+    reader1.onload = (_event) => {
+      this.imgURL = reader1.result;
+    }      
+  }
+  if(this.externalTagData.picture2){
+    reader2.readAsDataURL(this.externalTagData.picture2);
+    reader2.onload = (_event) => {
+      this.imgURL1 = reader2.result;
+    }
+  }
+  if(this.externalTagData.document){
+    this.document=this.externalTagData.document;
+  }
+}
 
 // get document list of files
 getDocument(event){

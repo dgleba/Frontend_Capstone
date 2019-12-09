@@ -19,8 +19,7 @@ export class AddPictureComponent implements OnInit {
   picture2: File;
   public message: string;
    ngOnInit() { 
-    this.internalTagData=this.utilityService.getTagData();
-   
+    this.internalTagData=this.utilityService.getTagData();   
     this.checkIfImageIsSet();
   } 
  

@@ -19,6 +19,8 @@ export class SpecialInstructionExternalComponent implements OnInit {
   public machineStep:MachineStep[];
   public processStepId: string;
   public machineStepId: string;
+  public selectedProcessStep:string="";
+  public selectedMachine:string="";
 
 constructor(private utilityService:UtilityServiceService , 
             private restAPIService: RestAPIService,
@@ -27,6 +29,11 @@ ngOnInit() {
    this.externalTagData = this.utilityService.getTagData();
   this.getProcessList();
   this.getMachineList();
+  if(this.externalTagData.ProcessStep){
+    this.selectedProcessStep=this.externalTagData.ProcessStep;
+  }if(this.externalTagData.MachineID){
+    this.selectedMachine=this.externalTagData.machineID;
+  }
 }
 // moved to login screen
 moveToLoginScreen(){
@@ -42,13 +49,14 @@ this.utilityService.setTagData(this.externalTagData);
 //event handler to get the selected value of process step
 getSelectedProcessStep(event) {    
   this.externalTagData.ProcessStep = event.Department;
-  console.log("Special Ext");
+  this.selectedProcessStep=event.Department;
   this.utilityService.setTagData(this.externalTagData);
 }
 
 //event handler to get the selected value of machine step
 getSelectedMachine(event: any) {
   this.externalTagData.MachineID = event.id;
+  this.selectedMachine=event.id;
   this.utilityService.setTagData(this.externalTagData);
 }
 

@@ -19,6 +19,8 @@ export class HoldTagExternalComponent implements OnInit {
   public machineStep:MachineStep[];
   public processStepId: string;
   public machineStepId: string;
+  public selectedProcessStep:string="";
+  public selectedMachine:string="";
 
 
   constructor(private utilityService:UtilityServiceService , 
@@ -28,6 +30,11 @@ export class HoldTagExternalComponent implements OnInit {
   this.externalTagData = this.utilityService.getTagData();
   this.getProcessList();
     this.getMachineList();
+    if(this.externalTagData.ProcessStep){
+      this.selectedProcessStep=this.externalTagData.ProcessStep;
+    }if(this.externalTagData.MachineID){
+      this.selectedMachine=this.externalTagData.machineID;
+    }
   }
 // moved to login screen
 moveToLoginScreen(){
@@ -43,7 +50,8 @@ focusOutFunction($event) {
   //event handler to get the selected value of process step
   getSelectedProcessStep(event) {    
     this.externalTagData.ProcessStep = event.Department;
-    console.log("Hold");
+   this.selectedProcessStep=event.Department;
+   console.log(this.selectedProcessStep);
     this.utilityService.setTagData(this.externalTagData);
   }
    //event handler to get the selected value of machine step

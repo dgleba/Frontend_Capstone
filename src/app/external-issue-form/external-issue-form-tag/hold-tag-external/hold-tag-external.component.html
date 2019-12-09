@@ -22,13 +22,13 @@
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                         <label class="font-weight-bold">Process Step</label>
-                        <ng-autocomplete [data]="processStep" [searchKeyword]="processKeyword"
-                                placeHolder="Select Process Step" (selected)='getSelectedProcessStep($event)'
+                        <ng-autocomplete  [data]="processStep" [searchKeyword]="processKeyword"
+                                placeHolder="Select Process Step"  (selected)='getSelectedProcessStep($event)'
                                 (inputCleared)="clearProcessData()" [itemTemplate]="processTemplate"
-                                [notFoundTemplate]="notFoundProcessTemplate">
+                                [notFoundTemplate]="notFoundProcessTemplate" [(ngModel)]="selectedProcessStep" [ngModelOptions]="{standalone: true}" >
                         </ng-autocomplete>
                         <ng-template #processTemplate let-item>
-                                <a [innerHTML]="item.Department"></a>
+                                <a [innerHTML]="item.Department" ></a>
                         </ng-template>
                         <ng-template #notFoundProcessTemplate let-notFound>
                                 <div [innerHTML]="notFound"></div>
@@ -40,7 +40,7 @@
                         <ng-autocomplete [data]="machineStep" [searchKeyword]="machineKeyword1"
                                 placeHolder="Select Machine Step" (selected)='getSelectedMachine($event)'
                                 (inputCleared)="clearMachineData()" [itemTemplate]="machineTemplate"
-                                [notFoundTemplate]="notFoundMachineTemplate">
+                                [notFoundTemplate]="notFoundMachineTemplate" [(ngModel)]="selectedMachine" [ngModelOptions]="{standalone: true}" >
                         </ng-autocomplete>
                         <ng-template #machineTemplate let-item>
                                 <ul class='nav'>

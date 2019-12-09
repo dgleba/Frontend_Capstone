@@ -1,7 +1,8 @@
 <form class="add-padding add-margin">
         <div class="row">
                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 form-check">
-                        <label><input type="checkbox" /> Hold Tag</label>
+                        <label><input type="checkbox" [(ngModel)]="externalTagData.HoldTag"
+                                [ngModelOptions]="{standalone: true}"/> Hold Tag</label>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 form-check">
                         <label><input type="checkbox" [(ngModel)]="externalTagData.Supplier_Issue"
@@ -16,7 +17,7 @@
         <div class="row">
                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                         <label class="font-weight-bold">Quantity</label>
-                        <input type="text" class="form-control" [(ngModel)]="externalTagData.qty"
+                        <input type="text" class="form-control" onkeypress='return event.charCode >= 48 && event.charCode <= 57' [(ngModel)]="externalTagData.qty"
                                 [ngModelOptions]="{standalone: true}" placeholder="0">
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">

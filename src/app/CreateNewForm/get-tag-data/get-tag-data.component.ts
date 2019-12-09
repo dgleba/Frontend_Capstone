@@ -67,6 +67,7 @@ export class GetTagDataComponent implements OnInit {
       (data: any) => {
         this.spinner.hide();
         this.qualityTagDataList = data;
+        console.log(data,"data in get tag");
         },error=>{
           this.spinner.hide();
           console.log("error", error);

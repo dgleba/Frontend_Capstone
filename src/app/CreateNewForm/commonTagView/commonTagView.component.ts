@@ -1,3 +1,14 @@
+/**
+ * @ngdoc Component
+ * @name rfx.component:commanTagView
+ * @element Email Id , Password , SignIn Button
+ * @function 
+ *
+ * @description
+ * Internal tag view dashboard.
+ *
+ * 
+ **/
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { UtilityServiceService } from '../../Service/utility-service.service';
 import { QualityTagData } from 'src/app/Model/qualtiyTagData';

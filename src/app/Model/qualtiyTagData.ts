@@ -9,8 +9,8 @@ export class QualityTagData {
     Date:string;
     Okdby: string;
     body:string;
-    Lengthofchange:number=0;
-    qty:number=0;
+    Lengthofchange:number;
+    qty:number;
     Feature:string;
     QualityMemo:boolean;
     QualityATag:boolean;

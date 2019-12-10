@@ -13,7 +13,7 @@ import {RestAPIService} from 'src/app/Service/restAPIService/rest-apiservice.ser
 export class QualityAlertExternalComponent implements OnInit {
   constructor(private utilityService:UtilityServiceService,private restAPIService:RestAPIService) { }
   public externalTagData:QualityTagData;
-  public dispositionList:Disposition;
+  public dispositionList:Disposition[];
   public dispostionKey='Dispoisition';
   ngOnInit() {
     this.externalTagData=this.utilityService.getTagData();

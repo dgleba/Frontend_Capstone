@@ -1,5 +1,6 @@
 export class QualityTagData {
     id: number;
+    ID:number;
     ProblemType:string;
     PartID: string;
     Issuedby: string;
@@ -23,6 +24,7 @@ export class QualityTagData {
 
     //-Common Field
     CustomerName: string;
+    CustomerRefNum:string;
      Comment : string;
     textAreaReason: string;
     //-Quality Alert

@@ -59,7 +59,7 @@ focusOutFunction($event) {
    getSelectedMachine(event: any) {
     this.externalTagData.MachineID = event.id;
     this.externalTagData.MachineDesc=event.MachineDesc;
-    this.selectedMachine=event.id + " "+ event.MachineDesc;
+    this.selectedMachine = event.id + " "+ event.MachineDesc;
     this.utilityService.setTagData(this.externalTagData);
   }
 

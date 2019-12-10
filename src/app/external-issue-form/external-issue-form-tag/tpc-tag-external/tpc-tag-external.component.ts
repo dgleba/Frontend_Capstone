@@ -34,7 +34,8 @@ export class TpcTagExternalComponent implements OnInit {
     if(this.externalTagData.ProcessStep){
       this.selectedProcessStep=this.externalTagData.ProcessStep;
     }if(this.externalTagData.MachineID){
-      this.selectedMachine=this.externalTagData.machineID;
+      this.selectedMachine=this.externalTagData.MachineID+ " " + this.externalTagData.MachineDesc;
+      console.log("machine",this.selectedMachine);
     }
   }
 // moved to login screen
@@ -57,6 +58,8 @@ focusOutFunction($event) {
    //event handler to get the selected value of machine step
    getSelectedMachine(event: any) {
     this.externalTagData.MachineID = event.id;
+    this.externalTagData.MachineDesc=event.MachineDesc;
+    this.selectedMachine = event.id + " "+ event.MachineDesc;
     this.utilityService.setTagData(this.externalTagData);
   }
   

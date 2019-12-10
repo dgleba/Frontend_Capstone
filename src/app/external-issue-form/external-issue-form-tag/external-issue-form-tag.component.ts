@@ -28,11 +28,11 @@ export class ExternalIssueFormTagComponent implements OnInit {
     this.getPartList();
     this.getCustomerList();
     this.getReasonList();
-   this.externalTagData=new QualityTagData();  
-   this.externalTagData.ProblemType='EX';  
-    console.log("qta in comman", this.utilityService.getTagData()); 
+   this.externalTagData=new QualityTagData(); 
+   this.externalTagData.ProblemType='EX';   
     this.externalTagData.isPictureComponent=false;
     this.utilityService.setTagData(this.externalTagData);
+    console.log("qta in comman", this.utilityService.getTagData()); 
   }
   focusOutFunction($event) {
     var val = (<HTMLInputElement>document.getElementById("issuedByValue")).value;

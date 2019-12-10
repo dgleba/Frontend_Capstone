@@ -5,6 +5,7 @@ export class QualityTagData {
     Issuedby: string;
     Reason: string;
     MachineID:string;
+    MachineDesc:string;
     ProcessStep:string;
     Date:string;
     Okdby: string;

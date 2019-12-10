@@ -57,6 +57,7 @@ focusOutFunction($event) {
    //event handler to get the selected value of machine step
    getSelectedMachine(event: any) {
     this.externalTagData.MachineID = event.id;
+    this.selectedMachine=event.id;
     this.utilityService.setTagData(this.externalTagData);
   }
 

@@ -18,12 +18,8 @@ export class RestAPIService {
   // Define API
   apiURL = enviornment.apiURL1;
   constructor(private http: HttpClient, private utilityService: UtilityServiceService) { }
-  // file upload header
-  filehttpOptions={
-    headers: new HttpHeaders({
-      'Authorization': 'Bearer' + " " + this.utilityService.getToken()
-    })
-  }
+ 
+  
 
   // HttpClient API Post() method => Fetch User list
   doLogin(user) {
@@ -103,6 +99,8 @@ export class RestAPIService {
   // Api to upload Image
   uploadImage(file1,file2,documents,id){
     console.log("image data", documents);
+    let myHeader=new HttpHeaders();
+    myHeader=myHeader.append( 'Authorization','Bearer' + " " + this.utilityService.getToken());  
     const formData = new FormData();
     if(file1){
       formData.append('tbl_quality_issue[picture01]', file1);
@@ -117,9 +115,8 @@ export class RestAPIService {
           formData.append('tbl_quality_issue[documents][]', documents[x]);      
         }   
       }   
-    }    
-    
-    return this.http.put(this.apiURL + '/tbl_quality_issues/'+id+'.json',formData,this.filehttpOptions)
+    }
+     return this.http.put(this.apiURL + '/tbl_quality_issues/'+id+'.json',formData,{headers:myHeader})
       .pipe(
         timeout(2000),
         map(res => {

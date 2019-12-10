@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { DatePipe } from '@angular/common';
 import {User} from 'src/app/Model/user';
 import {QualityTagData} from '../Model/qualtiyTagData';
@@ -9,7 +9,10 @@ import { MachineStep } from 'src/app/Model/machine';
 @Injectable({
   providedIn: 'root'
 })
-export class UtilityServiceService {
+export class UtilityServiceService implements OnInit {
+  ngOnInit(): void {
+    throw new Error("Method not implemented.");
+  }
   apiData:any={
     isApiCalled:false,
     isApiResponseSuccessful:true,
@@ -39,10 +42,11 @@ tagSummaryOption : any = [
   body:string;
   okdBy:string;
   issuedBy:string;
-  todaysDate:Date;
+  todaysDate:string;
   expiredOn: Date;
   constructor(private datePipe: DatePipe) { 
-  this.todaysDate = new Date();
+    var dateTime = this.datePipe.transform(new Date(),"yyyy-MM-dd HH:mm:ss");
+  this.todaysDate = dateTime;
   } 
   addDays(lengthOfChange) {
     this.expiredOn = new Date();

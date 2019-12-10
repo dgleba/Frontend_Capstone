@@ -97,7 +97,7 @@ export class UpdateTagDataComponent implements OnInit {
   }
 
   updateTagApiCall() {
-    this.qualityTagData.Date=this.utilityService.getTodaysDate().toDateString();
+    this.qualityTagData.Date=this.utilityService.getTodaysDate();
     console.log(this.qualityTagData,"quality");
     //this.utilityService.setLengthOfChange(this.tagDetails.lengthOfChange);
     this.restAPIService.updateTag(this.qualityTagData,this.editTagId).subscribe((data: any) => {

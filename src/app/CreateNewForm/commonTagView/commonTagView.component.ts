@@ -42,8 +42,11 @@ export class CommonTagView implements OnInit, OnDestroy {
   }
   //validation 
   submitForm() {
+    this.internalTagData.Date = this.utilityService.getTodaysDate().toString();
+      console.log(this.internalTagData.Date);
     if (this.validateData()) {
       this.internalTagData.Date = this.utilityService.getTodaysDate().toString();
+      console.log(this.internalTagData);
       //api call
       this.createTagApiCall();
     }

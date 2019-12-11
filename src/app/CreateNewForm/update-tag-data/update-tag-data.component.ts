@@ -6,6 +6,7 @@ import {Partnumber} from 'src/app/Model/partnumber';
 import {Reason} from 'src/app/Model/reason';
 import {QualityTagData} from 'src/app/Model/qualtiyTagData';
 import { Router } from '@angular/router';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-update-tag-data',
@@ -13,7 +14,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./update-tag-data.component.css']
 })
 export class UpdateTagDataComponent implements OnInit {
-  constructor(private restAPIService: RestAPIService,private route:ActivatedRoute,
+  constructor(private datePipe: DatePipe,private restAPIService: RestAPIService,private route:ActivatedRoute,
   public utilityService: UtilityServiceService,private router: Router) { }
   apiData=this.utilityService.getApiResponse();
   public editTagId:number;
@@ -97,7 +98,8 @@ export class UpdateTagDataComponent implements OnInit {
   }
 
   updateTagApiCall() {
-    this.qualityTagData.Date=this.utilityService.getTodaysDate();
+    var dateTime = this.datePipe.transform(new Date(),"yyyy-MM-dd HH:mm:ss");
+    this.qualityTagData.Date = dateTime;
     console.log(this.qualityTagData,"quality");
     //this.utilityService.setLengthOfChange(this.tagDetails.lengthOfChange);
     this.restAPIService.updateTag(this.qualityTagData,this.editTagId).subscribe((data: any) => {

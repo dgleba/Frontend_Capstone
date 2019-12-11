@@ -7,6 +7,7 @@ import {Reason} from 'src/app/Model/reason';
 import { Router } from '@angular/router';
 import {QualityTagData} from 'src/app/Model/qualtiyTagData';
 import { NgxSpinnerService } from "ngx-spinner";
+import { DatePipe } from '@angular/common';
 @Component({
   selector: 'app-external-issue-form-tag',
   templateUrl: './external-issue-form-tag.component.html',
@@ -14,7 +15,7 @@ import { NgxSpinnerService } from "ngx-spinner";
 })
 export class ExternalIssueFormTagComponent implements OnInit {
 
-  constructor(private spinner: NgxSpinnerService,private restAPIService: RestAPIService, private utilityService:UtilityServiceService,private router: Router ) { }  
+  constructor(private datePipe: DatePipe,private spinner: NgxSpinnerService,private restAPIService: RestAPIService, private utilityService:UtilityServiceService,private router: Router ) { }  
   public externalTagData:QualityTagData;
   private partNumberList : Partnumber[]; 
   public reasonList : Reason[]; 
@@ -119,7 +120,8 @@ submitForm() {
   if (this.externalTagData.PartID) {
     if (this.externalTagData.Reason) {
       if (this.externalTagData.Issuedby) {
-        this.externalTagData.Date=this.utilityService.getTodaysDate().toString();
+        var dateTime = this.datePipe.transform(new Date(),"yyyy-MM-dd HH:mm:ss");
+      this.externalTagData.Date = dateTime;
         //api call
         this.createTagApiCall();
       } else {

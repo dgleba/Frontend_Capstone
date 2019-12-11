@@ -15,6 +15,7 @@ import { QualityTagData } from 'src/app/Model/qualtiyTagData';
 import { RestAPIService } from 'src/app/Service/restAPIService/rest-apiservice.service';
 import { Router } from '@angular/router';
 import { NgxSpinnerService } from "ngx-spinner";
+import { DatePipe } from '@angular/common';
 
 
 @Component({
@@ -28,7 +29,7 @@ export class CommonTagView implements OnInit, OnDestroy {
   }
   public internalTagData: QualityTagData;
   public isSentEmail: boolean = false;
-  constructor(private spinner: NgxSpinnerService,public utilityService: UtilityServiceService, public restAPIService: RestAPIService, private router: Router) { }
+  constructor(private datePipe: DatePipe,private spinner: NgxSpinnerService,public utilityService: UtilityServiceService, public restAPIService: RestAPIService, private router: Router) { }
 
   ngOnInit() {
     this.internalTagData = new QualityTagData();
@@ -42,10 +43,9 @@ export class CommonTagView implements OnInit, OnDestroy {
   }
   //validation 
   submitForm() {
-    this.internalTagData.Date = this.utilityService.getTodaysDate().toString();
-      console.log(this.internalTagData.Date);
     if (this.validateData()) {
-      this.internalTagData.Date = this.utilityService.getTodaysDate().toString();
+      var dateTime = this.datePipe.transform(new Date(),"yyyy-MM-dd HH:mm:ss");
+      this.internalTagData.Date = dateTime;
       console.log(this.internalTagData);
       //api call
       this.createTagApiCall();

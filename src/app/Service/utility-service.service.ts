@@ -42,11 +42,9 @@ tagSummaryOption : any = [
   body:string;
   okdBy:string;
   issuedBy:string;
-  todaysDate:string;
   expiredOn: Date;
-  constructor(private datePipe: DatePipe) { 
-    var dateTime = this.datePipe.transform(new Date(),"yyyy-MM-dd HH:mm:ss");
-  this.todaysDate = dateTime;
+  constructor() { 
+    
   } 
   addDays(lengthOfChange) {
     this.expiredOn = new Date();
@@ -60,10 +58,7 @@ tagSummaryOption : any = [
  getApiResponse(){
    return this.apiData;
  }
- //end for getter setter apiResponse
-  getTodaysDate(){
-    return this.todaysDate;
-  }
+
   getTagsummaryList()
   {
     return this.tagSummaryOption;

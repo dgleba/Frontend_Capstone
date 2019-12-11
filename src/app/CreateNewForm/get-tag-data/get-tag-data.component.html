@@ -42,12 +42,14 @@
               <th scope="col">Edit</th>
               <th *ngIf="isAdmin ==='true'" scope="col">Delete</th>
               <th scope="col">Tag ID</th>
-              <th scope="col">Date</th>
-              <th scope="col">Part Number</th>
               <th scope="col">Reason</th>
+              <th scope="col">Part Number</th>
               <th scope="col">Issued By</th>
+              <th scope="col">Date</th>
               <th scope="col">Ok'd By</th>
               <th scope="col">Length Of Change</th>
+              
+              
             </tr>
           </thead>
           <ngx-spinner size="medium" color="#fff" type="ball-clip-rotate-multiple">
@@ -66,12 +68,12 @@
                 </button>
               </td>
               <td  data-label = "Tag ID">{{ qualityTagData.ID }}</td>
-              <td data-label = "Date">{{ qualityTagData.Date }}</td>
-              <td  data-label = "Part Number">{{ qualityTagData.PartID }}</td>
               <td  data-label = "Reason">{{ qualityTagData.Reason }}</td>
+              <td  data-label = "Part Number">{{ qualityTagData.PartID }}</td>
               <td  data-label = "Issued By">{{ qualityTagData.Issuedby }}</td>
+              <td data-label = "Date">{{ qualityTagData.Date }}</td>
               <td *ngIf="qualityTagData.Okdby"  data-label = "Ok'd By">{{ qualityTagData.Okdby }}</td>
-              <td *ngIf="!qualityTagData.Okdby"  data-label = "Ok'd By">No data</td>
+              <td *ngIf="!qualityTagData.Okdby"  data-label = "Ok'd By"> - </td>
               <td data-label = "Length Of Change">{{ qualityTagData.Lengthofchange }}</td>
             </tr>
           </tbody>

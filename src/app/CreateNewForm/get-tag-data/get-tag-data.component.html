@@ -70,7 +70,8 @@
               <td  data-label = "Part Number">{{ qualityTagData.PartID }}</td>
               <td  data-label = "Reason">{{ qualityTagData.Reason }}</td>
               <td  data-label = "Issued By">{{ qualityTagData.Issuedby }}</td>
-              <td  data-label = "Ok'd By">{{ qualityTagData.Okdby }}</td>
+              <td *ngIf="qualityTagData.Okdby"  data-label = "Ok'd By">{{ qualityTagData.Okdby }}</td>
+              <td *ngIf="!qualityTagData.Okdby"  data-label = "Ok'd By">No data</td>
               <td data-label = "Length Of Change">{{ qualityTagData.Lengthofchange }}</td>
             </tr>
           </tbody>

@@ -1,3 +1,15 @@
+/**
+ * @ngdoc Component
+ * @name rfx.component:getQualityTagData
+ * @element  search By Tag Id , Part number , Date , Search by Text and get tag details elements
+ * @function 
+ *
+ * @description
+ * Get all tag details view.
+ *
+ * 
+ **/
+
 import { Component, OnInit } from '@angular/core';
 import { RestAPIService } from '../../Service/restAPIService/rest-apiservice.service';
 import {UtilityServiceService} from '../../Service/utility-service.service';

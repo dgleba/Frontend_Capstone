@@ -1,7 +1,7 @@
 /**
  * @ngdoc Component
  * @name rfx.component:commanTagView
- * @element Email Id , Password , SignIn Button
+ * @element Quality Tag , Hold Tag , TPC Tag , Special Instruction Tag and Picture 
  * @function 
  *
  * @description

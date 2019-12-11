@@ -1,3 +1,14 @@
+/**
+ * @ngdoc Component
+ * @name rfx.component:qualityalertin
+ * @element Length of Change, Feature, Body and Changed elements
+ * @function 
+ *
+ * @description
+ * TPC Tag - Internal Tag view.
+ *
+ * 
+ **/
 import { Component, OnInit } from '@angular/core';
 import {RestAPIService} from '../../Service/restAPIService/rest-apiservice.service';
 import {UtilityServiceService} from '../../Service/utility-service.service';

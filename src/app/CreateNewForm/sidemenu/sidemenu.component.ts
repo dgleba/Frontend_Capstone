@@ -1,3 +1,15 @@
+/**
+ * @ngdoc Component
+ * @name rfx.component:qualityalertin
+ * @element  Part Number , Reason , Process Step , Machine Step , Issued by and Tag Summary elements
+ * @function 
+ *
+ * @description
+ * Side menu - Internal Tag view.
+ *
+ * 
+ **/
+
 import { Component, OnInit } from '@angular/core';
 import { UtilityServiceService } from 'src/app/Service/utility-service.service';
 import { RestAPIService } from 'src/app/Service/restAPIService/rest-apiservice.service';

@@ -1,3 +1,14 @@
+/**
+ * @ngdoc Component
+ * @name rfx.component:qualityalertin
+ * @element  Ok'd By, Length of change and Body elements
+ * @function 
+ *
+ * @description
+ * Quality Alert - Internal Tag view.
+ *
+ * 
+ **/
 import { Component, OnInit, Input } from '@angular/core';
 import { RestAPIService } from '../../Service/restAPIService/rest-apiservice.service'
 import { UtilityServiceService } from '../../Service/utility-service.service'

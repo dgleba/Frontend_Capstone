@@ -1,3 +1,14 @@
+/**
+ * @ngdoc Component
+ * @name rfx.component:holdtag
+ * @element  Quantity and Body elements
+ * @function 
+ *
+ * @description
+ * Hold Tag - Internal view.
+ *
+ * 
+ **/
 import { Component, OnInit } from '@angular/core';
 import {RestAPIService} from '../../Service/restAPIService/rest-apiservice.service'
 import { UtilityServiceService } from '../../Service/utility-service.service'

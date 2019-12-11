@@ -1,3 +1,14 @@
+/**
+ * @ngdoc Component
+ * @name rfx.component:qualityalertin
+ * @element  Ok'd By , Length of Change and Body elements
+ * @function 
+ *
+ * @description
+ * Special Instructions - Internal Tag view.
+ *
+ * 
+ **/
 import { Component, OnInit } from '@angular/core';
 import {RestAPIService} from '../../Service/restAPIService/rest-apiservice.service'
 import{UtilityServiceService} from '../../Service/utility-service.service'

@@ -1,3 +1,14 @@
+/**
+ * @ngdoc Component
+ * @name rfx.component:qualityalertin
+ * @element Part Number, Reason, Issued By, OK'd By, Length of Change and Body elements
+ * @function 
+ *
+ * @description
+ * Update Tag view.
+ *
+ * 
+ **/
 import { Component, OnInit,Input } from '@angular/core';
 import{ActivatedRoute} from '@angular/router';
 import { RestAPIService } from 'src/app/Service/restAPIService/rest-apiservice.service';

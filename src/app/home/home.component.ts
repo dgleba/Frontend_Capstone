@@ -1,5 +1,5 @@
 /**
- * @ngdoc component
+ * @ngdoc directive
  * @name rfx.component:HomeComponent
  * @element Button and Header
  * @function

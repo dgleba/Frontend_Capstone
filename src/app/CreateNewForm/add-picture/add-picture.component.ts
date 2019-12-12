@@ -1,3 +1,26 @@
+/**
+ * @ngdoc directive
+ * @name Add Picture
+ * @element  Picture1 , Picture2 and Document 
+ * @function 
+ * Preview pictures and document,
+ * Check if image is set,
+ * Get Documents from the html,
+ * Validate MIME type.
+ * @description
+ * Add pictures and document in the Add picture tag
+ * 
+ * 
+ * Functions-----------------------
+ * 
+ * Preview pictures and document,
+ * Check if image is set,
+ * Get Documents from the html,
+ * Validate MIME type.
+ *
+ * 
+ **/
+
 import { Component, OnInit } from '@angular/core';
 import { RestAPIService } from 'src/app/Service/restAPIService/rest-apiservice.service';
 import { UtilityServiceService } from '../../Service/utility-service.service'

@@ -1,5 +1,5 @@
 /**
- * @ngdoc Component
+ * @ngdoc directive
  * @name rfx.component:getQualityTagData
  * @element  search By Tag Id , Part number , Date , Search by Text and get tag details elements
  * @function 

@@ -1,6 +1,6 @@
 /**
- * @ngdoc Component
- * @name rfx.component:commanTagView
+ * @ngdoc directive
+ * @name Common View Elements in Tag creation
  * @element Quality Tag , Hold Tag , TPC Tag , Special Instruction Tag and Picture 
  * @function 
  *

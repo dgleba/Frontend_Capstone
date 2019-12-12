@@ -18,7 +18,7 @@ module.exports = function (grunt) {
         scripts: ['angular.js', '../src.js'],
         html5Mode: false
       },
-      all: ['src/*/*.ts']
+      all: ['src/app/CreateNewForm/**/*.ts']
     },
     connect: {
       options: {

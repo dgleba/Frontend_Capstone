@@ -1,5 +1,5 @@
 /**
- * @ngdoc Component
+ * @ngdoc directive
  * @name rfx.component:qualityalertin
  * @element Part Number, Reason, Issued By, OK'd By, Length of Change and Body elements
  * @function 

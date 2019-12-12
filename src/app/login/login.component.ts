@@ -1,5 +1,5 @@
 ﻿/**
- * @ngdoc Component
+ * @ngdoc directive
  * @name rfx.component:login
  * @element Email Id , Password , SignIn Button
  * @function

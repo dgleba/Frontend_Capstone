@@ -1,5 +1,5 @@
 /**
- * @ngdoc Component
+ * @ngdoc directive
  * @name rfx.component:holdtag
  * @element  Quantity and Body elements
  * @function 

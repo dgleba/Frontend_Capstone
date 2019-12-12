@@ -1,5 +1,5 @@
 /**
- * @ngdoc Component
+ * @ngdoc directive
  * @name rfx.component:qualityalertin
  * @element  Part Number , Reason , Process Step , Machine Step , Issued by and Tag Summary elements
  * @function 

@@ -1,11 +1,24 @@
 /**
  * @ngdoc directive
- * @name Common View Elements in Tag creation
- * @element Quality Tag , Hold Tag , TPC Tag , Special Instruction Tag and Picture 
+ * @name Comman tag View
+ * @element Side Menu Component, Quality Tag,Hold Tag, TPC Tag, Special Instructions, Add Picture Tag 
  * @function 
- *
+ * Preview pictures and document,
+ * Check if image is set,
+ * Get Documents from the html,
+ * Validate MIME type.
  * @description
- * Internal tag view dashboard.
+ * This is the internal tag dashboard which has view for tags like QualityTag, Hold Tag etc.
+ * 
+ * 
+ * ----------Functions-----------------------
+ * 
+ * Submit Form,
+ * SetEmailBoolean,
+ * Validate Data,
+ * CreateTagApiCall,
+ * UploadImageApiCall,
+ * SendEmailApiCall
  *
  * 
  **/

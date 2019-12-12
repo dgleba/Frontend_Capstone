@@ -1,11 +1,16 @@
 /**
  * @ngdoc directive
- * @name rfx.component:holdtag
- * @element  Quantity and Body elements
+ * @name Hold Tag Component
+ * @element Input labels 
  * @function 
- *
+ * Preview pictures and document,
+ * Check if image is set,
+ * Get Documents from the html,
+ * Validate MIME type.
  * @description
- * Hold Tag - Internal view.
+ * Hold Tag component shows the various labels to submit the form
+ * 
+ * 
  *
  * 
  **/

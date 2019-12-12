@@ -1,11 +1,23 @@
 /**
  * @ngdoc directive
- * @name rfx.component:getQualityTagData
- * @element  search By Tag Id , Part number , Date , Search by Text and get tag details elements
+ * @name Get Tag List View
+ * @element Edit Button, Delete Button, Table 
  * @function 
- *
+ * Preview pictures and document,
+ * Check if image is set,
+ * Get Documents from the html,
+ * Validate MIME type.
  * @description
- * Get all tag details view.
+ * Get Tag Data component provides the list of all the created tags
+ * 
+ * 
+ * ----------Functions-----------------------
+ * 
+ * Get All Quality Tag Api Call,
+ * Search Tag Api Call,
+ * Update Tag,
+ * Delete Tag,
+ * Open Delete Confirmation Popup,
  *
  * 
  **/

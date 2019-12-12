@@ -3,6 +3,10 @@
  * @name Rest Api Serivce
  * @description
  * Service class which do all the feeding of the data to the HTML files.
+ * --------- Function-------------
+ * API cal for Login, Create Tag, Get Tag List, Update Tag, Delete Tag, Upload Image, Get Part List,
+ * Get Machine List, Get Reason List, Get Process List, Get Customer List, Get Disposition List,
+ * Email Tag, Get Tag By Id
  **/
 import {enviornment} from 'src/enviornment';
 import { Injectable } from '@angular/core';
@@ -13,7 +17,6 @@ import { UtilityServiceService } from '../utility-service.service';
 import { timeout } from 'rxjs/operators';
 import { timeoutWith } from 'rxjs/operators';
 import { map } from 'rxjs/operators';
-
 import { of, TimeoutError } from 'rxjs';
 
 @Injectable({
@@ -24,14 +27,7 @@ export class RestAPIService {
   // Define API
   apiURL = enviornment.apiURL1;
   constructor(private http: HttpClient, private utilityService: UtilityServiceService) { }
- 
-  
-/**
- * @ngdoc directive
- * @name Do Login Api 
- * @description
- * This api does the login
- **/
+
   doLogin(user) {
     return this.http.post(this.apiURL + '/users/sign_in.json', user)
     .pipe(

@@ -36,3 +36,8 @@ body {
 .home-button{
   color: white;
 }
+
+.container-fluid
+{
+ background-color: #808080;
+}

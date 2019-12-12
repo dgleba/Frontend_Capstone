@@ -67,7 +67,8 @@
                   Delete
                 </button>
               </td>
-              <td  data-label = "Tag ID">{{ qualityTagData.ID }}</td>
+              <td *ngIf="qualityTagData.ID"  data-label = "Tag ID">{{ qualityTagData.ID }}</td>
+              <td *ngIf="qualityTagData.id"  data-label = "Tag ID">{{ qualityTagData.id }}</td>
               <td  data-label = "Reason">{{ qualityTagData.Reason }}</td>
               <td  data-label = "Part Number">{{ qualityTagData.PartID }}</td>
               <td  data-label = "Issued By">{{ qualityTagData.Issuedby }}</td>

@@ -1,3 +1,14 @@
+/**
+ * @ngdoc directive
+ * @name Special Instruction External Component
+ * @element Input labels, Text Areas
+ * @description
+ * Special Instruction External component shows input labels for creating the internal tag.
+ * 
+ * -------Functions-----------
+ * API cal to get process list, machine list,
+ * Clear selected process list, machine list,
+ **/
 import { Component, OnInit } from '@angular/core';
 import {UtilityServiceService} from 'src/app/Service/utility-service.service';
 import {ProcessStep} from 'src/app/Model/processStep';
@@ -95,18 +106,13 @@ getMachineList() {
        }   
      }
   )
-} 
-
-
+}
 // clear calls in auto complete
 clearProcessData(){
 this.externalTagData.ProcessStep = '';
 }
-
-
 clearMachineData(){
   this.externalTagData.MachineID = '';
 }
-
 
 }

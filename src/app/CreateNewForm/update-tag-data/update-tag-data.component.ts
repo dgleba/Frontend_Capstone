@@ -1,13 +1,19 @@
 /**
  * @ngdoc directive
- * @name rfx.component:qualityalertin
- * @element Part Number, Reason, Issued By, OK'd By, Length of Change and Body elements
+ * @name Update Tag Component
+ * @element Input labels, Text Areas
  * @function 
- *
+ * Preview pictures and document,
+ * Check if image is set,
+ * Get Documents from the html,
+ * Validate MIME type.
  * @description
- * Update Tag view.
- *
+ * Update Tag component shows input labels , text areas for updating the internal tag.
  * 
+ * -------Functions-----------
+ * Get Quality Tag By Id,
+ * API call for getting Part Number List, Reason List, Machine List,
+ * API call for updating the tag
  **/
 import { Component, OnInit,Input } from '@angular/core';
 import{ActivatedRoute} from '@angular/router';

@@ -1,3 +1,15 @@
+/**
+ * @ngdoc directive
+ * @name Quality Tag External Component
+ * @element Input labels 
+ * @description
+ * Quality Tag External component shows the various fields to submit the Internal tag form
+ * 
+ * -------Functions-----------
+ * Focus out,
+ * Get Selected Disposition,
+ * API call to get list of Disposition
+ **/
 import { Component, OnInit } from '@angular/core';
 import {UtilityServiceService} from '../../../Service/utility-service.service';
 import { QualityTagData } from 'src/app/Model/qualtiyTagData';

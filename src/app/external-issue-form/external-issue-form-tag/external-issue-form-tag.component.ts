@@ -1,3 +1,19 @@
+/**
+ * @ngdoc directive
+ * @name External Isssue Form  Tag Component
+ * @element  Quality Tag, Hold Tag, TPC Tag, Special Instructions, Add Picture Tag 
+ * @description
+ * This is the External tag dashboard which has view for tags like QualityTag, Hold Tag etc.
+ * 
+ * 
+ * ----------Functions-----------------------
+ * API call to get reason list, part list, process list
+ * Submit Form,
+ * SetEmailBoolean,
+ * Validate Data,
+ * CreateTagApiCall,
+ * UploadImageApiCall, 
+ **/
 import { Component, OnInit } from '@angular/core';
 import {RestAPIService} from 'src/app/Service/restAPIService/rest-apiservice.service'
 import {UtilityServiceService} from 'src/app/Service/utility-service.service'
@@ -92,9 +108,6 @@ getPartList() {
      }
   )
 }
-
-
-
 getReasonList() {    
   this.restAPIService.getReasonList().subscribe(
     (data: any) => {
@@ -103,7 +116,6 @@ getReasonList() {
      }
   )
 }
-
 getCustomerList() {
   this.restAPIService.getCustomerList().subscribe(
     (data: any) => {

@@ -1,3 +1,15 @@
+/**
+ * @ngdoc directive
+ * @name TPC External Tag Component
+ * @element Input labels, Text Areas
+ * @description
+ * TPC External Tag component shows input labels for creating the internal tag.
+ * 
+ * -------Functions-----------
+ * API call to get process list, machine list,
+ * Get selected process, machine,
+ * Clear selected process, machine
+ **/
 import { Component, OnInit } from '@angular/core';
 import {UtilityServiceService} from 'src/app/Service/utility-service.service';
 import {ProcessStep} from 'src/app/Model/processStep';

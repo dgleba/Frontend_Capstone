@@ -8,10 +8,9 @@
  * Get Documents from the html,
  * Validate MIME type.
  * @description
- * Hold Tag component shows the various labels to submit the form
+ * Hold Tag component shows the various labels to submit the Internal tag form
  * 
  * 
- *
  * 
  **/
 import { Component, OnInit } from '@angular/core';

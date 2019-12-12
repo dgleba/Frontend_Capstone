@@ -1,15 +1,15 @@
 ﻿/**
  * @ngdoc directive
- * @name rfx.component:login
- * @element Email Id , Password , SignIn Button
- * @function
- *
+ * @name Login Component
+ * @element  Input text for email and password 
  * @description
- * Login functionality.
- *
+ * This is the Login component which is use for log into the system.
  * 
+ * 
+ * ----------Functions-----------------------
+ * Submit Form,
+ * API call to login 
  **/
-
 import { Component, OnInit,Input } from '@angular/core';
 import { Router} from '@angular/router';
 import { RestAPIService } from "../Service/restAPIService/rest-apiservice.service";

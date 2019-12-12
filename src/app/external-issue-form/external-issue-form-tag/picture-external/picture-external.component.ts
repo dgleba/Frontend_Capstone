@@ -1,3 +1,21 @@
+/**
+ * @ngdoc directive
+ * @name Add Picture External  Component
+ * @element Picture1 , Picture2 and Document 
+ * @function 
+ * @description
+  * Add picture and document in the Add Picture External Tag
+ * 
+ * 
+ * Functions-----------------------
+ * 
+ * Preview pictures and document,
+ * Check if image is set,
+ * Get Documents from the html,
+ * Validate MIME type.
+ *
+ * 
+ **/
 import { Component, OnInit } from '@angular/core';
 import {UtilityServiceService} from '../../../Service/utility-service.service';
 import { RestAPIService } from '../../../Service/restAPIService/rest-apiservice.service';

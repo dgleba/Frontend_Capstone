@@ -1,13 +1,12 @@
 /**
  * @ngdoc directive
- * @name rfx.component:qualityalertin
- * @element  Ok'd By, Length of change and Body elements
- * @function 
- *
+ * @name Quality Tag Component
+ * @element Input labels 
  * @description
- * Quality Alert - Internal Tag view.
- *
+ * Quality Tag component shows the various fields to submit the Internal tag form
  * 
+ * -------Functions-----------
+ * add Days for Length of change.
  **/
 import { Component, OnInit, Input } from '@angular/core';
 import { RestAPIService } from '../../Service/restAPIService/rest-apiservice.service'

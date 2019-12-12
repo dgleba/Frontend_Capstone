@@ -1,3 +1,20 @@
+/**
+ * @ngdoc directive
+ * @name Hold Tag External  Component
+ * @element Input labels 
+ * @function 
+ * Preview pictures and document,
+ * Check if image is set,
+ * Get Documents from the html,
+ * Validate MIME type.
+ * @description
+ * Hold Tag External component shows the various labels to submit the Internal tag form
+ * 
+ * ---------------Functions--------------
+ * API call for getting the Process List, Machine List,
+ * Get Selected Process , Get Selected Machine,
+ * Clear Selected Process, Clear Selected Machine
+ **/
 import { Component, OnInit } from '@angular/core';
 import {UtilityServiceService} from 'src/app/Service/utility-service.service';
 import {ProcessStep} from 'src/app/Model/processStep';

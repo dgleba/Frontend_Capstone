@@ -1,12 +1,8 @@
 /**
  * @ngdoc directive
  * @name Add Picture
- * @element  Picture1 , Picture2 and Document 
+ * @element Image View for  Picture1 , Picture2 and Document 
  * @function 
- * Preview pictures and document,
- * Check if image is set,
- * Get Documents from the html,
- * Validate MIME type.
  * @description
  * Add pictures and document in the Add picture tag
  * 

@@ -1,13 +1,12 @@
 /**
  * @ngdoc directive
- * @name rfx.component:qualityalertin
- * @element  Ok'd By , Length of Change and Body elements
- * @function 
- *
+ * @name Special Instruction  Component
+ * @element Input labels, Text Areas
  * @description
- * Special Instructions - Internal Tag view.
- *
+ * Special Instruction component shows input labels for creating the internal tag.
  * 
+ * -------Functions-----------
+ * Add Days
  **/
 import { Component, OnInit } from '@angular/core';
 import {RestAPIService} from '../../Service/restAPIService/rest-apiservice.service'

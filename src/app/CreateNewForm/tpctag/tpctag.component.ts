@@ -1,13 +1,12 @@
 /**
  * @ngdoc directive
- * @name rfx.component:qualityalertin
- * @element Length of Change, Feature, Body and Changed elements
- * @function 
- *
+ * @name TPC Tag Component
+ * @element Input labels, Text Areas
  * @description
- * TPC Tag - Internal Tag view.
- *
+ * TPC Tag component shows input labels for creating the internal tag.
  * 
+ * -------Functions-----------
+ * Add Days
  **/
 import { Component, OnInit } from '@angular/core';
 import {RestAPIService} from '../../Service/restAPIService/rest-apiservice.service';

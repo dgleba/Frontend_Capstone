@@ -1,15 +1,21 @@
 /**
  * @ngdoc directive
- * @name rfx.component:qualityalertin
- * @element  Part Number , Reason , Process Step , Machine Step , Issued by and Tag Summary elements
+ * @name Side Menu  Component
+ * @element Input labels, Drop Downs, Check boxes
  * @function 
- *
+ * Preview pictures and document,
+ * Check if image is set,
+ * Get Documents from the html,
+ * Validate MIME type.
  * @description
- * Side menu - Internal Tag view.
- *
+ * Side Menu component shows Mandtory drops downs with Auto complete, input labels
  * 
+ * -------Functions-----------
+ * Focus Out , Get Selected Part Number, Get Selected Reason,Get Selected Process Step,
+ * Get Selected Id, Set Internal Tag Summary Boolean, 
+ * Api call for  PartList,ReasonList,ProcessList,MachineList,
+ * Clear Data
  **/
-
 import { Component, OnInit } from '@angular/core';
 import { UtilityServiceService } from 'src/app/Service/utility-service.service';
 import { RestAPIService } from 'src/app/Service/restAPIService/rest-apiservice.service';

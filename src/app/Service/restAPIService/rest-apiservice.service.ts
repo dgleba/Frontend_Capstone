@@ -27,6 +27,7 @@ export class RestAPIService {
  
   
 /**
+ * @ngdoc directive
  * @name Do Login Api 
  * @description
  * This api does the login

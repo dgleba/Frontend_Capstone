@@ -1,3 +1,9 @@
+/**
+ * @ngdoc directive
+ * @name Rest Api Serivce
+ * @description
+ * Service class which do all the feeding of the data to the HTML files.
+ **/
 import {enviornment} from 'src/enviornment';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders,HttpParams, HttpErrorResponse } from '@angular/common/http';
@@ -20,8 +26,11 @@ export class RestAPIService {
   constructor(private http: HttpClient, private utilityService: UtilityServiceService) { }
  
   
-
-  // HttpClient API Post() method => Fetch User list
+/**
+ * @name Do Login Api 
+ * @description
+ * This api does the login
+ **/
   doLogin(user) {
     return this.http.post(this.apiURL + '/users/sign_in.json', user)
     .pipe(

@@ -1,13 +1,9 @@
 /**
  * @ngdoc directive
- * @name rfx.directive:rAutogrow
- * @element textarea
- * @function
- *
+ * @name App Module
+ * @element  parent of all the components in the application
  * @description
- * Resize textarea automatically to the size of its text content.
- *
- * 
+ * App Module is the starting point of the application which contains all the imports, providers, dependencies.
  **/
 
 import { BrowserModule } from "@angular/platform-browser";

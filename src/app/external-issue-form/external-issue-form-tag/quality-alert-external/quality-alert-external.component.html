@@ -1,14 +1,14 @@
-<form class="add-padding add-margin">
+<form>
         <div class="row">
-                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 form-group">
                         <label><input type="checkbox" [(ngModel)]="externalTagData.QualityATag"
                                         [ngModelOptions]="{standalone: true}" /> Quality A Tag</label>
                 </div>
-                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 form-check">
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 form-group">
                         <label><input type="checkbox" [(ngModel)]="externalTagData.Supplier_Issue"
                                         [ngModelOptions]="{standalone: true}" /> Supplier Issue</label>
                 </div>
-                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 form-group">
                         <input type="text" class="form-control" [(ngModel)]="externalTagData.Issuedby"
                                 [ngModelOptions]="{standalone: true}" placeholder="Issued By ">
                 </div>
@@ -16,17 +16,17 @@
         <hr>
 
         <div class="row">
-                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 form-group">
                         <label class="font-weight-bold">Est. Cost</label>
                         <input type="text" class="form-control" [(ngModel)]="externalTagData.Cost"
                                 [ngModelOptions]="{standalone: true}" placeholder="$0.00">
                 </div>
-                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 form-group">
                         <label class="font-weight-bold">No. Of Pieces</label>
                         <input type="text" class="form-control" [(ngModel)]="externalTagData.NofPiecesQA"
                                 [ngModelOptions]="{standalone: true}" placeholder="0">
                 </div>
-                <div class=" col-lg-4 col-md-4 col-sm-12 col-xs-12 ng-autocomplete">
+                <div class=" col-lg-4 col-md-4 col-sm-12 col-xs-12 ng-autocomplete form-group">
                         <label class="font-weight-bold">Customer Disposition</label>
                         <ng-autocomplete [data]="dispositionList" [searchKeyword]="dispostionKey"
                                 placeHolder="Customer Dispoisition" [itemTemplate]="itemCustomerTemplate"
@@ -41,17 +41,17 @@
                 </div>
         </div>
         <div class="row">
-                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 form-group">
                         <label class="font-weight-bold">Customer Ref Num</label>
                         <input type="text" class="form-control" [(ngModel)]="externalTagData.CustomerRefNum"
                                 [ngModelOptions]="{standalone: true}" placeholder="Customer Reference Number">
                 </div>
-                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 form-group">
                         <label class="font-weight-bold">Date Issued</label>
                         <input type="date" class="form-control" [(ngModel)]="externalTagData.DateIssued"
                                 [ngModelOptions]="{standalone: true}" placeholder="Customer Reference Number">
                 </div>
-                <div class=" col-lg-4 col-md-4 col-sm-12 col-xs-12 ng-autocomplete">
+                <div class=" col-lg-4 col-md-4 col-sm-12 col-xs-12 ng-autocomplete form-group">
                         <label class="font-weight-bold">Stackpole Disposition</label>
                         <ng-autocomplete [data]="dispositionList" [searchKeyword]="dispostionKey"
                                 placeHolder="Stackpole Dispoisition" (selected)='getSelectedDisposition($event)'
@@ -68,15 +68,15 @@
         </div>
         <hr>
         <div class="row">
-                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 form-group">
                         <label><input type="checkbox" [(ngModel)]="externalTagData.CertTag"
                                         [ngModelOptions]="{standalone: true}" /> Certified Material Tag Issued</label>
                 </div>
-                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 form-group">
                         <label><input type="checkbox" [(ngModel)]="externalTagData.ControlPlan"
                                         [ngModelOptions]="{standalone: true}" /> Control Plan</label>
                 </div>
-                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 form-group">
                         <label><input type="checkbox" [(ngModel)]="externalTagData.LayeredAudit"
                                         [ngModelOptions]="{standalone: true}" /> Layered Audit</label>
                 </div>
@@ -89,9 +89,7 @@
                                 [ngModelOptions]="{standalone: true}" placeholder="Enter..." name="story"
                                 rows="4"></textarea>
                 </div>
-
         </div>
-
         <div class="row">
                 <div class="col-lg col-md col-sm col-xs form-group">
                         <label class="font-weight-bold">Comment</label>

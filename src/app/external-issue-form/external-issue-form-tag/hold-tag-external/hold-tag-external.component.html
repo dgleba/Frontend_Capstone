@@ -1,46 +1,48 @@
-<form class="add-padding add-margin">
-        <div class="row">
-                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 form-check">
-                        <label><input type="checkbox" [(ngModel)]="externalTagData.HoldTag"
-                                [ngModelOptions]="{standalone: true}"/> Hold Tag</label>
+<form>
+<div class="row">
+        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 form-group">
+                <label><input type="checkbox" [(ngModel)]="externalTagData.HoldTag"
+                                        [ngModelOptions]="{standalone: true}" /> Hold Tag</label>
                 </div>
-                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 form-check">
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 form-group">
                         <label><input type="checkbox" [(ngModel)]="externalTagData.Supplier_Issue"
-                                [ngModelOptions]="{standalone: true}"/> Supplier Issue</label>
+                                        [ngModelOptions]="{standalone: true}" /> Supplier Issue</label>
                 </div>
-                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 form-group">
                         <input type="text" class="form-control" [(ngModel)]="externalTagData.Issuedby"
                                 [ngModelOptions]="{standalone: true}" placeholder="Issued By">
-                </div>
         </div>
+</div>
         <hr>
         <div class="row">
-                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 form-group">
                         <label class="font-weight-bold">Quantity</label>
-                        <input type="text" class="form-control" onkeypress='return event.charCode >= 48 && event.charCode <= 57' [(ngModel)]="externalTagData.qty"
-                                [ngModelOptions]="{standalone: true}" placeholder="0">
+                        <input type="text" class="form-control"
+                                onkeypress='return event.charCode >= 48 && event.charCode <= 57'
+                                [(ngModel)]="externalTagData.qty" [ngModelOptions]="{standalone: true}" placeholder="0">
                 </div>
-                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 form-group">
                         <label class="font-weight-bold">Process Step</label>
-                        <ng-autocomplete  [data]="processStep" [searchKeyword]="processKeyword"
-                                placeHolder="Select Process Step"  (selected)='getSelectedProcessStep($event)'
+                        <ng-autocomplete [data]="processStep" [searchKeyword]="processKeyword"
+                                placeHolder="Select Process Step" (selected)='getSelectedProcessStep($event)'
                                 (inputCleared)="clearProcessData()" [itemTemplate]="processTemplate"
-                                [notFoundTemplate]="notFoundProcessTemplate" [(ngModel)]="selectedProcessStep" [ngModelOptions]="{standalone: true}" >
+                                [notFoundTemplate]="notFoundProcessTemplate" [(ngModel)]="selectedProcessStep"
+                                [ngModelOptions]="{standalone: true}">
                         </ng-autocomplete>
                         <ng-template #processTemplate let-item>
-                                <a [innerHTML]="item.Department" ></a>
+                                <a [innerHTML]="item.Department"></a>
                         </ng-template>
                         <ng-template #notFoundProcessTemplate let-notFound>
                                 <div [innerHTML]="notFound"></div>
                         </ng-template>
                 </div>
-                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 form-group">
                         <label class="font-weight-bold">Machine Number</label>
                         <ng-autocomplete [data]="machineStep" [searchKeyword]="machineKeyword1"
                                 placeHolder="Select Machine Step" (selected)='getSelectedMachine($event)'
                                 (inputCleared)="clearMachineData()" [itemTemplate]="machineTemplate"
-                                [notFoundTemplate]="notFoundMachineTemplate" [(ngModel)]="selectedMachine" [ngModelOptions]="{standalone: true}" >
+                                [notFoundTemplate]="notFoundMachineTemplate" [(ngModel)]="selectedMachine"
+                                [ngModelOptions]="{standalone: true}">
                         </ng-autocomplete>
                         <ng-template #machineTemplate let-item>
                                 <ul class='nav'>
@@ -64,8 +66,8 @@
         <div class="row">
                 <div class="col-lg col-md col-sm col-xs form-group">
                         <label class="font-weight-bold">Comment</label>
-                        <textarea autosize class="form-control my-textarea"
-                                [(ngModel)]="externalTagData.Comment" [ngModelOptions]="{standalone: true}"
-                                placeholder="Enter..." name="story" rows="4"></textarea>
+                        <textarea autosize class="form-control my-textarea" [(ngModel)]="externalTagData.Comment"
+                                [ngModelOptions]="{standalone: true}" placeholder="Enter..." name="story"
+                                rows="4"></textarea>
                 </div>
         </div>

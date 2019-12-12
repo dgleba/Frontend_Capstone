@@ -1,3 +1,9 @@
+/**
+ * @ngdoc directive
+ * @name UtilityService Service
+ * @description
+ * Service for getting and setting the data from the api calls
+ **/
 import { Injectable, OnInit } from '@angular/core';
 import { DatePipe } from '@angular/common';
 import {User} from 'src/app/Model/user';

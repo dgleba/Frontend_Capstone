@@ -1,3 +1,10 @@
+/**
+ * @ngdoc directive
+ * @name Quality Tag Model
+ * @description
+ * Model for Creating tag,
+ * for get the list of tags
+ **/
 export class QualityTagData {
     id: number;
     ID:number;

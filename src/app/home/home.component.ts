@@ -1,13 +1,8 @@
 /**
  * @ngdoc directive
- * @name rfx.component:HomeComponent
- * @element Button and Header
- * @function
- *
+ * @name Home Component
  * @description
- * After Login screen this screen should be displayed
- *
- * 
+ * Home Component shows the main dashboard
  **/
 
 import { Component, OnInit } from '@angular/core';

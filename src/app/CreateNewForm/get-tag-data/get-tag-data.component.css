@@ -1,48 +1,135 @@
+body {
+  background: #456;
+  font-family: "Open Sans", sans-serif;
+}
 
-  body {
-    background: #456;
-    font-family: 'Open Sans', sans-serif;
-  }
-
-.cgetTagData{
+.cgetTagData {
   width: auto;
-  margin:auto;
+  margin: auto;
   font-size: 18px;
-    }
-
-   .container-fluid {
-    padding: 0 !important;
-}
- 
-  /*triange */
-  .getTagData-triangle {
-    width: 0;
-    margin-right: auto;
-    margin-left: auto;
-    border: 12px solid transparent;
-    border-bottom-color: #000060;
-  }
-
-  .getTagData-header {
-    background: #000060;
-    padding: 20px;
-    font-size: 1.4em;
-    font-weight: normal;
-    text-align: center;
-    text-transform: uppercase;
-    color: #fff;
-    margin-top: 0;
-    margin-bottom: 0;
-  }
-
-  .getTagData-container{
-    background:white;
-    padding-right: 15px;
-    padding-left: 15px;
 }
 
+.container-fluid {
+  padding: 0 !important;
+}
 
-thead{
-  background-color:#6200ea;
+/*triange */
+.getTagData-triangle {
+  width: 0;
+  margin-right: auto;
+  margin-left: auto;
+  border: 12px solid transparent;
+  border-bottom-color: #000060;
+}
+
+.getTagData-header
+{
+background: #000060;
+padding: 15px;
+font-size: 1.4em;
+font-weight: normal;
+text-transform: uppercase;
+color: #fff;
+margin: 0px;
+}
+
+.getTagData-container {
+  background: white;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+thead {
+  background-color: #6200ea;
   color: white;
+}
+
+.home-button{
+  color: white;
+
+}
+
+/* Table*/
+
+table {
+  border: 1px solid #ccc;
+  border-collapse: collapse;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  table-layout: fixed;
+}
+
+table caption {
+  font-size: 1.5em;
+  margin: .5em 0 .75em;
+}
+
+table tr {
+  background-color: #f8f8f8;
+  border: 1px solid #ddd;
+  padding: .35em;
+}
+
+table th,
+table td {
+  padding: .625em;
+  text-align: center;
+}
+
+table th {
+  font-size: .85em;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: white;
+  background-color: blue;
+}
+
+@media screen and (max-width: 500px) {
+  table {
+    border: 0;
+  }
+
+  table caption {
+    font-size: 1.3em;
+  }
+  
+  table thead {
+    border: none;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+  
+  table tr {
+    border-bottom: 3px solid #ddd;
+    display: block;
+    margin-bottom: .625em;
+  }
+  
+  table td {
+    border-bottom: 1px solid #ddd;
+    display: block;
+    font-size: .8em;
+    text-align: right;
+  }
+  
+  table td::before {
+    /*
+    * aria-label has no advantage, it won't be read inside a table
+    content: attr(aria-label);
+    */
+    content: attr(data-label);
+    float: left;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  
+  table td:last-child {
+    border-bottom: 0;
+  }
 }

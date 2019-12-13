@@ -2,3 +2,18 @@
 #home-btn{
     float: left;
   }
+
+  .add-padding{
+    padding: 10px;
+  }
+  .add-margin{
+    margin: 10px;
+  }
+  .add-width-height{
+    width: 300px;
+    height: 30px;
+   
+  }
+  input[type=checkbox] {
+    transform: scale(1.75);
+}

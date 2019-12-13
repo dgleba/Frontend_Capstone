@@ -1,10 +1,18 @@
+/**
+ * @ngdoc directive
+ * @name Quality Tag Component
+ * @element Input labels 
+ * @description
+ * Quality Tag component shows the various fields to submit the Internal tag form
+ * 
+ * -------Functions-----------
+ * add Days for Length of change.
+ **/
 import { Component, OnInit, Input } from '@angular/core';
 import { RestAPIService } from '../../Service/restAPIService/rest-apiservice.service'
 import { UtilityServiceService } from '../../Service/utility-service.service'
-
 import { Router } from '@angular/router';
-
-
+import { QualityTagData } from 'src/app/Model/qualtiyTagData';
 
 @Component({
   selector: 'app-qualityalertin',
@@ -12,59 +20,17 @@ import { Router } from '@angular/router';
   styleUrls: ['./qualityalertin.component.css']
 })
 export class QualityalertinComponent implements OnInit {
-  @Input() tagDetails = {
-    Date: '', PartID: '',
-    okdBy: '', body: '', Issuedby: '', Lengthofchange:''
-  }
+ constructor(public restAPIService: RestAPIService, public utilityService: UtilityServiceService, private router: Router) { }
   expiredOn: Date;
-  
- 
-  constructor(public restAPIService: RestAPIService,
-    public utilityService: UtilityServiceService, private router: Router) { }
-
+  public internalTagData:QualityTagData;
   ngOnInit() {
-  
+    this.internalTagData=this.utilityService.getTagData();
+    console.log("inter part",this.internalTagData);
   }
   addDays() {
-    this.expiredOn = new Date();
-    this.expiredOn.setDate(this.expiredOn.getDate() + parseInt(this.tagDetails.Lengthofchange));
+    this.expiredOn= this.utilityService.addDays(this.internalTagData.Lengthofchange);
     console.log(this.expiredOn);
-  }
-
-  
-  //validation 
-  submitForm() {
-    console.log(this.utilityService.getSelectedPartNum(),"in quality");
-    if (this.utilityService.getSelectedPartNum()) {
-      if (this.utilityService.getSelectedReason()) {
-        if (this.utilityService.getIssuedBy()) {
-          //api call
-          this.createTagApiCall();
-        } else {
-          alert("Enter Issued by");
-        }
-      } else {
-        alert("Select Reason");
-      }
-    } else {
-      alert("Select Part Number");
-    }
-  }
-
-  createTagApiCall() {
-    this.tagDetails.Date=this.utilityService.getTodaysDate().toDateString();
-    this.tagDetails.Issuedby = this.utilityService.getIssuedBy();
-    this.tagDetails.PartID = this.utilityService.getSelectedPartNum();
-    console.log(this.tagDetails);
-    this.utilityService.setOkdBy(this.tagDetails.okdBy);
-    this.utilityService.setBody(this.tagDetails.body);
-    //this.utilityService.setLengthOfChange(this.tagDetails.lengthOfChange);
-    this.restAPIService.createTag(this.tagDetails).subscribe((data: any) => {
-      console.log(data);
-      this.utilityService.clearData();
-      this.router.navigate(['/getTag'])
-    })
-
-  }
+  }  
+ 
 
 }

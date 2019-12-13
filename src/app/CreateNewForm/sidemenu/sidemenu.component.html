@@ -1,51 +1,110 @@
-<h4>Internal</h4>
-
-
-<div class="form-group">
-    <select class="form-control" (change)="getSelectedPartNumber($event)">
-            <option [ngValue]="null" disabled>Part Number</option>
-        <option *ngFor="let partNum of partNumberList; let i = index" [ngValue]="partNum">
-            {{partNum.id}}
-        </option>
-    </select>
-</div>
-
-<div class="form-group">
-
-<select class="form-control" (change)="getSelectedReason($event)">
-    <option [ngValue]="null" disabled>Reason</option>
-<option *ngFor="let reason of reasonList; let i = index" [ngValue]="reason">
-    {{reason.Reason}}
-</option>
-</select>
-</div>
-
-<div class="form-group">      
-        <select class="form-control"   (change)="getSelectedProcessStep($event)">
-            <option disabled>Process Step</option>
-            <option *ngFor="let processStep of processStep; let i = index" [ngValue]="processStep">
-                {{processStep.Department}}
-            </option>
-        </select>
-</div>
-    <div class="form-group">
-      
-        <select class="form-control"  (change)="getSelectedMachine($event)">
-            <option [ngValue]="null" disabled>Machine Step</option>
-            <option *ngFor="let machineStep of machineStep; let i = index" [ngValue]="machineId">
-                {{machineStep.MachineDesc}}
-            </option>
-        </select>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg col-md col-sm col-xs form-group">
+      <ng-autocomplete [data]="partNumberList" [searchKeyword]="partNumId" placeHolder="Select Part Number"
+        (selected)='getSelectedPartNumber($event)' (inputChanged)='onChangePartNumber($event)'
+        (inputCleared)="clearPartData()" [itemTemplate]="itemTemplate" [notFoundTemplate]="notFoundTemplate">
+      </ng-autocomplete>
+      <ng-template #itemTemplate let-item>
+        <a [innerHTML]="item.id"></a>
+      </ng-template>
+      <ng-template #notFoundTemplate let-notFound>
+        <div [innerHTML]="notFound"></div>
+      </ng-template>
     </div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg col-md col-sm col-xs form-group">
+      <ng-autocomplete [data]="reasonList" [searchKeyword]="reasonKeyword" placeHolder="Select Reason"
+        (selected)='getSelectedReason($event)' (inputCleared)="clearReasonData()" [itemTemplate]="reasonTemplate"
+        [notFoundTemplate]="notFoundReasonTemplate">
+      </ng-autocomplete>
+      <ng-template #reasonTemplate let-item>
+        <a [innerHTML]="item.Reason"></a>
+      </ng-template>
+      <ng-template #notFoundReasonTemplate let-notFound>
+        <div [innerHTML]="notFound"></div>
+      </ng-template>
+    </div>
+  </div>
 
 
-<div class="form-group">
-<input type="text" class="form-control" placeholder="Issued By" aria-label="Issued By" id="issuedByValue" (focusout)="focusOutFunction(e)" aria-describedby="basic-addon2">
-</div>
+  <div class="row">
+    <div class="col-lg col-md col-sm col-xs form-group">
+      <ng-autocomplete [data]="processStep" [searchKeyword]="processKeyword" placeHolder="Select Process Step"
+        (selected)='getSelectedProcessStep($event)' (inputCleared)="clearProcessData()" [itemTemplate]="processTemplate"
+        [notFoundTemplate]="notFoundProcessTemplate">
+      </ng-autocomplete>
+      <ng-template #processTemplate let-item>
+        <a [innerHTML]="item.Department"></a>
+      </ng-template>
+      <ng-template #notFoundProcessTemplate let-notFound>
+        <div [innerHTML]="notFound"></div>
+      </ng-template>
+      <br>
+      <ng-autocomplete [data]="machineStep" [searchKeyword]="machineKeyword1" placeHolder="Select Machine Step"
+        (selected)='getSelectedMachine($event)' (inputCleared)="clearMachineData()" [itemTemplate]="machineTemplate"
+        [notFoundTemplate]="notFoundMachineTemplate">
+      </ng-autocomplete>
+      <ng-template #machineTemplate let-item>
+        <ul class='nav'>
+          <li><a [innerHTML]="item.id"></a></li>
+          <li><a [innerHTML]="item.MachineDesc"></a></li>
+        </ul>
+      </ng-template>
+      <ng-template #notFoundMachineTemplate let-notFound>
+        <div [innerHTML]="notFound"></div>
+      </ng-template>
+    </div>
+  </div>
 
-<div class="form-group">
-        <label>Tag Summary</label>
-<div class="checkbox" *ngFor="let tagSummary of tagSummaryList ; let i = index">
-    <label><input type="checkbox"  (change)="getSelectedTag(i)"> {{tagSummary.tagName}} </label>
-</div>
+
+  <!-- <div class="form-group">
+    <select class="form-control" (change)="getSelectedPartNumber($event)">
+      <option [ngValue]="null" disabled>Part Number</option>
+      <option
+        *ngFor="let partNum of partNumberList; let i = index"
+        [ngValue]="partNum">
+        {{ partNum.id }}
+      </option>
+    </select>
+  </div>
+  
+  <div class="form-group">
+    <select class="form-control" (change)="getSelectedReason($event)">
+      <option disabled>Reason</option>
+      <option *ngFor="let reason of reasonList; let i = index" [ngValue]="reason">
+        {{ reason.Reason }}
+      </option>
+    </select>
+  </div> -->
+
+  <!-- <div class="form-group">
+    <select class="form-control" (change)="getSelectedProcessStep($event)">
+      <option disabled>Process Step</option>
+      <option
+        *ngFor="let processStep of processStep; let i = index"
+        [ngValue]="processStep">
+        {{ processStep.Department }}
+      </option>
+    </select>
+  </div> -->
+
+  <div class="row">
+    <div class="col-lg col-md col-sm col-xs form-group">
+      <input type="text" class="form-control" placeholder="Enter Issued By" aria-label="Issued By" id="issuedByValue"
+        (focusout)="focusOutFunction(e)" aria-describedby="basic-addon2" />
+    </div>
+  </div>
+  <hr class="tag_hr">
+  <div class="row">
+    <div class="col-lg col-md col-sm col-xs form-group">
+      <h5>Tag Summary</h5>
+      <div *ngFor="let tagSummary of tagSummaryList; let i = index">
+        <label class="tag_summary" >
+          <input type="checkbox"  (change)="getSelectedTag(i)" />  {{tagSummary.tagName}}</label>
+      </div>
+    </div>
+  </div>
 </div>

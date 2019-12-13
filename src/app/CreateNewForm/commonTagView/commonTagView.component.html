@@ -1,47 +1,57 @@
-<div class="container-fluid ccommonTagView">
-<div class="internal-triangle">
-   
-</div>
-<h2 class="internal-header">
-    <button type="button" class="btn btn-primary" id="home-btn" routerLink="../home" >Home</button>
-  Internal Issue
-</h2>
-
-<div class="internal-container">
-  <div class="row">
-    <div class="col-sm-3 vertical-section">
-      <router-outlet name="sidemenu"></router-outlet>
+<div class="container-fluid internalTag">
+    <div class="internal-triangle"></div>
+    <div class="internal-header">
+        <button type="button" class="btn home-button" id="home-btn" routerLink="../home"><i class="fa fa-home fa-2x" aria-hidden="true" ></i></button>
+        <h2 class="text-center" >internal Tag</h2>
     </div>
-    <div class="col-sm-9">
-        <form class="form-inline ">
-     
-            <div id="navcontainer">
-                <ul id="navlist">
-                <li><a href="#" [routerLinkActive]="['active']" routerLink="qualityTag" >Quality Alert - In</a></li>
-                <li><a href="#" [routerLinkActive]="['active']" routerLink="holdTag">Hold Tag</a></li>
-                <li><a href="#" [routerLinkActive]="['active']" routerLink="tpcTag">TPC Tag</a></li>
-                <li><a href="#" [routerLinkActive]="['active']" routerLink="specialInstruction">Special Instruction</a></li>
-                <li><a href="#" [routerLinkActive]="['active']" routerLink="picture">Picture</a></li>
-                </ul>
-                </div>
+  <nav class="navbar navbar-expand-sm bg-info navbar-light">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    <div class="navbar-collapse collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav navbar-center">
+        <li class="nav-item" routerLinkActive="active" data-toggle="collapse" data-target=".navbar-collapse.show">
+          <a class="nav-link" aria-selected="true"  routerLink="qualityTag">Quality Tag</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active"  data-toggle="collapse" data-target=".navbar-collapse.show">
+          <a class="nav-link" aria-selected="false" routerLink="holdTag" >Hold Tag</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active" data-toggle="collapse" data-target=".navbar-collapse.show">
+          <a class="nav-link" aria-selected="false" routerLink="tpcTag">Tpc Tag</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active" data-toggle="collapse" data-target=".navbar-collapse.show">
+          <a class="nav-link"  aria-selected="false" routerLink="specialInstruction">Special
+            Instructions</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active" data-toggle="collapse" data-target=".navbar-collapse.show">
+          <a class="nav-link"  routerLink="picture" aria-selected="false">Pictures</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
 
-
-
-     
-          <!--
-          <button class="btn btn-outline-info header_css " type="button" [routerLinkActive]="['active']" routerLink="qualityTag"> Quality Alert - In
-          </button>
-          <button class="btn btn-outline-info header_css" type="button" [routerLinkActive]="['active']" routerLink="holdTag"> Hold Tag </button>
-          <button class="btn btn-outline-info header_css" type="button" [routerLinkActive]="['active']" routerLink="tpcTag"> TPC Tag </button>
-          <button class="btn btn-outline-info header_css" type="button" [routerLinkActive]="['active']" routerLink="specialInstruction"> Special
-            Instruction </button>
-          <button class="btn btn-outline-info header_css" type="button" [routerLinkActive]="['active']" routerLink="picture"> Picture </button>
-      -->
-        </form>
-      <router-outlet></router-outlet>
-     
-      
+ 
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 vertical-section">
+          <router-outlet name="sidemenu"></router-outlet>
+        </div>
+        <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 right-side-panel">
+          <router-outlet>
+            <ngx-spinner size="medium" color="#fff" type="ball-clip-rotate-multiple">
+              <p style="color: white"> Loading... </p>
+            </ngx-spinner>
+          </router-outlet>
+          <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 form-group">
+                <button class="btn btn-primary" (click)="submitForm()">Save</button>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 form-group">
+              <button class="btn btn-primary position-right" (click)="setEmailBoolean()">Save And Email</button>
+          </div>
+        </div>
+        </div>
+      </div>
     </div>
   </div>
-</div>
-</div>
+ 

@@ -1,0 +1,86 @@
+<div class="externalTagView">
+  <div class="external-triangle"></div>
+  <div class="external-header">
+    <button type="button" class="btn home-button" id="home-btn" routerLink="../home"><i class="fa fa-home fa-2x"
+        aria-hidden="true"></i></button>
+    <h2 class="text-center">External Tag</h2>
+  </div>
+
+  <nav class="navbar navbar-expand-sm bg-info navbar-light">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarExternalIssueForm"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="navbar-collapse collapse" id="navbarExternalIssueForm">
+      <ul class="navbar-nav navbar-center">
+        <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact : true}" data-toggle="collapse"
+          data-target=".navbar-collapse.show">
+          <a class="nav-link" aria-selected="true" routerLink="/externalIssueTag"
+            (click)="setNotInPictureTabBoolean()">Quality Tag</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active" data-toggle="collapse" data-target=".navbar-collapse.show">
+          <a class="nav-link" aria-selected="false" routerLink="holdTagExternal"
+            (click)="setNotInPictureTabBoolean()">Hold Tag</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active" data-toggle="collapse" data-target=".navbar-collapse.show">
+          <a class="nav-link" aria-selected="false" routerLink="tpcTagExternal"
+            (click)="setNotInPictureTabBoolean()">Tpc Tag</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active" data-toggle="collapse" data-target=".navbar-collapse.show">
+          <a class="nav-link" aria-selected="false" routerLink="specialInstructionExternal"
+            (click)="setNotInPictureTabBoolean()">Special
+            Instructions</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active" data-toggle="collapse" data-target=".navbar-collapse.show">
+          <a class="nav-link" aria-selected="false" routerLink="pictureExternal">Pictures</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <div class="container-fluid">
+    <div class="external-container">
+      <div class="row" *ngIf="!externalTagData.isPictureComponent">
+        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 ng-autocomplete add-padding">
+          <ng-autocomplete [data]="reasonList" [searchKeyword]="reasonKeyword" placeHolder="Reason"
+            (selected)='getSelectedReason($event)' (inputCleared)="clearReasonData()" [itemTemplate]="reasonTemplate"
+            [notFoundTemplate]="notFoundReasonTemplate">
+          </ng-autocomplete>
+          <ng-template #reasonTemplate let-item>
+            <a [innerHTML]="item.Reason"></a>
+          </ng-template>
+          <ng-template #notFoundReasonTemplate let-notFound>
+            <div [innerHTML]="notFound"></div>
+          </ng-template>
+        </div>
+        <div class=" col-lg-4 col-md-4 col-sm-12 col-xs-12 ng-autocomplete add-padding">
+          <ng-autocomplete [data]="partNumberList" [searchKeyword]="partNumId" placeHolder="Part Number"
+            (selected)='getSelectedPartNumber($event)' (inputCleared)="clearPartData()" [itemTemplate]="itemTemplate"
+            [notFoundTemplate]="notFoundTemplate">
+          </ng-autocomplete>
+          <ng-template #itemTemplate let-item>
+            <a [innerHTML]="item.id"></a>
+          </ng-template>
+          <ng-template #notFoundTemplate let-notFound>
+            <div [innerHTML]="notFound"></div>
+          </ng-template>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 ng-autocomplete add-padding">
+          <ng-autocomplete [data]="customerList" [searchKeyword]="customerKeyword" placeHolder="Customer Name"
+            (inputCleared)="clearCustomerData()" [itemTemplate]="itemCustomerTemplate"
+            [notFoundTemplate]="notFoundCustomerTemplate">
+          </ng-autocomplete>
+          <ng-template #itemCustomerTemplate let-item>
+            <a [innerHTML]="item.CustName"></a>
+          </ng-template>
+          <ng-template #notFoundCustomerTemplate let-notFound>
+            <div [innerHTML]="notFound"></div>
+          </ng-template>
+        </div>
+      </div>
+      <router-outlet></router-outlet>
+      <div class="row add-padding">
+        <button type="button" class="btn btn-primary btn-lg btn-sub" (click)="submitForm()">Submit</button>
+      </div>
+    </div>
+  </div>
+</div>

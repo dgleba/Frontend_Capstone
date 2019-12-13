@@ -1,0 +1,43 @@
+body {
+    background: #456;
+    font-family: "Open Sans", sans-serif;
+    overflow: hidden;
+  }
+  
+  .externalTagView {
+    font-size: 16px;
+   
+  }
+  
+  /*triange */
+  .external-triangle {
+    width: 0;
+    margin-right: auto;
+    margin-left: auto;
+    border: 12px solid transparent;
+    border-bottom-color: #000060;
+  }
+  
+  .external-header {
+    background: #000060;
+    padding: 20px;
+    font-size: 1.4em;
+    font-weight: normal;
+    text-align: center;
+    text-transform: uppercase;
+    color: #fff;
+    margin: 0px;
+  }
+   
+  .navbar-light .navbar-nav .active>.nav-link{
+    color: white;
+    font-weight: bold;
+  }
+.home-button{
+  color: white;
+}
+
+.container-fluid
+{
+ background-color: #808080;
+}

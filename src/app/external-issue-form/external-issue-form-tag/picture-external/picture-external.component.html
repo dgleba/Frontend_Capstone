@@ -1,0 +1,42 @@
+<div class="row add-margin">
+        <h5>Upload Pictures </h5>
+        </div>
+        
+        <div class="row">   
+            
+                <div class=" col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                        <div class=" col">
+                    <input #picture1 type="file" accept='image/*' (change)="preview($event,1)" />
+                        </div>
+                        <div class=" col">
+                    <img class="add-padding" [src]="imgURL" height="150" width="150" *ngIf="imgURL">
+                </div>
+                    <p class="add-margin">This image will be displayed left side</p>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                        <div class=" col">
+                     <input #picture2 type="file" accept='image/*' (change)="preview($event,2)" />
+                     </div>
+                     <div class=" col">
+                        <img class="add-padding" [src]="imgURL1" height="150" width="150" *ngIf="imgURL1">
+                </div>
+                        <p class="add-margin">This image will be displayed right side</p>
+                 </div>
+            
+        
+        </div>
+        
+        <hr class="pic-tab">
+        
+        <div class="row add-margin">
+                <h5>Upload Documents </h5>
+        </div>
+            <div class="row"> 
+                
+                         <div class="col add-margin">
+                            <input #document type="file" name="document" multiple (change)="getDocument($event)">
+                        </div>
+                       
+            </div>  
+        
+        

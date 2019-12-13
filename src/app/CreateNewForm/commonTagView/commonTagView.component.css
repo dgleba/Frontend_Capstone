@@ -1,106 +1,64 @@
 body {
-    background: #456;
-    font-family: 'Open Sans', sans-serif;
-  }
+  background: #456;
+  font-family: "Open Sans", sans-serif;
+  overflow: hidden;
+}
 
-.ccommonTagView {
-    width: auto;
-    margin:auto;
-    font-size: 18px;
-    padding: 0px;
-    }
-  
+.internalTagView {
+  font-size: 16px;
  
-  /*triange */
-  .internal-triangle {
-    width: 0;
-    margin-right: auto;
-    margin-left: auto;
-    border: 12px solid transparent;
-    border-bottom-color: #000060;
-  }
-
-  .internal-header {
-    background: #000060;
-    padding: 20px;
-    font-size: 1.4em;
-    font-weight: normal;
-    text-align: center;
-    text-transform: uppercase;
-    color: #fff;
-    margin-top: 0;
-    margin-bottom: 0;
-  }
-
-.internal-container{
-    background: #ebebeb;
-    padding: 12px;
-    padding-top: 0px;
-    padding-bottom: 0px;
 }
 
-  /*-- Navigation --*/
-  #navcontainer ul
-{
-display: block;
-list-style: none outside;
-padding: 0;
-margin: 0 0 0 50px;
-font-family: Verdana, sans-serif;
-font:18px;
-}
-
-#navcontainer li
-{
-padding: 0;
-margin-top:30px;
-margin-right:40px;
-margin-left:40px;
-margin-bottom:auto;
-border-top: 1px solid #cecbc6;
-border-right: 1px solid #cecbc6;
-border-left: 1px solid #cecbc6;
-background-color: white;
-color: #ffffff;
-/* the next 4 lines are magic */
-display: block;
-float: left;
-position: relative;
-top: -1.5em;
+/*triange */
+.internal-triangle {
+  width: 0;
+  margin-right: auto;
+  margin-left: auto;
+  border: 12px solid transparent;
+  border-bottom-color: #000060;
 }
 
 
-#navcontainer a:link,
-#navcontainer a:visited
-{
-background-color: #000066;
-color: #ffffff;
-text-decoration: none;
-padding-left: 1em;
-padding-right: 1em;
+.internal-header {
+  background: #000060;
+  padding: 15px;
+  font-size: 1.4em;
+  font-weight: normal;
+  text-transform: uppercase;
+  color: #fff;
+  margin: 0px;
 }
 
-#navcontainer a:hover
-{
-background-color: #cecbc6;
-color: #000066;
+.vertical-section , .right-side-panel{
+ padding-top:20px;
 }
 
-#navcontainerclear { display: none; }
-
-html>body #navcontainerclear
-{
-display: block;
-clear: both;
+.navbar-light .navbar-nav .active>.nav-link{
+  color: white;
+  font-weight: bold;
 }
-
-#navcontainer li#active a
-{
-background-color: #fff;
-color: #000066;
+.nav-link{
+  color:black;
 }
 .vertical-section{
-  background-color: #4455664f;
-  margin: 0px;
- 
+background-color: #808080;
 }
+
+.right-side-panel{
+background-color: #e0e0e0;
+}
+
+hr{
+color: white;
+}
+
+
+.home-button{
+  color: white;
+
+}
+
+.btn-primary{
+  width: 140px;
+}
+

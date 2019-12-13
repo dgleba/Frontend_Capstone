@@ -1,7 +1,24 @@
+/**
+ * @ngdoc directive
+ * @name Hold Tag Component
+ * @element Input labels 
+ * @function 
+ * Preview pictures and document,
+ * Check if image is set,
+ * Get Documents from the html,
+ * Validate MIME type.
+ * @description
+ * Hold Tag component shows the various labels to submit the Internal tag form
+ * 
+ * 
+ * 
+ **/
 import { Component, OnInit } from '@angular/core';
 import {RestAPIService} from '../../Service/restAPIService/rest-apiservice.service'
-import {ProcessStep} from '../../Model/processStep';
-import {MachineStep} from '../../Model/machine';
+import { UtilityServiceService } from '../../Service/utility-service.service'
+import { Router } from '@angular/router';
+import { QualityTagData } from 'src/app/Model/qualtiyTagData';
+
 
 
 @Component({
@@ -10,34 +27,13 @@ import {MachineStep} from '../../Model/machine';
   styleUrls: ['./holdtag.component.css']
 })
 export class HoldtagComponent implements OnInit {
-  
-  public processStep:ProcessStep[];
-  public machineStep:MachineStep[];
-  constructor(public restAPIService: RestAPIService) { }
-
+  constructor(public restAPIService: RestAPIService,public utilityService:UtilityServiceService,private router: Router) { }
+  public internalTagData:QualityTagData;
    ngOnInit() { 
-     //call processList  
-    this.getProcessList();
-     //call machineList  
-     this.getMachineList();
-    
+    this.internalTagData=this.utilityService.getTagData();
+    console.log("hold part",this.internalTagData);
   } 
   
-  // get processList
-  getProcessList() {    
-    this.restAPIService.getProcessList().subscribe(
-      (data: any) => {
-        this.processStep = data;    
-       }
-    )
-  }
-   // get machineList
-   getMachineList() {    
-    this.restAPIService.getMachineList().subscribe(
-      (data: any) => {
-        this.machineStep = data;    
-       }
-    )
-  }
+ 
  
 }

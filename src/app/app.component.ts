@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {UtilityServiceService} from 'src/app/Service/utility-service.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'New-Project-Frontend';
+  constructor(public utilityService: UtilityServiceService) {}
+    apiData=this.utilityService.getApiResponse();
+   closeAlert(){
+     console.log("close alert");
+     this.apiData.isApiCalled=false;
+     this.utilityService.setApiResponse(this.apiData);
+   }
 }

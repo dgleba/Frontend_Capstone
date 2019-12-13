@@ -1,4 +1,49 @@
-<div class="container-fluid home">
+<div class="container">
+    <div class="home-triangle"></div>
+    <h2 class="home-header">Home</h2>
+    <div class="home-container">
+    
+      <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" [routerLink]="'/internalTag/qualityTag'">
+          <button type="button" class="btn   btn-primary">
+            Create a New Form
+          </button>
+        </div>
+     
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" [routerLink]="'/externalIssueForm'">
+          <button type="button" class="btn   btn-primary">
+            External Issue Form
+          </button>
+        </div>
+      </div>
+  
+      <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+          <button type="button" class="btn btn-primary">Reprint</button>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" (click)="removeUserAAdmin()"  [routerLink]="'/getTag'">
+          <button type="button" class="btn btn-primary">
+            Filter
+          </button>
+        </div>
+      </div> 
+      
+      <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+          <button type="button" class="btn btn-primary" (click)="setUserAsAdmin()" [routerLink]="'/getTag'">Admin</button>
+        </div>
+       
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+          <button type="button" class="btn btn-primary" (click)="logout()">
+           Logout
+          </button>
+        </div>
+      </div>
+      
+    </div>
+
+
+  <!-- <div class="container-fluid home">
  
   <div class="home-triangle"></div>
   <h2 class="home-header">Home</h2>
@@ -41,4 +86,5 @@
     </div>
     
   </div>
+</div> -->
 </div>

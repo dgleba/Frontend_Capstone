@@ -1,7 +1,20 @@
+/**
+ * @ngdoc directive
+ * @name TPC Tag Component
+ * @element Input labels, Text Areas
+ * @description
+ * TPC Tag component shows input labels for creating the internal tag.
+ * 
+ * -------Functions-----------
+ * Add Days
+ **/
 import { Component, OnInit } from '@angular/core';
-import {RestAPIService} from '../../Service/restAPIService/rest-apiservice.service'
+import {RestAPIService} from '../../Service/restAPIService/rest-apiservice.service';
+import {UtilityServiceService} from '../../Service/utility-service.service';
+import {QualityTagData} from '../../Model/qualtiyTagData';
 import {ProcessStep} from '../../Model/processStep';
 import {MachineStep} from '../../Model/machine';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-tpctag',
@@ -9,32 +22,16 @@ import {MachineStep} from '../../Model/machine';
   styleUrls: ['./tpctag.component.css']
 })
 export class TpctagComponent implements OnInit {
-  public processStep:ProcessStep[];
-  public machineStep:MachineStep[];
-  constructor(public restAPIService: RestAPIService) { }
-
-   ngOnInit() { 
-     //call processList  
-    this.getProcessList();
-     //call machineList  
-     this.getMachineList();
-    
-  } 
-  
-  // get processList
-  getProcessList() {    
-    this.restAPIService.getProcessList().subscribe(
-      (data: any) => {
-        this.processStep = data;    
-       }
-    )
-  }
-   // get machineList
-   getMachineList() {    
-    this.restAPIService.getMachineList().subscribe(
-      (data: any) => {
-        this.machineStep = data;    
-       }
-    )
-  }
+ 
+  constructor(public restAPIService: RestAPIService,public utilityService:UtilityServiceService,private router: Router) { }
+  public internalTagData:QualityTagData;
+  expiredOn: Date;
+  ngOnInit() { 
+   this.internalTagData=this.utilityService.getTagData();
+   console.log("tpc part",this.internalTagData);
+ }  
+ addDays() {
+  this.expiredOn= this.utilityService.addDays(this.internalTagData.Lengthofchange);
+  console.log(this.expiredOn);
+} 
 }

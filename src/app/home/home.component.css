@@ -60,5 +60,8 @@ p {
     font-size: 0.95em;
     border-color: white;
   }
-
+  .col-lg-6 ,.col-md-6 ,.col-sm-12 ,.col-xs-12
+  {
+   padding: 10px;
+  }
  

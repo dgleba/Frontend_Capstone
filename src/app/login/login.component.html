@@ -1,26 +1,26 @@
 ﻿<div class="login">
-    <div class="login-triangle"></div>
-    <h2 class="login-header">Log in</h2>
-    <form class="login-container">
-        <p>
-            <input
-                type="email"
-                placeholder="Email"
-                name="email"
-                [(ngModel)]="userDetails.user.email">
-        </p>
-        <p>
-            <input
-                type="password"
-                placeholder="Password"
-                name="password"
-                [(ngModel)]="userDetails.user.password">
-        </p>
-        <p>
-            <input
-                type="submit"
-                value="Log in"
-                (click)="loginUser()">
-        </p>
-    </form>
+  <div class="login-triangle"></div>
+  <h2 class="login-header">Log in</h2>
+  <form [formGroup]="LoginForm" (ngSubmit)="loginUser()" class="login-container">
+    <div class="form-group">
+      <input type="email" placeholder="Email" name="email" formControlName="email" class="form-control"
+        [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+      <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+        <div *ngIf="f.email.errors.required">Email is required</div>
+        <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+      </div>
+    </div>
+    <ngx-spinner size="medium" color="#fff" type="ball-clip-rotate-multiple">
+      <p style="color: white"> Loading... </p>
+    </ngx-spinner>
+    <div class="form-group">
+      <input type="password" placeholder="Password" name="password" formControlName="password" class="form-control"
+        [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+      <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+        <div *ngIf="f.password.errors.required">Password is required</div>
+      </div>
+    </div>
+    <input type="submit" value="Log in" />
+  </form>
+
 </div>

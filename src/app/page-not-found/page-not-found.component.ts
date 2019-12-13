@@ -1,3 +1,9 @@
+/**
+ * @ngdoc directive
+ * @name Page Not Found Component
+ * @description
+ * Component for accessing internal pages without log in
+ **/
 import { Component, OnInit } from '@angular/core';
 
 @Component({

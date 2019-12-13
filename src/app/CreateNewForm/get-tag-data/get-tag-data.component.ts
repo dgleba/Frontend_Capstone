@@ -1,7 +1,34 @@
+/**
+ * @ngdoc directive
+ * @name Get Tag List View
+ * @element Edit Button, Delete Button, Table 
+ * @function 
+ * Preview pictures and document,
+ * Check if image is set,
+ * Get Documents from the html,
+ * Validate MIME type.
+ * @description
+ * Get Tag Data component provides the list of all the created tags
+ * 
+ * 
+ * ----------Functions-----------------------
+ * 
+ * Get All Quality Tag Api Call,
+ * Search Tag Api Call,
+ * Update Tag,
+ * Delete Tag,
+ * Open Delete Confirmation Popup,
+ *
+ * 
+ **/
+
 import { Component, OnInit } from '@angular/core';
-import { RestAPIService } from 'src/app/Service/restAPIService/rest-apiservice.service';
+import { RestAPIService } from '../../Service/restAPIService/rest-apiservice.service';
+import {UtilityServiceService} from '../../Service/utility-service.service';
 import { QualityTagData } from 'src/app/Model/qualtiyTagData';
+import {User} from 'src/app/Model/user';
 import { Router } from '@angular/router';
+import { NgxSpinnerService } from "ngx-spinner";
 
 @Component({
   selector: 'app-get-tag-data',
@@ -9,81 +36,104 @@ import { Router } from '@angular/router';
   styleUrls: ['./get-tag-data.component.css']
 })
 export class GetTagDataComponent implements OnInit {
-
-  constructor(private restAPIService: RestAPIService, private router: Router) { }
+  constructor(private spinner: NgxSpinnerService,private restAPIService: RestAPIService, private utilityService:UtilityServiceService, private router: Router) { }
   qualityTagDataList: QualityTagData[];
+  modalContent:QualityTagData;
+  isAdmin:boolean;
   searchOption: any = [
-    { id: '1', searchBy: 'Tag ID', isChecked: false },
-    { id: '2', searchBy: 'Part Number', isChecked: false },
-    { id: '3', searchBy: 'Date', isChecked: false },
+    { id: '1', searchBy: 'Tag ID', isChecked: false ,value:''},
+    { id: '2', searchBy: 'Part Number', isChecked: false ,value:'' },
+    { id: '3', searchBy: 'Date', isChecked: false ,value:'' },
+    { id: '4', searchBy: 'Text Has', isChecked: false ,value:'' },
   ];
-  selectedSearchOption: string;
-  isSelectedOptionDate: boolean;
-  searchValue: string;
+  
   ngOnInit() {
     this.getQualityTagData();
+    console.log(this.utilityService.getIsAdmin(),"in get"); 
+      this.isAdmin=this.utilityService.getIsAdmin();
+      console.log(this.isAdmin,"is admin "); 
   }
 
   searchTag() {
-    console.log("search value", this.searchValue);
-    if (!this.searchValue) {
-      alert("Enter data to be searched");
-    }
-    else {
-      switch (this.selectedSearchOption) {
-        case "TagId":
-          this.callSearchByDataApi(this.searchValue,"","");
-          break;
-        case "Part Number":
-            this.callSearchByDataApi("",this.searchValue,"");
-          break;
-        case "Date":
-            this.callSearchByDataApi("","",this.searchValue,);
-          break;
-
-      }
-    }
+    this.callSearchByDataApi();   
   }
-  //event handler to get the selected value of part num
-  getSelectedSearchOption(event: any) {
-    this.selectedSearchOption = event.target.value;
-    if (this.selectedSearchOption === 'Date') {
-      this.isSelectedOptionDate = true;
-    } else {
-      this.isSelectedOptionDate = false;
-    }
-
-  }
+  
   // Api to get data by searching 
-  callSearchByDataApi(tagId,partNo,date){
-    this.restAPIService.getDataBySearch(tagId,partNo,date).subscribe(
+  callSearchByDataApi(){
+    this.spinner.show();
+    this.restAPIService.getDataBySearch(this.searchOption).subscribe(
       (data: any) => {
+        this.spinner.hide();
         this.qualityTagDataList = data;
         if(this.qualityTagDataList.length!=0){
-          console.log(this.qualityTagDataList, "from api");
         }else{
-          alert("No data available");
+         this.restAPIService.setApiErrorResponse("No Data Available")
           this.getQualityTagData();
-        }
-       
+        } 
 
-      }
+      },error=>{
+        this.spinner.hide();
+        if(error.status==401){
+          console.log("error in side menu",error.error.error);
+          var errorMessage=error.error.error;                 
+          this.restAPIService.setApiErrorResponse(errorMessage)                
+         }else{
+          this.restAPIService.setApiErrorResponse(error.message)
+         }
+       }
     )
 
   }
   //Api getQualityTagData
   getQualityTagData() {
+    this.spinner.show();
     this.restAPIService.getAllQualtityTag().subscribe(
       (data: any) => {
+        this.spinner.hide();
         this.qualityTagDataList = data;
-        console.log(this.qualityTagDataList, "from api");
-
-      }
+        console.log(data,"data in get tag");
+        },error=>{
+          this.spinner.hide();
+          console.log("error", error);
+          if(error.status==401){
+            console.log("error in side menu",error.error.error);
+            var errorMessage=error.error.error;                 
+            this.restAPIService.setApiErrorResponse(errorMessage)   
+            this.router.navigate(['/login'])             
+           }else{
+            this.restAPIService.setApiErrorResponse(error.message)
+           }
+         }
     )
   }
-  //Api to update a tag
+  //go to update page with id
   updatetag(id: number) {
-    console.log("its here");
     this.router.navigate(['/updateTag', id]);
   }
+  // delete the tag
+  deleteTag(id){
+    
+    this.spinner.show()
+    this.restAPIService.deleteTag(id).subscribe(
+      (data: any) => {
+        this.spinner.hide();
+        this.getQualityTagData();
+        this.restAPIService.setApiSuccessmessage("Tag deleted successfully");
+        },error=>{
+          this.spinner.hide();
+          if(error.status==401){
+            console.log("error in side menu",error.error.error);
+            var errorMessage=error.error.error;                 
+            this.restAPIService.setApiErrorResponse(errorMessage)                
+           }else{
+            this.restAPIService.setApiErrorResponse(error.message)
+           }
+         }
+    )
+  }
+  openModal(qualtiyTagData){
+    console.log("modal open",qualtiyTagData);
+    this.modalContent=qualtiyTagData;
+  }
+  
 }

@@ -1,17 +1,43 @@
-import { Injectable } from '@angular/core';
+/**
+ * @ngdoc directive
+ * @name UtilityService Service
+ * @description
+ * Service for getting and setting the data from the api calls
+ **/
+import { Injectable, OnInit } from '@angular/core';
 import { DatePipe } from '@angular/common';
-
+import {User} from 'src/app/Model/user';
+import {QualityTagData} from '../Model/qualtiyTagData';
+import {Partnumber} from 'src/app/Model/partnumber';
+import {Reason} from 'src/app/Model/reason';
+import { ProcessStep } from 'src/app/Model/processStep';
+import { MachineStep } from 'src/app/Model/machine';
 @Injectable({
   providedIn: 'root'
 })
-export class UtilityServiceService {
+export class UtilityServiceService implements OnInit {
+  ngOnInit(): void {
+    throw new Error("Method not implemented.");
+  }
+  apiData:any={
+    isApiCalled:false,
+    isApiResponseSuccessful:true,
+    msg : ''
+  }
+  
 tagSummaryOption : any = [
-  {id: '1', tagName: 'Quality Alert', isChecked: false,tagVlue:0},
-  {id: '2', tagName: 'Hold Tag', isChecked: false,tagVlue:0},
-  {id: '3', tagName: 'TPC Tag', isChecked: false,tagVlue:0},
-  {id: '4', tagName: 'Special Instruction', isChecked: false,tagVlue:0},
-  {id: '5', tagName: 'Quality Alert - IN', isChecked: false,tagVlue:0},
-  {id: '6', tagName: 'Supplier Issue', isChecked: false,tagVlue:0}];
+  {id: '1', tagName: 'Quality Alert', isChecked: false},
+  {id: '2', tagName: 'Hold Tag', isChecked: false},
+  {id: '3', tagName: 'TPC Tag', isChecked: false},
+  {id: '4', tagName: 'Special Instruction', isChecked: false},
+  {id: '5', tagName: 'Quality Alert - IN', isChecked: false},
+  {id: '6', tagName: 'Supplier Issue', isChecked: false}];
+  public isAdmin;
+  public tagData:QualityTagData;
+  public partNumberList: Partnumber[];
+  public reasonList : Reason[];
+  public processStepList: ProcessStep[];
+  public machineStepList: MachineStep[];
   token : string;
   partNum:string;
   reason:string;
@@ -22,15 +48,23 @@ tagSummaryOption : any = [
   body:string;
   okdBy:string;
   issuedBy:string;
-  todaysDate:Date;
-  constructor(private datePipe: DatePipe) { 
-  this.todaysDate = new Date();
-   console.log(this.datePipe.transform(this.todaysDate,"yyyy-MM-dd HH:mm:ss"));
+  expiredOn: Date;
+  constructor() { 
+    
   } 
+  addDays(lengthOfChange) {
+    this.expiredOn = new Date();
+    this.expiredOn.setDate(this.expiredOn.getDate() + parseInt(lengthOfChange.toString()));
+    return this.expiredOn;
+  }  
+  //getter setter for api Response boolean
+ setApiResponse(apiData){
+   this.apiData=apiData;
+ }
+ getApiResponse(){
+   return this.apiData;
+ }
 
-  getTodaysDate(){
-    return this.todaysDate;
-  }
   getTagsummaryList()
   {
     return this.tagSummaryOption;
@@ -51,74 +85,52 @@ tagSummaryOption : any = [
   deleteToken(){
     localStorage.removeItem('token');
   }
-
-  setSelectedPartNum(partNum:string){
-    this.partNum=partNum;   
+//---------setter getter for models-----///
+//getter setter for userMode
+    setIsAdmin(isAdmin){
+      localStorage.setItem('isAdmin',isAdmin);
+    }
+    getIsAdmin(){  
+      var isAdmin=localStorage.getItem('isAdmin'); 
+      this.isAdmin=isAdmin;  
+      return this.isAdmin;
+    }
+  //getter setter for qualityTagData
+  setTagData(internalTagObj){
+    this.tagData=internalTagObj;
   }
-  getSelectedPartNum(){    
-    return this.partNum;
-  }
-  setSelectedMachineStep(machineNum:string){
-    this.machineNum=machineNum;   
-  }
-  getSelectedMachineStep(){    
-    return this.machineNum;
-  }
-  setSelectedProcessStep(processStep:string){
-    this.processNum=processStep;   
-  }
-  getSelectedProcessStep(){    
-    return this.processNum;
-  }
-  setSelectedReason(reason:string){
-    this.reason=reason;   
-  }
-  getSelectedReason(){    
-    return this.reason;  
+  getTagData(){
+    return this.tagData;
   }
 
-  setLengthOfChange(length:string){
-    this.lengthOfChange=length;   
+//getter setter for part number
+  setPartNumberList(partList){
+    this.partNumberList=partList;
   }
-  getLengthOfChange(){    
-    return this.lengthOfChange;  
-  }
-  setBody(body:string){
-    this.body=body;   
-  }
-  getBody(){    
-    return this.body;  
+  getPartNumberList(){
+    return this.partNumberList;
   }
 
-  setOkdBy(okdBy:string){
-    this.okdBy=okdBy;   
+  //getter setter for reason
+  setReasonList(reasonList){
+    this.reasonList=reasonList;
   }
-  getOkdBy(){    
-    return this.okdBy;  
+  getReasonList(){
+    return this.reasonList;
   }
-
-  setQuantity(qt:number){
-    this.quatity=qt;   
+  //getter setter for process
+  setProcessList(processList){
+    this.processStepList=processList;
   }
-  getSetQuantity(){    
-    return this.quatity;  
+  getProcessList(){
+    return this.processStepList;
   }
-
-  setIssuedBy(issuedBy:string){
-    this.issuedBy=issuedBy;   
+   //getter setter for machine
+   setMachineList(machineList){
+    this.machineStepList=machineList;
   }
-  getIssuedBy(){    
-    return this.issuedBy;  
-  }
-
-  clearData(){
-    this.issuedBy='';
-    this.partNum='';
-    this.reason='';
-    this.okdBy='';
-    this.quatity=0;
-    this.body='';
-
+  getMachineList(){
+    return this.machineStepList;
   }
   
 }
